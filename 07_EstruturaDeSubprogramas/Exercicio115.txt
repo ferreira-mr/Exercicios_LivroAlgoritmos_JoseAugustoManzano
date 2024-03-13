@@ -1,56 +1,97 @@
-// #### Exercício 115: Gerenciamento de Notas de Alunos
+// Exercício 115: Gerenciamento de Notas de Alunos
 
+// Descrição:
 // Crie um programa de computador que armazene o nome e as notas bimestrais de 20 alunos do curso de Técnicas de Programação que execute as seguintes etapas:
 
-// a. Cadastrar os 20 registros (após o cadastro, fazer a calssificação por nome)
-// b. Pesquisar os 20 registros, um de cada vez, pelo campo nome (usar o método de binário; nesse pesquisa, o programa deve também apresentar a média do aluno e as mesagens "Aprovado", caso a média seja maior ou igual a 5, ou "Reprovado" para média abaixo e 5).
-// c. Apresentar todos os registros e as médias dos alunos aprovados.
-// d. Apresetnar apenas os registros e as médias dos alunos aprovados.
-// e. Apresentar apenas os registros e as médias dos alunos reprovados.
-// f. Sair do programa de cadastro.
+// Passo a Passo:
 
-// **Exemplo de cadastro:**
+// 1. Cadastrar os 20 registros (após o cadastro, fazer a classificação por nome):
+//    - Solicitar ao usuário que insira o nome e as notas bimestrais de 20 alunos.
+//    - Calcular a média de cada aluno.
+//    - Armazenar os registros em uma estrutura de dados adequada.
+//    - Classificar os registros por nome.
 
-// Registro 1:
-// Nome: João
-// Notas: [7.5, 8.0, 6.5, 9.0]
-// Média: 7.5
-// Situação: Aprovado
+// 2. Pesquisar os 20 registros, um de cada vez, pelo campo nome (usar o método de busca binária; nessa pesquisa, o programa deve também apresentar a média do aluno e as mensagens "Aprovado", caso a média seja maior ou igual a 5, ou "Reprovado" para média abaixo de 5):
+//    - Solicitar ao usuário que digite o nome do aluno a ser pesquisado.
+//    - Utilizar o método de busca binária para encontrar o registro do aluno especificado.
+//    - Calcular a média do aluno e determinar se ele foi aprovado ou reprovado.
+//    - Apresentar o registro do aluno encontrado com sua média e situação.
 
-// Registro 2:
-// Nome: Maria
-// Notas: [6.0, 5.5, 4.0, 6.5]
-// Média: 5.5
-// Situação: Reprovado
+// 3. Apresentar todos os registros e as médias dos alunos aprovados:
+//    - Exibir todos os registros dos alunos, mostrando nome, notas bimestrais, média e situação.
+//    - Exibir apenas os registros dos alunos aprovados juntamente com suas médias.
 
-// ...
+// 4. Apresentar apenas os registros e as médias dos alunos aprovados:
+//    - Exibir apenas os registros dos alunos aprovados juntamente com suas médias.
 
-// Registro 20:
-// Nome: Pedro
-// Notas: [8.0, 7.5, 8.5, 7.0]
-// Média: 7.75
-// Situação: Aprovado
+// 5. Apresentar apenas os registros e as médias dos alunos reprovados:
+//    - Exibir apenas os registros dos alunos reprovados juntamente com suas médias.
 
-// **Exemplo de pesquisa (opção b):**
-// Digite o nome para pesquisa: Maria
-// Resultado da pesquisa:
-// Nome: Maria
-// Notas: [6.0, 5.5, 4.0, 6.5]
-// Média: 5.5
-// Situação: Reprovado
+// 6. Sair do programa de cadastro.
 
-// **Exemplo de apresentação (opção c):**
-// Todos os registros:
-// - João: Média 7.5 (Aprovado)
-// - Maria: Média 5.5 (Reprovado)
-// ...
+// Exemplo em Pseudocódigo:
+// aluno = estrutura {nome, notas[4], media, situacao}
+// alunos[20] = vetor de aluno
 
-// **Exemplo de apresentação (opção d):**
-// Registros dos alunos aprovados:
-// - João: Média 7.5 (Aprovado)
-// - ...
+// PROCEDIMENTO cadastrar_registros(alunos)
+//     PARA i DE 0 ATÉ 19 FAÇA
+//         ESCREVER "Cadastro do Aluno", i + 1
+//         ESCREVER "Nome do Aluno:"
+//         LER alunos[i].nome
+//         PARA j DE 0 ATÉ 3 FAÇA
+//             ESCREVER "Nota do Bimestre", j + 1, ":"
+//             LER alunos[i].notas[j]
+//         FIM PARA
+//         alunos[i].media = calcular_media(alunos[i].notas)
+//         alunos[i].situacao = determinar_situacao(alunos[i].media)
+//     FIM PARA
+//     classificar_por_nome(alunos)
+// FIM PROCEDIMENTO
 
-// **Exemplo de apresentação (opção e):**
-// Registros dos alunos reprovados:
-// - Maria: Média 5.5 (Reprovado)
-// - ...
+// FUNÇÃO calcular_media(notas)
+//     soma = 0
+//     PARA i DE 0 ATÉ 3 FAÇA
+//         soma = soma + notas[i]
+//     FIM PARA
+//     RETORNAR soma / 4
+// FIM FUNÇÃO
+
+// FUNÇÃO determinar_situacao(media)
+//     SE media >= 5 ENTÃO
+//         RETORNAR "Aprovado"
+//     SENÃO
+//         RETORNAR "Reprovado"
+//     FIM SE
+// FIM FUNÇÃO
+
+// PROCEDIMENTO pesquisar_registro_por_nome(alunos, nome)
+//     ALGORITMO DE BUSCA BINÁRIA para encontrar aluno com nome especificado
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO apresentar_todos_os_registros(alunos)
+//     PARA i DE 0 ATÉ 19 FAÇA
+//         ESCREVER "Registro do Aluno", i + 1, ":"
+//         ESCREVER "Nome:", alunos[i].nome
+//         ESCREVER "Notas:", alunos[i].notas
+//         ESCREVER "Média:", alunos[i].media
+//         ESCREVER "Situação:", alunos[i].situacao
+//     FIM PARA
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO apresentar_registros_aprovados(alunos)
+//     PARA CADA aluno EM alunos FAÇA
+//         SE aluno.situacao == "Aprovado" ENTÃO
+//             ESCREVER "Registro do Aluno:", aluno.nome
+//             ESCREVER "Média:", aluno.media
+//         FIM SE
+//     FIM PARA
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO apresentar_registros_reprovados(alunos)
+//     PARA CADA aluno EM alunos FAÇA
+//         SE aluno.situacao == "Reprovado" ENTÃO
+//             ESCREVER "Registro do Aluno:", aluno.nome
+//             ESCREVER "Média:", aluno.media
+//         FIM SE
+//     FIM PARA
+// FIM PROCEDIMENTO

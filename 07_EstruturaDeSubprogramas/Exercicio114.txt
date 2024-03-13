@@ -1,49 +1,60 @@
-// #### Exercício 114: Agenda de Contatos
+// Exercício 114: Agenda de Contatos
 
+// Descrição:
 // Desenvolva um programa de agenda que contenha nomes, endereços e telefones de dez pessoas capaz de executar as seguintes ações.
 
-// a. Cadastrar os dez registros
-// b. Pesquisar os dez registros, um de cada vez, pelo campo nome.
-// c. Classificar por ordem alfabética os registros cadastrados.
-// d. Apresentar todos os registros.
-// e. Sair do programa de cadastro.
+// Passo a Passo:
 
-// **Exemplo de cadastro:**
+// 1. Cadastrar os dez registros:
+//    - Solicitar ao usuário que insira o nome, endereço e telefone de dez pessoas.
+//    - Armazenar os registros em uma estrutura de dados adequada.
 
-// Registro 1:
-// Nome: João
-// Endereço: Rua A, 123
-// Telefone: (11) 1234-5678
+// 2. Pesquisar os dez registros, um de cada vez, pelo campo nome:
+//    - Solicitar ao usuário que digite o nome da pessoa a ser pesquisada.
+//    - Buscar o registro pelo nome especificado e apresentar o resultado da pesquisa.
 
-// Registro 2:
-// Nome: Maria
-// Endereço: Rua B, 456
-// Telefone: (11) 8765-4321
+// 3. Classificar por ordem alfabética os registros cadastrados:
+//    - Ordenar os registros da agenda por ordem alfabética de nome.
 
-// ...
+// 4. Apresentar todos os registros:
+//    - Exibir todos os registros da agenda, mostrando nome, endereço e telefone de cada pessoa.
 
-// Registro 10:
-// Nome: Pedro
-// Endereço: Rua C, 789
-// Telefone: (11) 9876-5432
+// 5. Sair do programa de cadastro.
 
-// **Exemplo de pesquisa (opção b):**
-// Digite o nome para pesquisa: Maria
-// Resultado da pesquisa:
-// Nome: Maria
-// Endereço: Rua B, 456
-// Telefone: (11) 8765-4321
+// Exemplo em Pseudocódigo:
+// pessoa = estrutura {nome, endereco, telefone}
+// agenda[10] = vetor de pessoas
 
-// **Exemplo de classificação (opção c):**
-// Registros classificados por ordem alfabética.
+// PROCEDIMENTO cadastrar_registros(agenda)
+//     PARA i DE 0 ATÉ 9 FAÇA
+//         ESCREVER "Cadastro do Registro", i + 1
+//         ESCREVER "Nome:"
+//         LER agenda[i].nome
+//         ESCREVER "Endereço:"
+//         LER agenda[i].endereco
+//         ESCREVER "Telefone:"
+//         LER agenda[i].telefone
+//     FIM PARA
+// FIM PROCEDIMENTO
 
-// **Exemplo de apresentação (opção d):**
-// Registro 1:
-// Nome: João
-// Endereço: Rua A, 123
-// Telefone: (11) 1234-5678
-// ...
-// Registro 10:
-// Nome: Pedro
-// Endereço: Rua C, 789
-// Telefone: (11) 9876-5432
+// FUNÇÃO pesquisar_registro_por_nome(agenda, nome)
+//     PARA i DE 0 ATÉ 9 FAÇA
+//         SE agenda[i].nome == nome ENTÃO
+//             RETORNAR agenda[i]
+//         FIM SE
+//     FIM PARA
+//     RETORNAR "Registro não encontrado"
+// FIM FUNÇÃO
+
+// PROCEDIMENTO classificar_registros_por_nome(agenda)
+//     ALGORITMO DE ORDENAÇÃO (por exemplo, Bubble Sort) para ordenar agenda por nome
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO apresentar_todos_os_registros(agenda)
+//     PARA i DE 0 ATÉ 9 FAÇA
+//         ESCREVER "Registro", i + 1, ":"
+//         ESCREVER "Nome:", agenda[i].nome
+//         ESCREVER "Endereço:", agenda[i].endereco
+//         ESCREVER "Telefone:", agenda[i].telefone
+//     FIM PARA
+// FIM PROCEDIMENTO

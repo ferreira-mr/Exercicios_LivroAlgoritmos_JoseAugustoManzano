@@ -1,52 +1,78 @@
-// #### Exercício 113: Gerenciamento de Funcionários
+// Exercício 113: Gerenciamento de Funcionários
 
+// Descrição:
 // Elaborar um programa que gerencie os registros de 20 funcionários, contendo os campos matrícula, nome e salário. O programa deve, por meio de um menu, executar as seguintes etapas.
 
-// a. Cadastrar os 20 empregados.
-// b. Classificar os registros por número de matrícula.
-// c. Pesquisar um determinado empregado pelo número de matrículo (método binário).
-// d. Apresentar de forma ordenada os registros dos empregados que recebem saláros acima de R$ 1.000,00.
-// e. Apresentar de forma ordenada os registros dos empregados que recebem salários iguais a R$ 1.000,00.
-// f. Apresentar de forma ordenada os registros dos empregados que recebem salários abaixo de R$ 1.000,00.
-// g. Sair do programa.
+// Passo a Passo:
 
-// **Exemplo de cadastro:**
+// 1. Cadastrar os 20 empregados:
+//    - Solicitar ao usuário que insira a matrícula, nome e salário de 20 funcionários.
+//    - Armazenar os registros em uma estrutura de dados adequada.
 
-// Registro 1:
-// Matrícula: 001
-// Nome: João
-// Salário: R$ 1.200,00
+// 2. Classificar os registros por número de matrícula:
+//    - Ordenar os registros dos funcionários por número de matrícula.
 
-// Registro 2:
-// Matrícula: 002
-// Nome: Maria
-// Salário: R$ 900,00
+// 3. Pesquisar um determinado empregado pelo número de matrícula (método binário):
+//    - Solicitar ao usuário que digite o número de matrícula a ser pesquisado.
+//    - Utilizar o método de busca binária para encontrar o empregado com o número de matrícula especificado.
+//    - Apresentar o registro do empregado encontrado.
 
-// ...
+// 4. Apresentar de forma ordenada os registros dos empregados que recebem salários acima de R$ 1.000,00:
+//    - Percorrer os registros dos funcionários e exibir os registros daqueles que recebem salários acima de R$ 1.000,00, ordenados.
 
-// Registro 20:
-// Matrícula: 020
-// Nome: Pedro
-// Salário: R$ 1.500,00
+// 5. Apresentar de forma ordenada os registros dos empregados que recebem salários iguais a R$ 1.000,00:
+//    - Percorrer os registros dos funcionários e exibir os registros daqueles que recebem salários iguais a R$ 1.000,00, ordenados.
 
-// **Exemplo de pesquisa (opção c):**
-// Digite o número de matrícula: 005
-// Resultado da pesquisa:
-// Matrícula: 005
-// Nome: José
-// Salário: R$ 1.100,00
+// 6. Apresentar de forma ordenada os registros dos empregados que recebem salários abaixo de R$ 1.000,00:
+//    - Percorrer os registros dos funcionários e exibir os registros daqueles que recebem salários abaixo de R$ 1.000,00, ordenados.
 
-// **Exemplo de apresentação (opção d):**
-// Empregados com salários acima de R$ 1.000,00:
-// - Pedro: R$ 1.500,00
-// - ...
+// 7. Sair do programa.
 
-// **Exemplo de apresentação (opção e):**
-// Empregados com salários iguais a R$ 1.000,00:
-// - João: R$ 1.000,00
-// - ...
-
-// **Exemplo de apresentação (opção f):**
-// Empregados com salários abaixo de R$ 1.000,00:
-// - Maria: R$ 900,00
-// - ...
+// Exemplo em Pseudocódigo:
+// funcionario = estrutura {matricula, nome, salario}
+// funcionarios[20] = vetor de funcionarios
+// 
+// PROCEDIMENTO cadastrar_funcionarios(funcionarios)
+//     PARA i DE 0 ATÉ 19 FAÇA
+//         ESCREVER "Cadastro do funcionário", i + 1
+//         ESCREVER "Matrícula do funcionário:"
+//         LER funcionarios[i].matricula
+//         ESCREVER "Nome do funcionário:"
+//         LER funcionarios[i].nome
+//         ESCREVER "Salário do funcionário:"
+//         LER funcionarios[i].salario
+//     FIM PARA
+// FIM PROCEDIMENTO
+// 
+// PROCEDIMENTO classificar_por_matricula(funcionarios)
+//     ALGORITMO DE ORDENAÇÃO (por exemplo, Bubble Sort) para ordenar funcionarios por matricula
+// FIM PROCEDIMENTO
+// 
+// FUNÇÃO pesquisar_por_matricula(funcionarios, matricula)
+//     ALGORITMO DE BUSCA BINÁRIA para encontrar funcionario com matricula especificada
+//     RETORNAR funcionario encontrado ou mensagem de erro se não encontrado
+// FIM FUNÇÃO
+// 
+// PROCEDIMENTO apresentar_salarios_acima_1000(funcionarios)
+//     PARA CADA funcionario EM funcionarios FAÇA
+//         SE funcionario.salario > 1000 ENTÃO
+//             ESCREVER funcionario.nome, ":", funcionario.salario
+//         FIM SE
+//     FIM PARA
+// FIM PROCEDIMENTO
+// 
+// PROCEDIMENTO apresentar_salarios_igual_1000(funcionarios)
+//     PARA CADA funcionario EM funcionarios FAÇA
+//         SE funcionario.salario == 1000 ENTÃO
+//             ESCREVER funcionario.nome, ":", funcionario.salario
+//         FIM SE
+//     FIM PARA
+// FIM PROCEDIMENTO
+// 
+// PROCEDIMENTO apresentar_salarios_abaixo_1000(funcionarios)
+//     PARA CADA funcionario EM funcionarios FAÇA
+//         SE funcionario.salario < 1000 ENTÃO
+//             ESCREVER funcionario.nome, ":", funcionario.salario
+//         FIM SE
+//     FIM PARA
+// FIM PROCEDIMENTO

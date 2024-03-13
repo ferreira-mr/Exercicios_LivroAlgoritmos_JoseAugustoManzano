@@ -1,52 +1,91 @@
-// ### Exercício: Gerenciamento de Produtos
+// Exercício: Gerenciamento de Produtos
 
+// Descrição:
 // Desenvolva um programa que gerencie os registros de 20 produtos em um estoque, contendo os campos código, descrição e quantidade. O programa deve utilizar subprogramas e apresentar um menu para executar as seguintes etapas:
 
-// a. Cadastrar os 20 produtos.
-// b. Classificar os registros por código do produto.
-// c. Pesquisar um produto pelo código.
-// d. Adicionar quantidade a um produto específico.
-// e. Remover quantidade de um produto específico.
-// f. Apresentar de forma ordenada os registros dos produtos em estoque.
-// g. Sair do programa de controle de estoque.
+// Passo a Passo:
 
-// **Exemplo de cadastro:**
-// Produto 1:
-// Código: 001
-// Descrição: Caneta Azul
-// Quantidade: 100
+// 1. Cadastrar os 20 produtos:
+//    - Solicitar ao usuário que insira o código, descrição e quantidade de 20 produtos.
+//    - Armazenar os registros em uma estrutura de dados adequada.
 
-// Produto 2:
-// Código: 002
-// Descrição: Caderno Grande
-// Quantidade: 50
+// 2. Classificar os registros por código do produto:
+//    - Ordenar os registros dos produtos por código.
 
-// ...
+// 3. Pesquisar um produto pelo código:
+//    - Solicitar ao usuário que digite o código do produto a ser pesquisado.
+//    - Utilizar busca sequencial ou binária para encontrar o registro do produto especificado.
+//    - Apresentar o resultado da pesquisa.
 
-// Produto 20:
-// Código: 020
-// Descrição: Borracha Branca
-// Quantidade: 200
+// 4. Adicionar quantidade a um produto específico:
+//    - Solicitar ao usuário que digite o código do produto ao qual deseja adicionar quantidade.
+//    - Solicitar ao usuário que digite a quantidade a ser adicionada.
+//    - Atualizar a quantidade do produto especificado.
 
-// **Exemplo de pesquisa (opção c):**
-// Digite o código do produto para pesquisa: 002
-// Resultado da pesquisa:
-// Produto: Caderno Grande
-// Quantidade: 50
+// 5. Remover quantidade de um produto específico:
+//    - Solicitar ao usuário que digite o código do produto do qual deseja remover quantidade.
+//    - Solicitar ao usuário que digite a quantidade a ser removida.
+//    - Verificar se a quantidade a ser removida não excede a quantidade em estoque.
+//    - Atualizar a quantidade do produto especificado.
 
-// **Exemplo de adição de quantidade (opção d):**
-// Digite o código do produto para adicionar quantidade: 001
-// Digite a quantidade a adicionar: 50
-// Quantidade adicionada com sucesso.
+// 6. Apresentar de forma ordenada os registros dos produtos em estoque:
+//    - Exibir os registros dos produtos em estoque, ordenados por código.
 
-// **Exemplo de remoção de quantidade (opção e):**
-// Digite o código do produto para remover quantidade: 020
-// Digite a quantidade a remover: 20
-// Quantidade removida com sucesso.
+// 7. Sair do programa de controle de estoque.
 
-// **Exemplo de apresentação (opção f):**
-// Produtos em estoque:
-// - Código: 001, Descrição: Caneta Azul, Quantidade: 150
-// - Código: 002, Descrição: Caderno Grande, Quantidade: 50
-// ...
-// - Código: 020, Descrição: Borracha Branca, Quantidade: 180
+// Exemplo em Pseudocódigo:
+// produto = estrutura {codigo, descricao, quantidade}
+// produtos[20] = vetor de produto
+
+// PROCEDIMENTO cadastrar_produtos(produtos)
+//     PARA i DE 0 ATÉ 19 FAÇA
+//         ESCREVER "Cadastro do Produto", i + 1
+//         ESCREVER "Código do Produto:"
+//         LER produtos[i].codigo
+//         ESCREVER "Descrição do Produto:"
+//         LER produtos[i].descricao
+//         ESCREVER "Quantidade do Produto:"
+//         LER produtos[i].quantidade
+//     FIM PARA
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO classificar_registros_por_codigo(produtos)
+//     ALGORITMO DE ORDENAÇÃO (por exemplo, Quick Sort) para ordenar produtos por código
+// FIM PROCEDIMENTO
+
+// FUNÇÃO pesquisar_produto_por_codigo(produtos, codigo)
+//     ALGORITMO DE BUSCA (sequencial ou binária) para encontrar produto com código especificado
+// FIM FUNÇÃO
+
+// PROCEDIMENTO adicionar_quantidade_a_produto(produtos, codigo, quantidade_adicionar)
+//     PARA CADA produto EM produtos FAÇA
+//         SE produto.codigo == codigo ENTÃO
+//             produto.quantidade = produto.quantidade + quantidade_adicionar
+//             ESCREVER "Quantidade adicionada com sucesso."
+//             RETORNAR
+//         FIM SE
+//     FIM PARA
+//     ESCREVER "Produto não encontrado."
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO remover_quantidade_de_produto(produtos, codigo, quantidade_remover)
+//     PARA CADA produto EM produtos FAÇA
+//         SE produto.codigo == codigo ENTÃO
+//             SE quantidade_remover <= produto.quantidade ENTÃO
+//                 produto.quantidade = produto.quantidade - quantidade_remover
+//                 ESCREVER "Quantidade removida com sucesso."
+//             SENÃO
+//                 ESCREVER "Quantidade a remover excede a quantidade em estoque."
+//             FIM SE
+//             RETORNAR
+//         FIM SE
+//     FIM PARA
+//     ESCREVER "Produto não encontrado."
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO apresentar_registros_de_produtos(produtos)
+//     ESCREVER "Produtos em estoque:"
+//     PARA CADA produto EM produtos FAÇA
+//         ESCREVER "-", produto.codigo, ", Descrição:", produto.descricao, ", Quantidade:", produto.quantidade
+//     FIM PARA
+// FIM PROCEDIMENTO

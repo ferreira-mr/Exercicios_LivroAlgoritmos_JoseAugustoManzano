@@ -1,45 +1,25 @@
-// #### Exercício 110: Gerenciamento de Registros em uma Agenda
+// Exercício 87: Soma de Matrizes
 
-// Elaborar um programa que efetue o gerenciamento de dez registros de uma agenda que contenha nome, endereços e telefones. O programa deverá ter um menu com as seguintes opções:
+// Descrição:
+// Este exercício consiste em desenvolver um programa que leia duas matrizes, cada uma com cinco linhas e três colunas para valores inteiros. O programa deve construir uma terceira matriz com as mesmas dimensões que seja formada pela soma dos elementos da primeira e segunda matriz.
 
-// a. Cadastrar os dez registros
-// b. Pesquisar um registro de cada vez pelo campo nome (usar o método sequencial).
-// c. Classificar por ordem de nome os registros cadastrados.
-// d. Apresentar todos os registros.
-// e. Sair do programa de cadastro.
+// Passo a Passo:
 
-// **Exemplo de cadastro:**
+// 1. Entrada de Dados:
+//    - Leia os elementos para as duas matrizes, considerando cinco linhas e três colunas para cada uma.
+//    - Aguarde a entrada dos valores.
 
-// Registro 1:
-// Nome: João
-// Endereço: Rua A, 123
-// Telefone: (11) 1234-5678
-// ...
-// Registro 10:
-// Nome: Maria
-// Endereço: Rua B, 456
-// Telefone: (11) 8765-4321
+// 2. Construção da Matriz Resultante:
+//    - Para cada posição (i, j) da matriz resultante, some os elementos correspondentes das matrizes originais.
 
-// **Exemplo de pesquisa:**
+// 3. Exibição da Matriz Resultante:
+//    - Apresente os elementos da matriz resultante.
 
-// Digite o nome para pesquisa: João
-// Resultado da pesquisa:
-// Nome: João
-// Endereço: Rua A, 123
-// Telefone: (11) 1234-5678
+// Exemplo em Pseudocódigo:
+// ENTRADA: matriz1, matriz2
+// matriz_resultante = matriz vazia de 5x3
+// PARA i DE 0 ATÉ 4 FAÇA
+//     PARA j DE 0 ATÉ 2 FAÇA
+//         matriz_resultante[i][j] = matriz1[i][j] + matriz2[i][j]
+// EXIBIR "Matriz Resultante:", matriz_resultante
 
-// **Exemplo de classificação:**
-
-// Registros classificados por ordem de nome.
-
-// **Exemplo de apresentação:**
-
-// Registro 1:
-// Nome: João
-// Endereço: Rua A, 123
-// Telefone: (11) 1234-5678
-// ...
-// Registro 10:
-// Nome: Maria
-// Endereço: Rua B, 456
-// Telefone: (11) 8765-4321

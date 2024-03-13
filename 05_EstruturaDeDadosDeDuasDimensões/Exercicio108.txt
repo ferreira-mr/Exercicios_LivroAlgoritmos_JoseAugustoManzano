@@ -1,29 +1,147 @@
-// Exercício 108: Soma de Matrizes com Condições
+// Sistema de Petshop
 
 // Descrição:
-// Este exercício consiste em desenvolver um programa que faça a leitura de duas matrizes com cinco linhas e cinco colunas. A primeira matriz deve ser formada por valores que não sejam divisíveis por 3, enquanto a segunda matriz deve ser formada por valores que não sejam divisíveis por 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão que contenha a soma dos elementos da primeira e da segunda matriz.
+// Desenvolva um programa que gerencie os registros dos pets atendidos em um petshop, contendo os campos nome, espécie, idade e serviços realizados. Cada serviço terá um nome, valor e data. O programa deve utilizar subprogramas e apresentar um menu para executar as seguintes etapas:
 
 // Passo a Passo:
 
-// 1. Entrada de Dados:
-//    - Leia as duas matrizes com cinco linhas e cinco colunas.
-//    - Aguarde a entrada do usuário.
+// 1. Cadastrar os pets atendidos:
+//    - Solicitar ao usuário que insira o nome, espécie, idade e serviços realizados de cada pet.
+//    - Armazenar os registros em uma estrutura de dados adequada.
 
-// 2. Construção da Terceira Matriz:
-//    - Para cada elemento das matrizes, some o elemento da primeira matriz com o elemento da segunda matriz e armazene o resultado na terceira matriz.
+// 2. Classificar os registros por nome do pet:
+//    - Ordenar os registros dos pets por nome.
 
-// 3. Saída de Dados:
-//    - Apresente a terceira matriz.
+// 3. Pesquisar um pet pelo nome:
+//    - Solicitar ao usuário que digite o nome do pet a ser pesquisado.
+//    - Utilizar busca sequencial ou binária para encontrar o registro do pet especificado.
+//    - Apresentar o resultado da pesquisa.
+
+// 4. Apresentar de forma ordenada os registros dos pets por espécie:
+//    - Exibir os registros dos pets ordenados por espécie.
+
+// 5. Apresentar de forma ordenada os registros dos pets com idade acima de 5 anos:
+//    - Exibir os registros dos pets com idade acima de 5 anos, ordenados por idade.
+
+// 6. Apresentar de forma ordenada os registros dos pets com idade igual ou abaixo de 5 anos:
+//    - Exibir os registros dos pets com idade igual ou abaixo de 5 anos, ordenados por idade.
+
+// 7. Registrar um novo serviço para um pet:
+//    - Solicitar ao usuário que digite o nome do pet.
+//    - Solicitar ao usuário que digite o nome, valor e data do novo serviço.
+//    - Adicionar o novo serviço aos serviços realizados pelo pet.
+
+// 8. Apresentar os serviços realizados em um pet específico:
+//    - Solicitar ao usuário que digite o nome do pet.
+//    - Exibir os serviços realizados pelo pet especificado.
+
+// 9. Apresentar o total de serviços realizados em uma data específica:
+//    - Solicitar ao usuário que digite a data.
+//    - Calcular o total dos valores dos serviços realizados na data especificada.
+//    - Exibir o total dos serviços realizados na data.
+
+// 10. Sair do sistema de gerenciamento de petshop.
 
 // Exemplo em Pseudocódigo:
+// pet = estrutura {nome, especie, idade, servicos[]}
+// servico = estrutura {nome, valor, data}
+// pets[30] = vetor de pet
 
-// matriz1 = lerMatriz(5, 5) // função para ler matriz com 5 linhas e 5 colunas
-// matriz2 = lerMatriz(5, 5) // função para ler matriz com 5 linhas e 5 colunas
+// PROCEDIMENTO cadastrar_pets(pets)
+//     PARA i DE 0 ATÉ 29 FAÇA
+//         ESCREVER "Cadastro do Pet", i + 1
+//         ESCREVER "Nome do Pet:"
+//         LER pets[i].nome
+//         ESCREVER "Espécie do Pet:"
+//         LER pets[i].especie
+//         ESCREVER "Idade do Pet:"
+//         LER pets[i].idade
+//         ESCREVER "Quantidade de Serviços realizados:"
+//         LER quantidade_servicos
+//         PARA j DE 0 ATÉ quantidade_servicos - 1 FAÇA
+//             ESCREVER "Nome do Serviço:"
+//             LER pets[i].servicos[j].nome
+//             ESCREVER "Valor do Serviço:"
+//             LER pets[i].servicos[j].valor
+//             ESCREVER "Data do Serviço (AAAA-MM-DD):"
+//             LER pets[i].servicos[j].data
+//         FIM PARA
+//     FIM PARA
+// FIM PROCEDIMENTO
 
-// terceiraMatriz = novaMatriz(5, 5) // função para criar nova matriz com 5 linhas e 5 colunas
+// PROCEDIMENTO classificar_registros_por_nome(pets)
+//     ALGORITMO DE ORDENAÇÃO (por exemplo, Quick Sort) para ordenar pets por nome
+// FIM PROCEDIMENTO
 
-// PARA cada linha i da matriz FAÇA
-//     PARA cada coluna j da matriz FAÇA
-//         terceiraMatriz[i][j] = matriz1[i][j] + matriz2[i][j]
+// FUNÇÃO pesquisar_pet_por_nome(pets, nome)
+//     ALGORITMO DE BUSCA (sequencial ou binária) para encontrar pet com nome especificado
+// FIM FUNÇÃO
 
-// EXIBIR "Terceira Matriz:", terceiraMatriz
+// PROCEDIMENTO apresentar_pets_por_especie(pets)
+//     ESCREVER "Pets ordenados por espécie:"
+//     ALGORITMO DE ORDENAÇÃO para ordenar pets por espécie
+//     PARA CADA pet EM pets FAÇA
+//         ESCREVER "Nome:", pet.nome, ", Espécie:", pet.especie, ", Idade:", pet.idade
+//     FIM PARA
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO apresentar_pets_com_idade_acima_de_cinco_anos(pets)
+//     ESCREVER "Pets com idade acima de 5 anos:"
+//     PARA CADA pet EM pets FAÇA
+//         SE pet.idade > 5 ENTÃO
+//             ESCREVER "Nome:", pet.nome, ", Espécie:", pet.especie, ", Idade:", pet.idade
+//         FIM SE
+//     FIM PARA
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO apresentar_pets_com_idade_igual_ou_abaixo_de_cinco_anos(pets)
+//     ESCREVER "Pets com idade igual ou abaixo de 5 anos:"
+//     PARA CADA pet EM pets FAÇA
+//         SE pet.idade <= 5 ENTÃO
+//             ESCREVER "Nome:", pet.nome, ", Espécie:", pet.especie, ", Idade:", pet.idade
+//         FIM SE
+//     FIM PARA
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO registrar_novo_servico_para_pet(pets)
+//     ESCREVER "Digite o nome do pet:"
+//     LER nome_pet
+//     pet_encontrado = pesquisar_pet_por_nome(pets, nome_pet)
+//     SE pet_encontrado != NULO ENTÃO
+//         ESCREVER "Digite o nome do serviço:"
+//         LER nome_servico
+//         ESCREVER "Digite o valor do serviço:"
+//         LER valor_servico
+//         ESCREVER "Digite a data do serviço (AAAA-MM-DD):"
+//         LER data_servico
+//         SERVIÇO = {nome: nome_servico, valor: valor_servico, data: data_servico}
+//         ADICIONAR SERVIÇO AO pets[pet_encontrado].servicos[]
+//         ESCREVER "Serviço registrado com sucesso para o pet", nome_pet
+//     FIM SE
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO apresentar_servicos_realizados_em_pet_especifico(pets)
+//     ESCREVER "Digite o nome do pet para ver os serviços realizados:"
+//     LER nome_pet
+//     pet_encontrado = pesquisar_pet_por_nome(pets, nome_pet)
+//     SE pet_encontrado != NULO ENTÃO
+//         ESCREVER "Serviços realizados para o pet", nome_pet, ":"
+//         PARA CADA serviço EM pets[pet_encontrado].servicos[] FAÇA
+//             ESCREVER "Nome do Serviço:", serviço.nome, ", Valor do Serviço:", serviço.valor, ", Data do Serviço:", serviço.data
+//         FIM PARA
+//     FIM SE
+// FIM PROCEDIMENTO
+
+// PROCEDIMENTO apresentar_total_de_servicos_em_data_especifica(pets)
+//     ESCREVER "Digite a data para ver o total de serviços realizados (AAAA-MM-DD):"
+//     LER data_especifica
+//     total_servicos = 0
+//     PARA CADA pet EM pets FAÇA
+//         PARA CADA serviço EM pet.servicos[] FAÇA
+//             SE serviço.data == data_especifica ENTÃO
+//                 total_servicos += serviço.valor
+//             FIM SE
+//         FIM PARA
+//     FIM PARA
+//     ESCREVER "Total de serviços realizados em", data_especifica, ":", total_servicos
+// FIM PROCEDIMENTO
