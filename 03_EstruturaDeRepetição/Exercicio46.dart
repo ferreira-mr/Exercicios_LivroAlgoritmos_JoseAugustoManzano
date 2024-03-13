@@ -14,7 +14,16 @@
 //        - Incremente o valor de "numero" em 2.
 
 // Exemplo em Pseudocódigo:
-INICIALIZAR numero COM 1
-ENQUANTO numero <= 199 FAÇA
-    EXIBIR numero
-    número = número + 2
+// INICIALIZAR numero COM 1
+// ENQUANTO numero <= 199 FAÇA
+//     EXIBIR numero
+//     número = número + 2
+
+void main() {
+  int numero = 1;
+
+  while (numero <= 199) {
+    print(numero);
+    numero += 2;
+  }
+}

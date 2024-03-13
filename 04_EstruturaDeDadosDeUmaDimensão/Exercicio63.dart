@@ -28,3 +28,22 @@
 //     elemento = matriz1[i] - matriz2[i]
 //     ADICIONAR elemento À matriz3
 // EXIBIR matriz3
+
+void main() {
+  List<double> matriz1 = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 
+                          11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0];
+                          
+  List<double> matriz2 = [20.0, 19.0, 18.0, 17.0, 16.0, 15.0, 14.0, 13.0, 12.0, 11.0, 
+                          10.0, 9.0, 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0];
+  
+  List<double> matriz3 = [];
+
+  for (int i = 0; i < 20; i++) {
+    double resultado = matriz1[i] - matriz2[i];
+    matriz3.add(resultado);
+  }
+
+  // Passo 4: Exibição da Matriz Resultante
+  print("Matriz Resultante:");
+  print(matriz3);
+}

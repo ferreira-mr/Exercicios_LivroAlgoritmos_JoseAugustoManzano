@@ -29,3 +29,21 @@
 //     ADICIONAR fatorial À matriz2
 // EXIBIR "Matriz original:", matriz1
 // EXIBIR "Matriz dos fatoriais:", matriz2
+
+void main() {
+  List<int> matriz1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  
+  List<int> matriz2 = [];
+
+  for (int i = 0; i < 15; i++) {
+    int fatorial = 1;
+    for (int j = 1; j <= matriz1[i]; j++) {
+      fatorial *= j;
+    }
+    matriz2.add(fatorial);
+  }
+
+  print("Matriz original: $matriz1");
+  print("Matriz dos fatoriais: $matriz2");
+}
+

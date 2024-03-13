@@ -26,3 +26,16 @@
 //     ADICIONAR vetorOriginal[i] / 2 À vetorMetade
 // EXIBIR "Vetor original:", vetorOriginal
 // EXIBIR "Vetor com metade dos valores:", vetorMetade
+
+void main() {
+  List<int> vetorOriginal = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  
+  List<double> vetorMetade = [];
+
+  for (int i = 0; i < 10; i++) {
+    vetorMetade.add(vetorOriginal[i] / 2);
+  }
+
+  print("Vetor original: $vetorOriginal");
+  print("Vetor com metade dos valores: $vetorMetade");
+}

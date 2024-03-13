@@ -14,8 +14,29 @@
 //        - Incremente o contador de expoentes "expoente" em 1.
 
 // Exemplo em Pseudocódigo:
-expoente = 0
-ENQUANTO expoente <= 15 FAÇA
-    potencia = 3 elevado a expoente
-    EXIBIR "3^" + expoente + " = " + potencia
-    expoente = expoente + 1
+// expoente = 0
+// ENQUANTO expoente <= 15 FAÇA
+//     potencia = 3 elevado a expoente
+//     EXIBIR "3^" + expoente + " = " + potencia
+//     expoente = expoente + 1
+
+void main() {
+  int expoente = 0;
+
+  while (expoente <= 15) {
+    int potencia = calcularPotencia(3, expoente);
+    print("3^$expoente = $potencia");
+    expoente++;
+  }
+}
+
+int calcularPotencia(int base, int expoente) {
+  int resultado = 1;
+  for (int i = 0; i < expoente; i++) {
+    resultado *= base;
+  }
+  return resultado;
+}
+
+
+

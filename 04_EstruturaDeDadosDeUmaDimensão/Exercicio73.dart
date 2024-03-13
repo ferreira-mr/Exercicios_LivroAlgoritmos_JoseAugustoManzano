@@ -24,3 +24,16 @@
 // PARA i DE 1 ATÉ 10 FAÇA
 //     ADICIONAR valor * i À tabuada
 // EXIBIR "Tabuada do", valor, ":", tabuada
+
+void main() {
+  int valor = 5;
+  
+  List<int> tabuada = [];
+
+  for (int i = 1; i <= 10; i++) {
+    tabuada.add(valor * i);
+  }
+
+  print("Tabuada do $valor:");
+  print(tabuada);
+}

@@ -23,3 +23,15 @@
 //     ADICIONAR (ELEMENTO * 3) A MATRIZ_2
 // EXIBIR "Matriz original: " + MATRIZ_1
 // EXIBIR "Matriz multiplicada por 3: " + MATRIZ_2
+
+void main() {
+  List<int> matriz1 = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  List<int> matriz2 = [];
+  for (int elemento in matriz1) {
+    matriz2.add(elemento * 3);
+  }
+
+  print("Matriz original: $matriz1");
+  print("Matriz multiplicada por 3: $matriz2");
+}

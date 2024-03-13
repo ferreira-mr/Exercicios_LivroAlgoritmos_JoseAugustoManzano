@@ -21,3 +21,16 @@
 //     quadrado = número * número
 //     resultado_quadrados += quadrado + ", "
 // EXIBIR resultado_quadrados
+
+void main() {
+  String resultado_quadrados = ""; 
+
+  for (int numero = 15; numero <= 200; numero++) {
+    int quadrado = numero * numero; 
+    resultado_quadrados += "$quadrado, "; 
+  }
+
+  print("Quadrados dos números de 15 a 200:");
+  print(resultado_quadrados); 
+}
+

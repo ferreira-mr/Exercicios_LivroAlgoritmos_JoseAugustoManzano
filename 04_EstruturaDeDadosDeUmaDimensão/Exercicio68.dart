@@ -26,3 +26,17 @@
 //     ADICIONAR vetorOriginal[i] À vetorInvertido
 // EXIBIR "Vetor original:", vetorOriginal
 // EXIBIR "Vetor invertido:", vetorInvertido
+
+void main() {
+  List<double> vetorOriginal = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0,
+                                11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0];
+  
+  List<double> vetorInvertido = [];
+
+  for (int i = 19; i >= 0; i--) {
+    vetorInvertido.add(vetorOriginal[i]);
+  }
+
+  print("Vetor original: $vetorOriginal");
+  print("Vetor invertido: $vetorInvertido");
+}

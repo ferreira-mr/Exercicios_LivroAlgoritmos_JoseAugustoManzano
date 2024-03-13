@@ -24,3 +24,17 @@
 //     produto = número * multiplicador
 //     EXIBIR número + " x " + multiplicador + " = " + produto
 //     multiplicador = multiplicador + 1
+
+
+void main() {
+  int numero = 3;
+
+  int multiplicador = 1;
+
+  while (multiplicador <= 10) {
+    int produto = numero * multiplicador;
+    print("$numero x $multiplicador = $produto");
+    multiplicador++;
+  }
+  
+}

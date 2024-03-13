@@ -22,3 +22,13 @@
 //     soma = soma + contador
 //     contador = contador + 1
 // EXIBIR soma
+
+void main() {
+  int soma = 0;
+
+  for (int contador = 1; contador <= 100; contador++) {
+    soma += contador;
+  }
+
+  print("A soma dos cem primeiros números naturais é: $soma");
+}

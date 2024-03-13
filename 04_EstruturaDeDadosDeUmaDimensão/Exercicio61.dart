@@ -24,3 +24,20 @@
 //     ADICIONAR nome À nomes
 //     contador = contador + 1
 // EXIBIR "Nomes lidos: " + juntar(nomes, ", ")
+
+void main() {
+  List<String> nomes = ["", "", "", "", "", "", "", "", "", ""];
+
+  nomes[0] = "João";
+  nomes[1] = "Maria";
+  nomes[2] = "Pedro";
+  nomes[3] = "Ana";
+  nomes[4] = "Carlos";
+  nomes[5] = "Mariana";
+  nomes[6] = "José";
+  nomes[7] = "Paula";
+  nomes[8] = "Luiz";
+  nomes[9] = "Fernanda";
+
+  print("Nomes lidos: ${nomes.join(', ')}");
+}

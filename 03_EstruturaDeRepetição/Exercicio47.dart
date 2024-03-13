@@ -12,3 +12,9 @@
 // Exemplo em Pseudocódigo:
 // PARA cada número DE 4 a 196 COM PASSO 4 FAÇA
 //     EXIBIR número
+
+void main() {
+  for (int numero = 4; numero < 200; numero += 4) {
+    print(numero);
+  }
+}

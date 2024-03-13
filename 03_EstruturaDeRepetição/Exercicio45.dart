@@ -20,3 +20,14 @@
 // PARA cada número DE 2 a 500 COM PASSO 2 FAÇA
 //     somaPares = somaPares + número
 // EXIBIR somaPares
+
+void main() {
+  int somaPares = 0;
+
+  for (int numero = 2; numero <= 500; numero += 2) {
+    somaPares += numero;
+  }
+
+  print("O somatório dos valores pares de 1 a 500 é: $somaPares");
+  
+}
