@@ -1,0 +1,83 @@
+# 📝 Exercício 119: Gerenciamento de Carros
+
+## 📖 Descrição
+Desenvolva um programa que gerencie os registros de 30 carros, contendo os campos placa, modelo e ano de fabricação. O programa deve utilizar subprogramas e apresentar um menu para executar as seguintes etapas:
+
+## 🚶 Passo a Passo
+
+1. Cadastrar os 30 carros:
+   - Solicitar ao usuário que insira a placa, modelo e ano de fabricação de 30 carros.
+   - Armazenar os registros em uma estrutura de dados adequada.
+
+2. Classificar os registros por ano de fabricação:
+   - Ordenar os registros dos carros por ano de fabricação.
+
+3. Pesquisar um carro pela placa:
+   - Solicitar ao usuário que digite a placa do carro a ser pesquisado.
+   - Utilizar busca sequencial ou binária para encontrar o registro do carro especificado.
+   - Apresentar o resultado da pesquisa.
+
+4. Apresentar de forma ordenada os registros dos carros fabricados antes de 2010:
+   - Exibir os registros dos carros fabricados antes de 2010, ordenados por ano de fabricação.
+
+5. Apresentar de forma ordenada os registros dos carros fabricados em 2010 ou depois:
+   - Exibir os registros dos carros fabricados em 2010 ou depois, ordenados por ano de fabricação.
+
+6. Apresentar de forma ordenada os registros dos carros fabricados no ano de 2010:
+   - Exibir os registros dos carros fabricados no ano de 2010, ordenados por ano de fabricação.
+
+7. Sair do programa de gerenciamento de carros.
+
+## 💻 Exemplo em Pseudocódigo
+
+```plaintext
+carro = estrutura {placa, modelo, ano_fabricacao}
+carros[30] = vetor de carro
+
+PROCEDIMENTO cadastrar_carros(carros)
+    PARA i DE 0 ATÉ 29 FAÇA
+        ESCREVER "Cadastro do Carro", i + 1
+        ESCREVER "Placa do Carro:"
+        LER carros[i].placa
+        ESCREVER "Modelo do Carro:"
+        LER carros[i].modelo
+        ESCREVER "Ano de Fabricação do Carro:"
+        LER carros[i].ano_fabricacao
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO classificar_registros_por_ano(carros)
+    ALGORITMO DE ORDENAÇÃO (por exemplo, Quick Sort) para ordenar carros por ano de fabricação
+FIM PROCEDIMENTO
+
+FUNÇÃO pesquisar_carro_por_placa(carros, placa)
+    ALGORITMO DE BUSCA (sequencial ou binária) para encontrar carro com placa especificada
+FIM FUNÇÃO
+
+PROCEDIMENTO apresentar_carros_antes_de_2010(carros)
+    ESCREVER "Carros fabricados antes de 2010:"
+    PARA CADA carro EM carros FAÇA
+        SE carro.ano_fabricacao < 2010 ENTÃO
+            ESCREVER "-", "Placa:", carro.placa, ", Modelo:", carro.modelo, ", Ano de Fabricação:", carro.ano_fabricacao
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_carros_em_ou_apos_2010(carros)
+    ESCREVER "Carros fabricados em 2010 ou depois:"
+    PARA CADA carro EM carros FAÇA
+        SE carro.ano_fabricacao >= 2010 ENTÃO
+            ESCREVER "-", "Placa:", carro.placa, ", Modelo:", carro.modelo, ", Ano de Fabricação:", carro.ano_fabricacao
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_carros_de_2010(carros)
+    ESCREVER "Carros fabricados no ano de 2010:"
+    PARA CADA carro EM carros FAÇA
+        SE carro.ano_fabricacao == 2010 ENTÃO
+            ESCREVER "-", "Placa:", carro.placa, ", Modelo:", carro.modelo, ", Ano de Fabricação:", carro.ano_fabricacao
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+```

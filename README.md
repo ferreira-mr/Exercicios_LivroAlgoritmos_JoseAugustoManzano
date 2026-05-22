@@ -34,24 +34,26 @@ O repositório possui **120 exercícios** organizados por pastas correspondentes
 
 ## 📝 Anatomia de um Exercício
 
-Todos os exercícios seguem uma estrutura padronizada para facilitar a compreensão. Por exemplo, o arquivo [`Exercicio01.txt`](file:///c:/Users/ferreira-mr/Projects/Exercicios_LivroAlgoritmos_JoseAugustoManzano/01_EstruturaSequencial/Exercicio01.txt) contém:
+Todos os exercícios seguem uma estrutura padronizada para facilitar a compreensão. Por exemplo, o arquivo [Exercicio01.md](file:///c:/Users/ferreira-mr/Projects/Exercicios_LivroAlgoritmos_JoseAugustoManzano/01_EstruturaSequencial/Exercicio01.md) contém:
 
 ```markdown
-// Exercício X: [Título do Exercício]
+# 📝 Exercício X: [Título do Exercício]
 
-// Descrição:
-// [Explicação detalhada sobre o problema a ser resolvido]
+## 📖 Descrição
+[Explicação detalhada sobre o problema a ser resolvido]
 
-// Passo a Passo:
-// 1. Entrada de Dados: [O que precisa ser lido]
-// 2. Processamento: [Fórmulas e lógicas aplicadas]
-// 3. Saída de Dados: [O que deve ser exibido]
+## 🚶 Passo a Passo
+1. Entrada de Dados: [O que precisa ser lido]
+2. Processamento: [Fórmulas e lógicas aplicadas]
+3. Saída de Dados: [O que deve ser exibido]
 
-// Exemplos:
-// - Entrada: X -> Processamento -> Saída: Y
+## 🧪 Exemplos
+- Entrada: X -> Processamento -> Saída: Y
 
-// Exemplo em Pseudocódigo:
-// [Resolução conceitual do algoritmo]
+## 💻 Exemplo em Pseudocódigo
+```plaintext
+[Resolução conceitual do algoritmo]
+```
 ```
 
 ---
