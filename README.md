@@ -1,15 +1,28 @@
-# Exercícios de Algoritmos
+# 📚 Exercícios de Algoritmos - Manzano
 
-Este repositório contém os exercícios baseado no livro "Algoritmos" do autor José Augusto N. G. Manzano, destinados aos alunos do curso técnico.
+Este repositório contém a resolução e os enunciados dos exercícios baseados no clássico livro **"Algoritmos"** do autor *José Augusto N. G. Manzano*, amplamente utilizado em cursos técnicos e de graduação nas áreas de Ciência da Computação, Engenharia de Software e correlatas.
 
-## Sobre o Livro
+## 🎯 Objetivo
 
-"Algoritmos" é um livro amplamente utilizado em cursos técnicos e de graduação na área de Ciência da Computação e Engenharia de Computação. O livro aborda os fundamentos da programação, estruturas de dados e algoritmos de forma clara e didática.
+O objetivo deste projeto é fornecer um material de apoio estruturado para o aprendizado de lógica de programação. Através de uma progressão contínua, os exercícios abrangem desde conceitos básicos de entrada e saída até o uso de estruturas de dados mais complexas e subprogramas.
 
-## Organização do Repositório
+## 📂 Estrutura do Repositório
 
-O repositório está organizado por capítulos, seguindo a estrutura do livro. Cada capítulo possui uma pasta correspondente contendo os exercícios propostos pelo autor.
+O repositório está organizado por capítulos, seguindo fielmente a didática e a estrutura do livro. Cada pasta aborda um conceito fundamental:
 
-## Como Utilizar
+- `01_EstruturaSequencial/`: Algoritmos com fluxo de execução linear (entrada, processamento e saída).
+- `02_EstruturaDeDecisão/`: Uso de condicionais (`SE`, `ENTÃO`, `SENÃO`, `ESCOLHA`).
+- `03_EstruturaDeRepetição/`: Estruturas de laço e iteração (`PARA`, `ENQUANTO`, `REPITA`).
+- `04_EstruturaDeDadosDeUmaDimensão/`: Manipulação de vetores (arrays unidimensionais).
+- `05_EstruturaDeDadosDeDuasDimensões/`: Manipulação de matrizes (arrays bidimensionais).
+- `06_EstruturasHeterogêneas/`: Criação e uso de registros (structs) para agrupar diferentes tipos de dados.
+- `07_EstruturaDeSubprogramas/`: Modularização do código através de funções e procedimentos.
 
-Os alunos podem acessar as pastas dos capítulos para encontrar os exercícios correspondentes. Recomenda-se a leitura prévia do capítulo correspondente no livro antes de realizar os exercícios.
+## 🚀 Como Utilizar
+
+1. **Navegue pelas pastas:** Acesse os diretórios correspondentes a cada capítulo para visualizar os exercícios propostos.
+2. **Leia os enunciados:** Dentro das pastas, você encontrará arquivos `.txt` (como `Exercicio01.txt`) contendo a descrição de cada problema e as instruções de implementação.
+3. **Pratique:** Recomenda-se a leitura prévia do capítulo correspondente no livro base antes de tentar resolver os exercícios em sua linguagem de programação favorita (Python, C, JavaScript, Portugol, etc.).
+
+---
+*Bons estudos e excelente prática de lógica de programação! 💻*

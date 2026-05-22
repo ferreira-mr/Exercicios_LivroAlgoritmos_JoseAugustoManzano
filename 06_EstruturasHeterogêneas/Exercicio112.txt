@@ -18,7 +18,7 @@
 // 4. Apresentar os registros (nome e altura) das pessoas com mais de 1.5 m e menores de 2.9 m:
 //    - Percorrer a lista de registros e exibir os nomes e alturas das pessoas com mais de 1.5 m e menos de 2.9 m.
 
-// 5. Apresentar todos os registros com média estraida de todas as alturas armazenadas:
+// 5. Apresentar todos os registros com média extraída de todas as alturas armazenadas:
 //    - Calcular a média das alturas das pessoas cadastradas e exibir todos os registros com essa média.
 
 // 6. Sair do programa.

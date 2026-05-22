@@ -1,4 +1,4 @@
-// Exercício: Gerenciamento de Produtos
+// Exercício 118: Gerenciamento de Produtos
 
 // Descrição:
 // Desenvolva um programa que gerencie os registros de 20 produtos em um estoque, contendo os campos código, descrição e quantidade. O programa deve utilizar subprogramas e apresentar um menu para executar as seguintes etapas:

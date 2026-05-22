@@ -78,5 +78,5 @@
 //        candidato 1 = " + percentual_candidato1 + "%,
 //        candidato 2 = " + percentual_candidato2 + "%,
 //        candidato 3 = " + percentual_candidato3 + "%,
-//        Percentual de votos nulos: " + percentual_candidato1 + "%,
-//        Percentual de votos em branco: " + percentual_candidato1 + "%,
+//        Percentual de votos nulos: " + percentual_nulos + "%,
+//        Percentual de votos em branco: " + percentual_branco + "%,
