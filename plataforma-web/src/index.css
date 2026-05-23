@@ -439,9 +439,10 @@ html.light-theme .sidebar-toggle-floating-btn:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1.5rem;
+  padding: 0 1.5rem;
   border-bottom: 1px solid var(--border-color);
   background: rgba(0, 0, 0, 0.1);
+  height: 48px;
   min-height: 48px;
 }
 
@@ -515,6 +516,7 @@ html.light-theme .sidebar-toggle-floating-btn:hover {
   height: 100%;
   overflow: hidden;
   background: #1e1e1e; /* Match monaco dark */
+  border-top: 1px solid var(--border-color);
 }
 
 .editor-wrapper {
