@@ -759,7 +759,7 @@ export default function App() {
               </div>
             </div>
             
-            <div className="instruction-content">
+            <div className={`instruction-content ${leftTab === 'fluxograma' ? 'flowchart-tab-active' : ''}`}>
               {leftTab === 'enunciado' ? (
                 <>
                   {/* Description Card */}

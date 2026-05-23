@@ -1223,11 +1223,6 @@ html.light-theme .highlight-term {
 
 .flowchart-container {
   background-color: var(--bg-secondary);
-  background-image: 
-    linear-gradient(to right, var(--flow-grid-color) 1.5px, transparent 1.5px),
-    linear-gradient(to bottom, var(--flow-grid-color) 1.5px, transparent 1.5px);
-  background-size: 20px 20px;
-  background-position: center top;
   border: 1px solid var(--border-color);
   border-radius: 12px;
   box-shadow: var(--shadow-lg);
@@ -1237,8 +1232,9 @@ html.light-theme .highlight-term {
 }
 
 .flowchart-container svg {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .flowchart-empty-state {
@@ -1511,6 +1507,29 @@ html.light-theme .flow-insert-menu-item:hover {
 .flow-connection-interactive:hover ~ .flow-line-label {
   fill: var(--accent-cyan, #06b6d4) !important;
   transition: fill 0.2s ease;
+}
+
+/* Floating Zoom Widget button hover states */
+.zoom-widget-btn:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--text-primary) !important;
+}
+
+html.light-theme .zoom-widget-btn:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Flowchart active tab styling to prevent double scrollbars and fit perfectly */
+.instruction-content.flowchart-tab-active {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.instruction-content.flowchart-tab-active .flowchart-container {
+  flex: 1;
+  height: auto !important;
 }
 
 

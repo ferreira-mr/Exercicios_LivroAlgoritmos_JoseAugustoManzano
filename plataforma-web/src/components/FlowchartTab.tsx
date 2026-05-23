@@ -1,4 +1,5 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
+import { Plus, Minus, Maximize2 } from 'lucide-react';
 import type { FlowNode } from '../utils/flowchart-parser';
 import { 
   parsePortugolASTToFlowNodes, 
@@ -220,6 +221,134 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
   // Local tree state for editing
   const [treeNodes, setTreeNodes] = useState<FlowNode[]>([]);
 
+  // Zoom & Pan states
+  const [scale, setScale] = useState(1);
+  const [translate, setTranslate] = useState({ x: 0, y: 0 });
+  const [isPanning, setIsPanning] = useState(false);
+  const [panStart, setPanStart] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Initial centering of the flowchart inside the visible container on load
+  useEffect(() => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      // Start centered on the diagram (diagram middle is at startX = 300)
+      setTranslate({ x: centerX - 300, y: 20 });
+    }
+  }, []);
+
+  // Prevent default scroll during wheel zooms via a raw listener (React onWheel doesn't support { passive: false })
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      
+      const rect = container.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      const zoomIntensity = 0.08;
+      const nextScale = e.deltaY < 0
+        ? Math.min(scale + zoomIntensity, 3.0)
+        : Math.max(scale - zoomIntensity, 0.3);
+
+      // Zoom towards mouse cursor
+      const xs = (mouseX - translate.x) / scale;
+      const ys = (mouseY - translate.y) / scale;
+
+      setTranslate({
+        x: mouseX - xs * nextScale,
+        y: mouseY - ys * nextScale
+      });
+      setScale(nextScale);
+    };
+
+    container.addEventListener('wheel', onWheel, { passive: false });
+    return () => {
+      container.removeEventListener('wheel', onWheel);
+    };
+  }, [scale, translate]);
+
+  // Zoom control helpers
+  const zoomIn = () => {
+    setScale(prev => Math.min(prev + 0.15, 3.0));
+  };
+
+  const zoomOut = () => {
+    setScale(prev => Math.max(prev - 0.15, 0.3));
+  };
+
+  const resetZoom = () => {
+    setScale(1);
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setTranslate({ x: rect.width / 2 - 300, y: 20 });
+    } else {
+      setTranslate({ x: 0, y: 0 });
+    }
+  };
+
+  // Mouse pan handlers
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    // Don't drag if user is interacting with text inputs, buttons, menus or nodes
+    const isInteractive = 
+      target.closest('.flow-node') || 
+      target.closest('.flow-insert-menu') || 
+      target.closest('.flow-zoom-controls') || 
+      target.tagName === 'INPUT' || 
+      target.tagName === 'BUTTON';
+
+    if (!isInteractive) {
+      setIsPanning(true);
+      setPanStart({ x: e.clientX, y: e.clientY });
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isPanning) return;
+    const dx = e.clientX - panStart.x;
+    const dy = e.clientY - panStart.y;
+    setTranslate(prev => ({ x: prev.x + dx, y: prev.y + dy }));
+    setPanStart({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleMouseUp = () => {
+    setIsPanning(false);
+  };
+
+  // Touch pan handlers (for basic mobile support)
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    const isInteractive = 
+      target.closest('.flow-node') || 
+      target.closest('.flow-insert-menu') || 
+      target.closest('.flow-zoom-controls') || 
+      target.tagName === 'INPUT' || 
+      target.tagName === 'BUTTON';
+
+    if (!isInteractive && e.touches.length === 1) {
+      setIsPanning(true);
+      setPanStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (isPanning && e.touches.length === 1) {
+      const dx = e.touches[0].clientX - panStart.x;
+      const dy = e.touches[0].clientY - panStart.y;
+      setTranslate(prev => ({ x: prev.x + dx, y: prev.y + dy }));
+      setPanStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsPanning(false);
+  };
+
   // Synchronize local tree with compiled changes
   useEffect(() => {
     try {
@@ -259,12 +388,9 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
     
     const bodyCode = generateCodeFromFlowNodes(updatedTree, language, language === 'portugol' ? 2 : 0);
     
-    let fullCode = '';
-    if (language === 'portugol') {
-      fullCode = `programa {\n  funcao inicio() {\n${bodyCode}  }\n}`;
-    } else {
-      fullCode = bodyCode;
-    }
+    const fullCode = language === 'portugol'
+      ? `programa {\n  funcao inicio() {\n${bodyCode}  }\n}`
+      : bodyCode;
 
     onChangeCode(fullCode);
   };
@@ -361,9 +487,6 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
     );
   }
 
-  const svgWidth = 600;
-  const svgHeight = layout.height + 40;
-
   const menuItemStyle = {
     background: 'transparent',
     border: 'none',
@@ -378,15 +501,38 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
     transition: 'var(--transition-smooth)'
   };
 
+  const zoomBtnStyle = {
+    background: 'transparent',
+    border: 'none',
+    color: 'var(--text-secondary, #cbd5e1)',
+    cursor: 'pointer',
+    padding: '4px',
+    borderRadius: '4px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: 'var(--transition-smooth)'
+  };
+
   return (
     <div 
+      ref={containerRef}
       className="flowchart-container" 
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
       style={{ 
         width: '100%', 
         height: '100%', 
-        overflow: 'auto', 
-        padding: '1rem',
-        position: 'relative'
+        overflow: 'hidden', 
+        padding: '0',
+        position: 'relative',
+        cursor: isPanning ? 'grabbing' : 'grab',
+        userSelect: 'none'
       }}
     >
       {/* Invisible backdrop to dismiss insert menu */}
@@ -403,8 +549,8 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           className="flow-insert-menu glass"
           style={{
             position: 'absolute',
-            left: `${insertMenu.x}px`,
-            top: `${insertMenu.y}px`,
+            left: `${insertMenu.x * scale + translate.x}px`,
+            top: `${insertMenu.y * scale + translate.y}px`,
             transform: 'translate(-50%, -50%)',
             background: 'var(--bg-elevated, #161c28)',
             border: '1px solid var(--border-color, rgba(255,255,255,0.08))',
@@ -428,13 +574,15 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
       )}
 
       <svg 
-        width={svgWidth} 
-        height={svgHeight} 
-        viewBox={`0 0 600 ${svgHeight}`}
-        style={{ margin: '0 auto', display: 'block', background: 'transparent' }}
+        width="100%" 
+        height="100%" 
+        style={{ display: 'block', background: 'transparent' }}
       >
-        {/* Definition for arrow markers */}
+        {/* Definition for arrow markers and background pattern */}
         <defs>
+          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="var(--flow-grid-color)" strokeWidth="1" />
+          </pattern>
           <marker 
             id="arrow" 
             viewBox="0 0 10 10" 
@@ -458,6 +606,14 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
             <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent-cyan, #06b6d4)" />
           </marker>
         </defs>
+
+        {/* Global zoom/pan group */}
+        <g 
+          transform={`translate(${translate.x}, ${translate.y}) scale(${scale})`} 
+          style={{ transformOrigin: '0px 0px' }}
+        >
+          {/* Canvas grid background inside the group so it moves & scales */}
+          <rect x="-5000" y="-5000" width="10000" height="10000" fill="url(#grid)" pointerEvents="none" />
 
         {/* 1. Render Lines and Arrows */}
         {layout.layoutNodes.map((lNode) => (
@@ -544,8 +700,8 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           }
 
           // Choose shape details based on node type
-          let shape = null;
-          let colorClass = "";
+          let shape: React.ReactNode;
+          let colorClass: string;
           
           const isDeclaration = node.type === 'process' && (
             /^(inteiro|real|caracter|logico|let|const|var)\s/i.test(node.text)
@@ -602,7 +758,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           if (editingNodeId === node.id) {
             return (
               <g key={node.id} className={`flow-node ${colorClass}`}>
-                {React.cloneElement(shape as React.ReactElement<any>, {
+                {React.cloneElement(shape as React.ReactElement<React.SVGProps<SVGElement>>, {
                   stroke: "var(--accent-cyan, #06b6d4)",
                   strokeWidth: 2.5,
                   fill: "currentColor"
@@ -654,7 +810,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
               }}
             >
               <title>{node.text}</title>
-              {React.cloneElement(shape as React.ReactElement<any>, {
+              {React.cloneElement(shape as React.ReactElement<React.SVGProps<SVGElement>>, {
                 stroke: "currentColor",
                 strokeWidth: 2,
                 fill: "currentColor"
@@ -688,7 +844,65 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
             </g>
           );
         })}
+        </g>
       </svg>
+
+      {/* Floating Zoom / Pan Controls Overlay */}
+      <div 
+        className="flow-zoom-controls glass"
+        style={{
+          position: 'absolute',
+          bottom: '16px',
+          right: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          padding: '6px 10px',
+          borderRadius: '8px',
+          boxShadow: 'var(--shadow-lg)',
+          zIndex: 80,
+          background: 'var(--bg-elevated, #161c28)',
+          border: '1px solid var(--border-color, rgba(255,255,255,0.08))'
+        }}
+      >
+        <span 
+          style={{ 
+            fontSize: '11px', 
+            fontWeight: '600', 
+            fontFamily: 'var(--font-sans)', 
+            color: 'var(--text-secondary, #cbd5e1)',
+            minWidth: '38px',
+            textAlign: 'center'
+          }}
+        >
+          {Math.round(scale * 100)}%
+        </span>
+        <div style={{ width: '1px', height: '14px', background: 'var(--border-color, rgba(255,255,255,0.08))' }} />
+        <button 
+          onClick={zoomOut}
+          className="zoom-widget-btn"
+          title="Afastar (-)"
+          style={zoomBtnStyle}
+        >
+          <Minus style={{ width: '14px', height: '14px' }} />
+        </button>
+        <button 
+          onClick={zoomIn}
+          className="zoom-widget-btn"
+          title="Aproximar (+)"
+          style={zoomBtnStyle}
+        >
+          <Plus style={{ width: '14px', height: '14px' }} />
+        </button>
+        <button 
+          onClick={resetZoom}
+          className="zoom-widget-btn"
+          title="Resetar Zoom (100%)"
+          style={zoomBtnStyle}
+        >
+          <Maximize2 style={{ width: '14px', height: '14px' }} />
+        </button>
+      </div>
     </div>
   );
 }
