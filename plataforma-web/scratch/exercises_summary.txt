@@ -1,0 +1,2532 @@
+==================================================
+ID: Exercicio01 (Number: 1)
+Title: Conversor de Temperatura
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício tem como objetivo desenvolver um programa simples para
+converter temperaturas de graus Celsius para Fahrenheit. O programa irá
+solicitar ao usuário que insira a temperatura em graus Celsius e, em
+seguida, realizará o cálculo para converter essa temperatura para
+Fahrenheit utilizando a fórmula de conversão adequada. Por fim, o programa
+exibirá a temperatura convertida em graus Fahrenheit.
+
+Pseudocode:
+1. Solicitar temperaturaCelsius
+2. temperaturaFahrenheit = temperaturaCelsius * 9/5 + 32
+3. Exibir temperaturaFahrenheit
+==================================================
+
+==================================================
+ID: Exercicio02 (Number: 2)
+Title: Conversor de Temperatura
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que converta a
+temperatura de Fahrenheit para Celsius. O programa receberá a temperatura
+em graus Fahrenheit como entrada, calculará a temperatura equivalente em
+graus Celsius usando a fórmula de conversão adequada e, por fim, exibirá a
+temperatura convertida em graus Celsius.
+
+Pseudocode:
+1. Solicitar temperaturaFahrenheit
+2. temperaturaCelsius = (temperaturaFahrenheit - 32) * 5/9
+3. Exibir temperaturaCelsius
+==================================================
+
+==================================================
+ID: Exercicio03 (Number: 3)
+Title: Cálculo do Volume de uma Lata de Óleo
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício tem como objetivo desenvolver um programa que calcule e
+apresente o valor do volume de uma lata de óleo. O programa receberá como
+entrada o raio da base da lata e a altura da lata, calculará o volume usando
+a fórmula fornecida e, por fim, exibirá o volume calculado da lata de óleo.
+
+Pseudocode:
+1. Solicitar raio, altura
+2. volume = π * raio^2 * altura
+3. Exibir volume
+==================================================
+
+==================================================
+ID: Exercicio04 (Number: 4)
+Title: Cálculo da Quantidade de Combustível Gasta em uma Viagem
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício tem como objetivo desenvolver um programa que calcule e
+apresente a quantidade de litros de combustível gasta em uma viagem. O
+programa receberá como entrada a distância percorrida em quilômetros e o
+consumo do veículo em quilômetros por litro, calculará a quantidade de
+litros de combustível gasta usando a fórmula fornecida e, por fim, exibirá
+a quantidade de litros de combustível gasta na viagem.
+
+Pseudocode:
+1. Solicitar distância, consumo
+2. litros = distância / consumo
+3. Exibir litros
+==================================================
+
+==================================================
+ID: Exercicio05 (Number: 5)
+Title: Cálculo do Valor de uma Prestação em Atraso
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício tem como objetivo desenvolver um programa que calcule e
+apresente o valor de uma prestação em atraso. O programa receberá como
+entrada o valor original da prestação sem os juros e o número de meses em
+atraso, calculará o valor da prestação em atraso usando a fórmula fornecida
+e, por fim, exibirá o valor da prestação em atraso.
+
+Pseudocode:
+1. Solicitar valor_original, meses_atraso
+2. valor = valor_original * (1 + (taxa_juros / 100) * meses_atraso)
+3. Exibir valor
+==================================================
+
+==================================================
+ID: Exercicio06 (Number: 6)
+Title: Troca de Valores entre Variáveis
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que efetue a troca de
+valores entre duas variáveis, A e B. O programa receberá como entrada os
+valores das variáveis A e B, realizará a troca dos valores entre elas e,
+por fim, apresentará os valores antes e após a troca.
+
+Pseudocode:
+1. Solicitar A, B
+2. temp = A; A = B; B = temp;
+3. Exibir "Antes da troca - A =", A, ", B =", B, "; Após a troca - A =", B, ", B =", A
+==================================================
+
+==================================================
+ID: Exercicio07 (Number: 7)
+Title: Adição e Multiplicação de Quatro Números Inteiros
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia quatro valores
+numéricos inteiros, realize as operações de adição e multiplicação desses
+quatro números entre si e, por fim, exiba os resultados das adições e
+multiplicacões dos quatro números.
+
+Pseudocode:
+ENTRADA: num1, num2, num3, num4
+PROCESSAMENTO: Realize as operações de adição e multiplicação dos quatro números entre si.
+SAÍDA: Exiba as adições e multiplicacões dos quatro números.
+==================================================
+
+==================================================
+ID: Exercicio08 (Number: 8)
+Title: Cálculo do Volume de uma Caixa Retangular
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício tem como objetivo desenvolver um programa que calcule e
+apresente o valor do volume de uma caixa retangular. O programa receberá
+como entrada as dimensões da caixa retangular (comprimento, largura e altura),
+calculará o volume usando a fórmula fornecida e, por fim, exibirá o volume
+calculado da caixa retangular.
+
+Pseudocode:
+ENTRADA: comprimento, largura, altura
+PROCESSAMENTO: volume = comprimento * largura * altura
+SAÍDA: exibir volume
+==================================================
+
+==================================================
+ID: Exercicio09 (Number: 9)
+Title: Cálculo do Quadrado de um Número Inteiro
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que efetue a leitura
+de um valor numérico inteiro, calcule o quadrado desse valor e exiba o
+resultado. O programa receberá como entrada um número inteiro, elevará
+esse número ao quadrado e, por fim, exibirá o resultado.
+
+Pseudocode:
+ENTRADA: num
+PROCESSAMENTO: quadrado = num * num
+SAÍDA: exibir quadrado
+==================================================
+
+==================================================
+ID: Exercicio10 (Number: 10)
+Title: Cálculo da Diferença entre Dois Números Inteiros
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia dois valores
+numéricos inteiros, calcule a diferença do primeiro pelo segundo e exiba o
+resultado. O programa receberá como entrada dois números inteiros, calculará
+a diferença do primeiro número pelo segundo e, por fim, exibirá o resultado.
+
+Pseudocode:
+ENTRADA: num1, num2
+PROCESSAMENTO: diferenca = num1 - num2
+SAÍDA: exibir diferenca
+==================================================
+
+==================================================
+ID: Exercicio11 (Number: 11)
+Title: Conversão de Dólar para Real
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia um valor em
+dólar (US$), calcule e apresente o valor da conversão desse valor em real
+(R$), considerando uma cotação do dólar previamente definida. O programa
+receberá como entrada o valor em dólar, calculará o valor equivalente em
+real usando a cotação do dólar e, por fim, exibirá o resultado da conversão.
+
+Pseudocode:
+ENTRADA: valor_em_dolar
+PROCESSAMENTO: valor_em_real = valor_em_dolar * cotacao_do_dolar
+SAÍDA: exibir valor_em_real
+==================================================
+
+==================================================
+ID: Exercicio12 (Number: 12)
+Title: Conversão de Real para Dólar
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia um valor em
+real (R$), calcule e apresente o valor da conversão desse valor em dólar
+(US$), considerando uma cotação do dólar previamente definida. O programa
+receberá como entrada o valor em real, calculará o valor equivalente em
+dólar usando a cotação do dólar e, por fim, exibirá o resultado da conversão.
+
+Pseudocode:
+ENTRADA: valor_em_real
+PROCESSAMENTO: valor_em_dolar = valor_em_real / cotacao_do_dolar
+SAÍDA: exibir valor_em_dolar
+==================================================
+
+==================================================
+ID: Exercicio13 (Number: 13)
+Title: Cálculo da Soma dos Quadrados de Três Números
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia três valores
+numéricos, calcule a soma dos quadrados desses números e exiba o resultado.
+O programa receberá como entrada três números, calculará o quadrado de cada
+um deles, somará os quadrados e, por fim, exibirá o resultado da soma.
+
+Pseudocode:
+ENTRADA: num1, num2, num3
+PROCESSAMENTO: soma_quadrados = (num1 * num1) + (num2 * num2) + (num3 * num3)
+SAÍDA: exibir soma_quadrados
+==================================================
+
+==================================================
+ID: Exercicio14 (Number: 14)
+Title: Cálculo do Quadrado da Soma de Três Números
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia três valores
+numéricos, calcule o quadrado da soma desses números e exiba o resultado.
+O programa receberá como entrada três números, calculará a soma desses números
+e, em seguida, calculará o quadrado da soma, exibindo o resultado final.
+
+Pseudocode:
+ENTRADA: num1, num2, num3
+PROCESSAMENTO: soma = num1 + num2 + num3
+               quadrado_soma = soma * soma
+SAÍDA: exibir quadrado_soma
+==================================================
+
+==================================================
+ID: Exercicio15 (Number: 15)
+Title: Cálculo do Produto e da Soma de Quatro Números
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia quatro valores
+numéricos, calcule o produto do primeiro com o terceiro e a soma do segundo
+com o quarto, e exiba os resultados do produto e da soma. O programa receberá
+como entrada quatro números, realizará os cálculos especificados e exibirá os
+resultados do produto e da soma.
+
+Pseudocode:
+ENTRADA: num1, num2, num3, num4
+PROCESSAMENTO: produto = num1 * num3
+               soma = num2 + num4
+SAÍDA: exibir "Produto: " + produto + ", Soma: " + soma
+==================================================
+
+==================================================
+ID: Exercicio16 (Number: 16)
+Title: Cálculo do Novo Salário com Aumento
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia o valor do
+salário mensal de um trabalhador e a porcentagem de aumento do salário,
+calcule o novo salário e o aumento concedido, e exiba esses valores.
+O programa receberá como entrada o salário mensal e a porcentagem de aumento,
+calculará o valor do aumento e o novo salário, e por fim, exibirá esses valores.
+
+Pseudocode:
+ENTRADA: salario, aumento_porcentagem
+PROCESSAMENTO: aumento = salario * (aumento_porcentagem / 100)
+               novo_salario = salario + aumento
+SAÍDA: exibir "Novo salário: " + novo_salario + ", Aumento concedido: " + aumento
+==================================================
+
+==================================================
+ID: Exercicio17 (Number: 17)
+Title: Cálculo da Área de uma Circunferência
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia o valor do raio
+de uma circunferência, calcule o valor da área da circunferência e exiba o
+resultado. O programa receberá como entrada o raio da circunferência,
+calculará a área usando a fórmula π * raio² e, por fim, exibirá a área calculada.
+
+Pseudocode:
+ENTRADA: raio
+PROCESSAMENTO: area = 3.14159 * raio * raio
+SAÍDA: exibir area
+==================================================
+
+==================================================
+ID: Exercicio18 (Number: 18)
+Title: Apuração de Votos em uma Eleição Sindical
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que faça a leitura da
+quantidade de votos válidos para cada candidato, além da quantidade de votos
+nulos e em branco, calcule o número total de eleitores, o percentual
+correspondente de votos válidos dos candidatos e de votos brancos e nulos, e
+exiba esses resultados.
+
+Pseudocode:
+ENTRADA: votos_candidato1, votos_candidato2, votos_candidato3, votos_nulos,
+         votos_branco
+PROCESSAMENTO: total_eleitores = votos_candidato1 + votos_candidato2 +
+                votos_candidato3 + votos_nulos + votos_branco
+               percentual_candidato1 = (votos_candidato1 / total_eleitores) * 100
+               percentual_candidato2 = (votos_candidato2 / total_eleitores) * 100
+               percentual_candidato3 = (votos_candidato3 / total_eleitores) * 100
+               percentual_nulos = (votos_nulos / total_eleitores) * 100
+               percentual_branco = (votos_branco / total_eleitores) * 100
+SAÍDA: exibir "Total de eleitores: " + total_eleitores + ";
+       Percentual de votos válidos:
+       candidato 1 = " + percentual_candidato1 + "%,
+       candidato 2 = " + percentual_candidato2 + "%,
+       candidato 3 = " + percentual_candidato3 + "%,
+       Percentual de votos nulos: " + percentual_nulos + "%,
+       Percentual de votos em branco: " + percentual_branco + "%,
+==================================================
+
+==================================================
+ID: Exercicio19 (Number: 19)
+Title: Cálculo das Quatro Operações Básicas
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia dois valores numéricos,
+calcule as quatro operações básicas (adição, subtração, multiplicação e divisão) utilizando
+esses valores e exiba os resultados.
+
+Pseudocode:
+ENTRADA: valor1, valor2
+PROCESSAMENTO: adicao = valor1 + valor2
+               subtracao = valor1 - valor2
+               multiplicacao = valor1 * valor2
+               divisao = valor1 / valor2
+SAÍDA: Adição: " + valor1 + " + " + valor2 + " = " + adicao + ";
+       Subtração: " + valor1 + " - " + valor2 + " = " + subtracao + ";
+       Multiplicação: " + valor1 + " * " + valor2 + " = " + multiplicacao + ";
+       Divisão: " + valor1 + " / " + valor2 + " = " + divisao
+==================================================
+
+==================================================
+ID: Exercicio20 (Number: 20)
+Title: Cálculo da Velocidade de um Projétil
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia a distância percorrida em quilômetros e
+o tempo em horas, calcule a velocidade do projétil em metros por segundo e exiba o resultado.
+
+Pseudocode:
+ENTRADA: distancia_km, tempo_horas
+PROCESSAMENTO: velocidade_ms = distancia_km / tempo_horas / 3.6
+SAÍDA: exibir "Velocidade = " + velocidade_ms + " m/s"
+==================================================
+
+==================================================
+ID: Exercicio21 (Number: 21)
+Title: Cálculo de Potência
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia dois valores numéricos inteiros
+representando a base e o expoente de uma potência, calcule a potência utilizando os valores de entrada e
+apresente o resultado.
+
+Pseudocode:
+ENTRADA: base, expoente
+PROCESSAMENTO: potencia = base elevado ao expoente
+SAÍDA: exibir potencia
+==================================================
+
+==================================================
+ID: Exercicio22 (Number: 22)
+Title: Cálculo do Volume de uma Esfera
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia o raio da esfera,
+calcule o volume da esfera utilizando a fórmula volume = (4/3) * π * raio³ e
+exiba o resultado.
+
+Pseudocode:
+ENTRADA: raio
+PROCESSAMENTO: volume = (4/3) * π * raio elevado a 3
+SAÍDA: exibir volume
+==================================================
+
+==================================================
+ID: Exercicio23 (Number: 23)
+Title: Conversão de Pés para Metros
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma medida em
+pés, converta a medida de pés para metros usando a fórmula metros = pés * 0.3048
+e exiba o resultado.
+
+Pseudocode:
+ENTRADA: medida_pés
+PROCESSAMENTO: medida_metros = medida_pés * 0.3048
+SAÍDA: exibir medida_metros
+==================================================
+
+==================================================
+ID: Exercicio24 (Number: 24)
+Title: Cálculo de Raiz
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia a base e o
+índice de uma raiz e calcule a raiz.
+
+Pseudocode:
+ENTRADA: base, índice
+PROCESSAMENTO: raiz = base^(1/índice)
+SAÍDA: exibir raiz
+==================================================
+
+==================================================
+ID: Exercicio25 (Number: 25)
+Title: Sucessor e Antecessor de um Número Inteiro
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia um valor numérico inteiro,
+calcule e apresente o sucessor e o antecessor desse número.
+
+Pseudocode:
+ENTRADA: numero
+PROCESSAMENTO: sucessor = numero + 1; antecessor = numero - 1
+SAÍDA: exibir "Sucessor: ", sucessor, ", Antecessor: ", antecessor
+==================================================
+
+==================================================
+ID: Exercicio26 (Number: 26)
+Title: Cálculo do Quadrado da Divisão de Dois Números Inteiros
+Chapter: Estrutura Sequencial (01_EstruturaSequencial)
+Description:
+Este exercício consiste em desenvolver um programa que leia dois valores numéricos inteiros,
+calcule a divisão do primeiro número pelo segundo número e, em seguida, calcule o quadrado do resultado da divisão.
+
+Pseudocode:
+ENTRADA: num1, num2
+PROCESSAMENTO: resultado_divisao = num1 / num2; resultado_quadrado = resultado_divisao * resultado_divisao
+SAÍDA: exibir resultado_quadrado
+==================================================
+
+==================================================
+ID: Exercicio27 (Number: 27)
+Title: Cálculo da Diferença entre Dois Números Inteiros
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia dois valores numéricos inteiros
+e apresente o resultado da diferença entre o maior e o menor valor.
+
+Pseudocode:
+ENTRADA: num1, num2
+PROCESSAMENTO:
+  - SE num1 > num2
+    - diferenca = num1 - num2
+  - SENÃO
+    - diferenca = num2 - num1
+SAÍDA: exibir diferenca
+==================================================
+
+==================================================
+ID: Exercicio28 (Number: 28)
+Title: Classificação de Número Positivo ou Negativo
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um valor numérico inteiro
+e o classifique como positivo, negativo ou neutro (zero).
+
+Pseudocode:
+ENTRADA: numero
+PROCESSAMENTO:
+  - SE numero > 0
+    - exibir "Positivo"
+  - SENÃO SE numero < 0
+    - exibir "Negativo"
+  - SENÃO
+    - exibir "Neutro (Zero)"
+==================================================
+
+==================================================
+ID: Exercicio29 (Number: 29)
+Title: Cálculo da Média e Verificação de Aprovação
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia os valores de
+quatro notas bimestrais de um aluno, calcule a média aritmética e informe
+se o aluno foi aprovado ou reprovado. A nota para ser aprovado é 5.
+
+Pseudocode:
+ENTRADA: nota1, nota2, nota3, nota4
+PROCESSAMENTO: media = (nota1 + nota2 + nota3 + nota4) / 4
+               SE media >= 5
+                   exibir "Média: ", media, ", Aprovado"
+               SENÃO
+                   exibir "Média: ", media, ", Reprovado"
+==================================================
+
+==================================================
+ID: Exercicio30 (Number: 30)
+Title: Cálculo da Média e Verificação de Aprovação com Exame
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia os valores de
+quatro notas bimestrais de um aluno, calcule a média aritmética e verifique
+a aprovação do aluno. Se a média for maior que 7, o aluno é aprovado.
+Caso contrário, solicite a nota do exame para calcular a nova média. Se a
+nova média for maior que 5, o aluno é aprovado em exame. Caso contrário, é
+reprovado.
+
+Pseudocode:
+ENTRADA: nota1, nota2, nota3, nota4
+PROCESSAMENTO:
+  - media = (nota1 + nota2 + nota3 + nota4) / 4
+  - SE media > 7
+      - exibir "Média:", media, "Aprovado"
+  - SENÃO SE media >= 5
+      - exibir "Média:", media, "Exame"
+  - SENÃO
+      - exibir "Média:", media, "Reprovado"
+==================================================
+
+==================================================
+ID: Exercicio31 (Number: 31)
+Title: Resolução de Equação de Segundo Grau
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia três números
+inteiros "a", "b" e "c" referentes aos valores dos coeficientes da equação
+de segundo grau ax² + bx + c = 0 e resolva a equação.
+
+Pseudocode:
+ENTRADA: a, b, c
+PROCESSAMENTO:
+  - delta = b² - 4ac
+  - SE delta >= 0
+      - x1 = (-b + √delta) / (2a)
+      - x2 = (-b - √delta) / (2a)
+      - exibir "x1 =", x1, "x2 =", x2, "(raízes da equação)"
+  - SENÃO
+      - exibir "Não existem raízes reais"
+==================================================
+
+==================================================
+ID: Exercicio32 (Number: 32)
+Title: Ordenação de Três Números Inteiros
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia três valores
+inteiros e apresente os valores dispostos em ordem crescente.
+
+Pseudocode:
+ENTRADA: num1, num2, num3
+PROCESSAMENTO:
+  - SE num1 > num2 ENTÃO
+    - TEMP = num1
+    - num1 = num2
+    - num2 = TEMP
+  - SE num1 > num3 ENTÃO
+    - TEMP = num1
+    - num1 = num3
+    - num3 = TEMP
+  - SE num2 > num3 ENTÃO
+    - TEMP = num2
+    - num2 = num3
+    - num3 = TEMP
+SAÍDA: exibir num1, num2, num3
+==================================================
+
+==================================================
+ID: Exercicio33 (Number: 33)
+Title: Valores Divisíveis por 2 e 3
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia quatro valores
+numéricos inteiros e apresente apenas os valores que sejam divisíveis por 2 e 3.
+
+Pseudocode:
+ENTRADA: num1, num2, num3, num4
+PROCESSAMENTO:
+  - SE num1 for divisível por 2 e por 3 ENTÃO
+    - EXIBIR num1
+  - SE num2 for divisível por 2 e por 3 ENTÃO
+    - EXIBIR num2
+  - SE num3 for divisível por 2 e por 3 ENTÃO
+    - EXIBIR num3
+  - SE num4 for divisível por 2 e por 3 ENTÃO
+    - EXIBIR num4
+==================================================
+
+==================================================
+ID: Exercicio34 (Number: 34)
+Title: Valores Divisíveis por 2 ou 3
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia quatro valores
+numéricos inteiros e apresente apenas os valores que sejam divisíveis por 2
+ou 3.
+
+Pseudocode:
+ENTRADA: num1, num2, num3, num4
+PROCESSAMENTO:
+  - SE num1 for divisível por 2 OU por 3 ENTÃO
+    - EXIBIR num1
+  - SE num2 for divisível por 2 OU por 3 ENTÃO
+    - EXIBIR num2
+  - SE num3 for divisível por 2 OU por 3 ENTÃO
+    - EXIBIR num3
+  - SE num4 for divisível por 2 OU por 3 ENTÃO
+    - EXIBIR num4
+==================================================
+
+==================================================
+ID: Exercicio35 (Number: 35)
+Title: Maior e Menor Valor
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia cinco valores
+numéricos inteiros e apresente o maior e o menor valor.
+
+Pseudocode:
+ENTRADA: num1, num2, num3, num4, num5
+PROCESSAMENTO:
+  - maior_valor = num1
+  - menor_valor = num1
+  - SE num2 > maior_valor ENTÃO
+    - maior_valor = num2
+  - SE num2 < menor_valor ENTÃO
+    - menor_valor = num2
+  - REPEAT para num3, num4 e num5
+  - EXIBIR "Maior valor:", maior_valor
+  - EXIBIR "Menor valor:", menor_valor
+==================================================
+
+==================================================
+ID: Exercicio36 (Number: 36)
+Title: Par ou Ímpar
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um número inteiro
+e informe se ele é par ou ímpar.
+
+Pseudocode:
+ENTRADA: numero
+PROCESSAMENTO:
+  - SE numero % 2 == 0 ENTÃO
+    - EXIBIR "Par"
+  - SENÃO
+    - EXIBIR "Ímpar"
+==================================================
+
+==================================================
+ID: Exercicio37 (Number: 37)
+Title: Verificação de Faixa de Valor
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um valor numérico
+inteiro que esteja na faixa de valores de 1 até 9 e informe se o número está
+na faixa permitida ou não.
+
+Pseudocode:
+ENTRADA: valor
+PROCESSAMENTO:
+  - SE valor está entre 1 e 9 INCLUSIVE ENTÃO
+    - EXIBIR "Valor está na faixa permitida"
+  - SENÃO
+    - EXIBIR "Valor não está na faixa permitida"
+==================================================
+
+==================================================
+ID: Exercicio38 (Number: 38)
+Title: Verificação de Valor Menor ou Igual a 3
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um valor inteiro
+qualquer e apresente-o caso não seja maior que 3.
+
+Pseudocode:
+ENTRADA: valor
+PROCESSAMENTO:
+  - SE valor é menor ou igual a 3 ENTÃO
+    - EXIBIR valor
+==================================================
+
+==================================================
+ID: Exercicio39 (Number: 39)
+Title: Múltiplo de 3 e 5
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um número e 
+apresente-o apenas se ele for múltiplo de 3 e 5.
+
+Pseudocode:
+ENTRADA: numero
+PROCESSAMENTO:
+  - SE numero % 3 == 0 e numero % 5 == 0 ENTÃO
+    - EXIBIR numero
+==================================================
+
+==================================================
+ID: Exercicio40 (Number: 40)
+Title: Soma e Verificação
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia três valores desconhecidos,
+some-os e apresente o resultado apenas se a soma for maior que 100.
+
+Pseudocode:
+ENTRADA: valor1, valor2, valor3
+PROCESSAMENTO: soma = valor1 + valor2 + valor3
+VERIFICAÇÃO: SE soma > 100 ENTÃO
+               EXIBIR soma
+==================================================
+
+==================================================
+ID: Exercicio41 (Number: 41)
+Title: Multiplicação e Verificação
+Chapter: Estrutura de Decisão (02_EstruturaDeDecisão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um número inteiro qualquer
+e o multiplique por dois. Apresente o resultado da multiplicação somente se o resultado for maior que 30.
+
+Pseudocode:
+ENTRADA: numero
+PROCESSAMENTO: resultado = numero * 2
+VERIFICAÇÃO: SE resultado > 30 ENTÃO
+               EXIBIR resultado
+==================================================
+
+==================================================
+ID: Exercicio42 (Number: 42)
+Title: Quadrados na Faixa de Valores
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este exercício consiste em desenvolver um programa que apresente como resultado os quadrados dos números inteiros existentes na faixa de valores de 15 a 200.
+
+Pseudocode:
+INICIALIZAÇÃO: resultado_quadrados = ""
+PARA cada número de 15 a 200 FAÇA
+    quadrado = número * número
+    resultado_quadrados += quadrado + ", "
+EXIBIR resultado_quadrados
+==================================================
+
+==================================================
+ID: Exercicio43 (Number: 43)
+Title: Tabuada de um Número
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este exercício consiste em desenvolver um programa que mostre os resultados da tabuada de um número qualquer.
+
+Pseudocode:
+ENTRADA: número
+multiplicador = 1
+ENQUANTO multiplicador <= 10 FAÇA
+    produto = número * multiplicador
+    EXIBIR número + " x " + multiplicador + " = " + produto
+    multiplicador = multiplicador + 1
+==================================================
+
+==================================================
+ID: Exercicio44 (Number: 44)
+Title: Soma dos Cem Primeiros Números Naturais
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este exercício consiste em desenvolver um programa que apresente a soma dos cem primeiros números naturais.
+
+Pseudocode:
+INICIALIZAR soma COM 0
+contador = 1
+ENQUANTO contador <= 100 FAÇA
+    soma = soma + contador
+    contador = contador + 1
+EXIBIR soma
+==================================================
+
+==================================================
+ID: Exercicio45 (Number: 45)
+Title: Somatório dos Valores Pares
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este exercício consiste em desenvolver um programa que apresente o somatório dos valores pares existentes na faixa de 1 até 500.
+
+Pseudocode:
+INICIALIZAR somaPares COM 0
+PARA cada número DE 2 a 500 COM PASSO 2 FAÇA
+    somaPares = somaPares + número
+EXIBIR somaPares
+==================================================
+
+==================================================
+ID: Exercicio46 (Number: 46)
+Title: Números Ímpares na Faixa de Valores
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa consiste em apresentar todos os valores numéricos inteiros ímpares situados na faixa de 0 a 200.
+
+Pseudocode:
+INICIALIZAR numero COM 1
+ENQUANTO numero <= 199 FAÇA
+    EXIBIR numero
+    número = número + 2
+==================================================
+
+==================================================
+ID: Exercicio47 (Number: 47)
+Title: Valores Divisíveis por 4 Menores que 200
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este exercício consiste em desenvolver um programa que apresente todos os valores numéricos divisíveis por 4 e menores que 200.
+
+Pseudocode:
+PARA cada número DE 4 a 196 COM PASSO 4 FAÇA
+    EXIBIR número
+==================================================
+
+==================================================
+ID: Exercicio48 (Number: 48)
+Title: Potências de 3
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa apresenta os resultados das potências do valor de base 3, elevado a um expoente de 0 a 15.
+
+Pseudocode:
+expoente = 0
+ENQUANTO expoente <= 15 FAÇA
+    potencia = 3 elevado a expoente
+    EXIBIR "3^" + expoente + " = " + potencia
+    expoente = expoente + 1
+==================================================
+
+==================================================
+ID: Exercicio49 (Number: 49)
+Title: Potência de uma Base Elevada a um Expoente
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa calcula a potência de uma base qualquer elevada a um expoente qualquer.
+
+Pseudocode:
+ENTRADA: base, expoente
+INICIALIZAR potencia COM base
+PARA cada i DE 1 ATÉ expoente FAÇA
+    potencia = potencia * base
+EXIBIR base + " elevado a " + expoente + " = " + potencia
+==================================================
+
+==================================================
+ID: Exercicio50 (Number: 50)
+Title: Sequência de Fibonacci
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este exercício consiste em desenvolver um programa que apresente os valores da sequência numérica de Fibonacci até o décimo quinto termo.
+
+Pseudocode:
+termo1 = 0
+termo2 = 1
+EXIBIR termo1
+EXIBIR termo2
+i = 3
+ENQUANTO i <= 15 FAÇA
+    proximo_termo = termo1 + termo2
+    EXIBIR proximo_termo
+    termo1 = termo2
+    termo2 = proximo_termo
+    i = i + 1
+==================================================
+
+==================================================
+ID: Exercicio51 (Number: 51)
+Title: Conversão de Graus Celsius em Fahrenheit
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa converte os valores de graus Celsius em graus Fahrenheit, de dez em dez graus, iniciando em 10°C e finalizando em 100°C.
+
+Pseudocode:
+PARA cada grauCelsius DE 10 ATÉ 100 COM PASSO 10 FAÇA
+    grauFahrenheit = (grauCelsius * 9/5) + 32
+    EXIBIR grauCelsius + "°C = " + grauFahrenheit + "°F"
+==================================================
+
+==================================================
+ID: Exercicio52 (Number: 52)
+Title: Somatório de Grãos de Trigo no Tabuleiro de Xadrez
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa calcula e apresenta o somatório do número de grãos de trigo que se pode obter em um tabuleiro de xadrez, seguindo a regra de colocar um grão no primeiro quadro e o dobro de grãos no quadro seguinte.
+
+Pseudocode:
+INICIALIZAR totalGrãos COM 0
+quadro = 1
+ENQUANTO quadro <= 64 FAÇA
+    grãosNoQuadro = 2 elevado a (quadro - 1)
+    totalGrãos = totalGrãos + grãosNoQuadro
+    quadro = quadro + 1
+EXIBIR "Total de grãos de trigo no tabuleiro de xadrez = " + totalGrãos
+==================================================
+
+==================================================
+ID: Exercicio53 (Number: 53)
+Title: Somatório da Fatorial de Quinze Valores
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa lê quinze valores numéricos inteiros e, ao final, apresenta o somatório da fatorial de cada valor lido.
+
+Pseudocode:
+INICIALIZAR somatorio COM 0
+PARA cada valor DE 1 a 15 FAÇA
+    INICIALIZAR fatorial COM 1
+    PARA cada número DE 1 até valor FAÇA
+        fatorial = fatorial * número
+    somatorio = somatorio + fatorial
+EXIBIR "Somatório da fatorial de cada valor lido: " + somatorio
+==================================================
+
+==================================================
+ID: Exercicio54 (Number: 54)
+Title: Somatório e Média de Dez Valores
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa lê dez valores numéricos reais e, ao final, apresenta o somatório e a média dos valores lidos.
+
+Pseudocode:
+INICIALIZAR somatorio COM 0
+INICIALIZAR contador COM 0
+ENQUANTO contador < 10 FAÇA
+    SOLICITAR valor
+    somatorio = somatorio + valor
+    contador = contador + 1
+media = somatorio / 10
+EXIBIR "Somatório: " + somatorio + ", Média: " + media
+==================================================
+
+==================================================
+ID: Exercicio55 (Number: 55)
+Title: Somatório, Média e Total de Valores Lidos
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa lê sucessivamente valores numéricos fornecidos pelo usuário e, ao final, apresenta o somatório, a média e o total de valores lidos. O programa continua a ler os valores enquanto o usuário fornecer valores positivos.
+
+Pseudocode:
+INICIALIZAR somatorio COM 0
+INICIALIZAR totalValores COM 0
+INICIALIZAR media COM 0
+ENQUANTO TRUE FAÇA
+    SOLICITAR valor
+    SE valor <= 0 ENTÃO
+        SAIR DO LAÇO
+    FIM SE
+    somatorio = somatorio + valor
+    totalValores = totalValores + 1
+    media = somatorio / totalValores
+EXIBIR "Somatório: " + somatorio + ", Média: " + media + ", Total de valores lidos: " + totalValores
+==================================================
+
+==================================================
+ID: Exercicio56 (Number: 56)
+Title: Fatorial dos Valores Ímpares entre 1 e 100
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa calcula a fatorial dos valores ímpares situados na faixa de 1 a 100 e apresenta o resultado.
+
+Pseudocode:
+INICIALIZAR resultado COM 1
+PARA cada número ímpar DE 1 a 100 COM PASSO 2 FAÇA
+    PARA cada valor DE 1 até o número ímpar FAÇA
+        resultado = resultado * valor
+    FIM PARA
+EXIBIR resultado
+==================================================
+
+==================================================
+ID: Exercicio57 (Number: 57)
+Title: Cálculo da Área Total de uma Residência
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa permite calcular a área total em metros quadrados de uma residência com vários cômodos, como sala, cozinha, banheiro, quartos, área de serviço, quintal, garagem, entre outros. O programa solicita ao usuário o nome, a largura e o comprimento de cada cômodo e oferece a opção de continuar adicionando novos cômodos ou encerrar o cálculo. Ao encerrar, o programa apresenta o valor total acumulado da área residencial.
+
+Pseudocode:
+INICIALIZAR areaTotal COM 0
+FAÇA
+    SOLICITAR nomeDoComodo
+    SOLICITAR larguraDoComodo
+    SOLICITAR comprimentoDoComodo
+    calcular areaDoComodo = larguraDoComodo * comprimentoDoComodo
+    areaTotal = areaTotal + areaDoComodo
+    SOLICITAR continuar
+ENQUANTO continuar = "SIM"
+EXIBIR "Área total da residência: ", areaTotal, " metros quadrados"
+==================================================
+
+==================================================
+ID: Exercicio58 (Number: 58)
+Title: Maior e Menor Valores entre Valores Positivos
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa lê valores positivos inteiros até que um valor negativo seja informado. Ao final, apresenta o maior e o menor valores informados pelo usuário.
+
+Pseudocode:
+INICIALIZAR maior COM -1
+INICIALIZAR menor COM -1
+REPETIR
+    SOLICITAR valor
+    SE valor >= 0 ENTAO
+        SE maior < valor ENTAO
+            maior = valor
+        FIM SE
+        SE menor == -1 OU menor > valor ENTAO
+            menor = valor
+        FIM SE
+    SENAO
+        SAIR DO LAÇO
+    FIM SE
+ATÉ verdadeiro
+EXIBIR "Maior valor: ", maior
+EXIBIR "Menor valor: ", menor
+==================================================
+
+==================================================
+ID: Exercicio59 (Number: 59)
+Title: Divisão Inteira Sem Usar o Operador de Divisão
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa realiza a divisão inteira de dois números sem usar o operador aritmético de divisão.
+
+Pseudocode:
+ENTRADA: divisor, dividendo
+INICIALIZAR resultado COM 0
+INICIALIZAR dividendo COM valor informado pelo usuário
+INICIALIZAR divisor COM valor informado pelo usuário
+ENQUANTO dividendo >= divisor FAÇA
+    dividendo = dividendo - divisor
+    resultado = resultado + 1
+EXIBIR "Resultado da divisão: ", resultado
+==================================================
+
+==================================================
+ID: Exercicio60 (Number: 60)
+Title: Quadrados dos Valores Inteiros de 15 a 200 Contando de 3 em 3
+Chapter: Estrutura de Repetição (03_EstruturaDeRepetição)
+Description:
+Este programa apresenta os quadrados dos valores inteiros no intervalo de 15 a 200, contando de 3 em 3.
+
+Pseudocode:
+número = 15
+ENQUANTO número <= 200 FAÇA
+    quadrado = número * número
+    EXIBIR quadrado
+    número = número + 3
+==================================================
+
+==================================================
+ID: Exercicio61 (Number: 61)
+Title: Leitura e Apresentação de Nomes
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia dez nomes e os apresente em seguida.
+
+Pseudocode:
+contador = 1
+nomes = []
+ENQUANTO contador <= 10 FAÇA
+    SOLICITAR nome
+    ADICIONAR nome À nomes
+    contador = contador + 1
+EXIBIR "Nomes lidos: " + juntar(nomes, ", ")
+==================================================
+
+==================================================
+ID: Exercicio62 (Number: 62)
+Title: Multiplicação de Elementos de uma Matriz por 3
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia oito elementos inteiros e construa uma segunda matriz com os elementos da primeira matriz multiplicados por 3.
+
+Pseudocode:
+MATRIZ_1 = {1, 2, 3, 4, 5, 6, 7, 8}
+MATRIZ_2 = {}
+PARA CADA ELEMENTO EM MATRIZ_1 FAÇA
+    ADICIONAR (ELEMENTO * 3) A MATRIZ_2
+EXIBIR "Matriz original: " + MATRIZ_1
+EXIBIR "Matriz multiplicada por 3: " + MATRIZ_2
+==================================================
+
+==================================================
+ID: Exercicio63 (Number: 63)
+Title: Subtração de Elementos de Matrizes
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia duas matrizes com 20 elementos reais e construa uma terceira matriz onde cada elemento deve ser a subtração do elemento de mesma posição das duas primeiras matrizes.
+
+Pseudocode:
+ENTRADA: matriz1, matriz2
+matriz3 = []
+PARA i DE 0 ATÉ 19 FAÇA
+    elemento = matriz1[i] - matriz2[i]
+    ADICIONAR elemento À matriz3
+EXIBIR matriz3
+==================================================
+
+==================================================
+ID: Exercicio64 (Number: 64)
+Title: Construção de Matriz com Quadrados de Elementos
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia 15 elementos inteiros e construa uma segunda matriz onde cada elemento seja o quadrado do elemento da primeira matriz na mesma posição.
+
+Pseudocode:
+ENTRADA: matriz1
+matriz2 = []
+PARA i DE 0 ATÉ 14 FAÇA
+    quadrado = matriz1[i] * matriz1[i]
+    ADICIONAR quadrado À matriz2
+EXIBIR "Matriz original:", matriz1
+EXIBIR "Matriz dos quadrados:", matriz2
+==================================================
+
+==================================================
+ID: Exercicio65 (Number: 65)
+Title: Fatorial de Elementos de uma Matriz
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz com 15 elementos inteiros e construa uma segunda matriz onde cada elemento seja o resultado da fatorial do elemento correspondente da primeira matriz.
+
+Pseudocode:
+ENTRADA: matriz1
+matriz2 = []
+PARA i DE 0 ATÉ 14 FAÇA
+    fatorial = 1
+    PARA j DE 1 ATÉ matriz1[i] FAÇA
+        fatorial = fatorial * j
+    ADICIONAR fatorial À matriz2
+EXIBIR "Matriz original:", matriz1
+EXIBIR "Matriz dos fatoriais:", matriz2
+==================================================
+
+==================================================
+ID: Exercicio66 (Number: 66)
+Title: Junção de Dois Vetores em um Terceiro
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia dois vetores com 15 elementos inteiros quaisquer e construa um terceiro vetor que será a junção dos dois primeiros vetores, ou seja, terá 30 elementos.
+
+Pseudocode:
+ENTRADA: vetor1, vetor2
+vetor3 = []
+PARA i DE 0 ATÉ 14 FAÇA
+    ADICIONAR vetor1[i] À vetor3
+    ADICIONAR vetor2[i] À vetor3
+EXIBIR "Vetor 1:", vetor1
+EXIBIR "Vetor 2:", vetor2
+EXIBIR "Vetor 3 (junção):", vetor3
+==================================================
+
+==================================================
+ID: Exercicio67 (Number: 67)
+Title: Junção de Dois Vetores de Nomes
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia dois vetores para armazenar nomes de pessoas, sendo o primeiro com 20 elementos e o segundo com 30 elementos. Em seguida, deve-se construir um terceiro vetor com a junção dos dois primeiros.
+
+Pseudocode:
+ENTRADA: vetorNomes1, vetorNomes2
+vetorNomes3 = []
+PARA i DE 0 ATÉ 19 FAÇA
+    ADICIONAR vetorNomes1[i] À vetorNomes3
+PARA i DE 0 ATÉ 29 FAÇA
+    ADIC
+==================================================
+
+==================================================
+ID: Exercicio68 (Number: 68)
+Title: Inversão de Elementos em um Vetor
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia 20 elementos do tipo real em um vetor e construa uma segunda matriz de mesma dimensão com os elementos da primeira matriz armazenados, porém de forma invertida.
+
+Pseudocode:
+ENTRADA: vetorOriginal
+vetorInvertido = []
+PARA i DE 19 ATÉ 0 FAÇA
+    ADICIONAR vetorOriginal[i] À vetorInvertido
+EXIBIR "Vetor original:", vetorOriginal
+EXIBIR "Vetor invertido:", vetorInvertido
+==================================================
+
+==================================================
+ID: Exercicio69 (Number: 69)
+Title: Junção de Três Vetores
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia três vetores com cinco elementos cada que sejam do tipo inteiro e construa um quarto vetor como resultado da junção das três primeiras.
+
+Pseudocode:
+ENTRADA: vetor1, vetor2, vetor3
+vetorResultado = []
+PARA i DE 0 ATÉ 4 FAÇA
+    ADICIONAR vetor1[i] À vetorResultado
+    ADICIONAR vetor2[i] À vetorResultado
+    ADICIONAR vetor3[i] À vetorResultado
+EXIBIR "Vetor 1:", vetor1
+EXIBIR "Vetor 2:", vetor2
+EXIBIR "Vetor 3:", vetor3
+EXIBIR "Vetor resultado (junção):", vetorResultado
+==================================================
+
+==================================================
+ID: Exercicio70 (Number: 70)
+Title: Somatório dos Valores até o Elemento Correspondente
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um vetor com vinte elementos inteiros e construa um segundo vetor de mesmo tipo e dimensão onde cada elemento da segunda matriz é o somatório de 1 até o valor do elemento correspondente armazenado na primeira matriz.
+
+Pseudocode:
+ENTRADA: vetorOriginal
+vetorSomatorio = []
+PARA i DE 0 ATÉ 19 FAÇA
+    somatorio = 0
+    PARA j DE 1 ATÉ vetorOriginal[i] FAÇA
+        somatorio = somatorio + j
+    ADICIONAR somatorio À vetorSomatorio
+EXIBIR "Vetor original:", vetorOriginal
+EXIBIR "Vetor com somatório:", vetorSomatorio
+==================================================
+
+==================================================
+ID: Exercicio71 (Number: 71)
+Title: Vetor com Valores Negativos
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz A do tipo vetor com dez elementos inteiros positivos e construa um segundo vetor em que cada elemento seja o valor negativo do elemento correspondente do primeiro vetor.
+
+Pseudocode:
+ENTRADA: vetorOriginal
+vetorNegativo = []
+PARA i DE 0 ATÉ 9 FAÇA
+    ADICIONAR -vetorOriginal[i] À vetorNegativo
+EXIBIR "Vetor original:", vetorOriginal
+EXIBIR "Vetor com valores negativos:", vetorNegativo
+==================================================
+
+==================================================
+ID: Exercicio72 (Number: 72)
+Title: Divisão por Dois dos Elementos de um Vetor
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um vetor com dez elementos inteiros e construa uma segunda matriz em que cada elemento seja a metade exata de cada um dos elementos existentes na primeira matriz.
+
+Pseudocode:
+ENTRADA: vetorOriginal
+vetorMetade = []
+PARA i DE 0 ATÉ 9 FAÇA
+    ADICIONAR vetorOriginal[i] / 2 À vetorMetade
+EXIBIR "Vetor original:", vetorOriginal
+EXIBIR "Vetor com metade dos valores:", vetorMetade
+==================================================
+
+==================================================
+ID: Exercicio73 (Number: 73)
+Title: Tabuada em um Vetor
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que calcule a tabuada de um valor qualquer de 1 até 10 e armazene os resultados em um vetor.
+
+Pseudocode:
+ENTRADA: valor
+tabuada = []
+PARA i DE 1 ATÉ 10 FAÇA
+    ADICIONAR valor * i À tabuada
+EXIBIR "Tabuada do", valor, ":", tabuada
+==================================================
+
+==================================================
+ID: Exercicio74 (Number: 74)
+Title: Análise de Temperaturas em Graus Celsius
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia 20 elementos (valores reais) para temperaturas em graus Celsius e armazene esses valores em um vetor. O programa ao final deve apresentar a menor, a maior e a média das temperaturas.
+
+Pseudocode:
+ENTRADA: vetorTemperaturas
+menorTemperatura = INFINITO
+maiorTemperatura = -INFINITO
+somaTemperaturas = 0
+PARA i DE 0 ATÉ 19 FAÇA
+    SE vetorTemperaturas[i] < menorTemperatura ENTÃO
+        menorTemperatura = vetorTemperaturas[i]
+    SE vetorTemperaturas[i] > maiorTemperatura ENTÃO
+        maiorTemperatura = vetorTemperaturas[i]
+    somaTemperaturas = somaTemperaturas + vetorTemperaturas[i]
+mediaTemperaturas = somaTemperaturas / 20
+EXIBIR "Menor temperatura:", menorTemperatura
+EXIBIR "Maior temperatura:", maiorTemperatura
+EXIBIR "Média das temperaturas:", mediaTemperaturas
+==================================================
+
+==================================================
+ID: Exercicio75 (Number: 75)
+Title: Conversão de Temperaturas de Celsius para Fahrenheit
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia 25 elementos (valores reais) para temperaturas em graus Celsius e armazene os valores em um vetor. Em seguida, o programa deve construir outro vetor onde seus elementos são as temperaturas do primeiro vetor convertido para Fahrenheit.
+
+Pseudocode:
+ENTRADA: vetorCelsius
+vetorFahrenheit = []
+PARA i DE 0 ATÉ 24 FAÇA
+    fahrenheit = (vetorCelsius[i] * 9/5) + 32
+    ADICIONAR fahrenheit À vetorFahrenheit
+EXIBIR "Vetor de temperaturas em Celsius:", vetorCelsius
+EXIBIR "Vetor de temperaturas em Fahrenheit:", vetorFahrenheit
+==================================================
+
+==================================================
+ID: Exercicio76 (Number: 76)
+Title: Manipulação de Elementos de um Vetor
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um vetor de 12 elementos inteiros. Em seguida, o programa deve construir uma segunda matriz com a seguinte lei de formação: todo elemento da primeira matriz que for ímpar deve ser multiplicado por 2; caso contrário, o elemento da matriz deve permanecer constante.
+
+Pseudocode:
+ENTRADA: vetorOriginal
+vetorResultante = []
+PARA i DE 0 ATÉ 11 FAÇA
+    SE vetorOriginal[i] % 2 != 0 ENTÃO
+        ADICIONAR vetorOriginal[i] * 2 À vetorResultante
+    SENÃO
+        ADICIONAR vetorOriginal[i] À vetorResultante
+EXIBIR "Vetor original:", vetorOriginal
+EXIBIR "Vetor resultante:", vetorResultante
+==================================================
+
+==================================================
+ID: Exercicio77 (Number: 77)
+Title: Manipulação de Elementos de um Vetor
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um vetor de 15 elementos reais. Em seguida, o programa deve construir uma segunda matriz com a seguinte lei de formação: todo elemento da primeira matriz que possuir índice par deve ter seus elementos divididos por 2, caso contrário, o elemento deve ser multiplicado por 1.5.
+
+Pseudocode:
+ENTRADA: vetorOriginal
+vetorResultante = []
+PARA i DE 0 ATÉ 14 FAÇA
+    SE i % 2 == 0 ENTÃO
+        ADICIONAR vetorOriginal[i] / 2 À vetorResultante
+    SENÃO
+        ADICIONAR vetorOriginal[i] * 1.5 À vetorResultante
+EXIBIR "Vetor original:", vetorOriginal
+EXIBIR "Vetor resultante:", vetorResultante
+==================================================
+
+==================================================
+ID: Exercicio78 (Number: 78)
+Title: Manipulação de Índices de Matrizes
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia seis elementos (valores inteiros) para duas matrizes. Em seguida, o programa deve construir outras duas matrizes onde uma é formada pelos elementos de índices pares dos dois primeiros vetores e a outra com os elementos dos índices ímpares.
+
+Pseudocode:
+ENTRADA: vetor1, vetor2
+pares = []
+impares = []
+PARA i DE 0 ATÉ 5 FAÇA
+    SE i % 2 == 0 ENTÃO
+        ADICIONAR vetor1[i] À pares
+        ADICIONAR vetor2[i] À pares
+    SENÃO
+        ADICIONAR vetor1[i] À impares
+        ADICIONAR vetor2[i] À impares
+EXIBIR "Vetor 1:", vetor1
+EXIBIR "Vetor 2:", vetor2
+EXIBIR "Vetor pares:", pares
+EXIBIR "Vetor ímpares:", impares
+==================================================
+
+==================================================
+ID: Exercicio79 (Number: 79)
+Title: Junção de Vetores com Validação de Entrada
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia dois vetores A e B com seis elementos cada. O vetor A deve aceitar apenas a entrada de valores pares, enquanto o vetor B deve aceitar apenas a entrada de valores ímpares. A entrada dos vetores deve ser validada pelo programa. Em seguida, o programa deve construir o vetor C que seja o resultado da junção dos vetores A e B.
+
+Pseudocode:
+ENTRADA: vetorA, vetorB
+vetorC = []
+PARA i DE 0 ATÉ 5 FAÇA
+    valor = LER "Digite um valor par para o vetor A: "
+    ENQUANTO valor for ímpar FAÇA
+        valor = LER "Valor inválido! Digite um valor par para o vetor A: "
+    ADICIONAR valor À vetorA
+    valor = LER "Digite um valor ímpar para o vetor B: "
+    ENQUANTO valor for par FAÇA
+        valor = LER "Valor inválido! Digite um valor ímpar para o vetor B: "
+    ADICIONAR valor À vetorB
+PARA i DE 0 ATÉ 5 FAÇA
+    ADICIONAR vetorA[i] À vetorC
+    ADICIONAR vetorB[i] À vetorC
+EXIBIR "Vetor A:", vetorA
+EXIBIR "Vetor B:", vetorB
+EXIBIR "Vetor C:", vetorC
+==================================================
+
+==================================================
+ID: Exercicio80 (Number: 80)
+Title: Junção de Vetores com Validação de Entrada
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia dois vetores com dez elementos cada. O primeiro vetor deve aceitar apenas a entrada de valores divisíveis por 2 e 3, enquanto o segundo deve aceitar apenas os múltiplos de 5. A entrada dos valores deve ser validada pelo programa. Em seguida, o programa deve construir um terceiro vetor que seja a junção dos outros dois.
+
+Pseudocode:
+ENTRADA: vetor1, vetor2
+vetor3 = []
+PARA i DE 0 ATÉ 9 FAÇA
+    valor = LER "Digite um valor divisível por 2 e 3 para o vetor 1: "
+    ENQUANTO valor % 2 != 0 OU valor % 3 != 0 FAÇA
+        valor = LER "Valor inválido! Digite um valor divisível por 2 e 3 para o vetor 1: "
+    ADICIONAR valor À vetor1
+    valor = LER "Digite um valor múltiplo de 5 para o vetor 2: "
+    ENQUANTO valor % 5 != 0 FAÇA
+        valor = LER "Valor inválido! Digite um valor múltiplo de 5 para o vetor 2: "
+    ADICIONAR valor À vetor2
+PARA i DE 0 ATÉ 9 FAÇA
+    ADICIONAR vetor1[i] À vetor3
+    ADICIONAR vetor2[i] À vetor3
+EXIBIR "Vetor 1:", vetor1
+EXIBIR "Vetor 2:", vetor2
+EXIBIR "Vetor 3:", vetor3
+==================================================
+
+==================================================
+ID: Exercicio81 (Number: 81)
+Title: Junção de Vetores com Validação de Entrada
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia dois vetores. O primeiro vetor deve aceitar apenas a entrada de valores divisíveis por 2 ou 3, enquanto o segundo vetor deve aceitar apenas a entrada de valores que não sejam múltiplos de 5. A entrada deve ser validada pelo programa. Em seguida, o programa deve construir um terceiro vetor que seja a junção dos outros dois.
+
+Pseudocode:
+ENTRADA: vetor1, vetor2
+vetor3 = []
+PARA i DE 0 ATÉ 9 FAÇA
+    valor = LER "Digite um valor divisível por 2 ou 3 para o vetor 1: "
+    ENQUANTO valor % 2 != 0 E valor % 3 != 0 FAÇA
+        valor = LER "Valor inválido! Digite um valor divisível por 2 ou 3 para o vetor 1: "
+    ADICIONAR valor À vetor1
+    valor = LER "Digite um valor que não seja múltiplo de 5 para o vetor 2: "
+    ENQUANTO valor % 5 == 0 FAÇA
+        valor = LER "Valor inválido! Digite um valor que não seja múltiplo de 5 para o vetor 2: "
+    ADICIONAR valor À vetor2
+PARA i DE 0 ATÉ 9 FAÇA
+    ADICIONAR vetor1[i] À vetor3
+    ADICIONAR vetor2[i] À vetor3
+EXIBIR "Vetor 1:", vetor1
+EXIBIR "Vetor 2:", vetor2
+EXIBIR "Vetor 3:", vetor3
+==================================================
+
+==================================================
+ID: Exercicio82 (Number: 82)
+Title: Contagem de Números Pares e Ímpares em um Vetor
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um vetor com 30 elementos do tipo inteiro. Ao final, o programa deve apresentar as quantidades de valores pares e ímpares existentes no vetor.
+
+Pseudocode:
+ENTRADA: vetor
+pares = 0
+ímpares = 0
+PARA i DE 0 ATÉ 29 FAÇA
+    valor = LER "Digite o elemento " + (i + 1) + " do vetor: "
+    SE valor % 2 == 0 ENTÃO
+        pares = pares + 1
+    SENÃO
+        ímpares = ímpares + 1
+EXIBIR "Quantidade de números pares:", pares
+EXIBIR "Quantidade de números ímpares:", ímpares
+==================================================
+
+==================================================
+ID: Exercicio83 (Number: 83)
+Title: Construção de um Vetor a partir do Quadrado da Soma de Outros Dois Vetores
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia dois vetores com valores inteiros com dez elementos cada. O programa deve construir um terceiro vetor formado pelo quadrado da soma dos elementos correspondentes nos dois primeiros vetores.
+
+Pseudocode:
+ENTRADA: vetor1, vetor2
+vetor_resultante = []
+PARA i DE 0 ATÉ 9 FAÇA
+    soma = vetor1[i] + vetor2[i]
+    quadrado = soma^2
+    ADICIONAR quadrado À vetor_resultante
+EXIBIR "Vetor resultante:", vetor_resultante
+==================================================
+
+==================================================
+ID: Exercicio84 (Number: 84)
+Title: Construção de uma Segunda Matriz a partir de um Vetor
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um vetor com seis elementos do tipo real. O programa deve construir uma segunda matriz em que cada posição de índice par no primeiro vetor deve ser atribuído às índices impares e os índices ímpares do primeiro vetor nos índices pares do segundo.
+
+Pseudocode:
+ENTRADA: vetor
+vetor_resultante = []
+PARA i DE 0 ATÉ 5 FAÇA
+    SE i % 2 == 0 ENTÃO
+        ADICIONAR vetor[i] À posição i+1 EM vetor_resultante
+    SENÃO
+        ADICIONAR vetor[i] À posição i-1 EM vetor_resultante
+EXIBIR "Vetor resultante:", vetor_resultante
+==================================================
+
+==================================================
+ID: Exercicio85 (Number: 85)
+Title: Contagem de Números Pares em uma Matriz
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz com 15 elementos números inteiros e apresente o total de elementos pares existentes nesse vetor.
+
+Pseudocode:
+ENTRADA: matriz
+pares = 0
+PARA i DE 0 ATÉ 14 FAÇA
+    SE matriz[i] % 2 == 0 ENTÃO
+        pares = pares + 1
+EXIBIR "Total de números pares:", pares
+==================================================
+
+==================================================
+ID: Exercicio86 (Number: 86)
+Title: Contagem e Porcentagem de Números Ímpares em um Vetor
+Chapter: Estrutura de Dados de Uma Dimensão (Vetores) (04_EstruturaDeDadosDeUmaDimensão)
+Description:
+Este exercício consiste em desenvolver um programa que leia um vetor com dez elementos inteiros. O programa deve apresentar o total de elementos ímpares no vetor e também a porcentagem de números ímpares em relação ao total de elementos armazenados no vetor.
+
+Pseudocode:
+ENTRADA: vetor
+ímpares = 0
+PARA i DE 0 ATÉ 9 FAÇA
+    SE vetor[i] % 2 != 0 ENTÃO
+        ímpares = ímpares + 1
+total_elementos = 10
+porcentagem = (ímpares / total_elementos) * 100
+EXIBIR "Total de números ímpares:", ímpares
+EXIBIR "Porcentagem de números ímpares:", porcentagem, "%"
+==================================================
+
+==================================================
+ID: Exercicio87 (Number: 87)
+Title: Soma de Matrizes
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia duas matrizes, cada uma com cinco linhas e três colunas para valores inteiros. O programa deve construir uma terceira matriz com as mesmas dimensões que seja formada pela soma dos elementos da primeira e segunda matriz.
+
+Pseudocode:
+ENTRADA: matriz1, matriz2
+matriz_resultante = matriz vazia de 5x3
+PARA i DE 0 ATÉ 4 FAÇA
+    PARA j DE 0 ATÉ 2 FAÇA
+        matriz_resultante[i][j] = matriz1[i][j] + matriz2[i][j]
+EXIBIR "Matriz Resultante:", matriz_resultante
+==================================================
+
+==================================================
+ID: Exercicio88 (Number: 88)
+Title: Junção de Matrizes
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia duas matrizes, cada uma com uma linha e sete colunas, para receber números inteiros. O programa deve construir uma terceira matriz cuja primeira coluna deve ser formada pelos elementos da primeira matriz e a segunda coluna pelos elementos da segunda matriz.
+
+Pseudocode:
+ENTRADA: matriz1, matriz2
+matriz_resultante = matriz vazia de 7x2
+PARA i DE 0 ATÉ 6 FAÇA
+    matriz_resultante[i][0] = matriz1[0][i]
+    matriz_resultante[i][1] = matriz2[0][i]
+EXIBIR "Matriz Resultante:", matriz_resultante
+==================================================
+
+==================================================
+ID: Exercicio89 (Number: 89)
+Title: Leitura e Apresentação de Matriz
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia 20 elementos para uma matriz com quatro linhas e cinco colunas. Em seguida, apresentar a matriz.
+
+Pseudocode:
+ENTRADA: matriz
+matriz = matriz vazia de 4x5
+PARA i DE 0 ATÉ 3 FAÇA
+    PARA j DE 0 ATÉ 4 FAÇA
+        LEIA matriz[i][j]
+EXIBIR "Matriz:"
+PARA i DE 0 ATÉ 3 FAÇA
+    PARA j DE 0 ATÉ 4 FAÇA
+        EXIBIR matriz[i][j]
+==================================================
+
+==================================================
+ID: Exercicio90 (Number: 90)
+Title: Manipulação de Matrizes
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz de uma dimensão com dez elementos. Construir uma segunda matriz com três colunas de dez linhas sendo a primeira coluna formada pelos elementos da primeira matriz somados com 5, a segunda formada pelo cálculo do fatorial de cada elemento correspondente na primeira matriz e a terceira coluna formada pelo quadrado dos elementos da primeira.
+
+Pseudocode:
+ENTRADA: matriz1
+matriz_resultante = matriz vazia de 10x3
+PARA i DE 0 ATÉ 9 FAÇA
+    matriz_resultante[i][0] = matriz1[i] + 5
+    matriz_resultante[i][1] = calcular_fatorial(matriz1[i])
+    matriz_resultante[i][2] = matriz1[i] * matriz1[i]
+EXIBIR "Matriz Resultante:", matriz_resultante
+==================================================
+
+==================================================
+ID: Exercicio91 (Number: 91)
+Title: Manipulação de Matrizes
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia duas matrizes com uma linha de doze colunas e construa uma terceira matriz.
+
+Pseudocode:
+matriz1 = lerMatriz(1, 12) // função para ler matriz com 1 linha e 12 colunas
+matriz2 = lerMatriz(2, 12) // função para ler matriz com 1 linha e 12 colunas
+matrizResultado = novaMatriz(12, 2) // função para criar nova matriz com 12 linhas e 2 colunas
+
+PARA cada elemento i da matriz1 FAÇA
+    matrizResultado[i][0] = matriz1[i] * 2
+
+PARA cada elemento i da matriz2 FAÇA
+    matrizResultado[i][1] = matriz2[i] - 5
+
+EXIBIR "Matriz 1:"
+EXIBIR matriz1
+
+EXIBIR "Matriz 2:"
+EXIBIR matriz2
+
+EXIBIR "Matriz Resultante:"
+EXIBIR matrizResultado
+==================================================
+
+==================================================
+ID: Exercicio92 (Number: 92)
+Title: Fatorial de Elementos de uma Matriz
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz com cinco linhas e quatro colunas e construa uma segunda matriz com o fatorial de cada elemento da primeira matriz.
+
+Pseudocode:
+matrizOriginal = lerMatriz(5, 4) // função para ler matriz com 5 linhas e 4 colunas
+matrizFatorial = novaMatriz(5, 4) // função para criar nova matriz com 5 linhas e 4 colunas
+
+PARA cada linha i da matrizOriginal FAÇA
+    PARA cada coluna j da matrizOriginal FAÇA
+        matrizFatorial[i][j] = calcularFatorial(matrizOriginal[i][j])
+
+EXIBIR "Matriz Original:"
+EXIBIR matrizOriginal
+
+EXIBIR "Matriz Fatorial:"
+EXIBIR matrizFatorial
+==================================================
+
+==================================================
+ID: Exercicio93 (Number: 93)
+Title: Conversão de Temperaturas
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz com quatro linhas e cinco colunas, contendo temperaturas em Celsius, e então crie uma segunda matriz com os valores de cada elemento da primeira matriz convertidos em Fahrenheit.
+
+Pseudocode:
+matrizCelsius = lerMatriz(4, 5) // função para ler matriz com 4 linhas e 5 colunas
+matrizFahrenheit = novaMatriz(4, 5) // função para criar nova matriz com 4 linhas e 5 colunas
+
+PARA cada linha i da matrizCelsius FAÇA
+    PARA cada coluna j da matrizCelsius FAÇA
+        matrizFahrenheit[i][j] = converterParaFahrenheit(matrizCelsius[i][j])
+
+EXIBIR "Matriz Celsius:"
+EXIBIR matrizCelsius
+
+EXIBIR "Matriz Fahrenheit:"
+EXIBIR matrizFahrenheit
+==================================================
+
+==================================================
+ID: Exercicio94 (Number: 94)
+Title: Matriz com Dobro dos Elementos, Exceto Diagonal Principal
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz A do tipo inteiro com cinco linhas e cinco colunas e construa uma segunda matriz B em que cada elemento seja o dobro de cada elemento da primeira matriz, com exceção dos valores situados na diagonal principal.
+
+Pseudocode:
+matrizA = lerMatriz(5, 5) // função para ler matriz com 5 linhas e 5 colunas
+matrizB = novaMatriz(5, 5) // função para criar nova matriz com 5 linhas e 5 colunas
+
+PARA cada linha i da matrizA FAÇA
+    PARA cada coluna j da matrizA FAÇA
+        SE i != j ENTAO
+            matrizB[i][j] = matrizA[i][j] * 2
+        SENAO
+            matrizB[i][j] = matrizA[i][j]
+
+EXIBIR "Matriz A:"
+EXIBIR matrizA
+
+EXIBIR "Matriz B:"
+EXIBIR matrizB
+==================================================
+
+==================================================
+ID: Exercicio95 (Number: 95)
+Title: Matriz com Somatório e Valores Específicos
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteiro com sete linhas e sete colunas e construa uma segunda matriz com base em regras específicas.
+
+Pseudocode:
+matrizOriginal = lerMatriz(7, 7) // função para ler matriz com 7 linhas e 7 colunas
+matrizFinal = novaMatriz(7, 7) // função para criar nova matriz com 7 linhas e 7 colunas
+
+PARA cada linha i da matrizOriginal FAÇA
+    PARA cada coluna j da matrizOriginal FAÇA
+        SE i ≠ j OU i % 2 = 0 ENTÃO
+            matrizFinal[i][j] = somatorioAte(matrizOriginal[i][j])
+        SENÃO
+            matrizFinal[i][j] = 3 * matrizOriginal[i][j]
+
+EXIBIR "Matriz Original:"
+EXIBIR matrizOriginal
+
+EXIBIR "Matriz Final:"
+EXIBIR matrizFinal
+==================================================
+
+==================================================
+ID: Exercicio96 (Number: 96)
+Title: Manipulação de Matrizes
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz com seis linhas e cinco colunas e construa uma segunda matriz com base em regras específicas.
+
+Pseudocode:
+matrizOriginal = lerMatriz(6, 5) // função para ler matriz com 6 linhas e 5 colunas
+matrizModificada = novaMatriz(6, 5) // função para criar nova matriz com 6 linhas e 5 colunas
+
+PARA cada linha i da matrizOriginal FAÇA
+    PARA cada coluna j da matrizOriginal FAÇA
+        SE matrizOriginal[i][j] % 2 = 0 ENTÃO
+            matrizModificada[i][j] = matrizOriginal[i][j] + 5
+        SENÃO
+            matrizModificada[i][j] = matrizOriginal[i][j] - 4
+
+EXIBIR "Matriz Original:"
+EXIBIR matrizOriginal
+
+EXIBIR "Matriz Modificada:"
+EXIBIR matrizModificada
+==================================================
+
+==================================================
+ID: Exercicio97 (Number: 97)
+Title: Somatório dos Elementos da Diagonal Principal
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo real de cinco linhas e cinco colunas e apresente o somatório dos elementos situados na diagonal principal.
+
+Pseudocode:
+matriz = lerMatriz(5, 5) // função para ler matriz com 5 linhas e 5 colunas
+somatorio = 0
+
+PARA cada linha i da matriz FAÇA
+    PARA cada coluna j da matriz FAÇA
+        SE i = j ENTÃO
+            somatorio = somatorio + matriz[i][j]
+
+EXIBIR "Somatório da Diagonal Principal:", somatorio
+==================================================
+
+==================================================
+ID: Exercicio98 (Number: 98)
+Title: Somatório dos Elementos de uma Matriz
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteiro com cinco linhas e cinco colunas e apresente o somatório de todos os elementos da matriz.
+
+Pseudocode:
+matriz = lerMatriz(5, 5) // função para ler matriz com 5 linhas e 5 colunas
+somatorio = 0
+
+PARA cada linha i da matriz FAÇA
+    PARA cada coluna j da matriz FAÇA
+        somatorio = somatorio + matriz[i][j]
+
+EXIBIR "Somatório dos Elementos da Matriz:", somatorio
+==================================================
+
+==================================================
+ID: Exercicio99 (Number: 99)
+Title: Somatório de Elementos em Posições Ímpares
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo real com cinco linhas e cinco colunas e apresente o somatório dos elementos situados nas posições de linha e coluna ímpares.
+
+Pseudocode:
+matriz = lerMatriz(5, 5) // função para ler matriz com 5 linhas e 5 colunas
+somatorio = 0
+
+PARA cada linha i da matriz FAÇA
+    PARA cada coluna j da matriz FAÇA
+        SE i % 2 = 0 E j % 2 = 0 ENTÃO
+            somatorio = somatorio + matriz[i][j]
+
+EXIBIR "Somatório dos Elementos em Posições Ímpares:", somatorio
+==================================================
+
+==================================================
+ID: Exercicio100 (Number: 100)
+Title: Contagem de Números Pares
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteiro com sete linhas e sete colunas e apresente o total de elementos pares existentes na matriz.
+
+Pseudocode:
+matriz = lerMatriz(7, 7) // função para ler matriz com 7 linhas e 7 colunas
+totalPares = 0
+
+PARA cada linha i da matriz FAÇA
+    PARA cada coluna j da matriz FAÇA
+        SE matriz[i][j] % 2 = 0 ENTÃO
+            totalPares = totalPares + 1
+
+EXIBIR "Total de números pares:", totalPares
+==================================================
+
+==================================================
+ID: Exercicio101 (Number: 101)
+Title: Soma de Linhas em Matriz e Somatório Total
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo real com oito linhas e seis colunas. Construir uma segunda matriz que seja formada pela soma de cada linha da primeira matriz. Ao final, apresentar o somatório dos elementos da primeira e segunda matriz.
+
+Pseudocode:
+matriz = lerMatriz(8, 6) // função para ler matriz com 8 linhas e 6 colunas
+segundaMatriz = novaMatriz(8, 1) // função para criar nova matriz com 8 linhas e 1 coluna
+somatorioTotal = 0
+
+PARA cada linha i da matriz FAÇA
+    somaLinha = 0
+    PARA cada coluna j da matriz FAÇA
+        somaLinha = somaLinha + matriz[i][j]
+        somatorioTotal = somatorioTotal + matriz[i][j]
+    segundaMatriz[i][0] = somaLinha
+
+EXIBIR "Somatório dos elementos da primeira matriz:", somatorioTotal
+EXIBIR "Somatório dos elementos da segunda matriz:", somatorioTotal
+==================================================
+
+==================================================
+ID: Exercicio102 (Number: 102)
+Title: Contagem de Números Pares e Ímpares em Matriz
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz de dez linhas e sete colunas. Ao final, apresentar o total de elementos pares e ímpares existentes na matriz. Apresentar também o percentual de elementos pares e ímpares em relação ao total de elementos da matriz.
+
+Pseudocode:
+matriz = lerMatriz(10, 7) // função para ler matriz com 10 linhas e 7 colunas
+totalPares = 0
+totalImpares = 0
+
+PARA cada linha i da matriz FAÇA
+    PARA cada coluna j da matriz FAÇA
+        SE matriz[i][j] % 2 = 0 ENTÃO
+            totalPares = totalPares + 1
+        SENÃO
+            totalImpares = totalImpares + 1
+
+totalElementos = 10 * 7
+percentualPares = (totalPares / totalElementos) * 100
+percentualImpares = (totalImpares / totalElementos) * 100
+
+EXIBIR "Total de elementos pares:", totalPares
+EXIBIR "Total de elementos ímpares:", totalImpares
+EXIBIR "Percentual de elementos pares:", percentualPares, "%"
+EXIBIR "Percentual de elementos ímpares:", percentualImpares, "%"
+==================================================
+
+==================================================
+ID: Exercicio103 (Number: 103)
+Title: Soma de Linhas e Colunas em Matriz
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que faça a leitura de 20 valores inteiros em uma matriz com quatro linhas e cinco colunas. Construir uma segunda matriz com quatro elementos que seja formada pelo somatório dos elementos correspondentes de cada linha da primeira matriz. Construir também uma terceira matriz com cinco elementos que seja formada pelo somatório de cada elemento das colunas da primeira matriz.
+
+Pseudocode:
+matriz = lerMatriz(4, 5) // função para ler matriz com 4 linhas e 5 colunas
+segundaMatriz = novaMatriz(1, 4) // função para criar nova matriz com 1 linha e 4 colunas
+terceiraMatriz = novaMatriz(1, 5) // função para criar nova matriz com 1 linha e 5 colunas
+
+PARA cada linha i da matriz FAÇA
+    somaLinha = 0
+    PARA cada coluna j da matriz FAÇA
+        somaLinha = somaLinha + matriz[i][j]
+        terceiraMatriz[0][j] = terceiraMatriz[0][j] + matriz[i][j]
+    segundaMatriz[0][i] = somaLinha
+
+EXIBIR "Segunda Matriz:", segundaMatriz
+EXIBIR "Terceira Matriz:", terceiraMatriz
+==================================================
+
+==================================================
+ID: Exercicio104 (Number: 104)
+Title: Operações com Matrizes
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia quatro matrizes de uma linha e quatro colunas. Construir uma quinta matriz com quatro linhas e quatro colunas, sendo a primeira linha formada pelo dobro dos valores dos elementos da primeira matriz, a segunda linha formada pelo triplo dos valores dos elementos da segunda matriz, e a terceira linha formada pelo quádruplo dos valores dos elementos da terceira matriz.
+
+Pseudocode:
+matriz1 = lerMatriz(1, 4) // função para ler matriz com 1 linha e 4 colunas
+matriz2 = lerMatriz(1, 4) // função para ler matriz com 1 linha e 4 colunas
+matriz3 = lerMatriz(1, 4) // função para ler matriz com 1 linha e 4 colunas
+matriz4 = lerMatriz(1, 4) // função para ler matriz com 1 linha e 4 colunas
+
+quintaMatriz = novaMatriz(4, 4) // função para criar nova matriz com 4 linhas e 4 colunas
+
+PARA cada coluna i da matriz FAÇA
+    quintaMatriz[0][i] = matriz1[0][i] * 2
+    quintaMatriz[1][i] = matriz2[0][i] * 3
+    quintaMatriz[2][i] = matriz3[0][i] * 4
+    quintaMatriz[3][i] = matriz4[0][i] * 4
+
+EXIBIR "Quinta Matriz:", quintaMatriz
+==================================================
+
+==================================================
+ID: Exercicio105 (Number: 105)
+Title: Soma de Matrizes com Condições
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia duas matrizes com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 e 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão, que seja formada pela soma dos elementos da primeira matriz com os elementos da segunda. Apresentar as matrizes.
+
+Pseudocode:
+GerarMatrizDivisivelPor3e4(matriz1, 4, 5) // função para gerar matriz com valores divisíveis por 3 e 4
+GerarMatrizDivisivelPor5e6(matriz2, 4, 5) // função para gerar matriz com valores divisíveis por 5 e 6
+
+terceiraMatriz = novaMatriz(4, 5) // função para criar nova matriz com 4 linhas e 5 colunas
+
+PARA cada linha i da matriz FAÇA
+    PARA cada coluna j da matriz FAÇA
+        terceiraMatriz[i][j] = matriz1[i][j] + matriz2[i][j]
+
+EXIBIR "Terceira Matriz:", terceiraMatriz
+==================================================
+
+==================================================
+ID: Exercicio106 (Number: 106)
+Title: Subtração de Matrizes com Condições
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia duas matrizes com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 e 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz da mesma dimensão que contenha a subtração dos elementos da primeira matriz pelos elementos da segunda.
+
+Pseudocode:
+matriz1 = lerMatriz(4, 5) // função para ler matriz com 4 linhas e 5 colunas
+matriz2 = lerMatriz(4, 5) // função para ler matriz com 4 linhas e 5 colunas
+
+terceiraMatriz = novaMatriz(4, 5) // função para criar nova matriz com 4 linhas e 5 colunas
+
+PARA cada linha i da matriz FAÇA
+    PARA cada coluna j da matriz FAÇA
+        terceiraMatriz[i][j] = matriz1[i][j] - matriz2[i][j]
+
+EXIBIR "Terceira Matriz:", terceiraMatriz
+==================================================
+
+==================================================
+ID: Exercicio107 (Number: 107)
+Title: Multiplicação de Matrizes com Condições
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia duas matrizes de duas dimensões com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 ou 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão que contenha o valor da multiplicação dos elementos da primeira matriz com os elementos da segunda matriz.
+
+Pseudocode:
+matriz1 = lerMatriz(4, 5) // função para ler matriz com 4 linhas e 5 colunas
+matriz2 = lerMatriz(4, 5) // função para ler matriz com 4 linhas e 5 colunas
+
+terceiraMatriz = novaMatriz(4, 5) // função para criar nova matriz com 4 linhas e 5 colunas
+
+PARA cada linha i da matriz FAÇA
+    PARA cada coluna j da matriz FAÇA
+        terceiraMatriz[i][j] = matriz1[i][j] * matriz2[i][j]
+
+EXIBIR "Terceira Matriz:", terceiraMatriz
+==================================================
+
+==================================================
+ID: Exercicio108 (Number: 108)
+Title: Soma de Matrizes com Condições
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que faça a leitura de duas matrizes com cinco linhas e cinco colunas. A primeira matriz deve ser formada por valores que não sejam divisíveis por 3, enquanto a segunda matriz deve ser formada por valores que não sejam divisíveis por 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão que contenha a soma dos elementos da primeira e da segunda matriz.
+
+Pseudocode:
+matriz1 = lerMatriz(5, 5) // função para ler matriz com 5 linhas e 5 colunas
+matriz2 = lerMatriz(5, 5) // função para ler matriz com 5 linhas e 5 colunas
+
+terceiraMatriz = novaMatriz(5, 5) // função para criar nova matriz com 5 linhas e 5 colunas
+
+PARA cada linha i da matriz FAÇA
+    PARA cada coluna j da matriz FAÇA
+        terceiraMatriz[i][j] = matriz1[i][j] + matriz2[i][j]
+
+EXIBIR "Terceira Matriz:", terceiraMatriz
+==================================================
+
+==================================================
+ID: Exercicio109 (Number: 109)
+Title: Construção de Matriz com Condições Específicas
+Chapter: Estrutura de Dados de Duas Dimensões (Matrizes) (05_EstruturaDeDadosDeDuasDimensões)
+Description:
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteira de duas dimensões com cinco linhas e cinco colunas. Construir uma segunda matriz de mesma dimensão, em que cada elemento seja o dobro de cada elemento correspondente da primeira matriz, com exceção dos valores situados na diagonal inversa (posições [1,5], [2,4], [3,3], [4,2] e [5,1]), os quais devem ser o triplo de cada elemento correspondente da primeira matriz. Apresentar as três matrizes.
+
+Pseudocode:
+matriz1 = lerMatriz(5, 5) // função para ler matriz com 5 linhas e 5 colunas
+
+segundaMatriz = novaMatriz(5, 5) // função para criar nova matriz com 5 linhas e 5 colunas
+
+PARA cada linha i da matriz FAÇA
+    PARA cada coluna j da matriz FAÇA
+        SE i + j = 6 OU i = j ENTAO
+            segundaMatriz[i][j] = matriz1[i][j] * 3
+        SENAO
+            segundaMatriz[i][j] = matriz1[i][j] * 2
+
+EXIBIR "Segunda Matriz:", segundaMatriz
+==================================================
+
+==================================================
+ID: Exercicio110 (Number: 110)
+Title: Agenda de Contatos
+Chapter: Estruturas Heterogêneas (Registros) (06_EstruturasHeterogêneas)
+Description:
+Este exercício consiste em desenvolver um programa que gerencie os registros de 10 pessoas na forma de uma agenda de contatos, contendo os campos nome, endereço e telefone. O programa deve, por meio de um menu de opções, executar as seguintes etapas:
+
+Pseudocode:
+tipo_cadastro = estrutura {nome: literal, endereco: literal, telefone: literal}
+agenda[10] = vetor de tipo_cadastro
+opcao = inteiro
+
+REPITA
+    ESCREVER "--- MENU AGENDA ---"
+    ESCREVER "1. Cadastrar Contatos"
+    ESCREVER "2. Pesquisar por Nome"
+    ESCREVER "3. Ordenar por Nome"
+    ESCREVER "4. Exibir Todos os Contatos"
+    ESCREVER "5. Sair"
+    ESCREVER "Escolha uma opção: "
+    LER opcao
+
+    SE opcao == 1 ENTÃO
+        PARA i DE 0 ATÉ 9 FAÇA
+            ESCREVER "Cadastro do registro ", i + 1
+            ESCREVER "Nome: "
+            LER agenda[i].nome
+            ESCREVER "Endereço: "
+            LER agenda[i].endereco
+            ESCREVER "Telefone: "
+            LER agenda[i].telefone
+        FIM PARA
+    SENÃO SE opcao == 2 ENTÃO
+        ESCREVER "Digite o nome para pesquisar: "
+        LER nome_pesquisa
+        achado = falso
+        PARA i DE 0 ATÉ 9 FAÇA
+            SE agenda[i].nome == nome_pesquisa ENTÃO
+                ESCREVER "Nome: ", agenda[i].nome
+                ESCREVER "Endereço: ", agenda[i].endereco
+                ESCREVER "Telefone: ", agenda[i].telefone
+                achado = verdadeiro
+            FIM SE
+        FIM PARA
+        SE achado == falso ENTÃO
+            ESCREVER "Contato não encontrado."
+        FIM SE
+    SENÃO SE opcao == 3 ENTÃO
+        PARA i DE 0 ATÉ 8 FAÇA
+            PARA j DE i + 1 ATÉ 9 FAÇA
+                SE agenda[i].nome > agenda[j].nome ENTÃO
+                    aux = agenda[i]
+                    agenda[i] = agenda[j]
+                    agenda[j] = aux
+                FIM SE
+            FIM PARA
+        FIM PARA
+        ESCREVER "Agenda classificada com sucesso!"
+    SENÃO SE opcao == 4 ENTÃO
+        PARA i DE 0 ATÉ 9 FAÇA
+            ESCREVER "Registro ", i + 1, ":"
+            ESCREVER "Nome: ", agenda[i].nome
+            ESCREVER "Endereço: ", agenda[i].endereco
+            ESCREVER "Telefone: ", agenda[i].telefone
+        FIM PARA
+    FIM SE
+ATÉ opcao == 5
+==================================================
+
+==================================================
+ID: Exercicio111 (Number: 111)
+Title: Sistema de Notas Escolares
+Chapter: Estruturas Heterogêneas (Registros) (06_EstruturasHeterogêneas)
+Description:
+Elaborar um programa escolar que armazene o nome e as notas bimestrais de 20 alunos de um determinado curso. O programa deverá realizar as seguintes operações.
+
+Pseudocode:
+aluno = estrutura {nome, notas[4], media, situacao}
+alunos[20] = vetor de alunos
+
+PROCEDIMENTO cadastrar_alunos(alunos)
+    PARA i DE 0 ATÉ 19 FAÇA
+        ESCREVER "Cadastro do aluno", i + 1
+        ESCREVER "Nome do aluno:"
+        LER alunos[i].nome
+        ESCREVER "Notas do aluno (4 notas separadas por espaço):"
+        PARA j DE 0 ATÉ 3 FAÇA
+            LER alunos[i].notas[j]
+        FIM PARA
+        alunos[i].media = calcular_media(alunos[i].notas)
+        alunos[i].situacao = determinar_situacao(alunos[i].media)
+    FIM PARA
+    ordenar_por_nome(alunos)
+FIM PROCEDIMENTO
+
+PROCEDIMENTO pesquisar_aluno(alunos)
+    ESCREVER "Digite o nome do aluno a ser pesquisado:"
+    LER nome_pesquisa
+    PARA i DE 0 ATÉ 19 FAÇA
+        SE alunos[i].nome == nome_pesquisa ENTÃO
+            ESCREVER "Nome:", alunos[i].nome
+            ESCREVER "Notas:", alunos[i].notas
+            ESCREVER "Média:", alunos[i].media
+            ESCREVER "Situação:", alunos[i].situacao
+            RETORNAR
+        FIM SE
+    FIM PARA
+    ESCREVER "Aluno não encontrado."
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_todos_alunos(alunos)
+    PARA i DE 0 ATÉ 19 FAÇA
+        ESCREVER "Registro", i + 1, ":"
+        ESCREVER "Nome:", alunos[i].nome
+        ESCREVER "Notas:", alunos[i].notas
+        ESCREVER "Média:", alunos[i].media
+        ESCREVER "Situação:", alunos[i].situacao
+    FIM PARA
+FIM PROCEDIMENTO
+
+FUNÇÃO calcular_media(notas)
+    soma = 0
+    PARA i DE 0 ATÉ 3 FAÇA
+        soma = soma + notas[i]
+    FIM PARA
+    RETORNAR soma / 4
+FIM FUNÇÃO
+
+FUNÇÃO determinar_situacao(media)
+    SE media >= 5 ENTÃO
+        RETORNAR "Aprovado"
+    SENÃO
+        RETORNAR "Reprovado"
+    FIM SE
+FIM FUNÇÃO
+
+PROCEDIMENTO ordenar_por_nome(alunos)
+    PARA i DE 0 ATÉ 18 FAÇA
+        PARA j DE i + 1 ATÉ 19 FAÇA
+            SE alunos[i].nome > alunos[j].nome ENTÃO
+                temp = alunos[i]
+                alunos[i] = alunos[j]
+                alunos[j] = temp
+            FIM SE
+        FIM PARA
+    FIM PARA
+FIM PROCEDIMENTO
+==================================================
+
+==================================================
+ID: Exercicio112 (Number: 112)
+Title: Cadastro de Pessoas e Alturas
+Chapter: Estruturas Heterogêneas (Registros) (06_EstruturasHeterogêneas)
+Description:
+Elaborar um programa que armazene o nome e a altura de 15 pessoas com o uso de registros. O programa deve usar um menu que execute as seguintes etapas:
+
+Pseudocode:
+pessoa = estrutura {nome, altura}
+pessoas[15] = vetor de pessoas
+
+PROCEDIMENTO cadastrar_pessoas(pessoas)
+    PARA i DE 0 ATÉ 14 FAÇA
+        ESCREVER "Cadastro da pessoa", i + 1
+        ESCREVER "Nome da pessoa:"
+        LER pessoas[i].nome
+        ESCREVER "Altura da pessoa (em metros):"
+        LER pessoas[i].altura
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_pessoas_ate_1_5(pessoas)
+    ESCREVER "Pessoas com 1.5 m ou menos:"
+    PARA i DE 0 ATÉ 14 FAÇA
+        SE pessoas[i].altura <= 1.5 ENTÃO
+            ESCREVER "-", pessoas[i].nome, ":", pessoas[i].altura, "m"
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_pessoas_mais_1_5(pessoas)
+    ESCREVER "Pessoas com mais de 1.5 m:"
+    PARA i DE 0 ATÉ 14 FAÇA
+        SE pessoas[i].altura > 1.5 ENTÃO
+            ESCREVER "-", pessoas[i].nome, ":", pessoas[i].altura, "m"
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_pessoas_entre_1_5_2_9(pessoas)
+    ESCREVER "Pessoas com mais de 1.5 m e menos de 2.9 m:"
+    PARA i DE 0 ATÉ 14 FAÇA
+        SE pessoas[i].altura > 1.5 E pessoas[i].altura < 2.9 ENTÃO
+            ESCREVER "-", pessoas[i].nome, ":", pessoas[i].altura, "m"
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO calcular_media_alturas(pessoas)
+    soma_alturas = 0
+    PARA i DE 0 ATÉ 14 FAÇA
+        soma_alturas = soma_alturas + pessoas[i].altura
+    FIM PARA
+    media_alturas = soma_alturas / 15
+    ESCREVER "Média de altura das pessoas:", media_alturas, "m"
+FIM PROCEDIMENTO
+==================================================
+
+==================================================
+ID: Exercicio113 (Number: 113)
+Title: Gerenciamento de Funcionários
+Chapter: Estruturas Heterogêneas (Registros) (06_EstruturasHeterogêneas)
+Description:
+Elaborar um programa que gerencie os registros de 20 funcionários, contendo os campos matrícula, nome e salário. O programa deve, por meio de um menu, executar as seguintes etapas.
+
+Pseudocode:
+funcionario = estrutura {matricula, nome, salario}
+funcionarios[20] = vetor de funcionarios
+
+PROCEDIMENTO cadastrar_funcionarios(funcionarios)
+    PARA i DE 0 ATÉ 19 FAÇA
+        ESCREVER "Cadastro do funcionário", i + 1
+        ESCREVER "Matrícula do funcionário:"
+        LER funcionarios[i].matricula
+        ESCREVER "Nome do funcionário:"
+        LER funcionarios[i].nome
+        ESCREVER "Salário do funcionário:"
+        LER funcionarios[i].salario
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO classificar_por_matricula(funcionarios)
+    ALGORITMO DE ORDENAÇÃO (por exemplo, Bubble Sort) para ordenar funcionarios por matricula
+FIM PROCEDIMENTO
+
+FUNÇÃO pesquisar_por_matricula(funcionarios, matricula)
+    ALGORITMO DE BUSCA BINÁRIA para encontrar funcionario com matricula especificada
+    RETORNAR funcionario encontrado ou mensagem de erro se não encontrado
+FIM FUNÇÃO
+
+PROCEDIMENTO apresentar_salarios_acima_1000(funcionarios)
+    PARA CADA funcionario EM funcionarios FAÇA
+        SE funcionario.salario > 1000 ENTÃO
+            ESCREVER funcionario.nome, ":", funcionario.salario
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_salarios_igual_1000(funcionarios)
+    PARA CADA funcionario EM funcionarios FAÇA
+        SE funcionario.salario == 1000 ENTÃO
+            ESCREVER funcionario.nome, ":", funcionario.salario
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_salarios_abaixo_1000(funcionarios)
+    PARA CADA funcionario EM funcionarios FAÇA
+        SE funcionario.salario < 1000 ENTÃO
+            ESCREVER funcionario.nome, ":", funcionario.salario
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+==================================================
+
+==================================================
+ID: Exercicio114 (Number: 114)
+Title: Agenda de Contatos
+Chapter: Estrutura de Subprogramas (Funções e Procedimentos) (07_EstruturaDeSubprogramas)
+Description:
+Desenvolva um programa de agenda que contenha nomes, endereços e telefones de dez pessoas capaz de executar as seguintes ações.
+
+Pseudocode:
+pessoa = estrutura {nome, endereco, telefone}
+agenda[10] = vetor de pessoas
+
+PROCEDIMENTO cadastrar_registros(agenda)
+    PARA i DE 0 ATÉ 9 FAÇA
+        ESCREVER "Cadastro do Registro", i + 1
+        ESCREVER "Nome:"
+        LER agenda[i].nome
+        ESCREVER "Endereço:"
+        LER agenda[i].endereco
+        ESCREVER "Telefone:"
+        LER agenda[i].telefone
+    FIM PARA
+FIM PROCEDIMENTO
+
+FUNÇÃO pesquisar_registro_por_nome(agenda, nome)
+    PARA i DE 0 ATÉ 9 FAÇA
+        SE agenda[i].nome == nome ENTÃO
+            RETORNAR agenda[i]
+        FIM SE
+    FIM PARA
+    RETORNAR "Registro não encontrado"
+FIM FUNÇÃO
+
+PROCEDIMENTO classificar_registros_por_nome(agenda)
+    ALGORITMO DE ORDENAÇÃO (por exemplo, Bubble Sort) para ordenar agenda por nome
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_todos_os_registros(agenda)
+    PARA i DE 0 ATÉ 9 FAÇA
+        ESCREVER "Registro", i + 1, ":"
+        ESCREVER "Nome:", agenda[i].nome
+        ESCREVER "Endereço:", agenda[i].endereco
+        ESCREVER "Telefone:", agenda[i].telefone
+    FIM PARA
+FIM PROCEDIMENTO
+==================================================
+
+==================================================
+ID: Exercicio115 (Number: 115)
+Title: Gerenciamento de Notas de Alunos
+Chapter: Estrutura de Subprogramas (Funções e Procedimentos) (07_EstruturaDeSubprogramas)
+Description:
+Crie um programa de computador que armazene o nome e as notas bimestrais de 20 alunos do curso de Técnicas de Programação que execute as seguintes etapas:
+
+Pseudocode:
+aluno = estrutura {nome, notas[4], media, situacao}
+alunos[20] = vetor de aluno
+
+PROCEDIMENTO cadastrar_registros(alunos)
+    PARA i DE 0 ATÉ 19 FAÇA
+        ESCREVER "Cadastro do Aluno", i + 1
+        ESCREVER "Nome do Aluno:"
+        LER alunos[i].nome
+        PARA j DE 0 ATÉ 3 FAÇA
+            ESCREVER "Nota do Bimestre", j + 1, ":"
+            LER alunos[i].notas[j]
+        FIM PARA
+        alunos[i].media = calcular_media(alunos[i].notas)
+        alunos[i].situacao = determinar_situacao(alunos[i].media)
+    FIM PARA
+    classificar_por_nome(alunos)
+FIM PROCEDIMENTO
+
+FUNÇÃO calcular_media(notas)
+    soma = 0
+    PARA i DE 0 ATÉ 3 FAÇA
+        soma = soma + notas[i]
+    FIM PARA
+    RETORNAR soma / 4
+FIM FUNÇÃO
+
+FUNÇÃO determinar_situacao(media)
+    SE media >= 5 ENTÃO
+        RETORNAR "Aprovado"
+    SENÃO
+        RETORNAR "Reprovado"
+    FIM SE
+FIM FUNÇÃO
+
+PROCEDIMENTO pesquisar_registro_por_nome(alunos, nome)
+    ALGORITMO DE BUSCA BINÁRIA para encontrar aluno com nome especificado
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_todos_os_registros(alunos)
+    PARA i DE 0 ATÉ 19 FAÇA
+        ESCREVER "Registro do Aluno", i + 1, ":"
+        ESCREVER "Nome:", alunos[i].nome
+        ESCREVER "Notas:", alunos[i].notas
+        ESCREVER "Média:", alunos[i].media
+        ESCREVER "Situação:", alunos[i].situacao
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_registros_aprovados(alunos)
+    PARA CADA aluno EM alunos FAÇA
+        SE aluno.situacao == "Aprovado" ENTÃO
+            ESCREVER "Registro do Aluno:", aluno.nome
+            ESCREVER "Média:", aluno.media
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_registros_reprovados(alunos)
+    PARA CADA aluno EM alunos FAÇA
+        SE aluno.situacao == "Reprovado" ENTÃO
+            ESCREVER "Registro do Aluno:", aluno.nome
+            ESCREVER "Média:", aluno.media
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+==================================================
+
+==================================================
+ID: Exercicio116 (Number: 116)
+Title: Cadastro de Pessoas e Alturas
+Chapter: Estrutura de Subprogramas (Funções e Procedimentos) (07_EstruturaDeSubprogramas)
+Description:
+Elaborar um programa que armazene o nome e a altura de 15 pessoas com o uso de registros. O programa deve utilizar subprogramas tanto na apresentação do menu como de suas rotinas para a execução das seguintes etapas:
+
+Pseudocode:
+pessoa = estrutura {nome, altura}
+pessoas[15] = vetor de pessoa
+
+PROCEDIMENTO cadastrar_registros(pessoas)
+    PARA i DE 0 ATÉ 14 FAÇA
+        ESCREVER "Cadastro da Pessoa", i + 1
+        ESCREVER "Nome da Pessoa:"
+        LER pessoas[i].nome
+        ESCREVER "Altura da Pessoa (em metros):"
+        LER pessoas[i].altura
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_pessoas_menores_ou_iguais_a_1_5(pessoas)
+    ESCREVER "Pessoas com 1.5 m ou menos:"
+    PARA CADA pessoa EM pessoas FAÇA
+        SE pessoa.altura <= 1.5 ENTÃO
+            ESCREVER "-", pessoa.nome, ":", pessoa.altura, "m"
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_pessoas_maiores_que_1_5(pessoas)
+    ESCREVER "Pessoas com mais de 1.5 m:"
+    PARA CADA pessoa EM pessoas FAÇA
+        SE pessoa.altura > 1.5 ENTÃO
+            ESCREVER "-", pessoa.nome, ":", pessoa.altura, "m"
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_todos_os_registros(pessoas)
+    ESCREVER "Todos os registros:"
+    PARA CADA pessoa EM pessoas FAÇA
+        ESCREVER "-", pessoa.nome, ":", pessoa.altura, "m"
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO calcular_media_de_alturas(pessoas)
+    soma = 0
+    PARA CADA pessoa EM pessoas FAÇA
+        soma = soma + pessoa.altura
+    FIM PARA
+    media = soma / 15
+    ESCREVER "Média de altura das pessoas:", media, "m"
+FIM PROCEDIMENTO
+==================================================
+
+==================================================
+ID: Exercicio117 (Number: 117)
+Title: Gerenciamento de Funcionários
+Chapter: Estrutura de Subprogramas (Funções e Procedimentos) (07_EstruturaDeSubprogramas)
+Description:
+Considerando os registros de 20 funcionários, com os campos matrícula, nome e salário, desenvolver um programa que utilize subprogramas e apresente um menu para a execução das seguintes etapas:
+
+Pseudocode:
+funcionario = estrutura {matricula, nome, salario}
+funcionarios[20] = vetor de funcionario
+
+PROCEDIMENTO cadastrar_empregados(funcionarios)
+    PARA i DE 0 ATÉ 19 FAÇA
+        ESCREVER "Cadastro do Funcionário", i + 1
+        ESCREVER "Matrícula do Funcionário:"
+        LER funcionarios[i].matricula
+        ESCREVER "Nome do Funcionário:"
+        LER funcionarios[i].nome
+        ESCREVER "Salário do Funcionário:"
+        LER funcionarios[i].salario
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO classificar_registros_por_matricula(funcionarios)
+    ALGORITMO DE ORDENAÇÃO (por exemplo, Quick Sort) para ordenar funcionarios por matrícula
+FIM PROCEDIMENTO
+
+FUNÇÃO pesquisar_empregado_por_matricula(funcionarios, matricula)
+    ALGORITMO DE BUSCA (sequencial ou binária) para encontrar empregado com matrícula especificada
+FIM FUNÇÃO
+
+PROCEDIMENTO apresentar_empregados_acima_de_mil(funcionarios)
+    ESCREVER "Empregados com salários acima de R$ 1.000,00:"
+    PARA CADA funcionario EM funcionarios FAÇA
+        SE funcionario.salario > 1000 ENTÃO
+            ESCREVER "-", funcionario.nome, ": R$", funcionario.salario
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_empregados_abaixo_de_mil(funcionarios)
+    ESCREVER "Empregados com salários abaixo de R$ 1.000,00:"
+    PARA CADA funcionario EM funcionarios FAÇA
+        SE funcionario.salario < 1000 ENTÃO
+            ESCREVER "-", funcionario.nome, ": R$", funcionario.salario
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+
+PROCEDIMENTO apresentar_empregados_iguais_a_mil(funcionarios)
+    ESCREVER "Empregados com salários iguais a R$ 1.000,00:"
+    PARA CADA funcionario EM funcionarios FAÇA
+        SE funcionario.salario == 1000 ENTÃO
+            ESCREVER "-", funcionario.nome, ": R$", funcionario.salario
+        FIM SE
+    FIM PARA
+FIM PROCEDIMENTO
+==================================================
+
