@@ -754,15 +754,13 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
 
           const isHovered = hoveredNodeId === node.id && node.type !== 'start' && node.type !== 'end';
 
-          const btnX = node.type === 'decision'
-            ? x + width * 0.78
-            : node.type === 'loop'
-              ? x + width - 12
-              : x + width - 4;
+          const btnX = (node.type === 'decision' || node.type === 'loop')
+            ? x + width - 18
+            : x + width - 12;
 
-          const btnY = node.type === 'decision'
-            ? y + height * 0.22
-            : y + 4;
+          const btnY = (node.type === 'decision' || node.type === 'loop')
+            ? y + height / 2
+            : y + 12;
 
           // Editable inline text input
           if (editingNodeId === node.id) {
@@ -819,15 +817,6 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
                 }
               }}
             >
-              {/* Invisible hit target to maintain hover when moving to delete button */}
-              <rect 
-                x={x - 10} 
-                y={y - 10} 
-                width={width + 20} 
-                height={height + 20} 
-                fill="transparent" 
-                pointerEvents="all" 
-              />
               <title>{node.text}</title>
               {React.cloneElement(shape as React.ReactElement<React.SVGProps<SVGElement>>, {
                 stroke: "currentColor",
