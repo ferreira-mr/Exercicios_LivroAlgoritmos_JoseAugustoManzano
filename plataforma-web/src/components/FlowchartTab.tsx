@@ -486,16 +486,25 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
                       onClick={() => handleOpenInsertMenu(midX, midY, line.insertPoint!.fromNodeId, line.insertPoint!.branchType)}
                       style={{ cursor: 'pointer' }}
                     >
+                      {/* Generous invisible target area for click and hover stability */}
                       <circle 
                         cx={midX} 
                         cy={midY} 
-                        r={8} 
+                        r={20} 
+                        fill="transparent" 
+                        pointerEvents="all"
+                      />
+                      {/* Visual indicator circle */}
+                      <circle 
+                        cx={midX} 
+                        cy={midY} 
+                        r={9} 
                         fill="var(--bg-elevated, #161c28)" 
                         stroke="var(--accent-cyan, #06b6d4)" 
                         strokeWidth="1.5" 
                       />
-                      <line x1={midX - 4} y1={midY} x2={midX + 4} y2={midY} stroke="var(--text-primary, #f8fafc)" strokeWidth="1.5" />
-                      <line x1={midX} y1={midY - 4} x2={midX} y2={midY + 4} stroke="var(--text-primary, #f8fafc)" strokeWidth="1.5" />
+                      <line x1={midX - 4.5} y1={midY} x2={midX + 4.5} y2={midY} stroke="var(--text-primary, #f8fafc)" strokeWidth="1.5" />
+                      <line x1={midX} y1={midY - 4.5} x2={midX} y2={midY + 4.5} stroke="var(--text-primary, #f8fafc)" strokeWidth="1.5" />
                     </g>
                   )}
                 </g>
