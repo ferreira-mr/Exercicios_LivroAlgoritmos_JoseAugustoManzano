@@ -1220,7 +1220,12 @@ html.light-theme .highlight-term {
 }
 
 .flowchart-container {
-  background: var(--bg-secondary);
+  background-color: var(--bg-secondary);
+  background-image: 
+    linear-gradient(to right, var(--flow-grid-color) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, var(--flow-grid-color) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+  background-position: center top;
   border: 1px solid var(--border-color);
   border-radius: 12px;
   box-shadow: var(--shadow-lg);
@@ -1266,59 +1271,75 @@ html.light-theme .highlight-term {
 
 /* Theme-specific styles using variables for neatness */
 :root {
-  --flow-start-bg: rgba(16, 185, 129, 0.12);
-  --flow-start-stroke: #10b981;
-  --flow-start-text: #34d399;
+  --flow-grid-color: rgba(255, 255, 255, 0.03);
+  --flow-line-color: #64748b;
 
-  --flow-end-bg: rgba(244, 63, 94, 0.12);
-  --flow-end-stroke: #f43f5e;
-  --flow-end-text: #fb7185;
+  --flow-start-bg: rgba(52, 211, 153, 0.12);
+  --flow-start-stroke: #34d399;
+  --flow-start-text: #a7f3d0;
 
-  --flow-input-bg: rgba(6, 182, 212, 0.12);
-  --flow-input-stroke: #06b6d4;
-  --flow-input-text: #22d3ee;
+  /* End matches Start in Flowgorithm (Terminal blocks) */
+  --flow-end-bg: rgba(52, 211, 153, 0.12);
+  --flow-end-stroke: #34d399;
+  --flow-end-text: #a7f3d0;
 
-  --flow-output-bg: rgba(168, 85, 247, 0.12);
-  --flow-output-stroke: #a855f7;
-  --flow-output-text: #c084fc;
+  --flow-input-bg: rgba(56, 189, 248, 0.12);
+  --flow-input-stroke: #38bdf8;
+  --flow-input-text: #bae6fd;
 
-  --flow-process-bg: rgba(245, 158, 11, 0.12);
-  --flow-process-stroke: #f59e0b;
-  --flow-process-text: #fbbf24;
+  --flow-output-bg: rgba(251, 146, 60, 0.12);
+  --flow-output-stroke: #fb923c;
+  --flow-output-text: #ffedd5;
 
-  --flow-decision-bg: rgba(236, 72, 153, 0.12);
-  --flow-decision-stroke: #ec4899;
-  --flow-decision-text: #f472b6;
+  --flow-process-bg: rgba(251, 191, 36, 0.12);
+  --flow-process-stroke: #fbbf24;
+  --flow-process-text: #fef3c7;
+
+  --flow-declare-bg: rgba(192, 132, 252, 0.12);
+  --flow-declare-stroke: #c084fc;
+  --flow-declare-text: #f3e8ff;
+
+  --flow-decision-bg: rgba(244, 63, 94, 0.12);
+  --flow-decision-stroke: #f43f5e;
+  --flow-decision-text: #ffe4e6;
 
   --flow-loop-bg: rgba(99, 102, 241, 0.12);
   --flow-loop-stroke: #6366f1;
-  --flow-loop-text: #818cf8;
+  --flow-loop-text: #e0e7ff;
 }
 
 html.light-theme {
-  --flow-start-bg: #d1fae5;
-  --flow-start-stroke: #059669;
-  --flow-start-text: #065f46;
+  --flow-grid-color: rgba(15, 23, 42, 0.04);
+  --flow-line-color: #475569;
+  
+  --flow-start-bg: #d5e8d4;
+  --flow-start-stroke: #82b366;
+  --flow-start-text: #274e13;
 
-  --flow-end-bg: #ffe4e6;
-  --flow-end-stroke: #e11d48;
-  --flow-end-text: #9f1239;
+  /* End matches Start in Flowgorithm (Terminal blocks) */
+  --flow-end-bg: #d5e8d4;
+  --flow-end-stroke: #82b366;
+  --flow-end-text: #274e13;
 
-  --flow-input-bg: #ecfeff;
-  --flow-input-stroke: #0891b2;
-  --flow-input-text: #155e75;
+  --flow-input-bg: #dae8fc;
+  --flow-input-stroke: #6c8ebf;
+  --flow-input-text: #0f2c59;
 
-  --flow-output-bg: #f3e8ff;
-  --flow-output-stroke: #9333ea;
-  --flow-output-text: #6b21a8;
+  --flow-output-bg: #ffe6cc;
+  --flow-output-stroke: #d79b00;
+  --flow-output-text: #663300;
 
-  --flow-process-bg: #fef3c7;
-  --flow-process-stroke: #d97706;
-  --flow-process-text: #92400e;
+  --flow-process-bg: #fff2cc;
+  --flow-process-stroke: #d6b656;
+  --flow-process-text: #665200;
 
-  --flow-decision-bg: #fdf2f8;
-  --flow-decision-stroke: #db2777;
-  --flow-decision-text: #9d174d;
+  --flow-declare-bg: #e1d5e7;
+  --flow-declare-stroke: #b854d4;
+  --flow-declare-text: #4d1060;
+
+  --flow-decision-bg: #f8cecc;
+  --flow-decision-stroke: #b85450;
+  --flow-decision-text: #660000;
 
   --flow-loop-bg: #e0e7ff;
   --flow-loop-stroke: #4f46e5;
@@ -1335,7 +1356,7 @@ html.light-theme {
   fill: var(--flow-start-text) !important;
 }
 
-/* Red: End node */
+/* Green: End node (Terminal matches Start in Flowgorithm) */
 .flow-node.flow-end rect,
 .flow-node.flow-end polygon {
   fill: var(--flow-end-bg) !important;
@@ -1345,7 +1366,7 @@ html.light-theme {
   fill: var(--flow-end-text) !important;
 }
 
-/* Cyan: Input node */
+/* Blue: Input node */
 .flow-node.flow-input rect,
 .flow-node.flow-input polygon {
   fill: var(--flow-input-bg) !important;
@@ -1355,7 +1376,7 @@ html.light-theme {
   fill: var(--flow-input-text) !important;
 }
 
-/* Purple: Output node */
+/* Peach: Output node */
 .flow-node.flow-output rect,
 .flow-node.flow-output polygon {
   fill: var(--flow-output-bg) !important;
@@ -1373,6 +1394,17 @@ html.light-theme {
 }
 .flow-node.flow-process text {
   fill: var(--flow-process-text) !important;
+}
+
+/* Purple: Declare node (Variables) */
+.flow-node.flow-declare rect,
+.flow-node.flow-declare polygon,
+.flow-node.flow-declare line {
+  fill: var(--flow-declare-bg) !important;
+  stroke: var(--flow-declare-stroke) !important;
+}
+.flow-node.flow-declare text {
+  fill: var(--flow-declare-text) !important;
 }
 
 /* Pink: Decision node */
@@ -1397,7 +1429,8 @@ html.light-theme {
 
 /* Hover effects for premium interactivity and glow */
 .flow-node:hover rect,
-.flow-node:hover polygon {
+.flow-node:hover polygon,
+.flow-node:hover line {
   stroke-width: 2.5px !important;
 }
 
@@ -1407,7 +1440,7 @@ html.light-theme {
 }
 .flow-node.flow-end:hover rect,
 .flow-node.flow-end:hover polygon {
-  filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.45));
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.45));
 }
 .flow-node.flow-input:hover rect,
 .flow-node.flow-input:hover polygon {
@@ -1415,15 +1448,20 @@ html.light-theme {
 }
 .flow-node.flow-output:hover rect,
 .flow-node.flow-output:hover polygon {
-  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.45));
+  filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.45));
 }
 .flow-node.flow-process:hover rect,
 .flow-node.flow-process:hover polygon {
-  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.45));
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.45));
+}
+.flow-node.flow-declare:hover rect,
+.flow-node.flow-declare:hover polygon,
+.flow-node.flow-declare:hover line {
+  filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.45));
 }
 .flow-node.flow-decision:hover rect,
 .flow-node.flow-decision:hover polygon {
-  filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.45));
+  filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.45));
 }
 .flow-node.flow-loop:hover rect,
 .flow-node.flow-loop:hover polygon {
@@ -1438,7 +1476,7 @@ html.light-theme {
 }
 
 svg marker#arrow path {
-  fill: var(--text-muted);
+  fill: var(--flow-line-color) !important;
 }
 
 /* Flowchart Insertion Context Menu */
@@ -1455,6 +1493,23 @@ svg marker#arrow path {
 html.light-theme .flow-insert-menu-item:hover {
   background: rgba(0, 0, 0, 0.06) !important;
   color: var(--text-primary) !important;
+}
+
+/* Plus button micro-animations */
+.flow-insert-btn circle {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s ease, stroke 0.2s ease;
+  transform-origin: center;
+}
+.flow-insert-btn:hover circle {
+  transform: scale(1.25);
+  fill: var(--accent-cyan, #06b6d4) !important;
+  stroke: var(--text-primary, #f8fafc) !important;
+}
+.flow-insert-btn line {
+  transition: stroke 0.2s ease;
+}
+.flow-insert-btn:hover line {
+  stroke: #000000 !important;
 }
 
 

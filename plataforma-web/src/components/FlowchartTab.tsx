@@ -431,7 +431,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
         width={svgWidth} 
         height={svgHeight} 
         viewBox={`0 0 600 ${svgHeight}`}
-        style={{ margin: '0 auto', display: 'block' }}
+        style={{ margin: '0 auto', display: 'block', background: 'transparent' }}
       >
         {/* Definition for arrow markers */}
         <defs>
@@ -444,7 +444,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
             markerHeight="6" 
             orient="auto-start-reverse"
           >
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--text-muted, #64748b)" />
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--flow-line-color, #64748b)" />
           </marker>
         </defs>
 
@@ -462,7 +462,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
                     y1={line.y1} 
                     x2={line.x2} 
                     y2={line.y2} 
-                    stroke="var(--border-color, rgba(255,255,255,0.15))" 
+                    stroke="var(--flow-line-color, #64748b)" 
                     strokeWidth="2"
                     markerEnd={line.arrow ? "url(#arrow)" : undefined}
                   />
@@ -472,7 +472,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
                       y={midY - (line.y1 === line.y2 ? 6 : 0)} 
                       className="flow-line-label"
                       textAnchor={line.x1 === line.x2 ? "start" : "middle"}
-                      fill="var(--text-muted, #64748b)"
+                      fill="var(--flow-line-color, #64748b)"
                       fontSize="9px"
                       fontWeight="bold"
                     >
@@ -525,38 +525,53 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           let shape = null;
           let colorClass = "";
           
-          switch (node.type) {
-            case 'start':
-              shape = <rect x={x} y={y} width={width} height={height} rx={height/2} ry={height/2} />;
-              colorClass = "flow-start";
-              break;
-            case 'end':
-              shape = <rect x={x} y={y} width={width} height={height} rx={height/2} ry={height/2} />;
-              colorClass = "flow-end";
-              break;
-            case 'input':
-              shape = <polygon points={`${x + 12},${y} ${x + width},${y} ${x + width - 12},${y + height} ${x},${y + height}`} />;
-              colorClass = "flow-input";
-              break;
-            case 'output':
-              shape = <polygon points={`${x + 12},${y} ${x + width},${y} ${x + width - 12},${y + height} ${x},${y + height}`} />;
-              colorClass = "flow-output";
-              break;
-            case 'process':
-              shape = <rect x={x} y={y} width={width} height={height} />;
-              colorClass = "flow-process";
-              break;
-            case 'decision':
-              shape = <polygon points={`${x + width / 2},${y} ${x + width},${y + height / 2} ${x + width / 2},${y + height} ${x},${y + height / 2}`} />;
-              colorClass = "flow-decision";
-              break;
-            case 'loop':
-              shape = <polygon points={`${x + 12},${y} ${x + width - 12},${y} ${x + width},${y + height / 2} ${x + width - 12},${y + height} ${x + 12},${y + height} ${x},${y + height / 2}`} />;
-              colorClass = "flow-loop";
-              break;
-            default:
-              shape = <rect x={x} y={y} width={width} height={height} />;
-              colorClass = "flow-process";
+          const isDeclaration = node.type === 'process' && (
+            /^(inteiro|real|caracter|logico|let|const|var)\s/i.test(node.text)
+          );
+
+          if (isDeclaration) {
+            shape = (
+              <g>
+                <rect x={x} y={y} width={width} height={height} rx={4} ry={4} />
+                <line x1={x + 12} y1={y} x2={x + 12} y2={y + height} />
+                <line x1={x + width - 12} y1={y} x2={x + width - 12} y2={y + height} />
+              </g>
+            );
+            colorClass = "flow-declare";
+          } else {
+            switch (node.type) {
+              case 'start':
+                shape = <rect x={x} y={y} width={width} height={height} rx={height/2} ry={height/2} />;
+                colorClass = "flow-start";
+                break;
+              case 'end':
+                shape = <rect x={x} y={y} width={width} height={height} rx={height/2} ry={height/2} />;
+                colorClass = "flow-end";
+                break;
+              case 'input':
+                shape = <polygon points={`${x + 12},${y} ${x + width},${y} ${x + width - 12},${y + height} ${x},${y + height}`} />;
+                colorClass = "flow-input";
+                break;
+              case 'output':
+                shape = <polygon points={`${x + 12},${y} ${x + width},${y} ${x + width - 12},${y + height} ${x},${y + height}`} />;
+                colorClass = "flow-output";
+                break;
+              case 'process':
+                shape = <rect x={x} y={y} width={width} height={height} rx={4} ry={4} />;
+                colorClass = "flow-process";
+                break;
+              case 'decision':
+                shape = <polygon points={`${x + width / 2},${y} ${x + width},${y + height / 2} ${x + width / 2},${y + height} ${x},${y + height / 2}`} />;
+                colorClass = "flow-decision";
+                break;
+              case 'loop':
+                shape = <polygon points={`${x + 12},${y} ${x + width - 12},${y} ${x + width},${y + height / 2} ${x + width - 12},${y + height} ${x + 12},${y + height} ${x},${y + height / 2}`} />;
+                colorClass = "flow-loop";
+                break;
+              default:
+                shape = <rect x={x} y={y} width={width} height={height} />;
+                colorClass = "flow-process";
+            }
           }
 
           const isHovered = hoveredNodeId === node.id && node.type !== 'start' && node.type !== 'end';
@@ -626,9 +641,9 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
                 x={x + width / 2} 
                 y={y + height / 2 + 4} 
                 textAnchor="middle" 
-                fontSize="11px"
-                fontWeight="500"
-                fontFamily="JetBrains Mono, monospace"
+                fontSize="11.5px"
+                fontWeight="600"
+                fontFamily="var(--font-sans)"
                 fill="var(--bg-main, #0f172a)"
               >
                 {displayNodeText(node.text)}
