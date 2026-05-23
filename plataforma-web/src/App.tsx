@@ -18,13 +18,16 @@ import {
   BookOpen, 
   Sparkles, 
   RefreshCw, 
-  Award
+  Award,
+  Workflow
 } from 'lucide-react';
 
 import exercisesData from './data/exercises.json';
 import testsOverrides from './data/tests.json';
 import { runCode, runJSCode } from './utils/runner';
 import { registerPortugolLanguage } from './utils/portugol-monaco';
+import { LexadorPortugolStudio, AvaliadorSintaticoPortugolStudio } from '@designliquido/portugol-studio';
+import FlowchartTab from './components/FlowchartTab';
 
 interface Exercise {
   id: string;
@@ -221,6 +224,11 @@ export default function App() {
   const [completedExs, setCompletedExs] = useState<string[]>([]);
   const [savedCodes, setSavedCodes] = useState<Record<string, string>>({});
   
+  // Left Panel Tab state
+  const [leftTab, setLeftTab] = useState<'enunciado' | 'fluxograma'>('enunciado');
+  
+  // AST state for Portugol code to render flowchart in real-time
+  const [astDeclarations, setAstDeclarations] = useState<any[]>([]);
 
   
   const consoleEndRef = useRef<HTMLDivElement>(null);
@@ -262,6 +270,29 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('manzano_active_language', activeLanguage);
   }, [activeLanguage]);
+
+  // Parse Portugol code in real-time with a debounce to feed the flowchart
+  useEffect(() => {
+    if (activeLanguage !== 'portugol') return;
+    if (!code) return;
+    
+    const parseCode = async () => {
+      try {
+        const lexer = new LexadorPortugolStudio();
+        const parser = new AvaliadorSintaticoPortugolStudio();
+        const lex = lexer.mapear(code.split('\n'), -1);
+        const parsed = await parser.analisar(lex, -1);
+        if (parsed && parsed.declaracoes) {
+          setAstDeclarations(parsed.declaracoes);
+        }
+      } catch (e) {
+        // Silent error while editing code
+      }
+    };
+
+    const timer = setTimeout(parseCode, 500);
+    return () => clearTimeout(timer);
+  }, [code, activeLanguage]);
 
   // Update editor code when active exercise or language changes
   useEffect(() => {
@@ -647,9 +678,20 @@ export default function App() {
                     <Menu className="w-4 h-4" />
                   </button>
                 )}
-                <span className="panel-title">
-                  <BookOpen className="w-4 h-4 text-cyan-400" /> Enunciado do Exercício
-                </span>
+                <div className="language-selector-tabs" style={{ display: 'flex', gap: '4px' }}>
+                  <button 
+                    className={`lang-tab ${leftTab === 'enunciado' ? 'active' : ''}`}
+                    onClick={() => setLeftTab('enunciado')}
+                  >
+                    <BookOpen className="w-3.5 h-3.5" style={{ marginRight: '4px', display: 'inline', verticalAlign: 'middle' }} /> Enunciado
+                  </button>
+                  <button 
+                    className={`lang-tab ${leftTab === 'fluxograma' ? 'active' : ''}`}
+                    onClick={() => setLeftTab('fluxograma')}
+                  >
+                    <Workflow className="w-3.5 h-3.5" style={{ marginRight: '4px', display: 'inline', verticalAlign: 'middle' }} /> Fluxograma
+                  </button>
+                </div>
               </div>
               
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -669,89 +711,99 @@ export default function App() {
             </div>
             
             <div className="instruction-content">
-              {/* Description Card */}
-              <div className="description-card">
-                <div className="section-title-wrapper">
-                  <BookOpen className="section-title-icon text-cyan" />
-                  <span className="section-title-text">Enunciado</span>
-                </div>
-                <p className="description-text">
-                  {parseInlineMarkdown(activeEx.description)}
-                </p>
-              </div>
-
-              {/* Steps timeline card */}
-              {activeEx.steps && parseSteps(activeEx.steps).length > 0 && (
-                <div className="timeline-section">
-                  <h3 className="section-subtitle">
-                    <Sparkles className="subtitle-icon text-purple" /> Passo a Passo
-                  </h3>
-                  <div className="steps-timeline">
-                    {parseSteps(activeEx.steps).map((step, idx) => (
-                      <div key={idx} className="step-item">
-                        {/* Step Icon Indicator */}
-                        <div className="step-indicator">
-                          {idx + 1}
-                        </div>
-                        {/* Step Content */}
-                        <div className="step-content">
-                          <h4 className="step-title">{step.title}</h4>
-                          {/* Step Sub-items */}
-                          {step.items.length > 0 && (
-                            <ul className="step-sublist">
-                              {step.items.map((sub, sIdx) => (
-                                <li key={sIdx} className="step-subitem">
-                                  <span className="step-bullet">•</span>
-                                  <span className="step-subitem-text">{parseInlineMarkdown(sub)}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
-                      </div>
-                    ))}
+              {leftTab === 'enunciado' ? (
+                <>
+                  {/* Description Card */}
+                  <div className="description-card">
+                    <div className="section-title-wrapper">
+                      <BookOpen className="section-title-icon text-cyan" />
+                      <span className="section-title-text">Enunciado</span>
+                    </div>
+                    <p className="description-text">
+                      {parseInlineMarkdown(activeEx.description)}
+                    </p>
                   </div>
-                </div>
-              )}
 
-              {/* Examples terminal layout */}
-              {activeEx.examples && parseExamples(activeEx.examples).length > 0 && (
-                <div className="examples-section">
-                  <h3 className="section-subtitle">
-                    <Award className="subtitle-icon text-amber" /> Exemplos de E/S
-                  </h3>
-                  <div className="examples-grid">
-                    {parseExamples(activeEx.examples).map((item, idx) => (
-                      <div key={idx} className="terminal-card">
-                        {/* Header */}
-                        <div className="terminal-header">
-                          <div className="terminal-dots">
-                            <span className="dot dot-red"></span>
-                            <span className="dot dot-yellow"></span>
-                            <span className="dot dot-green"></span>
-                          </div>
-                          <span className="terminal-title">{item.name}</span>
-                        </div>
-                        {/* Body */}
-                        <div className="terminal-body">
-                          <div className="terminal-row">
-                            <span className="terminal-label">Entrada:</span>
-                            <span className="terminal-input">{item.entrada}</span>
-                          </div>
-                          {item.processamento && (
-                            <div className="terminal-comment">
-                              // {item.processamento}
+                  {/* Steps timeline card */}
+                  {activeEx.steps && parseSteps(activeEx.steps).length > 0 && (
+                    <div className="timeline-section">
+                      <h3 className="section-subtitle">
+                        <Sparkles className="subtitle-icon text-purple" /> Passo a Passo
+                      </h3>
+                      <div className="steps-timeline">
+                        {parseSteps(activeEx.steps).map((step, idx) => (
+                          <div key={idx} className="step-item">
+                            {/* Step Icon Indicator */}
+                            <div className="step-indicator">
+                              {idx + 1}
                             </div>
-                          )}
-                          <div className="terminal-row">
-                            <span className="terminal-label">Saída:</span>
-                            <span className="terminal-output">{item.saida}</span>
+                            {/* Step Content */}
+                            <div className="step-content">
+                              <h4 className="step-title">{step.title}</h4>
+                              {/* Step Sub-items */}
+                              {step.items.length > 0 && (
+                                <ul className="step-sublist">
+                                  {step.items.map((sub, sIdx) => (
+                                    <li key={sIdx} className="step-subitem">
+                                      <span className="step-bullet">•</span>
+                                      <span className="step-subitem-text">{parseInlineMarkdown(sub)}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                            </div>
                           </div>
-                        </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </div>
+                    </div>
+                  )}
+
+                  {/* Examples terminal layout */}
+                  {activeEx.examples && parseExamples(activeEx.examples).length > 0 && (
+                    <div className="examples-section">
+                      <h3 className="section-subtitle">
+                        <Award className="subtitle-icon text-amber" /> Exemplos de E/S
+                      </h3>
+                      <div className="examples-grid">
+                        {parseExamples(activeEx.examples).map((item, idx) => (
+                          <div key={idx} className="terminal-card">
+                            {/* Header */}
+                            <div className="terminal-header">
+                              <div className="terminal-dots">
+                                <span className="dot dot-red"></span>
+                                <span className="dot dot-yellow"></span>
+                                <span className="dot dot-green"></span>
+                              </div>
+                              <span className="terminal-title">{item.name}</span>
+                            </div>
+                            {/* Body */}
+                            <div className="terminal-body">
+                              <div className="terminal-row">
+                                <span className="terminal-label">Entrada:</span>
+                                <span className="terminal-input">{item.entrada}</span>
+                              </div>
+                              {item.processamento && (
+                                <div className="terminal-comment">
+                                  // {item.processamento}
+                                </div>
+                              )}
+                              <div className="terminal-row">
+                                <span className="terminal-label">Saída:</span>
+                                <span className="terminal-output">{item.saida}</span>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <FlowchartTab 
+                  code={code} 
+                  language={activeLanguage} 
+                  astDeclarations={astDeclarations} 
+                />
               )}
             </div>
           </section>

@@ -1163,5 +1163,229 @@ html.light-theme .highlight-term {
   background: rgba(0, 0, 0, 0.03);
 }
 
+/* Flowchart Styles (Flowgorithm-like, premium theme support) */
+.flowchart-container {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  transition: var(--transition-smooth);
+}
+
+.flowchart-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.flowchart-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 250px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px dashed var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-tertiary);
+}
+
+/* Base Flow Node */
+.flow-node {
+  transition: var(--transition-smooth);
+}
+
+.flow-node rect,
+.flow-node polygon,
+.flow-node circle {
+  transition: var(--transition-smooth);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.flow-node text {
+  transition: var(--transition-smooth);
+  pointer-events: none;
+}
+
+/* Theme-specific styles using variables for neatness */
+:root {
+  --flow-start-bg: rgba(16, 185, 129, 0.12);
+  --flow-start-stroke: #10b981;
+  --flow-start-text: #34d399;
+
+  --flow-end-bg: rgba(244, 63, 94, 0.12);
+  --flow-end-stroke: #f43f5e;
+  --flow-end-text: #fb7185;
+
+  --flow-input-bg: rgba(6, 182, 212, 0.12);
+  --flow-input-stroke: #06b6d4;
+  --flow-input-text: #22d3ee;
+
+  --flow-output-bg: rgba(168, 85, 247, 0.12);
+  --flow-output-stroke: #a855f7;
+  --flow-output-text: #c084fc;
+
+  --flow-process-bg: rgba(245, 158, 11, 0.12);
+  --flow-process-stroke: #f59e0b;
+  --flow-process-text: #fbbf24;
+
+  --flow-decision-bg: rgba(236, 72, 153, 0.12);
+  --flow-decision-stroke: #ec4899;
+  --flow-decision-text: #f472b6;
+
+  --flow-loop-bg: rgba(99, 102, 241, 0.12);
+  --flow-loop-stroke: #6366f1;
+  --flow-loop-text: #818cf8;
+}
+
+html.light-theme {
+  --flow-start-bg: #d1fae5;
+  --flow-start-stroke: #059669;
+  --flow-start-text: #065f46;
+
+  --flow-end-bg: #ffe4e6;
+  --flow-end-stroke: #e11d48;
+  --flow-end-text: #9f1239;
+
+  --flow-input-bg: #ecfeff;
+  --flow-input-stroke: #0891b2;
+  --flow-input-text: #155e75;
+
+  --flow-output-bg: #f3e8ff;
+  --flow-output-stroke: #9333ea;
+  --flow-output-text: #6b21a8;
+
+  --flow-process-bg: #fef3c7;
+  --flow-process-stroke: #d97706;
+  --flow-process-text: #92400e;
+
+  --flow-decision-bg: #fdf2f8;
+  --flow-decision-stroke: #db2777;
+  --flow-decision-text: #9d174d;
+
+  --flow-loop-bg: #e0e7ff;
+  --flow-loop-stroke: #4f46e5;
+  --flow-loop-text: #3730a3;
+}
+
+/* Green: Start node */
+.flow-node.flow-start rect,
+.flow-node.flow-start polygon {
+  fill: var(--flow-start-bg) !important;
+  stroke: var(--flow-start-stroke) !important;
+}
+.flow-node.flow-start text {
+  fill: var(--flow-start-text) !important;
+}
+
+/* Red: End node */
+.flow-node.flow-end rect,
+.flow-node.flow-end polygon {
+  fill: var(--flow-end-bg) !important;
+  stroke: var(--flow-end-stroke) !important;
+}
+.flow-node.flow-end text {
+  fill: var(--flow-end-text) !important;
+}
+
+/* Cyan: Input node */
+.flow-node.flow-input rect,
+.flow-node.flow-input polygon {
+  fill: var(--flow-input-bg) !important;
+  stroke: var(--flow-input-stroke) !important;
+}
+.flow-node.flow-input text {
+  fill: var(--flow-input-text) !important;
+}
+
+/* Purple: Output node */
+.flow-node.flow-output rect,
+.flow-node.flow-output polygon {
+  fill: var(--flow-output-bg) !important;
+  stroke: var(--flow-output-stroke) !important;
+}
+.flow-node.flow-output text {
+  fill: var(--flow-output-text) !important;
+}
+
+/* Yellow: Process node */
+.flow-node.flow-process rect,
+.flow-node.flow-process polygon {
+  fill: var(--flow-process-bg) !important;
+  stroke: var(--flow-process-stroke) !important;
+}
+.flow-node.flow-process text {
+  fill: var(--flow-process-text) !important;
+}
+
+/* Pink: Decision node */
+.flow-node.flow-decision rect,
+.flow-node.flow-decision polygon {
+  fill: var(--flow-decision-bg) !important;
+  stroke: var(--flow-decision-stroke) !important;
+}
+.flow-node.flow-decision text {
+  fill: var(--flow-decision-text) !important;
+}
+
+/* Indigo: Loop node */
+.flow-node.flow-loop rect,
+.flow-node.flow-loop polygon {
+  fill: var(--flow-loop-bg) !important;
+  stroke: var(--flow-loop-stroke) !important;
+}
+.flow-node.flow-loop text {
+  fill: var(--flow-loop-text) !important;
+}
+
+/* Hover effects for premium interactivity and glow */
+.flow-node:hover rect,
+.flow-node:hover polygon {
+  stroke-width: 2.5px !important;
+}
+
+.flow-node.flow-start:hover rect,
+.flow-node.flow-start:hover polygon {
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.45));
+}
+.flow-node.flow-end:hover rect,
+.flow-node.flow-end:hover polygon {
+  filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.45));
+}
+.flow-node.flow-input:hover rect,
+.flow-node.flow-input:hover polygon {
+  filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.45));
+}
+.flow-node.flow-output:hover rect,
+.flow-node.flow-output:hover polygon {
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.45));
+}
+.flow-node.flow-process:hover rect,
+.flow-node.flow-process:hover polygon {
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.45));
+}
+.flow-node.flow-decision:hover rect,
+.flow-node.flow-decision:hover polygon {
+  filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.45));
+}
+.flow-node.flow-loop:hover rect,
+.flow-node.flow-loop:hover polygon {
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.45));
+}
+
+/* Line labels and marker colors */
+.flow-line-label {
+  font-family: var(--font-sans);
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+
+svg marker#arrow path {
+  fill: var(--text-muted);
+}
+
+
 
 
