@@ -662,7 +662,7 @@ export default function App() {
       </aside>
 
       {/* WORKSPACE */}
-      <main className="workspace-container">
+      <main className={`workspace-container ${leftTab === 'fluxograma' ? 'flowchart-layout-active' : ''}`}>
         {/* TOP SPLIT PANELS */}
         <div className="main-panels">
           {/* LEFT: Markdown Description */}

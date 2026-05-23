@@ -1164,6 +1164,33 @@ html.light-theme .highlight-term {
 }
 
 /* Flowchart Styles (Flowgorithm-like, premium theme support) */
+.workspace-container.flowchart-layout-active {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 180px;
+}
+
+.workspace-container.flowchart-layout-active .main-panels {
+  display: contents;
+}
+
+.workspace-container.flowchart-layout-active .instruction-panel {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  height: 100%;
+}
+
+.workspace-container.flowchart-layout-active .editor-panel {
+  grid-column: 2;
+  grid-row: 1;
+  height: 100%;
+}
+
+.workspace-container.flowchart-layout-active .bottom-drawer {
+  grid-column: 2;
+  grid-row: 2;
+  height: 180px;
+}
+
 .flowchart-container {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
