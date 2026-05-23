@@ -344,10 +344,22 @@ html.light-theme .glass-interactive:hover {
 .workspace-container {
   flex: 1;
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr 4px 1.2fr;
+  grid-template-rows: 1fr 200px;
   height: 100vh;
   overflow: hidden;
   min-width: 0;
+}
+
+.workspace-container.is-resizing {
+  user-select: none;
+  cursor: col-resize;
+}
+
+.workspace-container.is-resizing .instruction-panel,
+.workspace-container.is-resizing .editor-panel,
+.workspace-container.is-resizing .bottom-drawer {
+  pointer-events: none;
 }
 
 .sidebar.collapsed {
@@ -411,10 +423,7 @@ html.light-theme .sidebar-toggle-floating-btn:hover {
 }
 
 .main-panels {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  height: 100%;
-  overflow: hidden;
+  display: contents;
 }
 
 /* Left Panel: Markdown instructions */
@@ -580,7 +589,7 @@ html.light-theme .sidebar-toggle-floating-btn:hover {
 .bottom-drawer {
   border-top: 1px solid var(--border-color);
   background: var(--bg-elevated);
-  height: 280px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1164,31 +1173,50 @@ html.light-theme .highlight-term {
 }
 
 /* Flowchart Styles (Flowgorithm-like, premium theme support) */
-.workspace-container.flowchart-layout-active {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 180px;
-}
-
-.workspace-container.flowchart-layout-active .main-panels {
-  display: contents;
-}
-
-.workspace-container.flowchart-layout-active .instruction-panel {
+.workspace-container .instruction-panel {
   grid-column: 1;
   grid-row: 1 / span 2;
   height: 100%;
 }
 
-.workspace-container.flowchart-layout-active .editor-panel {
-  grid-column: 2;
+.workspace-container .editor-panel {
+  grid-column: 3;
   grid-row: 1;
   height: 100%;
 }
 
-.workspace-container.flowchart-layout-active .bottom-drawer {
-  grid-column: 2;
+.workspace-container .bottom-drawer {
+  grid-column: 3;
   grid-row: 2;
-  height: 180px;
+  height: 100%;
+}
+
+/* Resizable divider styles */
+.workspace-divider {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 4px;
+  background: var(--border-color);
+  cursor: col-resize;
+  position: relative;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  z-index: 10;
+}
+
+.workspace-divider:hover,
+.workspace-divider.resizing {
+  background: var(--accent-cyan);
+  box-shadow: var(--shadow-neon-cyan);
+}
+
+.workspace-divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -6px;
+  right: -6px;
+  cursor: col-resize;
 }
 
 .flowchart-container {

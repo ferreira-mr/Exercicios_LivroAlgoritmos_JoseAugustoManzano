@@ -230,6 +230,50 @@ export default function App() {
   // AST state for Portugol code to render flowchart in real-time
   const [astDeclarations, setAstDeclarations] = useState<any[]>([]);
 
+  // Resizable vertical split state
+  const [leftWidth, setLeftWidth] = useState<number>(() => {
+    const saved = localStorage.getItem('manzano_left_width');
+    return saved ? parseInt(saved, 10) : Math.floor(window.innerWidth * 0.45);
+  });
+  const [isResizing, setIsResizing] = useState(false);
+
+  const startResizing = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsResizing(true);
+  };
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isResizing) return;
+      const sidebarWidth = sidebarCollapsed ? 0 : 320;
+      const minWidth = 280;
+      const maxWidth = window.innerWidth - sidebarWidth - 300;
+      let newWidth = e.clientX - sidebarWidth;
+
+      if (newWidth < minWidth) newWidth = minWidth;
+      if (newWidth > maxWidth) newWidth = maxWidth;
+
+      setLeftWidth(newWidth);
+    };
+
+    const handleMouseUp = () => {
+      if (isResizing) {
+        setIsResizing(false);
+        localStorage.setItem('manzano_left_width', String(leftWidth));
+      }
+    };
+
+    if (isResizing) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isResizing, leftWidth, sidebarCollapsed]);
+
   
   const consoleEndRef = useRef<HTMLDivElement>(null);
   const consoleInputRef = useRef<HTMLInputElement>(null);
@@ -662,7 +706,10 @@ export default function App() {
       </aside>
 
       {/* WORKSPACE */}
-      <main className={`workspace-container ${leftTab === 'fluxograma' ? 'flowchart-layout-active' : ''}`}>
+      <main 
+        className={`workspace-container ${isResizing ? 'is-resizing' : ''}`}
+        style={{ gridTemplateColumns: `${leftWidth}px 4px 1fr` }}
+      >
         {/* TOP SPLIT PANELS */}
         <div className="main-panels">
           {/* LEFT: Markdown Description */}
@@ -887,6 +934,11 @@ export default function App() {
             </div>
           </section>
         </div>
+
+        <div 
+          className={`workspace-divider ${isResizing ? 'resizing' : ''}`}
+          onMouseDown={startResizing}
+        />
 
         {/* BOTTOM PANEL DRAWER */}
         <section className="bottom-drawer">
