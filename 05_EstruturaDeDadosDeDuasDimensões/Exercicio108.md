@@ -1,7 +1,7 @@
 # 📝 Exercício 108: Soma de Matrizes com Condições
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que faça a leitura de duas matrizes com cinco linhas e cinco colunas. A primeira matriz deve ser formada por valores que não sejam divisíveis por 3, enquanto a segunda matriz deve ser formada por valores que não sejam divisíveis por 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão que contenha a soma dos elementos da primeira e da segunda matriz.
+Escreva um programa que faça a leitura de duas matrizes com cinco linhas e cinco colunas. A primeira matriz deve ser formada por valores que não sejam divisíveis por 3, enquanto a segunda matriz deve ser formada por valores que não sejam divisíveis por 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão que contenha a soma dos elementos da primeira e da segunda matriz.
 
 ## 🚶 Passo a Passo
 

@@ -1,10 +1,7 @@
 # 📝 Exercício 3: Cálculo do Volume de uma Lata de Óleo
 
 ## 📖 Descrição
-Este exercício tem como objetivo desenvolver um programa que calcule e
-apresente o valor do volume de uma lata de óleo. O programa receberá como
-entrada o raio da base da lata e a altura da lata, calculará o volume usando
-a fórmula fornecida e, por fim, exibirá o volume calculado da lata de óleo.
+Escreva um programa que calcule e apresente o valor do volume de uma lata de óleo.
 
 ## 🚶 Passo a Passo
 

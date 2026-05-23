@@ -1,7 +1,7 @@
 # 📝 Exercício 68: Inversão de Elementos em um Vetor
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia 20 elementos do tipo real em um vetor e construa uma segunda matriz de mesma dimensão com os elementos da primeira matriz armazenados, porém de forma invertida.
+Escreva um programa que leia 20 elementos do tipo real em um vetor e construa uma segunda matriz de mesma dimensão com os elementos da primeira matriz armazenados, porém de forma invertida.
 
 ## 🚶 Passo a Passo
 

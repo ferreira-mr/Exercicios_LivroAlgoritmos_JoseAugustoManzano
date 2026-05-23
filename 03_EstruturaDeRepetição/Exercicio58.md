@@ -1,7 +1,7 @@
 # 📝 Exercício 58: Maior e Menor Valores entre Valores Positivos
 
 ## 📖 Descrição
-Este programa lê valores positivos inteiros até que um valor negativo seja informado. Ao final, apresenta o maior e o menor valores informados pelo usuário.
+Escreva um programa que leia valores positivos inteiros até que um valor negativo seja informado. Ao final, apresente o maior e o menor valores informados pelo usuário.
 
 ## 🚶 Passo a Passo
 

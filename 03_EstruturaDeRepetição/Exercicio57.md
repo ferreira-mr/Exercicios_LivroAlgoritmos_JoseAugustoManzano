@@ -1,7 +1,7 @@
 # 📝 Exercício 57: Cálculo da Área Total de uma Residência
 
 ## 📖 Descrição
-Este programa permite calcular a área total em metros quadrados de uma residência com vários cômodos, como sala, cozinha, banheiro, quartos, área de serviço, quintal, garagem, entre outros. O programa solicita ao usuário o nome, a largura e o comprimento de cada cômodo e oferece a opção de continuar adicionando novos cômodos ou encerrar o cálculo. Ao encerrar, o programa apresenta o valor total acumulado da área residencial.
+Escreva um programa que calcule a área total em metros quadrados de uma residência com vários cômodos, como sala, cozinha, banheiro, quartos, área de serviço, quintal, garagem, entre outros. O programa solicita ao usuário o nome, a largura e o comprimento de cada cômodo e oferece a opção de continuar adicionando novos cômodos ou encerrar o cálculo. Ao encerrar, o programa apresente o valor total acumulado da área residencial.
 
 ## 🚶 Passo a Passo
 

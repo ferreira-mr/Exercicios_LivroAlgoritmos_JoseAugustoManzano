@@ -1,8 +1,7 @@
 # 📝 Exercício 28: Classificação de Número Positivo ou Negativo
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia um valor numérico inteiro
-e o classifique como positivo, negativo ou neutro (zero).
+Escreva um programa que leia um valor numérico inteiro e o classifique como positivo, negativo ou neutro (zero).
 
 ## 🚶 Passo a Passo
 

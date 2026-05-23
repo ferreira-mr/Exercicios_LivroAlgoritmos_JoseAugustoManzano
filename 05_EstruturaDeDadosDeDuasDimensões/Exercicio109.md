@@ -1,7 +1,7 @@
 # 📝 Exercício 109: Construção de Matriz com Condições Específicas
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteira de duas dimensões com cinco linhas e cinco colunas. Construir uma segunda matriz de mesma dimensão, em que cada elemento seja o dobro de cada elemento correspondente da primeira matriz, com exceção dos valores situados na diagonal inversa (posições [1,5], [2,4], [3,3], [4,2] e [5,1]), os quais devem ser o triplo de cada elemento correspondente da primeira matriz. Apresentar as três matrizes.
+Escreva um programa que leia uma matriz do tipo inteira de duas dimensões com cinco linhas e cinco colunas. Construir uma segunda matriz de mesma dimensão, em que cada elemento seja o dobro de cada elemento correspondente da primeira matriz, com exceção dos valores situados na diagonal inversa (posições [1,5], [2,4], [3,3], [4,2] e [5,1]), os quais devem ser o triplo de cada elemento correspondente da primeira matriz. Apresentar as três matrizes.
 
 ## 🚶 Passo a Passo
 

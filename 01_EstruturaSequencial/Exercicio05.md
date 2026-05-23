@@ -1,11 +1,7 @@
 # 📝 Exercício 5: Cálculo do Valor de uma Prestação em Atraso
 
 ## 📖 Descrição
-Este exercício tem como objetivo desenvolver um programa que calcule e
-apresente o valor de uma prestação em atraso. O programa receberá como
-entrada o valor original da prestação sem os juros e o número de meses em
-atraso, calculará o valor da prestação em atraso usando a fórmula fornecida
-e, por fim, exibirá o valor da prestação em atraso.
+Escreva um programa que calcule e apresente o valor de uma prestação em atraso.
 
 ## 🚶 Passo a Passo
 

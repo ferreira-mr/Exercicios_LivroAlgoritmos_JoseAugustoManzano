@@ -1,8 +1,7 @@
 # 📝 Exercício 40: Soma e Verificação
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia três valores desconhecidos,
-some-os e apresente o resultado apenas se a soma for maior que 100.
+Escreva um programa que leia três valores desconhecidos, some-os e apresente o resultado apenas se a soma for maior que 100.
 
 ## 🚶 Passo a Passo
 

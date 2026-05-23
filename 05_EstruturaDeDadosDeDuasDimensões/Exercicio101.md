@@ -1,7 +1,7 @@
 # 📝 Exercício 101: Soma de Linhas em Matriz e Somatório Total
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz do tipo real com oito linhas e seis colunas. Construir uma segunda matriz que seja formada pela soma de cada linha da primeira matriz. Ao final, apresentar o somatório dos elementos da primeira e segunda matriz.
+Escreva um programa que leia uma matriz do tipo real com oito linhas e seis colunas. Construir uma segunda matriz que seja formada pela soma de cada linha da primeira matriz. Ao final, apresentar o somatório dos elementos da primeira e segunda matriz.
 
 ## 🚶 Passo a Passo
 

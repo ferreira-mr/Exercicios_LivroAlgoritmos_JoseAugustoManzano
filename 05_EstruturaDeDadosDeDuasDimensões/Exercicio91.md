@@ -1,7 +1,7 @@
 # 📝 Exercício 91: Manipulação de Matrizes
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia duas matrizes com uma linha de doze colunas e construa uma terceira matriz.
+Escreva um programa que leia duas matrizes com uma linha de doze colunas e construa uma terceira matriz.
 
 ## 🚶 Passo a Passo
 

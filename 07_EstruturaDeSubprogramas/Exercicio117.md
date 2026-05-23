@@ -1,7 +1,7 @@
 # 📝 Exercício 117: Gerenciamento de Funcionários
 
 ## 📖 Descrição
-Considerando os registros de 20 funcionários, com os campos matrícula, nome e salário, desenvolver um programa que utilize subprogramas e apresente um menu para a execução das seguintes etapas:
+Escreva um programa que, utilizando registros de 20 funcionários (matrícula, nome e salário), utilize subprogramas e apresente um menu para a execução das seguintes etapas:.
 
 ## 🚶 Passo a Passo
 

@@ -1,10 +1,7 @@
 # 📝 Exercício 10: Cálculo da Diferença entre Dois Números Inteiros
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia dois valores
-numéricos inteiros, calcule a diferença do primeiro pelo segundo e exiba o
-resultado. O programa receberá como entrada dois números inteiros, calculará
-a diferença do primeiro número pelo segundo e, por fim, exibirá o resultado.
+Escreva um programa que leia dois valores numéricos inteiros, calcule a diferença do primeiro pelo segundo e exiba o resultado.
 
 ## 🚶 Passo a Passo
 

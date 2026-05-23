@@ -1,7 +1,7 @@
 # 📝 Exercício 62: Multiplicação de Elementos de uma Matriz por 3
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia oito elementos inteiros e construa uma segunda matriz com os elementos da primeira matriz multiplicados por 3.
+Escreva um programa que leia oito elementos inteiros e construa uma segunda matriz com os elementos da primeira matriz multiplicados por 3.
 
 ## 🚶 Passo a Passo
 

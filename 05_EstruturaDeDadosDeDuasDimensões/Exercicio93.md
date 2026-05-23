@@ -1,7 +1,7 @@
 # 📝 Exercício 93: Conversão de Temperaturas
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz com quatro linhas e cinco colunas, contendo temperaturas em Celsius, e então crie uma segunda matriz com os valores de cada elemento da primeira matriz convertidos em Fahrenheit.
+Escreva um programa que leia uma matriz com quatro linhas e cinco colunas, contendo temperaturas em Celsius, e então crie uma segunda matriz com os valores de cada elemento da primeira matriz convertidos em Fahrenheit.
 
 ## 🚶 Passo a Passo
 

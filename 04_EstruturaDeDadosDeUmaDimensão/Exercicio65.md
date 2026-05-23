@@ -1,7 +1,7 @@
 # 📝 Exercício 65: Fatorial de Elementos de uma Matriz
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz com 15 elementos inteiros e construa uma segunda matriz onde cada elemento seja o resultado da fatorial do elemento correspondente da primeira matriz.
+Escreva um programa que leia uma matriz com 15 elementos inteiros e construa uma segunda matriz onde cada elemento seja o resultado da fatorial do elemento correspondente da primeira matriz.
 
 ## 🚶 Passo a Passo
 

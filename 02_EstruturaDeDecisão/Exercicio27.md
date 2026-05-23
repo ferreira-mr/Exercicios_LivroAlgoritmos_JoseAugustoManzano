@@ -1,8 +1,7 @@
 # 📝 Exercício 27: Cálculo da Diferença entre Dois Números Inteiros
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia dois valores numéricos inteiros
-e apresente o resultado da diferença entre o maior e o menor valor.
+Escreva um programa que leia dois valores numéricos inteiros e apresente o resultado da diferença entre o maior e o menor valor.
 
 ## 🚶 Passo a Passo
 

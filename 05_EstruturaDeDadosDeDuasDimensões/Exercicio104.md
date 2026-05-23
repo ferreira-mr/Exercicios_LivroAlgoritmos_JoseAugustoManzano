@@ -1,7 +1,7 @@
 # 📝 Exercício 104: Operações com Matrizes
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia quatro matrizes de uma linha e quatro colunas. Construir uma quinta matriz com quatro linhas e quatro colunas, sendo a primeira linha formada pelo dobro dos valores dos elementos da primeira matriz, a segunda linha formada pelo triplo dos valores dos elementos da segunda matriz, e a terceira linha formada pelo quádruplo dos valores dos elementos da terceira matriz.
+Escreva um programa que leia quatro matrizes de uma linha e quatro colunas. Construir uma quinta matriz com quatro linhas e quatro colunas, sendo a primeira linha formada pelo dobro dos valores dos elementos da primeira matriz, a segunda linha formada pelo triplo dos valores dos elementos da segunda matriz, e a terceira linha formada pelo quádruplo dos valores dos elementos da terceira matriz.
 
 ## 🚶 Passo a Passo
 

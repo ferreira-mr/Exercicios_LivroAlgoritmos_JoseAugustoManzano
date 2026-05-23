@@ -1,7 +1,7 @@
 # 📝 Exercício 51: Conversão de Graus Celsius em Fahrenheit
 
 ## 📖 Descrição
-Este programa converte os valores de graus Celsius em graus Fahrenheit, de dez em dez graus, iniciando em 10°C e finalizando em 100°C.
+Escreva um programa que converta os valores de graus Celsius em graus Fahrenheit, de dez em dez graus, iniciando em 10°C e finalizando em 100°C.
 
 ## 🚶 Passo a Passo
 

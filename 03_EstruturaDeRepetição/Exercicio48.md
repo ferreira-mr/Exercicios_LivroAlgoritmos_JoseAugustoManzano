@@ -1,7 +1,7 @@
 # 📝 Exercício 48: Potências de 3
 
 ## 📖 Descrição
-Este programa apresenta os resultados das potências do valor de base 3, elevado a um expoente de 0 a 15.
+Escreva um programa que apresente os resultados das potências do valor de base 3, elevado a um expoente de 0 a 15.
 
 ## 🚶 Passo a Passo
 

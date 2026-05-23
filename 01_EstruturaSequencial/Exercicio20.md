@@ -1,8 +1,7 @@
 # 📝 Exercício 20: Cálculo da Velocidade de um Projétil
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia a distância percorrida em quilômetros e
-o tempo em horas, calcule a velocidade do projétil em metros por segundo e exiba o resultado.
+Escreva um programa que leia a distância percorrida em quilômetros e o tempo em horas, calcule a velocidade do projétil em metros por segundo e exiba o resultado.
 
 ## 🚶 Passo a Passo
 

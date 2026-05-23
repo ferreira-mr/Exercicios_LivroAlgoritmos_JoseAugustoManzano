@@ -1,7 +1,7 @@
 # 📝 Exercício 46: Números Ímpares na Faixa de Valores
 
 ## 📖 Descrição
-Este programa consiste em apresentar todos os valores numéricos inteiros ímpares situados na faixa de 0 a 200.
+Escreva um programa que apresente todos os valores numéricos inteiros ímpares situados na faixa de 0 a 200.
 
 ## 🚶 Passo a Passo
 

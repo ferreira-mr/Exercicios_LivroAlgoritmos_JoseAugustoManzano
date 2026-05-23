@@ -1,7 +1,7 @@
 # 📝 Exercício 99: Somatório de Elementos em Posições Ímpares
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz do tipo real com cinco linhas e cinco colunas e apresente o somatório dos elementos situados nas posições de linha e coluna ímpares.
+Escreva um programa que leia uma matriz do tipo real com cinco linhas e cinco colunas e apresente o somatório dos elementos situados nas posições de linha e coluna ímpares.
 
 ## 🚶 Passo a Passo
 

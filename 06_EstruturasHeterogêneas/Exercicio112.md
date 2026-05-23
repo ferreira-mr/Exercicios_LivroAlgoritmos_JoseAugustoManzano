@@ -1,7 +1,7 @@
 # 📝 Exercício 112: Cadastro de Pessoas e Alturas
 
 ## 📖 Descrição
-Elaborar um programa que armazene o nome e a altura de 15 pessoas com o uso de registros. O programa deve usar um menu que execute as seguintes etapas:
+Escreva um programa que armazene o nome e a altura de 15 pessoas com o uso de registros. O programa deve usar um menu que execute as seguintes etapas:.
 
 ## 🚶 Passo a Passo
 

@@ -1,9 +1,7 @@
 # 📝 Exercício 22: Cálculo do Volume de uma Esfera
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia o raio da esfera,
-calcule o volume da esfera utilizando a fórmula volume = (4/3) * π * raio³ e
-exiba o resultado.
+Escreva um programa que leia o raio da esfera, calcule o volume da esfera utilizando a fórmula volume = (4/3) * π * raio³ e exiba o resultado.
 
 ## 🚶 Passo a Passo
 

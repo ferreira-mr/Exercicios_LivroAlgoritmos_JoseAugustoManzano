@@ -1,8 +1,7 @@
 # 📝 Exercício 35: Maior e Menor Valor
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia cinco valores
-numéricos inteiros e apresente o maior e o menor valor.
+Escreva um programa que leia cinco valores numéricos inteiros e apresente o maior e o menor valor.
 
 ## 🚶 Passo a Passo
 

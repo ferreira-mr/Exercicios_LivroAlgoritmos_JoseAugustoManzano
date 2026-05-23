@@ -1,7 +1,7 @@
 # 📝 Exercício 64: Construção de Matriz com Quadrados de Elementos
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia 15 elementos inteiros e construa uma segunda matriz onde cada elemento seja o quadrado do elemento da primeira matriz na mesma posição.
+Escreva um programa que leia 15 elementos inteiros e construa uma segunda matriz onde cada elemento seja o quadrado do elemento da primeira matriz na mesma posição.
 
 ## 🚶 Passo a Passo
 

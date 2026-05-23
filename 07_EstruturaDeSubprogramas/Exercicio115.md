@@ -1,7 +1,7 @@
 # 📝 Exercício 115: Gerenciamento de Notas de Alunos
 
 ## 📖 Descrição
-Crie um programa de computador que armazene o nome e as notas bimestrais de 20 alunos do curso de Técnicas de Programação que execute as seguintes etapas:
+Escreva um programa que armazene o nome e as notas bimestrais de 20 alunos do curso de Técnicas de Programação que execute as seguintes etapas:.
 
 ## 🚶 Passo a Passo
 

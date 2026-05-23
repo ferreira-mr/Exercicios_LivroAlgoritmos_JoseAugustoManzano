@@ -1,7 +1,7 @@
 # 📝 Exercício 100: Contagem de Números Pares
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteiro com sete linhas e sete colunas e apresente o total de elementos pares existentes na matriz.
+Escreva um programa que leia uma matriz do tipo inteiro com sete linhas e sete colunas e apresente o total de elementos pares existentes na matriz.
 
 ## 🚶 Passo a Passo
 

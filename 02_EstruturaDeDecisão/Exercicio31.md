@@ -1,9 +1,7 @@
 # 📝 Exercício 31: Resolução de Equação de Segundo Grau
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia três números
-inteiros "a", "b" e "c" referentes aos valores dos coeficientes da equação
-de segundo grau ax² + bx + c = 0 e resolva a equação.
+Escreva um programa que leia três números inteiros "a", "b" e "c" referentes aos valores dos coeficientes da equação de segundo grau ax² + bx + c = 0 e resolva a equação.
 
 ## 🚶 Passo a Passo
 

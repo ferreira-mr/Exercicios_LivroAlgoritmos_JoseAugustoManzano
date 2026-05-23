@@ -1,11 +1,7 @@
 # 📝 Exercício 8: Cálculo do Volume de uma Caixa Retangular
 
 ## 📖 Descrição
-Este exercício tem como objetivo desenvolver um programa que calcule e
-apresente o valor do volume de uma caixa retangular. O programa receberá
-como entrada as dimensões da caixa retangular (comprimento, largura e altura),
-calculará o volume usando a fórmula fornecida e, por fim, exibirá o volume
-calculado da caixa retangular.
+Escreva um programa que calcule e apresente o valor do volume de uma caixa retangular.
 
 ## 🚶 Passo a Passo
 

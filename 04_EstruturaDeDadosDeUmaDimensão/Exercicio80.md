@@ -1,7 +1,7 @@
 # 📝 Exercício 80: Junção de Vetores com Validação de Entrada
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia dois vetores com dez elementos cada. O primeiro vetor deve aceitar apenas a entrada de valores divisíveis por 2 e 3, enquanto o segundo deve aceitar apenas os múltiplos de 5. A entrada dos valores deve ser validada pelo programa. Em seguida, o programa deve construir um terceiro vetor que seja a junção dos outros dois.
+Escreva um programa que leia dois vetores com dez elementos cada. O primeiro vetor deve aceitar apenas a entrada de valores divisíveis por 2 e 3, enquanto o segundo deve aceitar apenas os múltiplos de 5. A entrada dos valores deve ser validada pelo programa. Em seguida, o programa deve construir um terceiro vetor que seja a junção dos outros dois.
 
 ## 🚶 Passo a Passo
 

@@ -1,7 +1,7 @@
 # 📝 Exercício 95: Matriz com Somatório e Valores Específicos
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteiro com sete linhas e sete colunas e construa uma segunda matriz com base em regras específicas.
+Escreva um programa que leia uma matriz do tipo inteiro com sete linhas e sete colunas e construa uma segunda matriz com base em regras específicas.
 
 ## 🚶 Passo a Passo
 

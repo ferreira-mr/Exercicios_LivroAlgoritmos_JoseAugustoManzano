@@ -1,7 +1,7 @@
 # 📝 Exercício 97: Somatório dos Elementos da Diagonal Principal
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz do tipo real de cinco linhas e cinco colunas e apresente o somatório dos elementos situados na diagonal principal.
+Escreva um programa que leia uma matriz do tipo real de cinco linhas e cinco colunas e apresente o somatório dos elementos situados na diagonal principal.
 
 ## 🚶 Passo a Passo
 

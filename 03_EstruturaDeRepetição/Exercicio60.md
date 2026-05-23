@@ -1,7 +1,7 @@
 # 📝 Exercício 60: Quadrados dos Valores Inteiros de 15 a 200 Contando de 3 em 3
 
 ## 📖 Descrição
-Este programa apresenta os quadrados dos valores inteiros no intervalo de 15 a 200, contando de 3 em 3.
+Escreva um programa que apresente os quadrados dos valores inteiros no intervalo de 15 a 200, contando de 3 em 3.
 
 ## 🚶 Passo a Passo
 

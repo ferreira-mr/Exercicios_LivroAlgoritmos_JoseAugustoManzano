@@ -1,9 +1,7 @@
 # 📝 Exercício 21: Cálculo de Potência
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia dois valores numéricos inteiros
-representando a base e o expoente de uma potência, calcule a potência utilizando os valores de entrada e
-apresente o resultado.
+Escreva um programa que leia dois valores numéricos inteiros representando a base e o expoente de uma potência, calcule a potência utilizando os valores de entrada e apresente o resultado.
 
 ## 🚶 Passo a Passo
 

@@ -1,7 +1,7 @@
 # 📝 Exercício 88: Junção de Matrizes
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia duas matrizes, cada uma com uma linha e sete colunas, para receber números inteiros. O programa deve construir uma terceira matriz cuja primeira coluna deve ser formada pelos elementos da primeira matriz e a segunda coluna pelos elementos da segunda matriz.
+Escreva um programa que leia duas matrizes, cada uma com uma linha e sete colunas, para receber números inteiros. O programa deve construir uma terceira matriz cuja primeira coluna deve ser formada pelos elementos da primeira matriz e a segunda coluna pelos elementos da segunda matriz.
 
 ## 🚶 Passo a Passo
 

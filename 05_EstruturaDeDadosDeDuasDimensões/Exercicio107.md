@@ -1,7 +1,7 @@
 # 📝 Exercício 107: Multiplicação de Matrizes com Condições
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia duas matrizes de duas dimensões com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 ou 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão que contenha o valor da multiplicação dos elementos da primeira matriz com os elementos da segunda matriz.
+Escreva um programa que leia duas matrizes de duas dimensões com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 ou 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão que contenha o valor da multiplicação dos elementos da primeira matriz com os elementos da segunda matriz.
 
 ## 🚶 Passo a Passo
 

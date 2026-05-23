@@ -1,7 +1,7 @@
 # 📝 Exercício 69: Junção de Três Vetores
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia três vetores com cinco elementos cada que sejam do tipo inteiro e construa um quarto vetor como resultado da junção das três primeiras.
+Escreva um programa que leia três vetores com cinco elementos cada que sejam do tipo inteiro e construa um quarto vetor como resultado da junção das três primeiras.
 
 ## 🚶 Passo a Passo
 

@@ -1,7 +1,7 @@
 # 📝 Exercício 45: Somatório dos Valores Pares
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que apresente o somatório dos valores pares existentes na faixa de 1 até 500.
+Escreva um programa que apresente o somatório dos valores pares existentes na faixa de 1 até 500.
 
 ## 🚶 Passo a Passo
 

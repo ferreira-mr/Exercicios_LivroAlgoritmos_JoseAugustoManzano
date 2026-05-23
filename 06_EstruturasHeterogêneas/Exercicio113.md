@@ -1,7 +1,7 @@
 # 📝 Exercício 113: Gerenciamento de Funcionários
 
 ## 📖 Descrição
-Elaborar um programa que gerencie os registros de 20 funcionários, contendo os campos matrícula, nome e salário. O programa deve, por meio de um menu, executar as seguintes etapas.
+Escreva um programa que gerencie os registros de 20 funcionários, contendo os campos matrícula, nome e salário. O programa deve, por meio de um menu, executar as seguintes etapas.
 
 ## 🚶 Passo a Passo
 

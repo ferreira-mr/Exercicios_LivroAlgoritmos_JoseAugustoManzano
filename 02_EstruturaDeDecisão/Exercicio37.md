@@ -1,9 +1,7 @@
 # 📝 Exercício 37: Verificação de Faixa de Valor
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia um valor numérico
-inteiro que esteja na faixa de valores de 1 até 9 e informe se o número está
-na faixa permitida ou não.
+Escreva um programa que leia um valor numérico inteiro que esteja na faixa de valores de 1 até 9 e informe se o número está na faixa permitida ou não.
 
 ## 🚶 Passo a Passo
 

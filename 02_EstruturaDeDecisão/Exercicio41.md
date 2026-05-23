@@ -1,8 +1,7 @@
 # 📝 Exercício 41: Multiplicação e Verificação
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia um número inteiro qualquer
-e o multiplique por dois. Apresente o resultado da multiplicação somente se o resultado for maior que 30.
+Escreva um programa que leia um número inteiro qualquer e o multiplique por dois. Apresente o resultado da multiplicação somente se o resultado for maior que 30.
 
 ## 🚶 Passo a Passo
 

@@ -1,7 +1,7 @@
 # 📝 Exercício 70: Somatório dos Valores até o Elemento Correspondente
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia um vetor com vinte elementos inteiros e construa um segundo vetor de mesmo tipo e dimensão onde cada elemento da segunda matriz é o somatório de 1 até o valor do elemento correspondente armazenado na primeira matriz.
+Escreva um programa que leia um vetor com vinte elementos inteiros e construa um segundo vetor de mesmo tipo e dimensão onde cada elemento da segunda matriz é o somatório de 1 até o valor do elemento correspondente armazenado na primeira matriz.
 
 ## 🚶 Passo a Passo
 

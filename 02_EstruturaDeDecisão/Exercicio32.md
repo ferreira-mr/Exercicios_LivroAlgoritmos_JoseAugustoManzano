@@ -1,8 +1,7 @@
 # 📝 Exercício 32: Ordenação de Três Números Inteiros
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia três valores
-inteiros e apresente os valores dispostos em ordem crescente.
+Escreva um programa que leia três valores inteiros e apresente os valores dispostos em ordem crescente.
 
 ## 🚶 Passo a Passo
 

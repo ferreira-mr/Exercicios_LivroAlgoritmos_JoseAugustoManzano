@@ -1,7 +1,7 @@
 # 📝 Exercício 102: Contagem de Números Pares e Ímpares em Matriz
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz de dez linhas e sete colunas. Ao final, apresentar o total de elementos pares e ímpares existentes na matriz. Apresentar também o percentual de elementos pares e ímpares em relação ao total de elementos da matriz.
+Escreva um programa que leia uma matriz de dez linhas e sete colunas. Ao final, apresentar o total de elementos pares e ímpares existentes na matriz. Apresentar também o percentual de elementos pares e ímpares em relação ao total de elementos da matriz.
 
 ## 🚶 Passo a Passo
 

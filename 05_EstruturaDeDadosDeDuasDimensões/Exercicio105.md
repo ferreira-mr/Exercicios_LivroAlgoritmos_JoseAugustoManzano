@@ -1,7 +1,7 @@
 # 📝 Exercício 105: Soma de Matrizes com Condições
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia duas matrizes com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 e 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão, que seja formada pela soma dos elementos da primeira matriz com os elementos da segunda. Apresentar as matrizes.
+Escreva um programa que leia duas matrizes com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 e 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão, que seja formada pela soma dos elementos da primeira matriz com os elementos da segunda. Apresentar as matrizes.
 
 ## 🚶 Passo a Passo
 

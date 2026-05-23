@@ -1,11 +1,7 @@
 # 📝 Exercício 18: Apuração de Votos em uma Eleição Sindical
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que faça a leitura da
-quantidade de votos válidos para cada candidato, além da quantidade de votos
-nulos e em branco, calcule o número total de eleitores, o percentual
-correspondente de votos válidos dos candidatos e de votos brancos e nulos, e
-exiba esses resultados.
+Escreva um programa que faça a leitura da quantidade de votos válidos para cada candidato, além da quantidade de votos nulos e em branco, calcule o número total de eleitores, o percentual correspondente de votos válidos dos candidatos e de votos brancos e nulos, e exiba esses resultados.
 
 ## 🚶 Passo a Passo
 

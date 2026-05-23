@@ -1,11 +1,7 @@
 # 📝 Exercício 11: Conversão de Dólar para Real
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia um valor em
-dólar (US$), calcule e apresente o valor da conversão desse valor em real
-(R$), considerando uma cotação do dólar previamente definida. O programa
-receberá como entrada o valor em dólar, calculará o valor equivalente em
-real usando a cotação do dólar e, por fim, exibirá o resultado da conversão.
+Escreva um programa que leia um valor em dólar (US$), calcule e apresente o valor da conversão desse valor em real (R$), considerando uma cotação do dólar previamente definida.
 
 ## 🚶 Passo a Passo
 

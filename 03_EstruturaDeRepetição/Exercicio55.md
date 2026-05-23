@@ -1,7 +1,7 @@
 # 📝 Exercício 55: Somatório, Média e Total de Valores Lidos
 
 ## 📖 Descrição
-Este programa lê sucessivamente valores numéricos fornecidos pelo usuário e, ao final, apresenta o somatório, a média e o total de valores lidos. O programa continua a ler os valores enquanto o usuário fornecer valores positivos.
+Escreva um programa que leia sucessivamente valores numéricos fornecidos pelo usuário e, ao final, apresente o somatório, a média e o total de valores lidos. O programa continua a ler os valores enquanto o usuário fornecer valores positivos.
 
 ## 🚶 Passo a Passo
 

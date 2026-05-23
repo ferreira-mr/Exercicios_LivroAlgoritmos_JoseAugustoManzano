@@ -1,8 +1,7 @@
 # 📝 Exercício 24: Cálculo de Raiz
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia a base e o
-índice de uma raiz e calcule a raiz.
+Escreva um programa que leia a base e o índice de uma raiz e calcule a raiz.
 
 ## 🚶 Passo a Passo
 

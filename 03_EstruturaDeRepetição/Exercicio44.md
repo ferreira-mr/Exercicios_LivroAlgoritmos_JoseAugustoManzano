@@ -1,7 +1,7 @@
 # 📝 Exercício 44: Soma dos Cem Primeiros Números Naturais
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que apresente a soma dos cem primeiros números naturais.
+Escreva um programa que apresente a soma dos cem primeiros números naturais.
 
 ## 🚶 Passo a Passo
 

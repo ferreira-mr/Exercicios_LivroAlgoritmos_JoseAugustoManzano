@@ -1,7 +1,7 @@
 # 📝 Exercício 111: Sistema de Notas Escolares
 
 ## 📖 Descrição
-Elaborar um programa escolar que armazene o nome e as notas bimestrais de 20 alunos de um determinado curso. O programa deverá realizar as seguintes operações.
+Escreva um programa escolar que armazene o nome e as notas bimestrais de 20 alunos de um determinado curso. O programa deverá realizar as seguintes operações.
 
 ## 🚶 Passo a Passo
 

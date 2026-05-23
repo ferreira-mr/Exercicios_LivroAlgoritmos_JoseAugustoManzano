@@ -1,7 +1,7 @@
 # 📝 Exercício 94: Matriz com Dobro dos Elementos, Exceto Diagonal Principal
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz A do tipo inteiro com cinco linhas e cinco colunas e construa uma segunda matriz B em que cada elemento seja o dobro de cada elemento da primeira matriz, com exceção dos valores situados na diagonal principal.
+Escreva um programa que leia uma matriz A do tipo inteiro com cinco linhas e cinco colunas e construa uma segunda matriz B em que cada elemento seja o dobro de cada elemento da primeira matriz, com exceção dos valores situados na diagonal principal.
 
 ## 🚶 Passo a Passo
 

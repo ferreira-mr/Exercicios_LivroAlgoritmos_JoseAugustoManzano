@@ -1,10 +1,7 @@
 # 📝 Exercício 9: Cálculo do Quadrado de um Número Inteiro
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que efetue a leitura
-de um valor numérico inteiro, calcule o quadrado desse valor e exiba o
-resultado. O programa receberá como entrada um número inteiro, elevará
-esse número ao quadrado e, por fim, exibirá o resultado.
+Escreva um programa que efetue a leitura de um valor numérico inteiro, calcule o quadrado desse valor e exiba o resultado.
 
 ## 🚶 Passo a Passo
 

@@ -1,7 +1,7 @@
 # 📝 Exercício 73: Tabuada em um Vetor
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que calcule a tabuada de um valor qualquer de 1 até 10 e armazene os resultados em um vetor.
+Escreva um programa que calcule a tabuada de um valor qualquer de 1 até 10 e armazene os resultados em um vetor.
 
 ## 🚶 Passo a Passo
 

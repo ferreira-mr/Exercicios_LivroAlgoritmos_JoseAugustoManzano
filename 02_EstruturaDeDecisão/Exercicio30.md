@@ -1,12 +1,7 @@
 # 📝 Exercício 30: Cálculo da Média e Verificação de Aprovação com Exame
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia os valores de
-quatro notas bimestrais de um aluno, calcule a média aritmética e verifique
-a aprovação do aluno. Se a média for maior que 7, o aluno é aprovado.
-Caso contrário, solicite a nota do exame para calcular a nova média. Se a
-nova média for maior que 5, o aluno é aprovado em exame. Caso contrário, é
-reprovado.
+Escreva um programa que leia os valores de quatro notas bimestrais de um aluno, calcule a média aritmética e verifique a aprovação do aluno. Se a média for maior que 7, o aluno é aprovado. Caso contrário, solicite a nota do exame para calcular a nova média. Se a nova média for maior que 5, o aluno é aprovado em exame. Caso contrário, é reprovado.
 
 ## 🚶 Passo a Passo
 

@@ -1,8 +1,7 @@
 # 📝 Exercício 36: Par ou Ímpar
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia um número inteiro
-e informe se ele é par ou ímpar.
+Escreva um programa que leia um número inteiro e informe se ele é par ou ímpar.
 
 ## 🚶 Passo a Passo
 

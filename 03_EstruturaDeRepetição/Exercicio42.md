@@ -1,7 +1,7 @@
 # 📝 Exercício 42: Quadrados na Faixa de Valores
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que apresente como resultado os quadrados dos números inteiros existentes na faixa de valores de 15 a 200.
+Escreva um programa que apresente como resultado os quadrados dos números inteiros existentes na faixa de valores de 15 a 200.
 
 ## 🚶 Passo a Passo
 

@@ -1,8 +1,7 @@
 # 📝 Exercício 26: Cálculo do Quadrado da Divisão de Dois Números Inteiros
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia dois valores numéricos inteiros,
-calcule a divisão do primeiro número pelo segundo número e, em seguida, calcule o quadrado do resultado da divisão.
+Escreva um programa que leia dois valores numéricos inteiros, calcule a divisão do primeiro número pelo segundo número e, em seguida, calcule o quadrado do resultado da divisão.
 
 ## 🚶 Passo a Passo
 

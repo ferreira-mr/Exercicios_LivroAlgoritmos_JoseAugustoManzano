@@ -1,7 +1,7 @@
 # 📝 Exercício 43: Tabuada de um Número
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que mostre os resultados da tabuada de um número qualquer.
+Escreva um programa que mostre os resultados da tabuada de um número qualquer.
 
 ## 🚶 Passo a Passo
 

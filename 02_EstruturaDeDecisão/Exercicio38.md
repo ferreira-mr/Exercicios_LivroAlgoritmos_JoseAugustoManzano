@@ -1,8 +1,7 @@
 # 📝 Exercício 38: Verificação de Valor Menor ou Igual a 3
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia um valor inteiro
-qualquer e apresente-o caso não seja maior que 3.
+Escreva um programa que leia um valor inteiro qualquer e apresente-o caso não seja maior que 3.
 
 ## 🚶 Passo a Passo
 

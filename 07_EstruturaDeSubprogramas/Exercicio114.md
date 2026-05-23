@@ -1,7 +1,7 @@
 # 📝 Exercício 114: Agenda de Contatos
 
 ## 📖 Descrição
-Desenvolva um programa de agenda que contenha nomes, endereços e telefones de dez pessoas capaz de executar as seguintes ações.
+Escreva um programa de agenda que contenha nomes, endereços e telefones de dez pessoas capaz de executar as seguintes ações.
 
 ## 🚶 Passo a Passo
 

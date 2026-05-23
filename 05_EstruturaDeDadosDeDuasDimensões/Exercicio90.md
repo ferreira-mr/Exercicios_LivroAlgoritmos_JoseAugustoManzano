@@ -1,7 +1,7 @@
 # 📝 Exercício 90: Manipulação de Matrizes
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz de uma dimensão com dez elementos. Construir uma segunda matriz com três colunas de dez linhas sendo a primeira coluna formada pelos elementos da primeira matriz somados com 5, a segunda formada pelo cálculo do fatorial de cada elemento correspondente na primeira matriz e a terceira coluna formada pelo quadrado dos elementos da primeira.
+Escreva um programa que leia uma matriz de uma dimensão com dez elementos. Construir uma segunda matriz com três colunas de dez linhas sendo a primeira coluna formada pelos elementos da primeira matriz somados com 5, a segunda formada pelo cálculo do fatorial de cada elemento correspondente na primeira matriz e a terceira coluna formada pelo quadrado dos elementos da primeira.
 
 ## 🚶 Passo a Passo
 

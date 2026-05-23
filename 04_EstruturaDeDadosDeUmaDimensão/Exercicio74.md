@@ -1,7 +1,7 @@
 # 📝 Exercício 74: Análise de Temperaturas em Graus Celsius
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia 20 elementos (valores reais) para temperaturas em graus Celsius e armazene esses valores em um vetor. O programa ao final deve apresentar a menor, a maior e a média das temperaturas.
+Escreva um programa que leia 20 elementos (valores reais) para temperaturas em graus Celsius e armazene esses valores em um vetor. O programa ao final deve apresentar a menor, a maior e a média das temperaturas.
 
 ## 🚶 Passo a Passo
 

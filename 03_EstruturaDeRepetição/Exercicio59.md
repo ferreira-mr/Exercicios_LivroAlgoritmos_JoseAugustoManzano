@@ -1,7 +1,7 @@
 # 📝 Exercício 59: Divisão Inteira Sem Usar o Operador de Divisão
 
 ## 📖 Descrição
-Este programa realiza a divisão inteira de dois números sem usar o operador aritmético de divisão.
+Escreva um programa que realize a divisão inteira de dois números sem usar o operador aritmético de divisão.
 
 ## 🚶 Passo a Passo
 

@@ -1,11 +1,7 @@
 # 📝 Exercício 16: Cálculo do Novo Salário com Aumento
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia o valor do
-salário mensal de um trabalhador e a porcentagem de aumento do salário,
-calcule o novo salário e o aumento concedido, e exiba esses valores.
-O programa receberá como entrada o salário mensal e a porcentagem de aumento,
-calculará o valor do aumento e o novo salário, e por fim, exibirá esses valores.
+Escreva um programa que leia o valor do salário mensal de um trabalhador e a porcentagem de aumento do salário, calcule o novo salário e o aumento concedido, e exiba esses valores.
 
 ## 🚶 Passo a Passo
 

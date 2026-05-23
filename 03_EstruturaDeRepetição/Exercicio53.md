@@ -1,7 +1,7 @@
 # 📝 Exercício 53: Somatório da Fatorial de Quinze Valores
 
 ## 📖 Descrição
-Este programa lê quinze valores numéricos inteiros e, ao final, apresenta o somatório da fatorial de cada valor lido.
+Escreva um programa que leia quinze valores numéricos inteiros e, ao final, apresente o somatório da fatorial de cada valor lido.
 
 ## 🚶 Passo a Passo
 

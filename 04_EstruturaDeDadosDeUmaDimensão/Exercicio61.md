@@ -1,7 +1,7 @@
 # 📝 Exercício 61: Leitura e Apresentação de Nomes
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia dez nomes e os apresente em seguida.
+Escreva um programa que leia dez nomes e os apresente em seguida.
 
 ## 🚶 Passo a Passo
 

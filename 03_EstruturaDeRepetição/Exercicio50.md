@@ -1,7 +1,7 @@
 # 📝 Exercício 50: Sequência de Fibonacci
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que apresente os valores da sequência numérica de Fibonacci até o décimo quinto termo.
+Escreva um programa que apresente os valores da sequência numérica de Fibonacci até o décimo quinto termo.
 
 ## 🚶 Passo a Passo
 

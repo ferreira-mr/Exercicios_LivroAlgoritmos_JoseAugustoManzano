@@ -1,7 +1,7 @@
 # 📝 Exercício 78: Manipulação de Índices de Matrizes
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia seis elementos (valores inteiros) para duas matrizes. Em seguida, o programa deve construir outras duas matrizes onde uma é formada pelos elementos de índices pares dos dois primeiros vetores e a outra com os elementos dos índices ímpares.
+Escreva um programa que leia seis elementos (valores inteiros) para duas matrizes. Em seguida, o programa deve construir outras duas matrizes onde uma é formada pelos elementos de índices pares dos dois primeiros vetores e a outra com os elementos dos índices ímpares.
 
 ## 🚶 Passo a Passo
 

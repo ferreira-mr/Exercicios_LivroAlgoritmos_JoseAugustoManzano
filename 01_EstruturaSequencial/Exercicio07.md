@@ -1,10 +1,7 @@
 # 📝 Exercício 7: Adição e Multiplicação de Quatro Números Inteiros
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia quatro valores
-numéricos inteiros, realize as operações de adição e multiplicação desses
-quatro números entre si e, por fim, exiba os resultados das adições e
-multiplicacões dos quatro números.
+Escreva um programa que leia quatro valores numéricos inteiros, realize as operações de adição e multiplicação desses quatro números entre si e, por fim, exiba os resultados das adições e multiplicacões dos quatro números.
 
 ## 🚶 Passo a Passo
 

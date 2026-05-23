@@ -1,7 +1,7 @@
 # 📝 Exercício 75: Conversão de Temperaturas de Celsius para Fahrenheit
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia 25 elementos (valores reais) para temperaturas em graus Celsius e armazene os valores em um vetor. Em seguida, o programa deve construir outro vetor onde seus elementos são as temperaturas do primeiro vetor convertido para Fahrenheit.
+Escreva um programa que leia 25 elementos (valores reais) para temperaturas em graus Celsius e armazene os valores em um vetor. Em seguida, o programa deve construir outro vetor onde seus elementos são as temperaturas do primeiro vetor convertido para Fahrenheit.
 
 ## 🚶 Passo a Passo
 

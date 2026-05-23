@@ -1,7 +1,7 @@
 # 📝 Exercício 54: Somatório e Média de Dez Valores
 
 ## 📖 Descrição
-Este programa lê dez valores numéricos reais e, ao final, apresenta o somatório e a média dos valores lidos.
+Escreva um programa que leia dez valores numéricos reais e, ao final, apresente o somatório e a média dos valores lidos.
 
 ## 🚶 Passo a Passo
 

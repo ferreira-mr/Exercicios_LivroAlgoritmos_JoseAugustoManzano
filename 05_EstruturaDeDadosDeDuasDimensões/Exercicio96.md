@@ -1,7 +1,7 @@
 # 📝 Exercício 96: Manipulação de Matrizes
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz com seis linhas e cinco colunas e construa uma segunda matriz com base em regras específicas.
+Escreva um programa que leia uma matriz com seis linhas e cinco colunas e construa uma segunda matriz com base em regras específicas.
 
 ## 🚶 Passo a Passo
 

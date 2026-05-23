@@ -1,7 +1,7 @@
 # 📝 Exercício 85: Contagem de Números Pares em uma Matriz
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz com 15 elementos números inteiros e apresente o total de elementos pares existentes nesse vetor.
+Escreva um programa que leia uma matriz com 15 elementos números inteiros e apresente o total de elementos pares existentes nesse vetor.
 
 ## 🚶 Passo a Passo
 

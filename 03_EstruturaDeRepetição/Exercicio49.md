@@ -1,7 +1,7 @@
 # 📝 Exercício 49: Potência de uma Base Elevada a um Expoente
 
 ## 📖 Descrição
-Este programa calcula a potência de uma base qualquer elevada a um expoente qualquer.
+Escreva um programa que calcule a potência de uma base qualquer elevada a um expoente qualquer.
 
 ## 🚶 Passo a Passo
 

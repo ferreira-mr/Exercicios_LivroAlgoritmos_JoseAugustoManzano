@@ -1,10 +1,7 @@
 # 📝 Exercício 6: Troca de Valores entre Variáveis
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que efetue a troca de
-valores entre duas variáveis, A e B. O programa receberá como entrada os
-valores das variáveis A e B, realizará a troca dos valores entre elas e,
-por fim, apresentará os valores antes e após a troca.
+Escreva um programa que efetue a troca de valores entre duas variáveis, A e B.
 
 ## 🚶 Passo a Passo
 

@@ -1,7 +1,7 @@
 # 📝 Exercício 67: Junção de Dois Vetores de Nomes
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia dois vetores para armazenar nomes de pessoas, sendo o primeiro com 20 elementos e o segundo com 30 elementos. Em seguida, deve-se construir um terceiro vetor com a junção dos dois primeiros.
+Escreva um programa que leia dois vetores para armazenar nomes de pessoas, sendo o primeiro com 20 elementos e o segundo com 30 elementos. Em seguida, deve-se construir um terceiro vetor com a junção dos dois primeiros.
 
 ## 🚶 Passo a Passo
 

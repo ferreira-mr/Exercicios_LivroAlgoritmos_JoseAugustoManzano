@@ -1,7 +1,7 @@
 # 📝 Exercício 92: Fatorial de Elementos de uma Matriz
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz com cinco linhas e quatro colunas e construa uma segunda matriz com o fatorial de cada elemento da primeira matriz.
+Escreva um programa que leia uma matriz com cinco linhas e quatro colunas e construa uma segunda matriz com o fatorial de cada elemento da primeira matriz.
 
 ## 🚶 Passo a Passo
 

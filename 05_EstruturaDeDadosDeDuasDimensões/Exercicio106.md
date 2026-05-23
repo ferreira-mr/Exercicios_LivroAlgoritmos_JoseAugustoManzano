@@ -1,7 +1,7 @@
 # 📝 Exercício 106: Subtração de Matrizes com Condições
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia duas matrizes com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 e 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz da mesma dimensão que contenha a subtração dos elementos da primeira matriz pelos elementos da segunda.
+Escreva um programa que leia duas matrizes com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 e 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz da mesma dimensão que contenha a subtração dos elementos da primeira matriz pelos elementos da segunda.
 
 ## 🚶 Passo a Passo
 

@@ -1,8 +1,7 @@
 # 📝 Exercício 25: Sucessor e Antecessor de um Número Inteiro
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia um valor numérico inteiro,
-calcule e apresente o sucessor e o antecessor desse número.
+Escreva um programa que leia um valor numérico inteiro, calcule e apresente o sucessor e o antecessor desse número.
 
 ## 🚶 Passo a Passo
 

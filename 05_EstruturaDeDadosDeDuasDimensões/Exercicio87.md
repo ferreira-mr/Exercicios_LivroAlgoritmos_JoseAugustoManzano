@@ -1,7 +1,7 @@
 # 📝 Exercício 87: Soma de Matrizes
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia duas matrizes, cada uma com cinco linhas e três colunas para valores inteiros. O programa deve construir uma terceira matriz com as mesmas dimensões que seja formada pela soma dos elementos da primeira e segunda matriz.
+Escreva um programa que leia duas matrizes, cada uma com cinco linhas e três colunas para valores inteiros. O programa deve construir uma terceira matriz com as mesmas dimensões que seja formada pela soma dos elementos da primeira e segunda matriz.
 
 ## 🚶 Passo a Passo
 

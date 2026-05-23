@@ -1,7 +1,7 @@
 # 📝 Exercício 72: Divisão por Dois dos Elementos de um Vetor
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia um vetor com dez elementos inteiros e construa uma segunda matriz em que cada elemento seja a metade exata de cada um dos elementos existentes na primeira matriz.
+Escreva um programa que leia um vetor com dez elementos inteiros e construa uma segunda matriz em que cada elemento seja a metade exata de cada um dos elementos existentes na primeira matriz.
 
 ## 🚶 Passo a Passo
 

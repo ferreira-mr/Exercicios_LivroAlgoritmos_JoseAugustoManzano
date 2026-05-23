@@ -1,7 +1,7 @@
 # 📝 Exercício 79: Junção de Vetores com Validação de Entrada
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia dois vetores A e B com seis elementos cada. O vetor A deve aceitar apenas a entrada de valores pares, enquanto o vetor B deve aceitar apenas a entrada de valores ímpares. A entrada dos vetores deve ser validada pelo programa. Em seguida, o programa deve construir o vetor C que seja o resultado da junção dos vetores A e B.
+Escreva um programa que leia dois vetores A e B com seis elementos cada. O vetor A deve aceitar apenas a entrada de valores pares, enquanto o vetor B deve aceitar apenas a entrada de valores ímpares. A entrada dos vetores deve ser validada pelo programa. Em seguida,.
 
 ## 🚶 Passo a Passo
 

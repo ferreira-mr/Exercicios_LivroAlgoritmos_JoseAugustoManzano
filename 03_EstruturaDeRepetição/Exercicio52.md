@@ -1,7 +1,7 @@
 # 📝 Exercício 52: Somatório de Grãos de Trigo no Tabuleiro de Xadrez
 
 ## 📖 Descrição
-Este programa calcula e apresenta o somatório do número de grãos de trigo que se pode obter em um tabuleiro de xadrez, seguindo a regra de colocar um grão no primeiro quadro e o dobro de grãos no quadro seguinte.
+Escreva um programa que calcule e apresente o somatório do número de grãos de trigo que se pode obter em um tabuleiro de xadrez, seguindo a regra de colocar um grão no primeiro quadro e o dobro de grãos no quadro seguinte.
 
 ## 🚶 Passo a Passo
 

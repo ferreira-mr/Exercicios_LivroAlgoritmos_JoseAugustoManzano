@@ -1,7 +1,7 @@
 # 📝 Exercício 98: Somatório dos Elementos de uma Matriz
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteiro com cinco linhas e cinco colunas e apresente o somatório de todos os elementos da matriz.
+Escreva um programa que leia uma matriz do tipo inteiro com cinco linhas e cinco colunas e apresente o somatório de todos os elementos da matriz.
 
 ## 🚶 Passo a Passo
 

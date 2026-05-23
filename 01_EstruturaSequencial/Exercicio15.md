@@ -1,11 +1,7 @@
 # 📝 Exercício 15: Cálculo do Produto e da Soma de Quatro Números
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia quatro valores
-numéricos, calcule o produto do primeiro com o terceiro e a soma do segundo
-com o quarto, e exiba os resultados do produto e da soma. O programa receberá
-como entrada quatro números, realizará os cálculos especificados e exibirá os
-resultados do produto e da soma.
+Escreva um programa que leia quatro valores numéricos, calcule o produto do primeiro com o terceiro e a soma do segundo com o quarto, e exiba os resultados do produto e da soma.
 
 ## 🚶 Passo a Passo
 

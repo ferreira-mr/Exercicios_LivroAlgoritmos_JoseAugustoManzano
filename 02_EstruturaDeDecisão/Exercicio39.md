@@ -1,8 +1,7 @@
 # 📝 Exercício 39: Múltiplo de 3 e 5
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia um número e 
-apresente-o apenas se ele for múltiplo de 3 e 5.
+Escreva um programa que leia um número e apresente-o apenas se ele for múltiplo de 3 e 5.
 
 ## 🚶 Passo a Passo
 

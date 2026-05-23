@@ -1,9 +1,7 @@
 # 📝 Exercício 19: Cálculo das Quatro Operações Básicas
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia dois valores numéricos,
-calcule as quatro operações básicas (adição, subtração, multiplicação e divisão) utilizando
-esses valores e exiba os resultados.
+Escreva um programa que leia dois valores numéricos, calcule as quatro operações básicas (adição, subtração, multiplicação e divisão) utilizando esses valores e exiba os resultados.
 
 ## 🚶 Passo a Passo
 

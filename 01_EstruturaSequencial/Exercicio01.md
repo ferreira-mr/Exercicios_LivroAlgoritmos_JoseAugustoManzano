@@ -1,12 +1,7 @@
 # 📝 Exercício 1: Conversor de Temperatura
 
 ## 📖 Descrição
-Este exercício tem como objetivo desenvolver um programa simples para
-converter temperaturas de graus Celsius para Fahrenheit. O programa irá
-solicitar ao usuário que insira a temperatura em graus Celsius e, em
-seguida, realizará o cálculo para converter essa temperatura para
-Fahrenheit utilizando a fórmula de conversão adequada. Por fim, o programa
-exibirá a temperatura convertida em graus Fahrenheit.
+Escreva um programa para converter temperaturas de graus Celsius para Fahrenheit.
 
 ## 🚶 Passo a Passo
 

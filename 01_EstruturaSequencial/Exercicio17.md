@@ -1,10 +1,7 @@
 # 📝 Exercício 17: Cálculo da Área de uma Circunferência
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia o valor do raio
-de uma circunferência, calcule o valor da área da circunferência e exiba o
-resultado. O programa receberá como entrada o raio da circunferência,
-calculará a área usando a fórmula π * raio² e, por fim, exibirá a área calculada.
+Escreva um programa que leia o valor do raio de uma circunferência, calcule o valor da área da circunferência e exiba o resultado.
 
 ## 🚶 Passo a Passo
 

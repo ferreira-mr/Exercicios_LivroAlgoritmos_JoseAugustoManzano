@@ -1,10 +1,7 @@
 # 📝 Exercício 14: Cálculo do Quadrado da Soma de Três Números
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia três valores
-numéricos, calcule o quadrado da soma desses números e exiba o resultado.
-O programa receberá como entrada três números, calculará a soma desses números
-e, em seguida, calculará o quadrado da soma, exibindo o resultado final.
+Escreva um programa que leia três valores numéricos, calcule o quadrado da soma desses números e exiba o resultado.
 
 ## 🚶 Passo a Passo
 

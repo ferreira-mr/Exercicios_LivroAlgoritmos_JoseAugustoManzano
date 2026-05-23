@@ -1,7 +1,7 @@
 # 📝 Exercício 56: Fatorial dos Valores Ímpares entre 1 e 100
 
 ## 📖 Descrição
-Este programa calcula a fatorial dos valores ímpares situados na faixa de 1 a 100 e apresenta o resultado.
+Escreva um programa que calcule a fatorial dos valores ímpares situados na faixa de 1 a 100 e apresente o resultado.
 
 ## 🚶 Passo a Passo
 

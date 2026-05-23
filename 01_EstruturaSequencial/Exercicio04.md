@@ -1,12 +1,7 @@
 # 📝 Exercício 4: Cálculo da Quantidade de Combustível Gasta em uma Viagem
 
 ## 📖 Descrição
-Este exercício tem como objetivo desenvolver um programa que calcule e
-apresente a quantidade de litros de combustível gasta em uma viagem. O
-programa receberá como entrada a distância percorrida em quilômetros e o
-consumo do veículo em quilômetros por litro, calculará a quantidade de
-litros de combustível gasta usando a fórmula fornecida e, por fim, exibirá
-a quantidade de litros de combustível gasta na viagem.
+Escreva um programa que calcule e apresente a quantidade de litros de combustível gasta em uma viagem.
 
 ## 🚶 Passo a Passo
 

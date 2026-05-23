@@ -1,7 +1,7 @@
 # 📝 Exercício 77: Manipulação de Elementos de um Vetor
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia um vetor de 15 elementos reais. Em seguida, o programa deve construir uma segunda matriz com a seguinte lei de formação: todo elemento da primeira matriz que possuir índice par deve ter seus elementos divididos por 2, caso contrário, o elemento deve ser multiplicado por 1.5.
+Escreva um programa que leia um vetor de 15 elementos reais. Em seguida, o programa deve construir uma segunda matriz com a seguinte lei de formação: todo elemento da primeira matriz que possuir índice par deve ter seus elementos divididos por 2, caso contrário, o elemento deve ser multiplicado por 1.5.
 
 ## 🚶 Passo a Passo
 

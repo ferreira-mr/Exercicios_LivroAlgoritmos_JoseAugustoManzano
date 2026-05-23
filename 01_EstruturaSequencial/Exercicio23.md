@@ -1,9 +1,7 @@
 # 📝 Exercício 23: Conversão de Pés para Metros
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia uma medida em
-pés, converta a medida de pés para metros usando a fórmula metros = pés * 0.3048
-e exiba o resultado.
+Escreva um programa que leia uma medida em pés, converta a medida de pés para metros usando a fórmula metros = pés * 0.3048 e exiba o resultado.
 
 ## 🚶 Passo a Passo
 

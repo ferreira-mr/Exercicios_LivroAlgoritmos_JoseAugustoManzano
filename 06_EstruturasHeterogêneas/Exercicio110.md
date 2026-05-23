@@ -1,7 +1,7 @@
 # 📝 Exercício 110: Agenda de Contatos
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que gerencie os registros de 10 pessoas na forma de uma agenda de contatos, contendo os campos nome, endereço e telefone. O programa deve, por meio de um menu de opções, executar as seguintes etapas:
+Escreva um programa que gerencie os registros de 10 pessoas na forma de uma agenda de contatos, contendo os campos nome, endereço e telefone. O programa deve, por meio de um menu de opções, executar as seguintes etapas:.
 
 ## 🚶 Passo a Passo
 

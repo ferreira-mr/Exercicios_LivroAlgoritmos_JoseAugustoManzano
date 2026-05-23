@@ -1,7 +1,7 @@
 # 📝 Exercício 66: Junção de Dois Vetores em um Terceiro
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia dois vetores com 15 elementos inteiros quaisquer e construa um terceiro vetor que será a junção dos dois primeiros vetores, ou seja, terá 30 elementos.
+Escreva um programa que leia dois vetores com 15 elementos inteiros quaisquer e construa um terceiro vetor que será a junção dos dois primeiros vetores, ou seja, terá 30 elementos.
 
 ## 🚶 Passo a Passo
 

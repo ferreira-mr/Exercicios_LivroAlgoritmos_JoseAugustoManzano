@@ -1,7 +1,7 @@
 # 📝 Exercício 89: Leitura e Apresentação de Matriz
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia 20 elementos para uma matriz com quatro linhas e cinco colunas. Em seguida, apresentar a matriz.
+Escreva um programa que leia 20 elementos para uma matriz com quatro linhas e cinco colunas. Em seguida, apresentar a matriz.
 
 ## 🚶 Passo a Passo
 

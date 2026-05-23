@@ -1,8 +1,7 @@
 # 📝 Exercício 33: Valores Divisíveis por 2 e 3
 
 ## 📖 Descrição
-Este exercício consiste em desenvolver um programa que leia quatro valores
-numéricos inteiros e apresente apenas os valores que sejam divisíveis por 2 e 3.
+Escreva um programa que leia quatro valores numéricos inteiros e apresente apenas os valores que sejam divisíveis por 2 e 3.
 
 ## 🚶 Passo a Passo
 
