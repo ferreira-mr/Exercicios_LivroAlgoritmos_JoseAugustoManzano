@@ -621,7 +621,7 @@ export default function App() {
           <div className="brand-row">
             <div className="brand">
               <img src="/senai-sp-logo.png" alt="SENAI SP Logo" className="brand-logo" style={{ height: '24px', width: 'auto', marginRight: '8px', flexShrink: 0 }} />
-              <h1 className="brand-title">Manzano Portugol</h1>
+              <h1 className="brand-title">LOPAL</h1>
             </div>
             <button 
               onClick={() => setSidebarCollapsed(true)} 
