@@ -620,7 +620,20 @@ export default function App() {
         <div className="sidebar-header">
           <div className="brand-row">
             <div className="brand">
-              <BookOpen className="brand-icon w-6 h-6" />
+              <svg width="68" height="24" viewBox="0 0 68 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="brand-logo" style={{ marginRight: '6px', flexShrink: 0 }}>
+                <rect width="68" height="24" fill="#e30613" rx="2" />
+                <line x1="4" y1="4" x2="10" y2="4" stroke="white" strokeWidth="1.5" />
+                <line x1="4" y1="8" x2="10" y2="8" stroke="white" strokeWidth="1.5" />
+                <line x1="4" y1="12" x2="10" y2="12" stroke="white" strokeWidth="1.5" />
+                <line x1="4" y1="16" x2="10" y2="16" stroke="white" strokeWidth="1.5" />
+                <line x1="4" y1="20" x2="10" y2="20" stroke="white" strokeWidth="1.5" />
+                <line x1="58" y1="4" x2="64" y2="4" stroke="white" strokeWidth="1.5" />
+                <line x1="58" y1="8" x2="64" y2="8" stroke="white" strokeWidth="1.5" />
+                <line x1="58" y1="12" x2="64" y2="12" stroke="white" strokeWidth="1.5" />
+                <line x1="58" y1="16" x2="64" y2="16" stroke="white" strokeWidth="1.5" />
+                <line x1="58" y1="20" x2="64" y2="20" stroke="white" strokeWidth="1.5" />
+                <text x="34" y="17" fill="white" fontSize="13" fontWeight="900" fontStyle="italic" fontFamily="Montserrat, sans-serif" textAnchor="middle">SENAI</text>
+              </svg>
               <h1 className="brand-title">Manzano Portugol</h1>
             </div>
             <button 

@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700;1,900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
-  /* Premium Dark Palette */
-  --bg-primary: #0a0e17;
-  --bg-secondary: rgba(17, 24, 39, 0.65);
-  --bg-tertiary: rgba(31, 41, 55, 0.5);
-  --bg-elevated: #161c28;
+  /* Premium Dark Palette - SENAI SP Charcoal & Graphite */
+  --bg-primary: #0b0b0c;
+  --bg-secondary: rgba(22, 22, 23, 0.7);
+  --bg-tertiary: rgba(35, 35, 37, 0.5);
+  --bg-elevated: #161618;
   
-  --border-color: rgba(255, 255, 255, 0.07);
-  --border-color-hover: rgba(255, 255, 255, 0.15);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-hover: rgba(255, 255, 255, 0.16);
   
-  /* Neons and Statuses */
-  --accent-cyan: #06b6d4;
-  --accent-cyan-glow: rgba(6, 182, 212, 0.2);
-  --accent-purple: #a855f7;
-  --accent-purple-glow: rgba(168, 85, 247, 0.2);
+  /* Neons and Statuses - SENAI SP Vermelho Preferencial & Variant Dark Reds */
+  --accent-cyan: #e30613; /* Vermelho Preferencial SENAI SP */
+  --accent-cyan-glow: rgba(227, 6, 19, 0.2);
+  --accent-purple: #9a1915; /* Vermelho Variante (Pantone 7622) */
+  --accent-purple-glow: rgba(154, 25, 21, 0.2);
   --accent-emerald: #10b981;
   --accent-emerald-glow: rgba(16, 185, 129, 0.2);
   --accent-rose: #f43f5e;
@@ -25,24 +25,24 @@
   /* Typography */
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
-  --text-muted: #64748b;
+  --text-muted: #8e8e93;
   
-  --font-sans: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
   
   --backdrop-blur: blur(16px);
   --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
-  --shadow-neon-cyan: 0 0 15px rgba(6, 182, 212, 0.25);
-  --shadow-neon-purple: 0 0 15px rgba(168, 85, 247, 0.25);
+  --shadow-neon-cyan: 0 0 15px rgba(227, 6, 19, 0.25);
+  --shadow-neon-purple: 0 0 15px rgba(154, 25, 21, 0.25);
   --shadow-neon-emerald: 0 0 15px rgba(16, 185, 129, 0.25);
 }
 
 /* Light Theme Overrides */
 html.light-theme {
-  --bg-primary: #f8fafc;
-  --bg-secondary: rgba(255, 255, 255, 0.75);
-  --bg-tertiary: rgba(241, 245, 249, 0.7);
+  --bg-primary: #f5f5f7;
+  --bg-secondary: rgba(255, 255, 255, 0.8);
+  --bg-tertiary: rgba(240, 240, 243, 0.7);
   --bg-elevated: #ffffff;
   
   --border-color: rgba(15, 23, 42, 0.08);
@@ -68,8 +68,8 @@ body, .sidebar, .panel-header, .action-bar, .bottom-drawer, .console-panel, .tes
 body {
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.08) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(227, 6, 19, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(154, 25, 21, 0.08) 0px, transparent 50%);
   background-attachment: fixed;
   color: var(--text-primary);
   font-family: var(--font-sans);
@@ -81,8 +81,8 @@ body {
 
 html.light-theme body {
   background-image: 
-    radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.04) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.04) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(227, 6, 19, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(154, 25, 21, 0.04) 0px, transparent 50%);
 }
 
 /* Custom Scrollbar */
