@@ -446,6 +446,17 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           >
             <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--flow-line-color, #64748b)" />
           </marker>
+          <marker 
+            id="arrow-hover" 
+            viewBox="0 0 10 10" 
+            refX="6" 
+            refY="5" 
+            markerWidth="6" 
+            markerHeight="6" 
+            orient="auto-start-reverse"
+          >
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent-cyan, #06b6d4)" />
+          </marker>
         </defs>
 
         {/* 1. Render Lines and Arrows */}
@@ -457,15 +468,45 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
               
               return (
                 <g key={`line-${lNode.node.id}-${idx}`}>
-                  <line 
-                    x1={line.x1} 
-                    y1={line.y1} 
-                    x2={line.x2} 
-                    y2={line.y2} 
-                    stroke="var(--flow-line-color, #64748b)" 
-                    strokeWidth="2"
-                    markerEnd={line.arrow ? "url(#arrow)" : undefined}
-                  />
+                  {line.insertPoint ? (
+                    <g 
+                      className="flow-connection-interactive"
+                      onClick={() => handleOpenInsertMenu(midX, midY, line.insertPoint!.fromNodeId, line.insertPoint!.branchType)}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      {/* Thick transparent line to easily capture hover/click */}
+                      <line 
+                        x1={line.x1} 
+                        y1={line.y1} 
+                        x2={line.x2} 
+                        y2={line.y2} 
+                        stroke="transparent" 
+                        strokeWidth="12"
+                        pointerEvents="stroke"
+                      />
+                      {/* Visible connection line */}
+                      <line 
+                        x1={line.x1} 
+                        y1={line.y1} 
+                        x2={line.x2} 
+                        y2={line.y2} 
+                        stroke="var(--flow-line-color, #64748b)" 
+                        strokeWidth="2"
+                        className="flow-connect-line"
+                        markerEnd={line.arrow ? "url(#arrow)" : undefined}
+                      />
+                    </g>
+                  ) : (
+                    <line 
+                      x1={line.x1} 
+                      y1={line.y1} 
+                      x2={line.x2} 
+                      y2={line.y2} 
+                      stroke="var(--flow-line-color, #64748b)" 
+                      strokeWidth="2"
+                      markerEnd={line.arrow ? "url(#arrow)" : undefined}
+                    />
+                  )}
                   {line.label && (
                     <text 
                       x={midX + (line.x1 === line.x2 ? 8 : 0)} 
@@ -478,34 +519,6 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
                     >
                       {line.label}
                     </text>
-                  )}
-                  {/* Plus button for inserting node */}
-                  {line.insertPoint && (
-                    <g 
-                      className="flow-insert-btn"
-                      onClick={() => handleOpenInsertMenu(midX, midY, line.insertPoint!.fromNodeId, line.insertPoint!.branchType)}
-                      style={{ cursor: 'pointer' }}
-                    >
-                      {/* Generous invisible target area for click and hover stability */}
-                      <circle 
-                        cx={midX} 
-                        cy={midY} 
-                        r={20} 
-                        fill="transparent" 
-                        pointerEvents="all"
-                      />
-                      {/* Visual indicator circle */}
-                      <circle 
-                        cx={midX} 
-                        cy={midY} 
-                        r={9} 
-                        fill="var(--bg-elevated, #161c28)" 
-                        stroke="var(--accent-cyan, #06b6d4)" 
-                        strokeWidth="1.5" 
-                      />
-                      <line x1={midX - 4.5} y1={midY} x2={midX + 4.5} y2={midY} stroke="var(--text-primary, #f8fafc)" strokeWidth="1.5" />
-                      <line x1={midX} y1={midY - 4.5} x2={midX} y2={midY + 4.5} stroke="var(--text-primary, #f8fafc)" strokeWidth="1.5" />
-                    </g>
                   )}
                 </g>
               );

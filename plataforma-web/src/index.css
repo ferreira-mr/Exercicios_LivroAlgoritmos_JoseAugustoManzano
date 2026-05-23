@@ -1495,21 +1495,20 @@ html.light-theme .flow-insert-menu-item:hover {
   color: var(--text-primary) !important;
 }
 
-/* Plus button micro-animations */
-.flow-insert-btn circle {
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s ease, stroke 0.2s ease;
-  transform-origin: center;
+/* Interactive connection line styles */
+.flow-connect-line {
+  transition: stroke 0.2s ease, stroke-width 0.2s ease;
 }
-.flow-insert-btn:hover circle {
-  transform: scale(1.25);
+
+.flow-connection-interactive:hover .flow-connect-line {
+  stroke: var(--accent-cyan, #06b6d4) !important;
+  stroke-width: 3.5px !important;
+  marker-end: url(#arrow-hover) !important;
+}
+
+.flow-connection-interactive:hover ~ .flow-line-label {
   fill: var(--accent-cyan, #06b6d4) !important;
-  stroke: var(--text-primary, #f8fafc) !important;
-}
-.flow-insert-btn line {
-  transition: stroke 0.2s ease;
-}
-.flow-insert-btn:hover line {
-  stroke: #000000 !important;
+  transition: fill 0.2s ease;
 }
 
 
