@@ -754,6 +754,16 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
 
           const isHovered = hoveredNodeId === node.id && node.type !== 'start' && node.type !== 'end';
 
+          const btnX = node.type === 'decision'
+            ? x + width * 0.78
+            : node.type === 'loop'
+              ? x + width - 12
+              : x + width - 4;
+
+          const btnY = node.type === 'decision'
+            ? y + height * 0.22
+            : y + 4;
+
           // Editable inline text input
           if (editingNodeId === node.id) {
             return (
@@ -809,6 +819,15 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
                 }
               }}
             >
+              {/* Invisible hit target to maintain hover when moving to delete button */}
+              <rect 
+                x={x - 10} 
+                y={y - 10} 
+                width={width + 20} 
+                height={height + 20} 
+                fill="transparent" 
+                pointerEvents="all" 
+              />
               <title>{node.text}</title>
               {React.cloneElement(shape as React.ReactElement<React.SVGProps<SVGElement>>, {
                 stroke: "currentColor",
@@ -837,8 +856,8 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
                   }}
                   style={{ cursor: 'pointer' }}
                 >
-                  <circle cx={x + width - 4} cy={y + 4} r={7} fill="var(--accent-rose, #f43f5e)" stroke="var(--bg-elevated, #161c28)" strokeWidth={1} />
-                  <path d={`M ${x + width - 7} ${y + 1} L ${x + width - 1} ${y + 7} M ${x + width - 7} ${y + 7} L ${x + width - 1} ${y + 1}`} stroke="#000" strokeWidth={1.5} />
+                  <circle cx={btnX} cy={btnY} r={7} fill="var(--accent-rose, #f43f5e)" stroke="var(--bg-elevated, #161c28)" strokeWidth={1} />
+                  <path d={`M ${btnX - 3} ${btnY - 3} L ${btnX + 3} ${btnY + 3} M ${btnX - 3} ${btnY + 3} L ${btnX + 3} ${btnY - 3}`} stroke="#000" strokeWidth={1.5} />
                 </g>
               )}
             </g>
