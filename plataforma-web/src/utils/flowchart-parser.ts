@@ -34,8 +34,36 @@ export function stringifyPortugolExpr(expr: any): string {
   return '';
 }
 
+function getStmtType(stmt: any): string {
+  if (!stmt) return '';
+  const name = stmt.constructor.name;
+  if (['Escreva', 'EscrevaMesmaLinha', 'Var', 'Expressao', 'Se', 'Enquanto', 'Para'].includes(name)) {
+    return name;
+  }
+  if (stmt.caminhoEntao !== undefined) return 'Se';
+  if (stmt.inicializador !== undefined && stmt.incrementar !== undefined) return 'Para';
+  if (stmt.corpo !== undefined && stmt.condicao !== undefined) return 'Enquanto';
+  if (stmt.inicializador !== undefined || stmt.tipoOriginal !== undefined) return 'Var';
+  if (stmt.expressao !== undefined) return 'Expressao';
+  if (stmt.argumentos !== undefined) return 'Escreva';
+  return name;
+}
+
+function getExprType(expr: any): string {
+  if (!expr) return '';
+  const name = expr.constructor.name;
+  if (['Leia', 'Atribuir'].includes(name)) {
+    return name;
+  }
+  if (expr.alvo !== undefined && expr.valor !== undefined) return 'Atribuir';
+  if (expr.argumentos !== undefined) return 'Leia';
+  return name;
+}
+
 export function parsePortugolASTToFlowNodes(declarations: any[]): FlowNode[] {
-  const inicioDecl = declarations.find(d => d.assinaturaMetodo === 'inicio');
+  const inicioDecl = declarations.find(
+    d => d.assinaturaMetodo === 'inicio' || d.simbolo?.lexema === 'inicio'
+  );
   if (!inicioDecl || !inicioDecl.funcao || !inicioDecl.funcao.corpo) {
     return [];
   }
@@ -44,7 +72,7 @@ export function parsePortugolASTToFlowNodes(declarations: any[]): FlowNode[] {
     const list: FlowNode[] = [];
     for (let i = 0; i < statements.length; i++) {
       const stmt = statements[i];
-      const type = stmt.constructor.name;
+      const type = getStmtType(stmt);
       const id = `pt-${type}-${stmt.linha}-${i}`;
 
       if (type === 'Escreva' || type === 'EscrevaMesmaLinha') {
@@ -65,7 +93,7 @@ export function parsePortugolASTToFlowNodes(declarations: any[]): FlowNode[] {
       } else if (type === 'Expressao') {
         const expr = stmt.expressao;
         if (expr) {
-          const exprType = expr.constructor.name;
+          const exprType = getExprType(expr);
           if (exprType === 'Leia') {
             const args = expr.argumentos ? expr.argumentos.map(stringifyPortugolExpr).join(', ') : '';
             list.push({
