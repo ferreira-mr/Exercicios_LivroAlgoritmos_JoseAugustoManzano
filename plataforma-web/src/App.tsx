@@ -277,6 +277,7 @@ export default function App() {
   
   const consoleEndRef = useRef<HTMLDivElement>(null);
   const consoleInputRef = useRef<HTMLInputElement>(null);
+  const editorRef = useRef<any>(null);
 
   // --- INITIAL LOAD & SYNC ---
   useEffect(() => {
@@ -382,7 +383,8 @@ export default function App() {
     localStorage.setItem('manzano_saved_codes', JSON.stringify(updated));
   };
 
-  const handleEditorMount = (_editor: any, monaco: Monaco) => {
+  const handleEditorMount = (editor: any, monaco: Monaco) => {
+    editorRef.current = editor;
     registerPortugolLanguage(monaco);
   };
 
@@ -850,6 +852,19 @@ export default function App() {
                   code={code} 
                   language={activeLanguage} 
                   astDeclarations={astDeclarations} 
+                  onChangeCode={(newCode) => {
+                    saveCode(newCode);
+                    if (editorRef.current) {
+                      const model = editorRef.current.getModel();
+                      if (model) {
+                        editorRef.current.executeEdits('flowchart-sync', [{
+                          range: model.getFullModelRange(),
+                          text: newCode,
+                          forceMoveMarkers: true
+                        }]);
+                      }
+                    }
+                  }}
                 />
               )}
             </div>

@@ -1441,6 +1441,22 @@ svg marker#arrow path {
   fill: var(--text-muted);
 }
 
+/* Flowchart Insertion Context Menu */
+.flow-insert-menu {
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+}
+
+.flow-insert-menu-item:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--text-primary) !important;
+}
+
+html.light-theme .flow-insert-menu-item:hover {
+  background: rgba(0, 0, 0, 0.06) !important;
+  color: var(--text-primary) !important;
+}
+
 
 
 

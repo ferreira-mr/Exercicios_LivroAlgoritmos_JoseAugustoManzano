@@ -260,3 +260,171 @@ export function parseJSCodeToFlowNodes(code: string): FlowNode[] {
 
   return root;
 }
+
+export function insertNodeInTree(
+  nodes: FlowNode[],
+  fromNodeId: string,
+  newNode: FlowNode,
+  branchType?: 'then' | 'else' | 'body'
+): boolean {
+  for (let i = 0; i < nodes.length; i++) {
+    const node = nodes[i];
+    
+    if (node.id === fromNodeId) {
+      if (branchType === 'then') {
+        node.thenBranch = [newNode, ...(node.thenBranch || [])];
+        return true;
+      } else if (branchType === 'else') {
+        node.elseBranch = [newNode, ...(node.elseBranch || [])];
+        return true;
+      } else if (branchType === 'body') {
+        node.bodyBranch = [newNode, ...(node.bodyBranch || [])];
+        return true;
+      } else {
+        nodes.splice(i + 1, 0, newNode);
+        return true;
+      }
+    }
+
+    if (node.thenBranch && insertNodeInTree(node.thenBranch, fromNodeId, newNode, branchType)) {
+      return true;
+    }
+    if (node.elseBranch && insertNodeInTree(node.elseBranch, fromNodeId, newNode, branchType)) {
+      return true;
+    }
+    if (node.bodyBranch && insertNodeInTree(node.bodyBranch, fromNodeId, newNode, branchType)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+export function deleteNodeInTree(nodes: FlowNode[], targetId: string): boolean {
+  for (let i = 0; i < nodes.length; i++) {
+    const node = nodes[i];
+    
+    if (node.id === targetId) {
+      nodes.splice(i, 1);
+      return true;
+    }
+    
+    if (node.thenBranch && deleteNodeInTree(node.thenBranch, targetId)) {
+      return true;
+    }
+    if (node.elseBranch && deleteNodeInTree(node.elseBranch, targetId)) {
+      return true;
+    }
+    if (node.bodyBranch && deleteNodeInTree(node.bodyBranch, targetId)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+export function updateNodeInTree(nodes: FlowNode[], targetId: string, text: string): boolean {
+  for (let i = 0; i < nodes.length; i++) {
+    const node = nodes[i];
+    
+    if (node.id === targetId) {
+      node.text = text;
+      return true;
+    }
+    
+    if (node.thenBranch && updateNodeInTree(node.thenBranch, targetId, text)) {
+      return true;
+    }
+    if (node.elseBranch && updateNodeInTree(node.elseBranch, targetId, text)) {
+      return true;
+    }
+    if (node.bodyBranch && updateNodeInTree(node.bodyBranch, targetId, text)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+export function generateCodeFromFlowNodes(
+  nodes: FlowNode[], 
+  language: 'portugol' | 'javascript',
+  indentLevel: number = 2
+): string {
+  const indent = '  '.repeat(indentLevel);
+  let code = '';
+
+  for (const node of nodes) {
+    if (node.type === 'start' || node.type === 'end' || node.type === 'join') {
+      continue;
+    }
+
+    if (node.type === 'input') {
+      const match = node.text.match(/^ler\((.*)\)$/);
+      const varName = match ? match[1].trim() : 'x';
+      if (language === 'portugol') {
+        code += `${indent}leia(${varName})\n`;
+      } else {
+        code += `${indent}${varName} = await read();\n`;
+      }
+    } 
+    else if (node.type === 'output') {
+      const match = node.text.match(/^escrever\((.*)\)$/);
+      const content = match ? match[1].trim() : '';
+      if (language === 'portugol') {
+        code += `${indent}escreva(${content})\n`;
+      } else {
+        code += `${indent}write(${content});\n`;
+      }
+    } 
+    else if (node.type === 'process') {
+      let stmt = node.text.trim();
+      if (language === 'javascript') {
+        if (!stmt.endsWith(';')) stmt += ';';
+      }
+      code += `${indent}${stmt}\n`;
+    } 
+    else if (node.type === 'decision') {
+      const cond = node.text.trim();
+      const thenCode = generateCodeFromFlowNodes(node.thenBranch || [], language, indentLevel + 1);
+      const elseCode = generateCodeFromFlowNodes(node.elseBranch || [], language, indentLevel + 1);
+
+      if (language === 'portugol') {
+        code += `${indent}se (${cond}) {\n${thenCode}${indent}}`;
+        if (node.elseBranch && node.elseBranch.length > 0) {
+          code += ` senao {\n${elseCode}${indent}}\n`;
+        } else {
+          code += '\n';
+        }
+      } else {
+        code += `${indent}if (${cond}) {\n${thenCode}${indent}}`;
+        if (node.elseBranch && node.elseBranch.length > 0) {
+          code += ` else {\n${elseCode}${indent}}\n`;
+        } else {
+          code += '\n';
+        }
+      }
+    } 
+    else if (node.type === 'loop') {
+      if (node.text.startsWith('Enquanto')) {
+        const match = node.text.match(/^Enquanto\s*\((.*)\)$/i);
+        const cond = match ? match[1].trim() : 'verdadeiro';
+        const bodyCode = generateCodeFromFlowNodes(node.bodyBranch || [], language, indentLevel + 1);
+        if (language === 'portugol') {
+          code += `${indent}enquanto (${cond}) {\n${bodyCode}${indent}}\n`;
+        } else {
+          code += `${indent}while (${cond}) {\n${bodyCode}${indent}}\n`;
+        }
+      } else if (node.text.startsWith('Para')) {
+        const match = node.text.match(/^Para\s*\((.*)\)$/i);
+        const content = match ? match[1].trim() : '';
+        const bodyCode = generateCodeFromFlowNodes(node.bodyBranch || [], language, indentLevel + 1);
+        if (language === 'portugol') {
+          code += `${indent}para (${content}) {\n${bodyCode}${indent}}\n`;
+        } else {
+          code += `${indent}for (${content}) {\n${bodyCode}${indent}}\n`;
+        }
+      }
+    }
+  }
+
+  return code;
+}
+
