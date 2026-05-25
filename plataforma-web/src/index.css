@@ -1084,7 +1084,23 @@ html.light-theme .description-card {
 }
 
 html.light-theme .terminal-card {
-  background: #0f172a;
+  background: #f1f5f9;
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+html.light-theme .terminal-header {
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+html.light-theme .terminal-input {
+  color: #b45309;
+  background: rgba(180, 83, 9, 0.05);
+  border-color: rgba(180, 83, 9, 0.12);
+}
+
+html.light-theme .terminal-comment {
+  border-left-color: rgba(15, 23, 42, 0.12);
 }
 
 .terminal-header {
