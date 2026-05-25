@@ -571,23 +571,23 @@ html.light-theme .sidebar-toggle-floating-btn:hover {
 
 .btn-primary {
   background: var(--accent-cyan);
-  color: #000;
+  color: #fff;
   font-weight: 600;
 }
 
 .btn-primary:hover {
-  background: #22d3ee;
+  background: #b8050f;
   box-shadow: var(--shadow-neon-cyan);
 }
 
 .btn-success {
   background: var(--accent-emerald);
-  color: #000;
+  color: #fff;
   font-weight: 600;
 }
 
 .btn-success:hover {
-  background: #34d399;
+  background: #059669;
   box-shadow: var(--shadow-neon-emerald);
 }
 
