@@ -154,11 +154,39 @@ interface ParsedExample {
 }
 
 function parseExamples(examplesText: string, exerciseId?: string): ParsedExample[] {
-  if (!examplesText) return [];
+  const testCases = exerciseId ? (testsOverrides as any)[exerciseId]?.cases : null;
+
+  if (!examplesText) {
+    if (testCases && testCases.length > 0) {
+      const list: ParsedExample[] = [];
+      testCases.forEach((c: any, index: number) => {
+        if (index >= 3) return; // limit to max 3 examples
+        const inputs = c.inputs || [];
+        const outputs = c.outputs || [];
+        
+        const cleanInput = inputs.join('\n');
+        
+        let cleanOutput = '';
+        if (c.matchType === 'all') {
+          cleanOutput = outputs.slice(0, 10).join('\n');
+          if (outputs.length > 10) cleanOutput += '\n...';
+        } else {
+          cleanOutput = outputs[0] || '';
+        }
+        
+        list.push({
+          name: `Exemplo ${index + 1}`,
+          entrada: cleanInput,
+          saida: cleanOutput
+        });
+      });
+      return list;
+    }
+    return [];
+  }
+
   const blocks = examplesText.split(/- Exemplo \d+:/gi);
   const list: ParsedExample[] = [];
-  
-  const testCases = exerciseId ? (testsOverrides as any)[exerciseId]?.cases : null;
   
   let exampleIndex = 0;
   for (const block of blocks) {
@@ -191,6 +219,34 @@ function parseExamples(examplesText: string, exerciseId?: string): ParsedExample
       exampleIndex++;
     }
   }
+  
+  // If the string itself did not start with "- Exemplo" but had Entrada/Saída block directly (like Exercicio110)
+  if (list.length === 0 && blocks.length > 0) {
+    const singleBlock = blocks[0];
+    const entradaMatch = singleBlock.match(/-\s*(?:Entrada|ENTRADA):\s*(.*)/i);
+    const saidaMatch = singleBlock.match(/-\s*(?:Saída|SAÍDA):\s*(.*)/i);
+    const procMatch = singleBlock.match(/-\s*(?:Processamento|PROCESSAMENTO):\s*(.*)/i);
+    
+    if (entradaMatch && saidaMatch) {
+      let rawInput = entradaMatch[1].trim();
+      let rawOutput = saidaMatch[1].trim();
+      let cleanInput = rawInput.replace(/\s*\([^)]*\)\s*$/, '').trim();
+      let cleanOutput = rawOutput.replace(/\s*\([^)]*\)\s*$/, '').trim();
+      
+      const testCase = testCases?.[0];
+      if (testCase && testCase.inputs && testCase.inputs.length > 0) {
+        cleanInput = testCase.inputs.join('\n');
+      }
+      
+      list.push({
+        name: 'Exemplo 1',
+        entrada: cleanInput,
+        saida: cleanOutput,
+        processamento: procMatch ? procMatch[1].trim() : undefined
+      });
+    }
+  }
+
   return list;
 }
 
