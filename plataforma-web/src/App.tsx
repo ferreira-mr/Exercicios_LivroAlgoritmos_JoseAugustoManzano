@@ -880,7 +880,7 @@ export default function App() {
                   )}
 
                   {/* Examples terminal layout */}
-                  {activeEx.examples && parseExamples(activeEx.examples, activeEx.id).length > 0 && (
+                  {parseExamples(activeEx.examples, activeEx.id).length > 0 && (
                     <div className="examples-section">
                       <h3 className="section-subtitle">
                         <Award className="subtitle-icon text-amber" /> Exemplos de E/S
