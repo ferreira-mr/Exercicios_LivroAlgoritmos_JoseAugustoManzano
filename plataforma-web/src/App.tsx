@@ -153,26 +153,42 @@ interface ParsedExample {
   processamento?: string;
 }
 
-function parseExamples(examplesText: string): ParsedExample[] {
+function parseExamples(examplesText: string, exerciseId?: string): ParsedExample[] {
   if (!examplesText) return [];
   const blocks = examplesText.split(/- Exemplo \d+:/gi);
   const list: ParsedExample[] = [];
   
-  let exampleIndex = 1;
+  const testCases = exerciseId ? (testsOverrides as any)[exerciseId]?.cases : null;
+  
+  let exampleIndex = 0;
   for (const block of blocks) {
     if (!block.trim()) continue;
     
-    const entradaMatch = block.match(/-\s*Entrada:\s*(.*)/i);
-    const saidaMatch = block.match(/-\s*Saída:\s*(.*)/i);
-    const procMatch = block.match(/-\s*Processamento:\s*(.*)/i);
+    const entradaMatch = block.match(/-\s*(?:Entrada|ENTRADA):\s*(.*)/i);
+    const saidaMatch = block.match(/-\s*(?:Saída|SAÍDA):\s*(.*)/i);
+    const procMatch = block.match(/-\s*(?:Processamento|PROCESSAMENTO):\s*(.*)/i);
     
     if (entradaMatch && saidaMatch) {
+      let rawInput = entradaMatch[1].trim();
+      let rawOutput = saidaMatch[1].trim();
+      
+      // Clean up parentheses at the end of the lines
+      let cleanInput = rawInput.replace(/\s*\([^)]*\)\s*$/, '').trim();
+      let cleanOutput = rawOutput.replace(/\s*\([^)]*\)\s*$/, '').trim();
+      
+      // If we have actual test inputs, show exactly what the user has to type
+      const testCase = testCases?.[exampleIndex];
+      if (testCase && testCase.inputs && testCase.inputs.length > 0) {
+        cleanInput = testCase.inputs.join('\n');
+      }
+      
       list.push({
-        name: `Exemplo ${exampleIndex++}`,
-        entrada: entradaMatch[1].trim(),
-        saida: saidaMatch[1].trim(),
+        name: `Exemplo ${exampleIndex + 1}`,
+        entrada: cleanInput,
+        saida: cleanOutput,
         processamento: procMatch ? procMatch[1].trim() : undefined
       });
+      exampleIndex++;
     }
   }
   return list;
@@ -808,13 +824,13 @@ export default function App() {
                   )}
 
                   {/* Examples terminal layout */}
-                  {activeEx.examples && parseExamples(activeEx.examples).length > 0 && (
+                  {activeEx.examples && parseExamples(activeEx.examples, activeEx.id).length > 0 && (
                     <div className="examples-section">
                       <h3 className="section-subtitle">
                         <Award className="subtitle-icon text-amber" /> Exemplos de E/S
                       </h3>
                       <div className="examples-grid">
-                        {parseExamples(activeEx.examples).map((item, idx) => (
+                        {parseExamples(activeEx.examples, activeEx.id).map((item, idx) => (
                           <div key={idx} className="terminal-card">
                             {/* Header */}
                             <div className="terminal-header">
@@ -827,9 +843,9 @@ export default function App() {
                             </div>
                             {/* Body */}
                             <div className="terminal-body">
-                              <div className="terminal-row">
-                                <span className="terminal-label">Entrada:</span>
-                                <span className="terminal-input">{item.entrada}</span>
+                              <div className="terminal-row" style={{ alignItems: 'flex-start' }}>
+                                <span className="terminal-label" style={{ marginTop: '2px' }}>Entrada:</span>
+                                <span className="terminal-input" style={{ whiteSpace: 'pre-wrap', display: 'inline-block' }}>{item.entrada}</span>
                               </div>
                               {item.processamento && (
                                 <div className="terminal-comment">
