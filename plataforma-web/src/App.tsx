@@ -309,9 +309,21 @@ export default function App() {
   });
   const [isResizing, setIsResizing] = useState(false);
 
+  // Resizable horizontal split state
+  const [bottomHeight, setBottomHeight] = useState<number>(() => {
+    const saved = localStorage.getItem('manzano_bottom_height');
+    return saved ? parseInt(saved, 10) : 200;
+  });
+  const [isResizingBottom, setIsResizingBottom] = useState(false);
+
   const startResizing = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsResizing(true);
+  };
+
+  const startResizingBottom = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsResizingBottom(true);
   };
 
   useEffect(() => {
@@ -345,6 +357,38 @@ export default function App() {
       window.removeEventListener('mouseup', handleMouseUp);
     };
   }, [isResizing, leftWidth, sidebarCollapsed]);
+
+  useEffect(() => {
+    const handleMouseMoveBottom = (e: MouseEvent) => {
+      if (!isResizingBottom) return;
+      const minHeight = 40;
+      const maxHeight = window.innerHeight - 150;
+      let newHeight = window.innerHeight - e.clientY;
+
+      if (newHeight < minHeight) newHeight = minHeight;
+      if (newHeight > maxHeight) newHeight = maxHeight;
+
+      setBottomHeight(newHeight);
+    };
+
+    const handleMouseUpBottom = () => {
+      if (isResizingBottom) {
+        setIsResizingBottom(false);
+        localStorage.setItem('manzano_bottom_height', String(bottomHeight));
+      }
+    };
+
+    if (isResizingBottom) {
+      window.addEventListener('mousemove', handleMouseMoveBottom);
+      window.addEventListener('mouseup', handleMouseUpBottom);
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMoveBottom);
+      window.removeEventListener('mouseup', handleMouseUpBottom);
+    };
+  }, [isResizingBottom, bottomHeight]);
+
 
   
   const consoleEndRef = useRef<HTMLDivElement>(null);
@@ -781,8 +825,11 @@ export default function App() {
 
       {/* WORKSPACE */}
       <main 
-        className={`workspace-container ${isResizing ? 'is-resizing' : ''}`}
-        style={{ gridTemplateColumns: `${leftWidth}px 4px 1fr` }}
+        className={`workspace-container ${isResizing ? 'is-resizing' : ''} ${isResizingBottom ? 'is-resizing-bottom' : ''}`}
+        style={{ 
+          gridTemplateColumns: `${leftWidth}px 4px 1fr`,
+          gridTemplateRows: `1fr 4px ${bottomHeight}px`
+        }}
       >
         {/* TOP SPLIT PANELS */}
         <div className="main-panels">
@@ -831,7 +878,10 @@ export default function App() {
               </div>
             </div>
             
-            <div className={`instruction-content ${leftTab === 'fluxograma' ? 'flowchart-tab-active' : ''}`}>
+            <div 
+              className={`instruction-content ${leftTab === 'fluxograma' ? 'flowchart-tab-active' : ''}`}
+              onCopy={(e) => e.preventDefault()}
+            >
               {leftTab === 'enunciado' ? (
                 <>
                   {/* Description Card */}
@@ -946,7 +996,7 @@ export default function App() {
           <section className="editor-panel">
             <div className="panel-header">
               <span className="panel-title">
-                <Code className="w-4 h-4 text-purple-400" /> {activeLanguage === 'javascript' ? 'Editor JavaScript' : 'Editor Portugol Studio'}
+                <Code className="w-4 h-4 text-purple-400" /> Editor
               </span>
               
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -973,7 +1023,12 @@ export default function App() {
               </div>
             </div>
 
-            <div className="editor-wrapper">
+            <div 
+              className="editor-wrapper"
+              onCopy={(e) => e.preventDefault()}
+              onCut={(e) => e.preventDefault()}
+              onPaste={(e) => e.preventDefault()}
+            >
               <Editor
                 height="100%"
                 language={activeLanguage === 'javascript' ? 'javascript' : 'portugol'}
@@ -987,7 +1042,8 @@ export default function App() {
                   minimap: { enabled: false },
                   automaticLayout: true,
                   padding: { top: 12 },
-                  lineNumbersMinChars: 3
+                  lineNumbersMinChars: 3,
+                  contextmenu: false
                 }}
               />
             </div>
@@ -1025,6 +1081,11 @@ export default function App() {
         <div 
           className={`workspace-divider ${isResizing ? 'resizing' : ''}`}
           onMouseDown={startResizing}
+        />
+
+        <div 
+          className={`workspace-divider-horizontal ${isResizingBottom ? 'resizing' : ''}`}
+          onMouseDown={startResizingBottom}
         />
 
         {/* BOTTOM PANEL DRAWER */}
@@ -1074,7 +1135,7 @@ export default function App() {
                 </div>
 
                 <form onSubmit={handleConsoleInputSubmit} className="console-input-wrapper">
-                  <span className="console-prompt">{inputRequired ? 'input >' : '>'}</span>
+                  <span className="console-prompt">{inputRequired ? 'entrada >' : '>'}</span>
                   <input 
                     type="text"
                     ref={consoleInputRef}

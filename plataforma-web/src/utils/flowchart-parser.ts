@@ -75,6 +75,10 @@ export function parsePortugolASTToFlowNodes(declarations: any[]): FlowNode[] {
       const type = getStmtType(stmt);
       const id = `pt-${type}-${stmt.linha}-${i}`;
 
+      if (type === 'Comentario') {
+        continue;
+      }
+
       if (type === 'Escreva' || type === 'EscrevaMesmaLinha') {
         const args = stmt.argumentos ? stmt.argumentos.map(stringifyPortugolExpr).join(', ') : '';
         list.push({
@@ -266,14 +270,18 @@ export function parseJSCodeToFlowNodes(code: string): FlowNode[] {
     }
 
     // Simple variable declaration or assignment
-    const assignMatch = line.match(/^(?:const|let|var)?\s*([a-zA-Z0-9_]+)\s*=\s*(.*);?/);
+    const assignMatch = line.match(/^(const|let|var)?\s*([a-zA-Z0-9_]+)\s*=\s*(.*);?/);
     if (assignMatch) {
-      const varName = assignMatch[1];
-      const val = assignMatch[2].trim();
+      const keyword = assignMatch[1] ? assignMatch[1] + ' ' : '';
+      const varName = assignMatch[2];
+      let val = assignMatch[3].trim();
+      if (val.endsWith(';')) {
+        val = val.slice(0, -1).trim();
+      }
       currentList.push({
         id: `js-assign-${i}`,
         type: 'process',
-        text: `${varName} = ${val}`
+        text: `${keyword}${varName} = ${val}`
       });
       continue;
     }

@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
-import { Plus, Minus, Maximize2 } from 'lucide-react';
+import { Plus, Minus, Maximize2, X, AlertCircle } from 'lucide-react';
 import type { FlowNode } from '../utils/flowchart-parser';
 import { 
   parsePortugolASTToFlowNodes, 
@@ -149,30 +149,32 @@ function layoutNodes(
       const x = startX - w / 2;
       const y = currentY;
       
-      const bodyStartY = currentY + h + 35;
-      const bodyLayout = layoutNodes(node.bodyBranch || [], startX, bodyStartY);
-      const bodyEndY = bodyLayout.endY;
+      const bodyStartX = startX + 140;
+      const bodyStartY = y + h + 30;
+      const bodyLayout = layoutNodes(node.bodyBranch || [], bodyStartX, bodyStartY);
+      const bodyEndY = Math.max(bodyLayout.endY, y + h + 60);
       
-      const exitJunctionY = bodyEndY + 10;
-      const joinW = 10;
-      const joinH = 10;
+      const loopBackY = bodyEndY - 10;
       
       const lines: LayoutNode['lines'] = [
-        // Down into body
+        // True branch exits from right of loop block, goes right, then turns down to loop body
+        { x1: startX + w / 2, y1: y + h / 2, x2: bodyStartX, y2: y + h / 2 },
         { 
-          x1: startX, y1: y + h, x2: startX, y2: bodyStartY, arrow: true, label: 'Verdade',
+          x1: bodyStartX, y1: y + h / 2, x2: bodyStartX, y2: bodyStartY, arrow: true, label: 'Verdade',
           insertPoint: { fromNodeId: node.id, branchType: 'body' }
         },
         
-        // Loop back up from body end
-        { x1: startX, y1: bodyEndY - 30, x2: startX - 100, y2: bodyEndY - 30 },
-        { x1: startX - 100, y1: bodyEndY - 30, x2: startX - 100, y2: y + h / 2 },
-        { x1: startX - 100, y1: y + h / 2, x2: startX - w / 2, y2: y + h / 2, arrow: true },
+        // Loop-back line: goes down from loop body end, left, up, right back to main line
+        { x1: bodyStartX, y1: bodyEndY - 30, x2: bodyStartX, y2: loopBackY },
+        { x1: bodyStartX, y1: loopBackY, x2: startX - 110, y2: loopBackY },
+        { x1: startX - 110, y1: loopBackY, x2: startX - 110, y2: y - 15 },
+        { x1: startX - 110, y1: y - 15, x2: startX, y2: y - 15, arrow: true },
         
-        // Exit loop (right branch)
-        { x1: startX + w / 2, y1: y + h / 2, x2: startX + 100, y2: y + h / 2 },
-        { x1: startX + 100, y1: y + h / 2, x2: startX + 100, y2: exitJunctionY },
-        { x1: startX + 100, y1: exitJunctionY, x2: startX, y2: exitJunctionY, arrow: true, label: 'Falso' }
+        // False branch exits from bottom of loop block and goes straight down
+        { 
+          x1: startX, y1: y + h, x2: startX, y2: y + h + 30, arrow: true, label: 'Falso',
+          insertPoint: { fromNodeId: node.id }
+        }
       ];
       
       list.push({
@@ -186,21 +188,11 @@ function layoutNodes(
       
       list.push(...bodyLayout.layoutNodes);
       
-      const exitJunctionNode: FlowNode = { id: `${node.id}-exit`, type: 'join', text: '' };
-      list.push({
-        node: exitJunctionNode,
-        x: startX - joinW / 2,
-        y: exitJunctionY - joinH / 2,
-        width: joinW,
-        height: joinH,
-        lines: i < nodes.length - 1 ? [{ 
-          x1: startX, y1: exitJunctionY + joinH / 2, x2: startX, y2: exitJunctionY + joinH / 2 + 30, arrow: true,
-          insertPoint: { fromNodeId: node.id }
-        }] : []
-      });
+      currentY = Math.max(y + h + 30, loopBackY + 30);
       
-      currentY = exitJunctionY + joinH / 2 + 30;
-      maxWidth = Math.max(maxWidth, 220);
+      const loopRightBoundary = bodyStartX - startX + bodyLayout.width / 2;
+      const loopLeftBoundary = 110;
+      maxWidth = Math.max(maxWidth, Math.max(loopLeftBoundary * 2, loopRightBoundary * 2));
     }
   }
 
@@ -212,14 +204,808 @@ function layoutNodes(
   };
 }
 
+interface BlockData {
+  declType?: string;
+  declName?: string;
+  declValue?: string;
+  procVar?: string;
+  procExpr?: string;
+  inputVar?: string;
+  outputExpr?: string;
+  decCond?: string;
+  loopType?: 'Enquanto' | 'Para';
+  loopCond?: string;
+  loopInit?: string;
+  loopInc?: string;
+}
+
+function parseNodeText(type: string, text: string, language: 'portugol' | 'javascript', isDeclare?: boolean): BlockData {
+  const data: BlockData = {};
+  const t = text.trim();
+  
+  if (isDeclare) {
+    const match = t.match(/^(inteiro|real|caracter|logico|let|const|var)\s+([a-zA-Z0-9_]+)(?:\s*=\s*(.*))?$/i);
+    if (match) {
+      data.declType = match[1];
+      data.declName = match[2];
+      data.declValue = match[3] || '';
+    } else {
+      data.declType = language === 'portugol' ? 'inteiro' : 'let';
+      data.declName = t;
+      data.declValue = '';
+    }
+    return data;
+  }
+  
+  if (type === 'process') {
+    const match = t.match(/^([a-zA-Z0-9_]+)\s*=\s*(.*)$/);
+    if (match) {
+      data.procVar = match[1];
+      data.procExpr = match[2];
+    } else {
+      data.procVar = '';
+      data.procExpr = t;
+    }
+  } else if (type === 'input') {
+    const match = t.match(/^ler\((.*)\)$/i);
+    if (match) {
+      data.inputVar = match[1].trim();
+    } else {
+      data.inputVar = t;
+    }
+  } else if (type === 'output') {
+    const match = t.match(/^escrever\((.*)\)$/i);
+    if (match) {
+      data.outputExpr = match[1].trim();
+    } else {
+      data.outputExpr = t;
+    }
+  } else if (type === 'decision') {
+    data.decCond = t;
+  } else if (type === 'loop') {
+    if (t.toLowerCase().startsWith('para')) {
+      data.loopType = 'Para';
+      const match = t.match(/^Para\s*\((.*?);\s*(.*?);\s*(.*)\)$/i);
+      if (match) {
+        data.loopInit = match[1].trim();
+        data.loopCond = match[2].trim();
+        data.loopInc = match[3].trim();
+      } else {
+        data.loopInit = '';
+        data.loopCond = t;
+        data.loopInc = '';
+      }
+    } else {
+      data.loopType = 'Enquanto';
+      const match = t.match(/^Enquanto\s*\((.*)\)$/i);
+      if (match) {
+        data.loopCond = match[1].trim();
+      } else {
+        data.loopCond = t;
+      }
+    }
+  }
+  
+  return data;
+}
+
+function generateNodeText(type: string, data: BlockData, isDeclare: boolean): string {
+  if (isDeclare) {
+    const typeKeyword = data.declType || 'let';
+    const varName = data.declName || 'x';
+    const val = data.declValue ? data.declValue.trim() : '';
+    return val ? `${typeKeyword} ${varName} = ${val}` : `${typeKeyword} ${varName}`;
+  }
+  
+  if (type === 'process') {
+    const varName = data.procVar ? data.procVar.trim() : '';
+    const expr = data.procExpr ? data.procExpr.trim() : '';
+    return varName ? `${varName} = ${expr}` : expr;
+  } else if (type === 'input') {
+    const varName = data.inputVar ? data.inputVar.trim() : '';
+    return `ler(${varName})`;
+  } else if (type === 'output') {
+    const expr = data.outputExpr ? data.outputExpr.trim() : '';
+    return `escrever(${expr})`;
+  } else if (type === 'decision') {
+    return data.decCond ? data.decCond.trim() : 'x > 0';
+  } else if (type === 'loop') {
+    if (data.loopType === 'Para') {
+      const init = data.loopInit ? data.loopInit.trim() : '';
+      const cond = data.loopCond ? data.loopCond.trim() : '';
+      const inc = data.loopInc ? data.loopInc.trim() : '';
+      return `Para (${init}; ${cond}; ${inc})`;
+    } else {
+      return `Enquanto (${data.loopCond ? data.loopCond.trim() : 'x < 10'})`;
+    }
+  }
+  return '';
+}
+
+function getDeclaredVariables(nodes: FlowNode[]): string[] {
+  const vars: string[] = [];
+  
+  const scan = (list: FlowNode[]) => {
+    for (const node of list) {
+      if (node.type === 'process') {
+        const match = node.text.trim().match(/^(inteiro|real|caracter|logico|let|const|var)\s+([a-zA-Z0-9_]+)/i);
+        if (match) {
+          vars.push(match[2]);
+        }
+      }
+      if (node.thenBranch) scan(node.thenBranch);
+      if (node.elseBranch) scan(node.elseBranch);
+      if (node.bodyBranch) scan(node.bodyBranch);
+    }
+  };
+  
+  scan(nodes);
+  return Array.from(new Set(vars));
+}
+
+interface AutocompleteInputProps {
+  value: string;
+  onChange: (val: string) => void;
+  placeholder?: string;
+  required?: boolean;
+  autoFocus?: boolean;
+  className?: string;
+  declaredVars: string[];
+}
+
+const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
+  value,
+  onChange,
+  placeholder,
+  required,
+  autoFocus,
+  className,
+  declaredVars
+}) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [caretPos, setCaretPos] = useState<number>(0);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Compute current word and suggestions
+  const caretWord = useMemo(() => {
+    if (caretPos === 0) return null;
+    const textBeforeCaret = value.slice(0, caretPos);
+    const match = textBeforeCaret.match(/[a-zA-Z_][a-zA-Z0-9_]*$/);
+    return match ? { word: match[0], startPos: caretPos - match[0].length } : null;
+  }, [value, caretPos]);
+
+  const suggestions = useMemo(() => {
+    if (!caretWord || declaredVars.length === 0) return [];
+    const prefix = caretWord.word.toLowerCase();
+    return declaredVars.filter(v => v.toLowerCase().startsWith(prefix));
+  }, [caretWord, declaredVars]);
+
+  // Adjust active index if suggestions shrink
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [suggestions]);
+
+  // Close suggestions on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleSelectSuggestion = (suggestion: string) => {
+    if (!caretWord) return;
+    const textBefore = value.slice(0, caretWord.startPos);
+    const textAfter = value.slice(caretPos);
+    const newValue = textBefore + suggestion + textAfter;
+    const newCaretPos = caretWord.startPos + suggestion.length;
+
+    onChange(newValue);
+    setShowSuggestions(false);
+
+    // Restore caret position
+    setTimeout(() => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+        inputRef.current.setSelectionRange(newCaretPos, newCaretPos);
+        setCaretPos(newCaretPos);
+      }
+    }, 0);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (suggestions.length > 0 && showSuggestions) {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setActiveIndex(prev => (prev + 1) % suggestions.length);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setActiveIndex(prev => (prev - 1 + suggestions.length) % suggestions.length);
+      } else if (e.key === 'Enter' || e.key === 'Tab') {
+        e.preventDefault();
+        handleSelectSuggestion(suggestions[activeIndex]);
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        setShowSuggestions(false);
+      }
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    onChange(val);
+    const selectionStart = e.target.selectionStart || 0;
+    setCaretPos(selectionStart);
+    setShowSuggestions(true);
+  };
+
+  const handleKeyUpOrClick = (e: React.MouseEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>) => {
+    if (inputRef.current) {
+      setCaretPos(inputRef.current.selectionStart || 0);
+    }
+  };
+
+  return (
+    <div style={{ position: 'relative', width: '100%' }}>
+      <input
+        ref={inputRef}
+        type="text"
+        className={className}
+        style={{ width: '100%' }}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
+        onKeyUp={handleKeyUpOrClick}
+        onClick={handleKeyUpOrClick}
+        required={required}
+        autoFocus={autoFocus}
+        autoComplete="off"
+      />
+      {showSuggestions && suggestions.length > 0 && (
+        <div 
+          className="flow-autocomplete-dropdown"
+          style={{
+            position: 'absolute',
+            top: '105%',
+            left: 0,
+            right: 0,
+            background: 'var(--bg-elevated, #161c28)',
+            border: '1px solid var(--border-color, rgba(255,255,255,0.08))',
+            borderRadius: '6px',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+            maxHeight: '150px',
+            overflowY: 'auto',
+            zIndex: 1000,
+            padding: '4px'
+          }}
+        >
+          {suggestions.map((s, idx) => {
+            const isSelected = idx === activeIndex;
+            return (
+              <div
+                key={s}
+                onClick={() => handleSelectSuggestion(s)}
+                onMouseEnter={() => setActiveIndex(idx)}
+                style={{
+                  padding: '6px 10px',
+                  borderRadius: '4px',
+                  fontSize: '12px',
+                  cursor: 'pointer',
+                  color: 'var(--text-primary, #f1f5f9)',
+                  background: isSelected ? 'rgba(6, 182, 212, 0.15)' : 'transparent',
+                  borderLeft: isSelected ? '2px solid var(--accent-cyan, #06b6d4)' : '2px solid transparent',
+                  transition: 'background 0.1s ease',
+                  fontFamily: 'monospace'
+                }}
+              >
+                {s}
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
+
+interface NodeConfigModalProps {
+  node: { id: string; type: string; text: string; isDeclare?: boolean };
+  language: 'portugol' | 'javascript';
+  declaredVars: string[];
+  onSave: (text: string) => void;
+  onClose: () => void;
+}
+
+const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, declaredVars, onSave, onClose }) => {
+  const initialData = useMemo(() => {
+    return parseNodeText(node.type, node.text, language, node.isDeclare);
+  }, [node, language]);
+
+  // Declare states
+  const [declType, setDeclType] = useState(initialData.declType || (language === 'portugol' ? 'inteiro' : 'let'));
+  const [declName, setDeclName] = useState(initialData.declName || '');
+  const [declValue, setDeclValue] = useState(initialData.declValue || '');
+
+  // Process states
+  const [procVar, setProcVar] = useState(initialData.procVar || '');
+  const [procExpr, setProcExpr] = useState(initialData.procExpr || '');
+
+  // Input states
+  const [inputVar, setInputVar] = useState(initialData.inputVar || '');
+
+  // Output states
+  const [outputExpr, setOutputExpr] = useState(initialData.outputExpr || '');
+
+  // Decision states
+  const [decCond, setDecCond] = useState(initialData.decCond || '');
+
+  // Loop states
+  const [loopType, setLoopType] = useState<'Enquanto' | 'Para'>(initialData.loopType || 'Enquanto');
+  const [loopCond, setLoopCond] = useState(initialData.loopCond || '');
+  const [loopInit, setLoopInit] = useState(initialData.loopInit || '');
+  const [loopInc, setLoopInc] = useState(initialData.loopInc || '');
+
+  // Validation Error state
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  // Clear error message when inputs change
+  useEffect(() => {
+    setErrorMsg(null);
+  }, [
+    declType, declName, declValue,
+    procVar, procExpr,
+    inputVar,
+    outputExpr,
+    decCond,
+    loopType, loopCond, loopInit, loopInc
+  ]);
+
+  const allProcVars = useMemo(() => {
+    if (procVar && !declaredVars.includes(procVar)) {
+      return [procVar, ...declaredVars];
+    }
+    return declaredVars;
+  }, [procVar, declaredVars]);
+
+  const allInputVars = useMemo(() => {
+    if (inputVar && !declaredVars.includes(inputVar)) {
+      return [inputVar, ...declaredVars];
+    }
+    return declaredVars;
+  }, [inputVar, declaredVars]);
+
+  const validateExpression = (expr: string): string | null => {
+    const trimmed = expr.trim();
+    if (!trimmed) return 'A expressão não pode estar vazia.';
+    
+    let openParens = 0;
+    let openBrackets = 0;
+    let inSingleQuote = false;
+    let inDoubleQuote = false;
+    
+    for (let i = 0; i < trimmed.length; i++) {
+      const char = trimmed[i];
+      
+      // Skip escaped characters
+      if (i > 0 && trimmed[i - 1] === '\\') continue;
+      
+      if (char === "'" && !inDoubleQuote) inSingleQuote = !inSingleQuote;
+      if (char === '"' && !inSingleQuote) inDoubleQuote = !inDoubleQuote;
+      if (inSingleQuote || inDoubleQuote) continue;
+      
+      if (char === '(') openParens++;
+      if (char === ')') openParens--;
+      if (char === '[') openBrackets++;
+      if (char === ']') openBrackets--;
+      
+      if (openParens < 0) {
+        return 'Erro de sintaxe: parênteses fechados incorretamente.';
+      }
+      if (openBrackets < 0) {
+        return 'Erro de sintaxe: colchetes fechados incorretamente.';
+      }
+    }
+    if (inSingleQuote || inDoubleQuote) {
+      return 'Erro de sintaxe: aspas não fechadas.';
+    }
+    if (openParens !== 0) {
+      return 'Erro de sintaxe: parênteses não balanceados.';
+    }
+    if (openBrackets !== 0) {
+      return 'Erro de sintaxe: colchetes não balanceados.';
+    }
+    return null;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMsg(null);
+
+    // Validate based on node type
+    if (node.isDeclare) {
+      if (!declName.trim()) {
+        setErrorMsg('Por favor, preencha o nome da variável.');
+        return;
+      }
+      const varNameRegex = /^[a-zA-Z_][a-zA-Z0-9_]*$/;
+      if (!varNameRegex.test(declName.trim())) {
+        setErrorMsg("Nome de variável inválido. Deve começar com letra ou '_' e conter apenas letras, números e '_'.");
+        return;
+      }
+    } else if (node.type === 'process') {
+      const err = validateExpression(procExpr);
+      if (err) {
+        setErrorMsg(err);
+        return;
+      }
+    } else if (node.type === 'input') {
+      if (!inputVar) {
+        setErrorMsg('Por favor, selecione uma variável para entrada de dados.');
+        return;
+      }
+    } else if (node.type === 'output') {
+      const err = validateExpression(outputExpr);
+      if (err) {
+        setErrorMsg(err);
+        return;
+      }
+    } else if (node.type === 'decision') {
+      const err = validateExpression(decCond);
+      if (err) {
+        setErrorMsg(err);
+        return;
+      }
+    } else if (node.type === 'loop') {
+      if (loopType === 'Enquanto') {
+        const err = validateExpression(loopCond);
+        if (err) {
+          setErrorMsg(err);
+          return;
+        }
+      } else {
+        if (!loopInit.trim()) {
+          setErrorMsg('Por favor, preencha a inicialização do contador.');
+          return;
+        }
+        if (!loopCond.trim()) {
+          setErrorMsg('Por favor, preencha a condição de parada.');
+          return;
+        }
+        if (!loopInc.trim()) {
+          setErrorMsg('Por favor, preencha o passo / incremento.');
+          return;
+        }
+        const errInit = validateExpression(loopInit);
+        if (errInit) {
+          setErrorMsg(`Inicialização: ${errInit}`);
+          return;
+        }
+        const errCond = validateExpression(loopCond);
+        if (errCond) {
+          setErrorMsg(`Condição: ${errCond}`);
+          return;
+        }
+        const errInc = validateExpression(loopInc);
+        if (errInc) {
+          setErrorMsg(`Incremento: ${errInc}`);
+          return;
+        }
+      }
+    }
+
+    const data: BlockData = {
+      declType, declName, declValue,
+      procVar, procExpr,
+      inputVar,
+      outputExpr,
+      decCond,
+      loopType, loopCond, loopInit, loopInc
+    };
+    const text = generateNodeText(node.type, data, !!node.isDeclare);
+    onSave(text);
+  };
+
+  // Get description/title based on block type
+  let title = '';
+  let helpText = '';
+
+  if (node.isDeclare) {
+    title = 'Configurar Declaração de Variável';
+    helpText = language === 'portugol'
+      ? 'Use para criar uma variável e reservar espaço na memória. Escolha o tipo de dado (inteiro, real, caracter ou logico), dê um nome a ela e, opcionalmente, defina seu valor inicial.'
+      : 'Use para criar uma variável com um modificador de escopo (let, const ou var), dê um nome a ela e, opcionalmente, defina seu valor inicial.';
+  } else {
+    switch (node.type) {
+      case 'process':
+        title = 'Configurar Atribuição (Processamento)';
+        helpText = 'Permite realizar cálculos ou definir valores e guardar o resultado em uma variável. Se você deixar o campo de variável de destino em branco, funcionará como um processamento livre (ex: chamada de função).';
+        break;
+      case 'input':
+        title = 'Configurar Entrada (Leia)';
+        helpText = 'Pede para o usuário fornecer um dado pelo console/teclado. O valor inserido será guardado na variável especificada abaixo.';
+        break;
+      case 'output':
+        title = 'Configurar Saída (Escreva)';
+        helpText = 'Exibe um texto ou o resultado de um cálculo/variável na tela. Para textos literais, use aspas duplas, ex: "Resultado = ". Para variáveis, use apenas o nome delas, ex: x. Use o operador + para juntar textos e variáveis.';
+        break;
+      case 'decision':
+        title = 'Configurar Decisão (Se)';
+        helpText = 'Avalia uma condição lógica que deve ser verdadeira ou falsa (ex: idade >= 18). Se for verdadeira, segue pelo caminho da esquerda (Sim), senão segue pelo caminho da direita (Não).';
+        break;
+      case 'loop':
+        title = 'Configurar Repetição (Estrutura de Loop)';
+        helpText = 'Executa repetidamente as instruções de seu corpo enquanto a condição especificada for verdadeira. Pode ser uma repetição com condição (Enquanto) ou controlada por um contador (Para).';
+        break;
+    }
+  }
+
+  return (
+    <div className="flow-modal-backdrop" onClick={onClose}>
+      <div className="flow-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="flow-modal-header">
+          <h3 className="flow-modal-title">{title}</h3>
+          <button type="button" className="flow-modal-close-btn" onClick={onClose}>
+            <X size={16} />
+          </button>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="flow-modal-body">
+            <div className="flow-modal-help-box">{helpText}</div>
+            
+            {node.isDeclare && (
+              <>
+                <div className="flow-modal-field-group">
+                  <label className="flow-modal-label">Tipo da Variável</label>
+                  <select 
+                    className="flow-modal-select" 
+                    value={declType} 
+                    onChange={(e) => setDeclType(e.target.value)}
+                  >
+                    {language === 'portugol' ? (
+                      <>
+                        <option value="inteiro">inteiro (números inteiros: 0, 1, -5)</option>
+                        <option value="real">real (números decimais: 1.5, -3.14)</option>
+                        <option value="caracter">caracter (textos / strings: "Ana")</option>
+                        <option value="logico">logico (verdadeiro ou falso)</option>
+                      </>
+                    ) : (
+                      <>
+                        <option value="let">let (variável com escopo de bloco)</option>
+                        <option value="const">const (constante, valor fixo)</option>
+                        <option value="var">var (variável tradicional)</option>
+                      </>
+                    )}
+                  </select>
+                </div>
+                <div className="flow-modal-field-group">
+                  <label className="flow-modal-label">Nome da Variável</label>
+                  <input 
+                    type="text" 
+                    className="flow-modal-input" 
+                    placeholder="ex: idade" 
+                    value={declName} 
+                    onChange={(e) => setDeclName(e.target.value)} 
+                    required 
+                    autoFocus
+                  />
+                </div>
+                <div className="flow-modal-field-group">
+                  <label className="flow-modal-label">Valor Inicial (Opcional)</label>
+                  <input 
+                    type="text" 
+                    className="flow-modal-input" 
+                    placeholder="ex: 0" 
+                    value={declValue} 
+                    onChange={(e) => setDeclValue(e.target.value)} 
+                  />
+                </div>
+              </>
+            )}
+
+            {!node.isDeclare && node.type === 'process' && (
+              <>
+                <div className="flow-modal-field-group">
+                  <label className="flow-modal-label">Variável de Destino (Opcional)</label>
+                  {allProcVars.length > 0 ? (
+                    <select 
+                      className="flow-modal-select"
+                      value={procVar}
+                      onChange={(e) => setProcVar(e.target.value)}
+                    >
+                      <option value="">-- Processamento Livre (Sem atribuição) --</option>
+                      {allProcVars.map(v => (
+                        <option key={v} value={v}>{v}</option>
+                      ))}
+                    </select>
+                  ) : (
+                    <div style={{ color: 'var(--accent-rose)', fontSize: '0.8rem', padding: '0.25rem 0' }}>
+                      Nenhuma variável declarada. Adicione um bloco de Declaração antes.
+                    </div>
+                  )}
+                </div>
+                <div className="flow-modal-field-group">
+                  <label className="flow-modal-label">Valor / Expressão</label>
+                  <AutocompleteInput 
+                    className="flow-modal-input" 
+                    placeholder="ex: x + y" 
+                    value={procExpr} 
+                    onChange={setProcExpr} 
+                    required
+                    declaredVars={declaredVars}
+                  />
+                </div>
+              </>
+            )}
+
+            {node.type === 'input' && (
+              <div className="flow-modal-field-group">
+                <label className="flow-modal-label">Nome da Variável</label>
+                {allInputVars.length > 0 ? (
+                  <select 
+                    className="flow-modal-select"
+                    value={inputVar}
+                    onChange={(e) => setInputVar(e.target.value)}
+                    required
+                  >
+                    <option value="" disabled>-- Selecione uma variável --</option>
+                    {allInputVars.map(v => (
+                      <option key={v} value={v}>{v}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <div style={{ color: 'var(--accent-rose)', fontSize: '0.8rem', padding: '0.25rem 0' }}>
+                    Nenhuma variável declarada. Adicione um bloco de Declaração antes.
+                  </div>
+                )}
+              </div>
+            )}
+
+            {node.type === 'output' && (
+              <div className="flow-modal-field-group">
+                <label className="flow-modal-label">Conteúdo a Escrever</label>
+                <AutocompleteInput 
+                  className="flow-modal-input" 
+                  placeholder={language === 'portugol' ? 'ex: "Olá " + nome' : 'ex: "Olá ", nome'} 
+                  value={outputExpr} 
+                  onChange={setOutputExpr} 
+                  required 
+                  autoFocus
+                  declaredVars={declaredVars}
+                />
+              </div>
+            )}
+
+            {node.type === 'decision' && (
+              <div className="flow-modal-field-group">
+                <label className="flow-modal-label">Condição</label>
+                <AutocompleteInput 
+                  className="flow-modal-input" 
+                  placeholder="ex: x > 0" 
+                  value={decCond} 
+                  onChange={setDecCond} 
+                  required 
+                  autoFocus
+                  declaredVars={declaredVars}
+                />
+              </div>
+            )}
+
+            {node.type === 'loop' && (
+              <>
+                <div className="flow-modal-field-group">
+                  <label className="flow-modal-label">Tipo de Repetição</label>
+                  <select 
+                    className="flow-modal-select" 
+                    value={loopType} 
+                    onChange={(e) => setLoopType(e.target.value as 'Enquanto' | 'Para')}
+                  >
+                    <option value="Enquanto">Enquanto (condicional simples)</option>
+                    <option value="Para">Para (com contador inicializado)</option>
+                  </select>
+                </div>
+                
+                {loopType === 'Enquanto' ? (
+                  <div className="flow-modal-field-group">
+                    <label className="flow-modal-label">Condição de Repetição</label>
+                    <AutocompleteInput 
+                      className="flow-modal-input" 
+                      placeholder="ex: contador < 10" 
+                      value={loopCond} 
+                      onChange={setLoopCond} 
+                      required 
+                      autoFocus
+                      declaredVars={declaredVars}
+                    />
+                  </div>
+                ) : (
+                  <>
+                    <div className="flow-modal-field-group">
+                      <label className="flow-modal-label">Inicialização</label>
+                      <AutocompleteInput 
+                        className="flow-modal-input" 
+                        placeholder={language === 'portugol' ? 'ex: i = 0' : 'ex: let i = 0'} 
+                        value={loopInit} 
+                        onChange={setLoopInit} 
+                        required
+                        declaredVars={declaredVars}
+                      />
+                    </div>
+                    <div className="flow-modal-field-group">
+                      <label className="flow-modal-label">Condição de Parada</label>
+                      <AutocompleteInput 
+                        className="flow-modal-input" 
+                        placeholder="ex: i < 10" 
+                        value={loopCond} 
+                        onChange={setLoopCond} 
+                        required
+                        declaredVars={declaredVars}
+                      />
+                    </div>
+                    <div className="flow-modal-field-group">
+                      <label className="flow-modal-label">Passo / Incremento</label>
+                      <AutocompleteInput 
+                        className="flow-modal-input" 
+                        placeholder="ex: i++" 
+                        value={loopInc} 
+                        onChange={setLoopInc} 
+                        required
+                        declaredVars={declaredVars}
+                      />
+                    </div>
+                  </>
+                )}
+              </>
+            )}
+            
+            {errorMsg && (
+              <div 
+                style={{ 
+                  color: 'var(--accent-rose, #f43f5e)', 
+                  fontSize: '0.85rem', 
+                  background: 'rgba(244, 63, 94, 0.08)', 
+                  border: '1px solid rgba(244, 63, 94, 0.2)',
+                  borderRadius: '6px',
+                  padding: '10px 14px',
+                  marginTop: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontFamily: 'var(--font-sans)',
+                  fontWeight: '500'
+                }}
+              >
+                <AlertCircle size={15} style={{ flexShrink: 0 }} />
+                <span>{errorMsg}</span>
+              </div>
+            )}
+          </div>
+          <div className="flow-modal-footer">
+            <button type="button" className="flow-modal-btn cancel" onClick={onClose}>Cancelar</button>
+            <button type="submit" className="flow-modal-btn save">Confirmar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
 export default function FlowchartTab({ code, language, astDeclarations, onChangeCode }: FlowchartTabProps) {
   // Editing states
-  const [editingNodeId, setEditingNodeId] = useState<string | null>(null);
+  const [activeModalNode, setActiveModalNode] = useState<{ id: string; type: string; text: string; isDeclare?: boolean } | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
   const [insertMenu, setInsertMenu] = useState<{ x: number; y: number; fromNodeId: string; branchType?: 'then' | 'else' | 'body' } | null>(null);
 
   // Local tree state for editing
   const [treeNodes, setTreeNodes] = useState<FlowNode[]>([]);
+
+  const declaredVars = useMemo(() => {
+    return getDeclaredVariables(treeNodes);
+  }, [treeNodes]);
 
   // Zoom & Pan states
   const [scale, setScale] = useState(1);
@@ -366,8 +1152,6 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
 
   // Wrap in Start / End nodes for layouts
   const layout = useMemo(() => {
-    if (treeNodes.length === 0) return null;
-    
     const startNode: FlowNode = { id: 'start', type: 'start', text: 'Início' };
     const endNode: FlowNode = { id: 'end', type: 'end', text: 'Fim' };
     const fullList = [startNode, ...treeNodes, endNode];
@@ -396,7 +1180,6 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
   };
 
   const saveNodeText = (nodeId: string, text: string) => {
-    setEditingNodeId(null);
     if (!text.trim()) return;
 
     const treeCopy = JSON.parse(JSON.stringify(treeNodes));
@@ -421,7 +1204,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
     setInsertMenu({ x, y, fromNodeId, branchType });
   };
 
-  const handleInsertNode = (type: 'process' | 'input' | 'output' | 'decision' | 'loop') => {
+  const handleInsertNode = (type: 'declare' | 'process' | 'input' | 'output' | 'decision' | 'loop') => {
     if (!insertMenu) return;
     const { fromNodeId, branchType } = insertMenu;
     setInsertMenu(null);
@@ -434,50 +1217,72 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
     let elseBranch: FlowNode[] = [];
     let bodyBranch: FlowNode[] = [];
 
+    const actualType = type === 'declare' ? 'process' : type;
+
     switch (type) {
+      case 'declare': {
+        let name = 'x';
+        if (declaredVars.includes(name)) {
+          let count = 1;
+          while (declaredVars.includes(`x${count}`)) {
+            count++;
+          }
+          name = `x${count}`;
+        }
+        text = language === 'portugol' ? `inteiro ${name}` : `let ${name}`;
+        break;
+      }
       case 'process':
-        text = 'x = 0';
+        text = '';
         break;
       case 'input':
-        text = 'ler(x)';
+        text = declaredVars.length > 0 ? `ler(${declaredVars[0]})` : 'ler()';
         break;
       case 'output':
         text = 'escrever("olá")';
         break;
       case 'decision':
-        text = 'x > 0';
+        text = declaredVars.length > 0 ? `${declaredVars[0]} > 0` : 'x > 0';
         thenBranch = [];
         elseBranch = [];
         break;
       case 'loop':
-        text = 'Enquanto (x < 10)';
+        text = declaredVars.length > 0 ? `Enquanto (${declaredVars[0]} < 10)` : 'Enquanto (x < 10)';
         bodyBranch = [];
         break;
     }
 
     const newNode: FlowNode = {
       id,
-      type,
+      type: actualType,
       text,
-      thenBranch: type === 'decision' ? thenBranch : undefined,
-      elseBranch: type === 'decision' ? elseBranch : undefined,
-      bodyBranch: type === 'loop' ? bodyBranch : undefined
+      thenBranch: actualType === 'decision' ? thenBranch : undefined,
+      elseBranch: actualType === 'decision' ? elseBranch : undefined,
+      bodyBranch: actualType === 'loop' ? bodyBranch : undefined
     };
 
     const treeCopy = JSON.parse(JSON.stringify(treeNodes));
-    const success = insertNodeInTree(treeCopy, fromNodeId, newNode, branchType);
+    let success = false;
+    if (fromNodeId === 'start') {
+      treeCopy.unshift(newNode);
+      success = true;
+    } else {
+      success = insertNodeInTree(treeCopy, fromNodeId, newNode, branchType);
+    }
     if (success) {
       setTreeNodes(treeCopy);
       syncTreeToCode(treeCopy);
       
-      // Focus inline input immediately to edit node parameters
-      setTimeout(() => {
-        setEditingNodeId(id);
-      }, 80);
+      setActiveModalNode({
+        id,
+        type: actualType,
+        text,
+        isDeclare: type === 'declare'
+      });
     }
   };
 
-  if (!layout || treeNodes.length === 0) {
+  if (!layout) {
     return (
       <div className="flowchart-empty-state">
         <p className="text-sm text-slate-400">
@@ -563,6 +1368,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
             zIndex: 100
           }}
         >
+          <button className="flow-insert-menu-item" onClick={() => handleInsertNode('declare')} style={menuItemStyle}>Declaração (Variável)</button>
           <button className="flow-insert-menu-item" onClick={() => handleInsertNode('process')} style={menuItemStyle}>Atribuição</button>
           <button className="flow-insert-menu-item" onClick={() => handleInsertNode('input')} style={menuItemStyle}>Entrada (Ler)</button>
           <button className="flow-insert-menu-item" onClick={() => handleInsertNode('output')} style={menuItemStyle}>Saída (Escrever)</button>
@@ -762,49 +1568,6 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
             ? y + height / 2
             : y + 12;
 
-          // Editable inline text input
-          if (editingNodeId === node.id) {
-            return (
-              <g key={node.id} className={`flow-node ${colorClass}`}>
-                {React.cloneElement(shape as React.ReactElement<React.SVGProps<SVGElement>>, {
-                  stroke: "var(--accent-cyan, #06b6d4)",
-                  strokeWidth: 2.5,
-                  fill: "currentColor"
-                })}
-                <foreignObject 
-                  x={x + 8} 
-                  y={y + height / 2 - 12} 
-                  width={width - 16} 
-                  height={24}
-                >
-                  <input
-                    type="text"
-                    defaultValue={node.text}
-                    onBlur={(e) => saveNodeText(node.id, e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') saveNodeText(node.id, e.currentTarget.value);
-                      if (e.key === 'Escape') setEditingNodeId(null);
-                    }}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      background: 'var(--bg-elevated, #161c28)',
-                      color: 'var(--text-primary, #f8fafc)',
-                      border: '1px solid var(--accent-cyan, #06b6d4)',
-                      borderRadius: '4px',
-                      fontSize: '11px',
-                      fontFamily: 'JetBrains Mono, monospace',
-                      textAlign: 'center',
-                      outline: 'none',
-                      padding: '0 2px'
-                    }}
-                    autoFocus
-                  />
-                </foreignObject>
-              </g>
-            );
-          }
-
           return (
             <g 
               key={node.id} 
@@ -813,7 +1576,12 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
               onMouseLeave={() => setHoveredNodeId(null)}
               onDoubleClick={() => {
                 if (node.type !== 'start' && node.type !== 'end') {
-                  setEditingNodeId(node.id);
+                  setActiveModalNode({
+                    id: node.id,
+                    type: node.type,
+                    text: node.text,
+                    isDeclare: isDeclaration
+                  });
                 }
               }}
             >
@@ -830,7 +1598,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
                 fontSize="11.5px"
                 fontWeight="600"
                 fontFamily="var(--font-sans)"
-                fill="var(--bg-main, #0f172a)"
+                fill="currentColor"
               >
                 {displayNodeText(node.text)}
               </text>
@@ -911,6 +1679,19 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           <Maximize2 style={{ width: '14px', height: '14px' }} />
         </button>
       </div>
+
+      {activeModalNode && (
+        <NodeConfigModal
+          node={activeModalNode}
+          language={language}
+          declaredVars={declaredVars}
+          onSave={(newText) => {
+            saveNodeText(activeModalNode.id, newText);
+            setActiveModalNode(null);
+          }}
+          onClose={() => setActiveModalNode(null)}
+        />
+      )}
     </div>
   );
 }
