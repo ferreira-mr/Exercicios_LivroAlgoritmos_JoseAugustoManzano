@@ -11,6 +11,7 @@ export interface RunOptions {
 export interface RunResult {
   success: boolean;
   errors: string[];
+  variables?: any[];
 }
 
 /**
@@ -47,18 +48,28 @@ export async function runCode(options: RunOptions): Promise<RunResult> {
     }
 
     if (!parserResult.declaracoes || parserResult.declaracoes.length === 0) {
-      return { success: true, errors: [] };
+      return { success: true, errors: [], variables: [] };
     }
 
     // Set up standard output and clear screen callbacks
     const interpreter = new InterpretadorPortugolStudio(
       '.', // dummy base dir for browser
       false, // performance flag
-      (saida: any) => onOutput(String(saida)),
+      (saida: any) => onOutput(interpreter.paraTexto(saida)),
       () => {
         if (onClearScreen) onClearScreen();
       }
     );
+
+    // Override paraTexto on the interpreter instance for real number formatting
+    interpreter.paraTexto = function(objeto: any): string {
+      if (typeof objeto === 'number') {
+        if (!Number.isInteger(objeto)) {
+          return objeto.toFixed(2);
+        }
+      }
+      return InterpretadorPortugolStudio.prototype.paraTexto.call(this, objeto);
+    };
 
     let inputIndex = 0;
 
@@ -83,16 +94,19 @@ export async function runCode(options: RunOptions): Promise<RunResult> {
 
     const interpreterResult = await interpreter.interpretar(parserResult.declaracoes, true);
 
+    const rawVars = interpreter.pilhaEscoposExecucao.obterTodasVariaveis();
+    const variables = rawVars.filter((v: any) => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
+
     if (interpreterResult.erros && interpreterResult.erros.length > 0) {
       interpreterResult.erros.forEach((err: any) => {
         const line = err.linha || '?';
         const msg = err.mensagem || String(err);
         errors.push(`Erro de Execução (linha ${line}): ${msg}`);
       });
-      return { success: false, errors };
+      return { success: false, errors, variables };
     }
 
-    return { success: true, errors: [] };
+    return { success: true, errors: [], variables };
   } catch (err: any) {
     console.error('Error executing Portugol Studio code:', err);
     return { success: false, errors: [String(err.message || err)] };

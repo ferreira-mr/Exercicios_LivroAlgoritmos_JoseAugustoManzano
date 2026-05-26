@@ -19,14 +19,17 @@ import {
   Sparkles, 
   RefreshCw, 
   Award,
-  Workflow
+  Workflow,
+  Bug,
+  SkipForward,
+  Square
 } from 'lucide-react';
 
 import exercisesData from './data/exercises.json';
 import testsOverrides from './data/tests.json';
 import { runCode, runJSCode } from './utils/runner';
 import { registerPortugolLanguage } from './utils/portugol-monaco';
-import { LexadorPortugolStudio, AvaliadorSintaticoPortugolStudio } from '@designliquido/portugol-studio';
+import { LexadorPortugolStudio, AvaliadorSintaticoPortugolStudio, InterpretadorPortugolStudioComDepuracao } from '@designliquido/portugol-studio';
 import FlowchartTab from './components/FlowchartTab';
 
 interface Exercise {
@@ -250,7 +253,17 @@ function parseExamples(examplesText: string, exerciseId?: string): ParsedExample
   return list;
 }
 
-
+function formatDecimals(text: string): string {
+  return text.replace(/(\d+)([\.,])(\d+)/g, (match, p1, p2, p3) => {
+    const numStr = `${p1}.${p3}`;
+    const num = parseFloat(numStr);
+    if (!isNaN(num)) {
+      const fixed = num.toFixed(2);
+      return p2 === ',' ? fixed.replace('.', ',') : fixed;
+    }
+    return match;
+  });
+}
 
 export default function App() {
   // --- STATE ---
@@ -291,6 +304,14 @@ export default function App() {
   const [isTesting, setIsTesting] = useState(false);
   const [testResults, setTestResults] = useState<TestResult[] | null>(null);
   const [activeTab, setActiveTab] = useState<'console' | 'tests'>('console');
+  
+  // Debugger & Variables State
+  const [isDebugging, setIsDebugging] = useState(false);
+  const [activeLine, setActiveLine] = useState<number | null>(null);
+  const [debugVariables, setDebugVariables] = useState<any[]>([]);
+
+  const debugInterpreterRef = useRef<any>(null);
+  const lineDecorationsRef = useRef<string[]>([]);
   
   // Persistence (saved progress)
   const [completedExs, setCompletedExs] = useState<string[]>([]);
@@ -472,6 +493,12 @@ export default function App() {
       setTestResults(null);
       setActiveTab('console');
       setInputRequired(false);
+
+      // Reset debugging status
+      setIsDebugging(false);
+      setActiveLine(null);
+      setDebugVariables([]);
+      debugInterpreterRef.current = null;
       
       // Save active ID
       localStorage.setItem('manzano_active_id', activeEx.id);
@@ -489,6 +516,226 @@ export default function App() {
       consoleInputRef.current?.focus();
     }
   }, [inputRequired]);
+
+  // Monaco editor highlighting of the active execution line
+  useEffect(() => {
+    if (editorRef.current) {
+      const editor = editorRef.current;
+      if (activeLine) {
+        lineDecorationsRef.current = editor.deltaDecorations(
+          lineDecorationsRef.current,
+          [
+            {
+              range: {
+                startLineNumber: activeLine,
+                startColumn: 1,
+                endLineNumber: activeLine,
+                endColumn: 1
+              },
+              options: {
+                isWholeLine: true,
+                className: 'active-execution-line',
+                glyphMarginClassName: 'active-execution-glyph'
+              }
+            }
+          ]
+        );
+        editor.revealLineInCenterIfOutsideViewport(activeLine);
+      } else {
+        lineDecorationsRef.current = editor.deltaDecorations(lineDecorationsRef.current, []);
+      }
+    }
+    return () => {
+      if (editorRef.current && lineDecorationsRef.current.length > 0) {
+        editorRef.current.deltaDecorations(lineDecorationsRef.current, []);
+      }
+    };
+  }, [activeLine]);
+
+  // Debugger Execution Helpers
+  const startDebugging = async () => {
+    if (isRunning || isTesting || isDebugging) return;
+
+    if (activeLanguage !== 'portugol') {
+      alert('O modo de depuração passo a passo está disponível apenas para Portugol.');
+      return;
+    }
+
+    setIsRunning(true);
+    setIsDebugging(true);
+    setActiveTab('console');
+    setConsoleLines([{ type: 'stdout', text: '--- DEPURAÇÃO INICIADA (PASSO A PASSO) ---' }]);
+    setDebugVariables([]);
+    setActiveLine(null);
+
+    const lexer = new LexadorPortugolStudio();
+    const parser = new AvaliadorSintaticoPortugolStudio();
+    const lines = code.split('\n');
+    const lexerResult = lexer.mapear(lines, -1);
+    
+    if (lexerResult.erros && lexerResult.erros.length > 0) {
+      const errs = lexerResult.erros.map((err) => `Erro Léxico (linha ${err.linha}): ${err.mensagem}`);
+      setConsoleLines(prev => [...prev, ...errs.map(err => ({ type: 'stderr' as const, text: err })), { type: 'stderr', text: '\n--- DEPURAÇÃO FINALIZADA COM ERROS ---' }]);
+      setIsRunning(false);
+      setIsDebugging(false);
+      return;
+    }
+
+    try {
+      const parserResult = await parser.analisar(lexerResult, -1);
+      
+      if (parserResult.erros && parserResult.erros.length > 0) {
+        const errs = parserResult.erros.map((err) => {
+          const line = err.simbolo?.linha || '?';
+          return `Erro Sintático (linha ${line}): ${(err as any).mensagem || err.message}`;
+        });
+        setConsoleLines(prev => [...prev, ...errs.map(err => ({ type: 'stderr' as const, text: err })), { type: 'stderr', text: '\n--- DEPURAÇÃO FINALIZADA COM ERROS ---' }]);
+        setIsRunning(false);
+        setIsDebugging(false);
+        return;
+      }
+
+      if (!parserResult.declaracoes || parserResult.declaracoes.length === 0) {
+        setConsoleLines(prev => [...prev, { type: 'stdout', text: '--- DEPURAÇÃO CONCLUÍDA ---' }]);
+        setIsRunning(false);
+        setIsDebugging(false);
+        return;
+      }
+
+      const interpreter = new InterpretadorPortugolStudioComDepuracao(
+        '.',
+        (output) => {
+          setConsoleLines(prev => [...prev, { type: 'stdout', text: String(output) }]);
+        },
+        (output) => {
+          setConsoleLines(prev => [...prev, { type: 'stdout', text: String(output) }]);
+        },
+        () => {
+          setConsoleLines([]);
+        }
+      );
+
+      interpreter.avancarPrimeiroEscopoAposInstrucao = () => {};
+
+      interpreter.paraTexto = function(objeto: any): string {
+        if (typeof objeto === 'number') {
+          if (!Number.isInteger(objeto)) {
+            return objeto.toFixed(2);
+          }
+        }
+        return InterpretadorPortugolStudioComDepuracao.prototype.paraTexto.call(this, objeto);
+      };
+
+      interpreter.interfaceEntradaSaida = {
+        question: (prompt: string, callback: (resposta: string) => void) => {
+          setInputPrompt(prompt || 'Digite um valor:');
+          setInputRequired(true);
+          inputResolverRef.current = callback;
+        }
+      };
+
+      interpreter.pontosParada = [];
+      for (let i = 1; i <= lines.length; i++) {
+        interpreter.pontosParada.push({
+          hashArquivo: -1,
+          linha: i
+        });
+      }
+
+      interpreter.avisoPontoParadaAtivado = () => {
+        const currentLineNum = interpreter.linhaDeclaracaoAtual;
+        setActiveLine(currentLineNum);
+        
+        const rawVars = interpreter.pilhaEscoposExecucao.obterTodasVariaveis();
+        const filteredVars = rawVars.filter(v => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
+        setDebugVariables(filteredVars);
+      };
+
+      interpreter.finalizacaoDaExecucao = () => {
+        // Safe fallback
+      };
+
+      debugInterpreterRef.current = interpreter;
+
+      interpreter.prepararParaDepuracao(parserResult.declaracoes);
+      await interpreter.instrucaoContinuarInterpretacao();
+
+      if (interpreter.pilhaEscoposExecucao.elementos() <= 1) {
+        finishDebugging();
+      }
+
+    } catch (err: any) {
+      console.error('Error starting debugger:', err);
+      setConsoleLines(prev => [...prev, { type: 'stderr', text: `Erro de Inicialização do Depurador: ${err.message || err}` }]);
+      setIsRunning(false);
+      setIsDebugging(false);
+    }
+  };
+
+  const stepDebugging = async () => {
+    if (!isDebugging || !debugInterpreterRef.current) return;
+    
+    try {
+      const interpreter = debugInterpreterRef.current;
+      await interpreter.instrucaoPasso();
+      
+      const rawVars = interpreter.pilhaEscoposExecucao.obterTodasVariaveis();
+      const filteredVars = rawVars.filter(v => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
+      setDebugVariables(filteredVars);
+
+      if (interpreter.pilhaEscoposExecucao.elementos() <= 1) {
+        finishDebugging();
+      }
+    } catch (err: any) {
+      console.error('Error stepping debugger:', err);
+      finishDebugging(err);
+    }
+  };
+
+  const continueDebugging = async () => {
+    if (!isDebugging || !debugInterpreterRef.current) return;
+
+    try {
+      const interpreter = debugInterpreterRef.current;
+      await interpreter.instrucaoContinuarInterpretacao();
+      
+      const rawVars = interpreter.pilhaEscoposExecucao.obterTodasVariaveis();
+      const filteredVars = rawVars.filter(v => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
+      setDebugVariables(filteredVars);
+
+      if (interpreter.pilhaEscoposExecucao.elementos() <= 1) {
+        finishDebugging();
+      }
+    } catch (err: any) {
+      console.error('Error continuing debugger:', err);
+      finishDebugging(err);
+    }
+  };
+
+  const finishDebugging = (err?: any) => {
+    setIsRunning(false);
+    setIsDebugging(false);
+    setActiveLine(null);
+    debugInterpreterRef.current = null;
+    
+    if (err) {
+      setConsoleLines(prev => [
+        ...prev, 
+        { type: 'stderr', text: `Erro de Depuração: ${err.message || err}` },
+        { type: 'stderr', text: '\n--- DEPURAÇÃO INTERROMPIDA COM ERRO ---' }
+      ]);
+    } else {
+      setConsoleLines(prev => [...prev, { type: 'stdout', text: '\n--- DEPURAÇÃO CONCLUÍDA ---' }]);
+    }
+  };
+
+  const stopDebugging = () => {
+    setIsRunning(false);
+    setIsDebugging(false);
+    setActiveLine(null);
+    debugInterpreterRef.current = null;
+    setConsoleLines(prev => [...prev, { type: 'stdout', text: '\n--- DEPURAÇÃO INTERROMPIDA ---' }]);
+  };
 
   // --- FUNCTIONS ---
   const saveCode = (newCode: string) => {
@@ -514,6 +761,8 @@ export default function App() {
     setIsRunning(true);
     setActiveTab('console');
     setConsoleLines([{ type: 'stdout', text: '--- EXECUÇÃO INICIADA ---' }]);
+    setDebugVariables([]);
+    setActiveLine(null);
     
     const runner = activeLanguage === 'javascript' ? runJSCode : runCode;
     const result = await runner({
@@ -536,12 +785,14 @@ export default function App() {
 
     if (result.success) {
       setConsoleLines(prev => [...prev, { type: 'stdout', text: '\n--- EXECUÇÃO CONCLUÍDA COM SUCESSO ---' }]);
+      setDebugVariables(result.variables || []);
     } else {
       setConsoleLines(prev => [
         ...prev,
         ...result.errors.map(err => ({ type: 'stderr' as const, text: err })),
         { type: 'stderr', text: '\n--- EXECUÇÃO FINALIZADA COM ERROS ---' }
       ]);
+      setDebugVariables(result.variables || []);
     }
   };
 
@@ -598,16 +849,16 @@ export default function App() {
 
       if (runRes.success) {
         // Match output
-        const cleanActual = testOutput.toLowerCase().replace(/\s+/g, ' ');
+        const cleanActual = formatDecimals(testOutput.toLowerCase().replace(/\s+/g, ' '));
         const matchAll = testCase.matchType === 'all';
         if (matchAll) {
           passed = testCase.outputs.every(expected => {
-            const cleanExpected = expected.toLowerCase().trim();
+            const cleanExpected = formatDecimals(expected.toLowerCase().trim());
             return cleanActual.includes(cleanExpected);
           });
         } else {
           passed = testCase.outputs.some(expected => {
-            const cleanExpected = expected.toLowerCase().trim();
+            const cleanExpected = formatDecimals(expected.toLowerCase().trim());
             return cleanActual.includes(cleanExpected);
           });
         }
@@ -974,6 +1225,7 @@ export default function App() {
                   code={code} 
                   language={activeLanguage} 
                   astDeclarations={astDeclarations} 
+                  activeLine={activeLine} 
                   onChangeCode={(newCode) => {
                     saveCode(newCode);
                     if (editorRef.current) {
@@ -1059,20 +1311,56 @@ export default function App() {
               </button>
               
               <div className="btn-group">
-                <button 
-                  onClick={runCodeInteractive}
-                  className="btn btn-primary"
-                  disabled={isRunning || isTesting}
-                >
-                  <Play className="w-4 h-4" /> Executar
-                </button>
-                <button 
-                  onClick={runAutomatedTests}
-                  className="btn btn-success"
-                  disabled={isRunning || isTesting}
-                >
-                  <CheckCircle className="w-4 h-4" /> Testar Resolução
-                </button>
+                {isDebugging ? (
+                  <>
+                    <button 
+                      onClick={stepDebugging}
+                      className="btn btn-primary"
+                      title="Executar próxima linha (Passo a Passo)"
+                    >
+                      <SkipForward className="w-4 h-4 animate-bounce" /> Passo a Passo
+                    </button>
+                    <button 
+                      onClick={continueDebugging}
+                      className="btn btn-success"
+                      title="Continuar execução normal"
+                    >
+                      <Play className="w-4 h-4" /> Continuar
+                    </button>
+                    <button 
+                      onClick={stopDebugging}
+                      className="btn btn-danger"
+                      title="Parar depuração"
+                    >
+                      <Square className="w-4 h-4" /> Parar
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button 
+                      onClick={runCodeInteractive}
+                      className="btn btn-primary"
+                      disabled={isRunning || isTesting}
+                    >
+                      <Play className="w-4 h-4" /> Executar
+                    </button>
+                    <button 
+                      onClick={startDebugging}
+                      className="btn btn-warning"
+                      disabled={isRunning || isTesting || activeLanguage !== 'portugol'}
+                      title={activeLanguage === 'portugol' ? 'Executar código no modo de depuração passo a passo' : 'Depuração passo a passo disponível apenas para Portugol'}
+                    >
+                      <Bug className="w-4 h-4 text-amber-950" /> Depurar
+                    </button>
+                    <button 
+                      onClick={runAutomatedTests}
+                      className="btn btn-success"
+                      disabled={isRunning || isTesting}
+                    >
+                      <CheckCircle className="w-4 h-4" /> Testar Resolução
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </section>
@@ -1119,33 +1407,65 @@ export default function App() {
           <div className="drawer-content">
             {/* Console Output Panel */}
             {activeTab === 'console' && (
-              <div className="console-panel">
-                <div className="console-output">
-                  {consoleLines.map((line, index) => (
-                    <div 
-                      key={index} 
-                      className={`console-line ${
-                        line.type === 'stdin' ? 'input-line' : line.type === 'stderr' ? 'error-line' : ''
-                      }`}
-                    >
-                      {line.text}
-                    </div>
-                  ))}
-                  <div ref={consoleEndRef} />
+              <div className="console-panel split">
+                <div className="console-main">
+                  <div className="console-output">
+                    {consoleLines.map((line, index) => (
+                      <div 
+                        key={index} 
+                        className={`console-line ${
+                          line.type === 'stdin' ? 'input-line' : line.type === 'stderr' ? 'error-line' : ''
+                        }`}
+                      >
+                        {line.text}
+                      </div>
+                    ))}
+                    <div ref={consoleEndRef} />
+                  </div>
+
+                  <form onSubmit={handleConsoleInputSubmit} className="console-input-wrapper">
+                    <span className="console-prompt">{inputRequired ? 'entrada >' : '>'}</span>
+                    <input 
+                      type="text"
+                      ref={consoleInputRef}
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      disabled={!inputRequired}
+                      placeholder={inputRequired ? `Aguardando entrada: ${inputPrompt}` : 'Console inativo. Execute o código para interagir.'}
+                      className="console-input"
+                    />
+                  </form>
                 </div>
 
-                <form onSubmit={handleConsoleInputSubmit} className="console-input-wrapper">
-                  <span className="console-prompt">{inputRequired ? 'entrada >' : '>'}</span>
-                  <input 
-                    type="text"
-                    ref={consoleInputRef}
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    disabled={!inputRequired}
-                    placeholder={inputRequired ? `Aguardando entrada: ${inputPrompt}` : 'Console inativo. Execute o código para interagir.'}
-                    className="console-input"
-                  />
-                </form>
+                <div className="variables-panel">
+                  <div className="variables-header">
+                    <span>VARIÁVEIS ATIVAS</span>
+                    {isDebugging && <span className="debugger-badge">DEPURAÇÃO</span>}
+                  </div>
+                  <div className="variables-list">
+                    {debugVariables.length === 0 ? (
+                      <div className="variables-empty-state">
+                        {isDebugging 
+                          ? 'Nenhuma variável no escopo' 
+                          : 'Nenhuma variável ativa'}
+                      </div>
+                    ) : (
+                      debugVariables.map((v, index) => (
+                        <div key={index} className="variable-row">
+                          <div className="variable-info">
+                            <span className="variable-name">{v.nome}</span>
+                            <span className="variable-type">{v.tipo}</span>
+                          </div>
+                          <div className="variable-val" title={String(v.valor)}>
+                            {typeof v.valor === 'number' && !Number.isInteger(v.valor)
+                              ? v.valor.toFixed(2)
+                              : String(v.valor)}
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </div>
               </div>
             )}
 

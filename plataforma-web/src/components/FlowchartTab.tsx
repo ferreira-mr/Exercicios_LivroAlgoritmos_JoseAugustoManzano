@@ -15,6 +15,7 @@ interface FlowchartTabProps {
   language: 'portugol' | 'javascript';
   astDeclarations?: any[];
   onChangeCode?: (newCode: string) => void;
+  activeLine?: number | null;
 }
 
 interface LayoutNode {
@@ -994,7 +995,26 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
   );
 };
 
-export default function FlowchartTab({ code, language, astDeclarations, onChangeCode }: FlowchartTabProps) {
+function isNodeActive(nodeId: string, activeLine: number | null | undefined): boolean {
+  if (activeLine === null || activeLine === undefined) return false;
+  
+  if (nodeId.startsWith('pt-')) {
+    const parts = nodeId.split('-');
+    if (parts.length >= 4) {
+      const lineNum = parseInt(parts[parts.length - 2], 10);
+      return lineNum === activeLine;
+    }
+  } else if (nodeId.startsWith('js-')) {
+    const parts = nodeId.split('-');
+    if (parts.length >= 3) {
+      const lineIdx = parseInt(parts[parts.length - 1], 10);
+      return (lineIdx + 1) === activeLine;
+    }
+  }
+  return false;
+}
+
+export default function FlowchartTab({ code, language, astDeclarations, onChangeCode, activeLine }: FlowchartTabProps) {
   // Editing states
   const [activeModalNode, setActiveModalNode] = useState<{ id: string; type: string; text: string; isDeclare?: boolean } | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
@@ -1568,10 +1588,12 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
             ? y + height / 2
             : y + 12;
 
+          const isActive = isNodeActive(node.id, activeLine);
+
           return (
             <g 
               key={node.id} 
-              className={`flow-node ${colorClass}`}
+              className={`flow-node ${colorClass} ${isActive ? 'active-node-execution' : ''}`}
               onMouseEnter={() => setHoveredNodeId(node.id)}
               onMouseLeave={() => setHoveredNodeId(null)}
               onDoubleClick={() => {
