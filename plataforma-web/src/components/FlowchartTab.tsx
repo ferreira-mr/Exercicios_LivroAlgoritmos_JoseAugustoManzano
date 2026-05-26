@@ -209,6 +209,9 @@ interface BlockData {
   declType?: string;
   declName?: string;
   declValue?: string;
+  declDimension?: 'simples' | 'vetor' | 'matriz';
+  declSize1?: string;
+  declSize2?: string;
   procVar?: string;
   procExpr?: string;
   inputVar?: string;
@@ -225,14 +228,27 @@ function parseNodeText(type: string, text: string, language: 'portugol' | 'javas
   const t = text.trim();
   
   if (isDeclare) {
-    const match = t.match(/^(inteiro|real|caracter|logico|let|const|var)\s+([a-zA-Z0-9_]+)(?:\s*=\s*(.*))?$/i);
+    const match = t.match(/^(inteiro|real|caracter|cadeia|logico|let|const|var)\s+([a-zA-Z0-9_]+)(?:\[(\d+)\])?(?:\[(\d+)\])?(?:\s*=\s*(.*))?$/i);
     if (match) {
       data.declType = match[1];
       data.declName = match[2];
-      data.declValue = match[3] || '';
+      const size1 = match[3];
+      const size2 = match[4];
+      if (size1 && size2) {
+        data.declDimension = 'matriz';
+        data.declSize1 = size1;
+        data.declSize2 = size2;
+      } else if (size1) {
+        data.declDimension = 'vetor';
+        data.declSize1 = size1;
+      } else {
+        data.declDimension = 'simples';
+      }
+      data.declValue = match[5] || '';
     } else {
       data.declType = language === 'portugol' ? 'inteiro' : 'let';
       data.declName = t;
+      data.declDimension = 'simples';
       data.declValue = '';
     }
     return data;
@@ -295,7 +311,15 @@ function generateNodeText(type: string, data: BlockData, isDeclare: boolean): st
     const typeKeyword = data.declType || 'let';
     const varName = data.declName || 'x';
     const val = data.declValue ? data.declValue.trim() : '';
-    return val ? `${typeKeyword} ${varName} = ${val}` : `${typeKeyword} ${varName}`;
+    
+    let dimStr = '';
+    if (data.declDimension === 'vetor') {
+      dimStr = `[${data.declSize1 || '5'}]`;
+    } else if (data.declDimension === 'matriz') {
+      dimStr = `[${data.declSize1 || '3'}][${data.declSize2 || '3'}]`;
+    }
+    
+    return val ? `${typeKeyword} ${varName}${dimStr} = ${val}` : `${typeKeyword} ${varName}${dimStr}`;
   }
   
   if (type === 'process') {
@@ -313,9 +337,9 @@ function generateNodeText(type: string, data: BlockData, isDeclare: boolean): st
   } else if (type === 'loop') {
     if (data.loopType === 'Para') {
       const init = data.loopInit ? data.loopInit.trim() : '';
-      const cond = data.loopCond ? data.loopCond.trim() : '';
+      const shadowCond = data.loopCond ? data.loopCond.trim() : '';
       const inc = data.loopInc ? data.loopInc.trim() : '';
-      return `Para (${init}; ${cond}; ${inc})`;
+      return `Para (${init}; ${shadowCond}; ${inc})`;
     } else {
       return `Enquanto (${data.loopCond ? data.loopCond.trim() : 'x < 10'})`;
     }
@@ -328,8 +352,8 @@ function getDeclaredVariables(nodes: FlowNode[]): string[] {
   
   const scan = (list: FlowNode[]) => {
     for (const node of list) {
-      if (node.type === 'process') {
-        const match = node.text.trim().match(/^(inteiro|real|caracter|logico|let|const|var)\s+([a-zA-Z0-9_]+)/i);
+      if (node.isDeclare || node.type === 'process') {
+        const match = node.text.trim().match(/^(inteiro|real|caracter|cadeia|logico|let|const|var)\s+([a-zA-Z0-9_]+)/i);
         if (match) {
           vars.push(match[2]);
         }
@@ -531,6 +555,9 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
   const [declType, setDeclType] = useState(initialData.declType || (language === 'portugol' ? 'inteiro' : 'let'));
   const [declName, setDeclName] = useState(initialData.declName || '');
   const [declValue, setDeclValue] = useState(initialData.declValue || '');
+  const [declDimension, setDeclDimension] = useState<'simples' | 'vetor' | 'matriz'>(initialData.declDimension || 'simples');
+  const [declSize1, setDeclSize1] = useState(initialData.declSize1 || '5');
+  const [declSize2, setDeclSize2] = useState(initialData.declSize2 || '3');
 
   // Process states
   const [procVar, setProcVar] = useState(initialData.procVar || '');
@@ -558,7 +585,7 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
   useEffect(() => {
     setErrorMsg(null);
   }, [
-    declType, declName, declValue,
+    declType, declName, declValue, declDimension, declSize1, declSize2,
     procVar, procExpr,
     inputVar,
     outputExpr,
@@ -701,6 +728,7 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
 
     const data: BlockData = {
       declType, declName, declValue,
+      declDimension, declSize1, declSize2,
       procVar, procExpr,
       inputVar,
       outputExpr,
@@ -771,7 +799,8 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
                       <>
                         <option value="inteiro">inteiro (números inteiros: 0, 1, -5)</option>
                         <option value="real">real (números decimais: 1.5, -3.14)</option>
-                        <option value="caracter">caracter (textos / strings: "Ana")</option>
+                        <option value="caracter">caracter (letra/caractere único)</option>
+                        <option value="cadeia">cadeia (textos / strings: "Ana")</option>
                         <option value="logico">logico (verdadeiro ou falso)</option>
                       </>
                     ) : (
@@ -783,6 +812,65 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
                     )}
                   </select>
                 </div>
+
+                {language === 'portugol' && (
+                  <div className="flow-modal-field-group">
+                    <label className="flow-modal-label">Estrutura da Variável</label>
+                    <select 
+                      className="flow-modal-select" 
+                      value={declDimension} 
+                      onChange={(e) => setDeclDimension(e.target.value as any)}
+                    >
+                      <option value="simples">Simples (Valor Único)</option>
+                      <option value="vetor">Vetor (Unidimensional - Array)</option>
+                      <option value="matriz">Matriz (Bidimensional - Tabela)</option>
+                    </select>
+                  </div>
+                )}
+
+                {language === 'portugol' && declDimension === 'vetor' && (
+                  <div className="flow-modal-field-group">
+                    <label className="flow-modal-label">Tamanho do Vetor</label>
+                    <input 
+                      type="number" 
+                      min="1"
+                      className="flow-modal-input" 
+                      placeholder="ex: 5" 
+                      value={declSize1} 
+                      onChange={(e) => setDeclSize1(e.target.value)} 
+                      required 
+                    />
+                  </div>
+                )}
+
+                {language === 'portugol' && declDimension === 'matriz' && (
+                  <div className="flow-modal-field-group-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '15px' }}>
+                    <div className="flow-modal-field-group" style={{ marginBottom: 0 }}>
+                      <label className="flow-modal-label">Linhas</label>
+                      <input 
+                        type="number" 
+                        min="1"
+                        className="flow-modal-input" 
+                        placeholder="ex: 3" 
+                        value={declSize1} 
+                        onChange={(e) => setDeclSize1(e.target.value)} 
+                        required 
+                      />
+                    </div>
+                    <div className="flow-modal-field-group" style={{ marginBottom: 0 }}>
+                      <label className="flow-modal-label">Colunas</label>
+                      <input 
+                        type="number" 
+                        min="1"
+                        className="flow-modal-input" 
+                        placeholder="ex: 3" 
+                        value={declSize2} 
+                        onChange={(e) => setDeclSize2(e.target.value)} 
+                        required 
+                      />
+                    </div>
+                  </div>
+                )}
                 <div className="flow-modal-field-group">
                   <label className="flow-modal-label">Nome da Variável</label>
                   <input 
