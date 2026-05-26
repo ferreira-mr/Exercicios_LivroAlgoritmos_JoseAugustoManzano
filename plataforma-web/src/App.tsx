@@ -626,6 +626,17 @@ export default function App() {
         return InterpretadorPortugolStudioComDepuracao.prototype.paraTexto.call(this, objeto);
       };
 
+      const originalExecutar = interpreter.executar;
+      interpreter.executar = async function(declaracao: any, mostrarResultado?: boolean) {
+        const res = await originalExecutar.call(this, declaracao, mostrarResultado);
+        const rawVars = this.pilhaEscoposExecucao.obterTodasVariaveis();
+        const filteredVars = rawVars.filter((v: any) => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
+        if (filteredVars.length > 0) {
+          setDebugVariables(filteredVars);
+        }
+        return res;
+      };
+
       interpreter.interfaceEntradaSaida = {
         question: (prompt: string, callback: (resposta: string) => void) => {
           setInputPrompt(prompt || 'Digite um valor:');
@@ -648,7 +659,9 @@ export default function App() {
         
         const rawVars = interpreter.pilhaEscoposExecucao.obterTodasVariaveis();
         const filteredVars = rawVars.filter(v => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
-        setDebugVariables(filteredVars);
+        if (filteredVars.length > 0) {
+          setDebugVariables(filteredVars);
+        }
       };
 
       interpreter.finalizacaoDaExecucao = () => {
@@ -681,7 +694,9 @@ export default function App() {
       
       const rawVars = interpreter.pilhaEscoposExecucao.obterTodasVariaveis();
       const filteredVars = rawVars.filter(v => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
-      setDebugVariables(filteredVars);
+      if (filteredVars.length > 0) {
+        setDebugVariables(filteredVars);
+      }
 
       if (interpreter.pilhaEscoposExecucao.elementos() <= 1) {
         finishDebugging();
@@ -701,7 +716,9 @@ export default function App() {
       
       const rawVars = interpreter.pilhaEscoposExecucao.obterTodasVariaveis();
       const filteredVars = rawVars.filter(v => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
-      setDebugVariables(filteredVars);
+      if (filteredVars.length > 0) {
+        setDebugVariables(filteredVars);
+      }
 
       if (interpreter.pilhaEscoposExecucao.elementos() <= 1) {
         finishDebugging();

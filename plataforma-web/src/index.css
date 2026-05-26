@@ -819,31 +819,48 @@ html.light-theme .drawer-tabs-header {
 
 .active-node-execution > rect,
 .active-node-execution > polygon {
-  stroke: #ffbb00 !important;
-  stroke-width: 3px !important;
+  stroke: #eeff00 !important;
+  stroke-width: 3.5px !important;
   fill-opacity: 0.25 !important;
-  filter: drop-shadow(0 0 6px rgba(255, 187, 0, 0.5));
+  filter: drop-shadow(0 0 8px rgba(238, 255, 0, 0.6));
+}
+
+html.light-theme .active-node-execution > rect,
+html.light-theme .active-node-execution > polygon {
+  stroke: #8f9e00 !important;
+  stroke-width: 3.5px !important;
+  fill: #eeff00 !important;
+  fill-opacity: 0.75 !important;
+  filter: drop-shadow(0 0 6px rgba(143, 158, 0, 0.4));
 }
 
 @keyframes pulse-active-node {
   0% {
-    filter: brightness(0.9);
+    filter: brightness(0.95);
   }
   100% {
-    filter: brightness(1.2);
+    filter: brightness(1.25);
   }
 }
 
 /* Monaco active execution line decoration */
 .active-execution-line {
-  background: rgba(245, 158, 11, 0.12) !important;
+  background: rgba(238, 255, 0, 0.15) !important;
 }
 
 .active-execution-glyph {
-  background: #f59e0b;
+  background: #eeff00;
   width: 5px !important;
   margin-left: 3px;
   border-radius: 2px;
+}
+
+html.light-theme .active-execution-line {
+  background: rgba(238, 255, 0, 0.35) !important;
+}
+
+html.light-theme .active-execution-glyph {
+  background: #8f9e00;
 }
 
 .console-output {

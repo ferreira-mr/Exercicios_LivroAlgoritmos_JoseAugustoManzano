@@ -71,6 +71,18 @@ export async function runCode(options: RunOptions): Promise<RunResult> {
       return InterpretadorPortugolStudio.prototype.paraTexto.call(this, objeto);
     };
 
+    let latestVariables: any[] = [];
+    const originalExecutar = interpreter.executar;
+    interpreter.executar = async function(declaracao: any, mostrarResultado?: boolean) {
+      const res = await originalExecutar.call(this, declaracao, mostrarResultado);
+      const rawVars = this.pilhaEscoposExecucao.obterTodasVariaveis();
+      const filteredVars = rawVars.filter((v: any) => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
+      if (filteredVars.length > 0) {
+        latestVariables = filteredVars;
+      }
+      return res;
+    };
+
     let inputIndex = 0;
 
     // Interface for handling leia commands
@@ -94,8 +106,7 @@ export async function runCode(options: RunOptions): Promise<RunResult> {
 
     const interpreterResult = await interpreter.interpretar(parserResult.declaracoes, true);
 
-    const rawVars = interpreter.pilhaEscoposExecucao.obterTodasVariaveis();
-    const variables = rawVars.filter((v: any) => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
+    const variables = latestVariables;
 
     if (interpreterResult.erros && interpreterResult.erros.length > 0) {
       interpreterResult.erros.forEach((err: any) => {
