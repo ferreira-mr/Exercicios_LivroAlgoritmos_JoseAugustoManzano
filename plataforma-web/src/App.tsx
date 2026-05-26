@@ -179,8 +179,8 @@ function parseExamples(examplesText: string, exerciseId?: string): ParsedExample
         
         list.push({
           name: `Exemplo ${index + 1}`,
-          entrada: cleanInput,
-          saida: cleanOutput
+          entrada: formatDecimals(cleanInput),
+          saida: formatDecimals(cleanOutput)
         });
       });
       return list;
@@ -215,9 +215,9 @@ function parseExamples(examplesText: string, exerciseId?: string): ParsedExample
       
       list.push({
         name: `Exemplo ${exampleIndex + 1}`,
-        entrada: cleanInput,
-        saida: cleanOutput,
-        processamento: procMatch ? procMatch[1].trim() : undefined
+        entrada: formatDecimals(cleanInput),
+        saida: formatDecimals(cleanOutput),
+        processamento: procMatch ? formatDecimals(procMatch[1].trim()) : undefined
       });
       exampleIndex++;
     }
@@ -243,9 +243,9 @@ function parseExamples(examplesText: string, exerciseId?: string): ParsedExample
       
       list.push({
         name: 'Exemplo 1',
-        entrada: cleanInput,
-        saida: cleanOutput,
-        processamento: procMatch ? procMatch[1].trim() : undefined
+        entrada: formatDecimals(cleanInput),
+        saida: formatDecimals(cleanOutput),
+        processamento: procMatch ? formatDecimals(procMatch[1].trim()) : undefined
       });
     }
   }
