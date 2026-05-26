@@ -265,6 +265,50 @@ function formatDecimals(text: string): string {
   });
 }
 
+function formatVariableValue(valor: any): string {
+  if (valor === undefined || valor === null) {
+    return 'nulo';
+  }
+  
+  const formatCell = (cell: any): string => {
+    if (typeof cell === 'number') {
+      return Number.isInteger(cell) ? String(cell) : cell.toFixed(2);
+    }
+    if (typeof cell === 'string') {
+      return `"${cell}"`;
+    }
+    if (typeof cell === 'boolean') {
+      return cell ? 'verdadeiro' : 'falso';
+    }
+    return String(cell);
+  };
+  
+  if (Array.isArray(valor)) {
+    if (valor.length > 0 && Array.isArray(valor[0])) {
+      const rows = valor.map((row: any) => {
+        if (Array.isArray(row)) {
+          return `{${row.map(formatCell).join(', ')}}`;
+        }
+        return formatCell(row);
+      });
+      return `{${rows.join(', ')}}`;
+    }
+    
+    return `{${valor.map(formatCell).join(', ')}}`;
+  }
+  
+  if (typeof valor === 'boolean') {
+    return valor ? 'verdadeiro' : 'falso';
+  }
+  
+  if (typeof valor === 'number') {
+    return Number.isInteger(valor) ? String(valor) : valor.toFixed(2);
+  }
+  
+  return String(valor);
+}
+
+
 export default function App() {
   // --- STATE ---
   const [activeEx, setActiveEx] = useState<Exercise>(exercises[0]);
@@ -1473,10 +1517,8 @@ export default function App() {
                             <span className="variable-name">{v.nome}</span>
                             <span className="variable-type">{v.tipo}</span>
                           </div>
-                          <div className="variable-val" title={String(v.valor)}>
-                            {typeof v.valor === 'number' && !Number.isInteger(v.valor)
-                              ? v.valor.toFixed(2)
-                              : String(v.valor)}
+                          <div className="variable-val" title={formatVariableValue(v.valor)}>
+                            {formatVariableValue(v.valor)}
                           </div>
                         </div>
                       ))
