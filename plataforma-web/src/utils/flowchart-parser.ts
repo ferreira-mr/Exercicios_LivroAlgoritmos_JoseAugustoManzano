@@ -13,6 +13,52 @@ export interface FlowNode {
 
 export function stringifyPortugolExpr(expr: any): string {
   if (!expr) return '';
+
+  // Handle array/vector index assignment (like vetor[0] = 10)
+  if (expr.objeto !== undefined && expr.indice !== undefined && expr.valor !== undefined) {
+    const obj = stringifyPortugolExpr(expr.objeto);
+    const idx = stringifyPortugolExpr(expr.indice);
+    const val = stringifyPortugolExpr(expr.valor);
+    return `${obj}[${idx}] = ${val}`;
+  }
+
+  // Handle array/vector index access/read (like vetor[0] or entidadeChamada[0])
+  if ((expr.objeto !== undefined || expr.entidadeChamada !== undefined) && expr.indice !== undefined) {
+    const obj = stringifyPortugolExpr(expr.objeto || expr.entidadeChamada);
+    const idx = stringifyPortugolExpr(expr.indice);
+    return `${obj}[${idx}]`;
+  }
+
+  // Handle variable declarations
+  if (expr.simbolo && expr.tipoOriginal !== undefined) {
+    const name = expr.simbolo.lexema;
+    if (expr.tipoOriginal.includes('[]') && expr.inicializador && expr.inicializador.dimensoes) {
+      const baseType = expr.tipoOriginal.replace(/\[\]/g, '');
+      const dims = expr.inicializador.dimensoes.map((d: any) => `[${stringifyPortugolExpr(d)}]`).join('');
+      return `${baseType} ${name}${dims}`;
+    }
+    const init = expr.inicializador ? ` = ${stringifyPortugolExpr(expr.inicializador)}` : '';
+    return `${expr.tipoOriginal || expr.tipo} ${name}${init}`;
+  }
+
+  // Handle assignment (Atribuir)
+  if (expr.alvo !== undefined && expr.valor !== undefined) {
+    const name = stringifyPortugolExpr(expr.alvo);
+    const val = stringifyPortugolExpr(expr.valor);
+    return `${name} = ${val}`;
+  }
+
+  // Handle unary increment / decrement (e.g. i++ / ++i)
+  if (expr.operador && expr.operando) {
+    const lex = expr.operador.lexema;
+    const op = stringifyPortugolExpr(expr.operando);
+    if (expr.incidenciaOperador === 'DEPOIS') {
+      return `${op}${lex}`;
+    } else {
+      return `${lex}${op}`;
+    }
+  }
+
   if (expr.valor !== undefined) {
     if (typeof expr.valor === 'string') return `"${expr.valor}"`;
     return String(expr.valor);
@@ -60,11 +106,16 @@ function getExprType(expr: any): string {
   return name;
 }
 
-export function parsePortugolASTToFlowNodes(declarations: any[]): FlowNode[] {
-  const inicioDecl = declarations.find(
-    d => d.assinaturaMetodo === 'inicio' || d.simbolo?.lexema === 'inicio'
+export function parsePortugolASTToFlowNodes(declarations: any[], functionName: string = 'inicio'): FlowNode[] {
+  const funcDecl = declarations.find(
+    d => {
+      const cleanAssinatura = (d.assinaturaMetodo || '').replace(/[<>]/g, '');
+      const cleanLexema = (d.simbolo?.lexema || '').replace(/[<>]/g, '');
+      const cleanTarget = functionName.replace(/[<>]/g, '');
+      return cleanAssinatura === cleanTarget || cleanLexema === cleanTarget;
+    }
   );
-  if (!inicioDecl || !inicioDecl.funcao || !inicioDecl.funcao.corpo) {
+  if (!funcDecl || !funcDecl.funcao || !funcDecl.funcao.corpo) {
     return [];
   }
 
@@ -157,11 +208,12 @@ export function parsePortugolASTToFlowNodes(declarations: any[]): FlowNode[] {
     return list;
   };
 
-  return parseBlock(inicioDecl.funcao.corpo);
+  return parseBlock(funcDecl.funcao.corpo);
 }
 
-export function parseJSCodeToFlowNodes(code: string): FlowNode[] {
-  const lines = code.split('\n');
+export function parseJSCodeToFlowNodes(code: string, functionName: string = 'principal'): FlowNode[] {
+  const bodyCode = extractJSFunctionBody(code, functionName);
+  const lines = bodyCode.split('\n');
   const root: FlowNode[] = [];
   const stack: { nodes: FlowNode[]; currentBlock: FlowNode }[] = [];
   let currentList = root;
@@ -463,4 +515,286 @@ export function generateCodeFromFlowNodes(
 
   return code;
 }
+
+export function extractJSFunctionBody(code: string, functionName: string): string {
+  if (functionName === 'principal') {
+    const lines = code.split('\n');
+    let output = '';
+    let braceCount = 0;
+    let insideFunc = false;
+    for (const line of lines) {
+      const trimmed = line.trim();
+      const funcMatch = trimmed.match(/(?:async\s+)?function\s+([a-zA-Z0-9_]+)/) ||
+                        trimmed.match(/(?:const|let|var)\s+([a-zA-Z0-9_]+)\s*=\s*(?:async\s*)?\([^)]*\)\s*=>/);
+      if (funcMatch) {
+        insideFunc = true;
+        braceCount = 0;
+      }
+      
+      if (!insideFunc) {
+        output += line + '\n';
+      } else {
+        const openBraces = (line.match(/{/g) || []).length;
+        const closeBraces = (line.match(/}/g) || []).length;
+        braceCount += openBraces - closeBraces;
+        if (braceCount <= 0) {
+          insideFunc = false;
+        }
+      }
+    }
+    return output;
+  }
+
+  const lines = code.split('\n');
+  let output = '';
+  let found = false;
+  let braceCount = 0;
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!found) {
+      const funcMatch = trimmed.match(new RegExp(`(?:async\\s+)?function\\s+${functionName}\\b`)) ||
+                        trimmed.match(new RegExp(`(?:const\\s+|let\\s+|var\\s+)${functionName}\\s*=\\s*(?:async\\s*)?\\([^)]*\\)\\s*=>`));
+      if (funcMatch) {
+        found = true;
+        braceCount = 0;
+        const openBraces = (line.match(/{/g) || []).length;
+        const closeBraces = (line.match(/}/g) || []).length;
+        braceCount += openBraces - closeBraces;
+        const braceIdx = line.indexOf('{');
+        if (braceIdx !== -1) {
+          const bodyPart = line.substring(braceIdx + 1).trim();
+          if (bodyPart && bodyPart !== '{') {
+            output += bodyPart + '\n';
+          }
+        }
+      }
+    } else {
+      const openBraces = (line.match(/{/g) || []).length;
+      const closeBraces = (line.match(/}/g) || []).length;
+      braceCount += openBraces - closeBraces;
+      if (braceCount <= 0) {
+        const lastBraceIdx = line.lastIndexOf('}');
+        if (lastBraceIdx !== -1) {
+          const beforeBrace = line.substring(0, lastBraceIdx).trim();
+          if (beforeBrace) {
+            output += beforeBrace + '\n';
+          }
+        }
+        break;
+      }
+      output += line + '\n';
+    }
+  }
+  return output;
+}
+
+export function replaceFunctionBodyInCode(
+  code: string,
+  functionName: string,
+  newBodyCode: string,
+  language: 'portugol' | 'javascript'
+): string {
+  const lines = code.split('\n');
+  
+  if (language === 'javascript' && functionName === 'principal') {
+    const functionRegex = /(?:async\s+)?function\s+[a-zA-Z0-9_]+\s*\(|(?:const|let|var)\s+[a-zA-Z0-9_]+\s*=\s*(?:async\s*)?\([^)]*\)\s*=>/g;
+    if (!functionRegex.test(code)) {
+      return newBodyCode;
+    }
+    
+    let functionBlocks: { start: number; end: number }[] = [];
+    let insideFunc = false;
+    let braceCount = 0;
+    let funcStartLine = -1;
+    
+    for (let i = 0; i < lines.length; i++) {
+      const trimmed = lines[i].trim();
+      const funcMatch = trimmed.match(/(?:async\s+)?function\s+[a-zA-Z0-9_]+/) ||
+                        trimmed.match(/(?:const|let|var)\s+[a-zA-Z0-9_]+\s*=\s*(?:async\s*)?\([^)]*\)\s*=>/);
+      if (funcMatch && !insideFunc) {
+        insideFunc = true;
+        braceCount = 0;
+        funcStartLine = i;
+      }
+      
+      if (insideFunc) {
+        const openBraces = (lines[i].match(/{/g) || []).length;
+        const closeBraces = (lines[i].match(/}/g) || []).length;
+        braceCount += openBraces - closeBraces;
+        if (braceCount <= 0) {
+          functionBlocks.push({ start: funcStartLine, end: i });
+          insideFunc = false;
+        }
+      }
+    }
+    
+    let newCodeLines: string[] = [];
+    newCodeLines.push(...newBodyCode.split('\n'));
+    newCodeLines.push('');
+    for (const block of functionBlocks) {
+      for (let i = block.start; i <= block.end; i++) {
+        newCodeLines.push(lines[i]);
+      }
+      newCodeLines.push('');
+    }
+    return newCodeLines.join('\n').trim();
+  }
+
+  let targetFuncRegex: RegExp;
+  if (language === 'portugol') {
+    targetFuncRegex = new RegExp(`funcao\\s+(?:[a-zA-Z0-9_]+\\s+)?${functionName}\\s*\\(`);
+  } else {
+    targetFuncRegex = new RegExp(`(?:async\\s+)?function\\s+${functionName}\\s*\\(|(?:const\\s+|let\\s+|var\\s+)${functionName}\\s*=\\s*(?:async\\s*)?\\([^)]*\\)\\s*=>`);
+  }
+
+  let funcStartLineIdx = -1;
+  for (let i = 0; i < lines.length; i++) {
+    if (targetFuncRegex.test(lines[i])) {
+      funcStartLineIdx = i;
+      break;
+    }
+  }
+
+  if (funcStartLineIdx === -1) {
+    if (language === 'portugol') {
+      const lastBraceIdx = code.lastIndexOf('}');
+      if (lastBraceIdx !== -1) {
+        const signature = functionName === 'inicio' ? 'funcao inicio()' : `funcao ${functionName}()`;
+        const newFuncText = `\n  ${signature} {\n${newBodyCode}  }\n`;
+        return code.substring(0, lastBraceIdx) + newFuncText + code.substring(lastBraceIdx);
+      } else {
+        const signature = functionName === 'inicio' ? 'funcao inicio()' : `funcao ${functionName}()`;
+        return `programa {\n  ${signature} {\n${newBodyCode}  }\n}`;
+      }
+    } else {
+      const signature = `async function ${functionName}()`;
+      return code + `\n\n${signature} {\n${newBodyCode}\n}`;
+    }
+  }
+
+  let braceCount = 0;
+  let blockStartLineIdx = -1;
+  let blockEndLineIdx = -1;
+
+  for (let i = funcStartLineIdx; i < lines.length; i++) {
+    const line = lines[i];
+    const openBraces = (line.match(/{/g) || []).length;
+    const closeBraces = (line.match(/}/g) || []).length;
+    
+    if (blockStartLineIdx === -1 && line.includes('{')) {
+      blockStartLineIdx = i;
+      braceCount = openBraces - closeBraces;
+    } else if (blockStartLineIdx !== -1) {
+      braceCount += openBraces - closeBraces;
+    }
+
+    if (blockStartLineIdx !== -1 && braceCount <= 0) {
+      blockEndLineIdx = i;
+      break;
+    }
+  }
+
+  if (blockStartLineIdx === -1 || blockEndLineIdx === -1) {
+    return code;
+  }
+
+  const beforeLines = lines.slice(0, blockStartLineIdx);
+  const afterLines = lines.slice(blockEndLineIdx + 1);
+
+  const startLineText = lines[blockStartLineIdx];
+  const braceIndex = startLineText.indexOf('{');
+  const signaturePart = startLineText.substring(0, braceIndex + 1);
+  
+  const endLineText = lines[blockEndLineIdx];
+  const lastBraceIdx = endLineText.lastIndexOf('}');
+  const trailingPart = endLineText.substring(lastBraceIdx);
+
+  const newFuncLines = [
+    signaturePart,
+    ...newBodyCode.split('\n').map(line => line ? line : ''),
+    trailingPart
+  ];
+
+  return [...beforeLines, ...newFuncLines, ...afterLines].join('\n');
+}
+
+export function addNewFunctionToCode(
+  code: string,
+  functionName: string,
+  language: 'portugol' | 'javascript'
+): string {
+  if (language === 'portugol') {
+    const lastBraceIdx = code.lastIndexOf('}');
+    if (lastBraceIdx !== -1) {
+      const newFuncText = `\n  funcao ${functionName}() {\n    \n  }\n`;
+      return code.substring(0, lastBraceIdx) + newFuncText + code.substring(lastBraceIdx);
+    } else {
+      return `programa {\n  funcao ${functionName}() {\n    \n  }\n}`;
+    }
+  } else {
+    const newFuncText = `\n\nasync function ${functionName}() {\n  \n}`;
+    return code.trim() + newFuncText;
+  }
+}
+
+export function deleteFunctionFromCode(
+  code: string,
+  functionName: string,
+  language: 'portugol' | 'javascript'
+): string {
+  const lines = code.split('\n');
+  let targetFuncRegex: RegExp;
+  if (language === 'portugol') {
+    targetFuncRegex = new RegExp(`funcao\\s+(?:[a-zA-Z0-9_]+\\s+)?${functionName}\\s*\\(`);
+  } else {
+    targetFuncRegex = new RegExp(`(?:async\\s+)?function\\s+${functionName}\\s*\\(|(?:const\\s+|let\\s+|var\\s+)${functionName}\\s*=\\s*(?:async\\s*)?\\([^)]*\\)\\s*=>`);
+  }
+
+  let funcStartLineIdx = -1;
+  for (let i = 0; i < lines.length; i++) {
+    if (targetFuncRegex.test(lines[i])) {
+      funcStartLineIdx = i;
+      break;
+    }
+  }
+
+  if (funcStartLineIdx === -1) {
+    return code;
+  }
+
+  let braceCount = 0;
+  let blockStartLineIdx = -1;
+  let blockEndLineIdx = -1;
+
+  for (let i = funcStartLineIdx; i < lines.length; i++) {
+    const line = lines[i];
+    const openBraces = (line.match(/{/g) || []).length;
+    const closeBraces = (line.match(/}/g) || []).length;
+    
+    if (blockStartLineIdx === -1 && line.includes('{')) {
+      blockStartLineIdx = i;
+      braceCount = openBraces - closeBraces;
+    } else if (blockStartLineIdx !== -1) {
+      braceCount += openBraces - closeBraces;
+    }
+
+    if (blockStartLineIdx !== -1 && braceCount <= 0) {
+      blockEndLineIdx = i;
+      break;
+    }
+  }
+
+  if (blockStartLineIdx === -1 || blockEndLineIdx === -1) {
+    const before = lines.slice(0, funcStartLineIdx);
+    const after = lines.slice(funcStartLineIdx + 1);
+    return [...before, ...after].join('\n');
+  }
+
+  const beforeLines = lines.slice(0, funcStartLineIdx);
+  const afterLines = lines.slice(blockEndLineIdx + 1);
+
+  return [...beforeLines, ...afterLines].join('\n').trim();
+}
+
+
 

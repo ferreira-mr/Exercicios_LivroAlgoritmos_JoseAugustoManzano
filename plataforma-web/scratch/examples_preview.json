@@ -1,0 +1,704 @@
+[
+  {
+    "id": "Exercicio01",
+    "title": "Conversor de Temperatura",
+    "examplesLength": 482,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 25 (temperatura em graus Celsius)   - Processamento: F = 25 * 9/5 + 32 ="
+  },
+  {
+    "id": "Exercicio02",
+    "title": "Conversor de Temperatura",
+    "examplesLength": 496,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 77 (temperatura em graus Fahrenheit)   - Processamento: C = (77 - 32) * "
+  },
+  {
+    "id": "Exercicio03",
+    "title": "Cálculo do Volume de uma Lata de Óleo",
+    "examplesLength": 510,
+    "examplesPreview": "- Exemplo 1:   - Entrada: raio = 5 cm, altura = 10 cm   - Processamento: V = π * 5^2 * 10 = 785.39"
+  },
+  {
+    "id": "Exercicio04",
+    "title": "Cálculo da Quantidade de Combustível Gasta em uma Viagem",
+    "examplesLength": 341,
+    "examplesPreview": "- Exemplo 1:   - Entrada: distância = 240 km   - Saída: 20 litros (quantidade de combustível gasta"
+  },
+  {
+    "id": "Exercicio05",
+    "title": "Cálculo do Valor de uma Prestação em Atraso",
+    "examplesLength": 348,
+    "examplesPreview": "- Exemplo 1:   - Entrada: valor_original = 1000, meses_atraso = 3   - Saída: 1030 (valor da presta"
+  },
+  {
+    "id": "Exercicio06",
+    "title": "Troca de Valores entre Variáveis",
+    "examplesLength": 344,
+    "examplesPreview": "- Exemplo 1:   - Entrada: A = 5, B = 10   - Saída: Antes da troca - A = 5, B = 10; Após a troca - "
+  },
+  {
+    "id": "Exercicio07",
+    "title": "Adição e Multiplicação de Quatro Números Inteiros",
+    "examplesLength": 576,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: 1, 2, 3, 4   - SAÍDA: Adições: 1+2=3, 1+3=4, 1+4=5, 2+3=5, 2+4=6, 3+4=7\r"
+  },
+  {
+    "id": "Exercicio08",
+    "title": "Cálculo do Volume de uma Caixa Retangular",
+    "examplesLength": 346,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: comprimento = 5, largura = 3, altura = 2   - SAÍDA: 30 (volume da caixa "
+  },
+  {
+    "id": "Exercicio09",
+    "title": "Cálculo do Quadrado de um Número Inteiro",
+    "examplesLength": 211,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: 5   - SAÍDA: 25 (5 elevado ao quadrado)  - Exemplo 2:   - ENTRADA: -3"
+  },
+  {
+    "id": "Exercicio10",
+    "title": "Cálculo da Diferença entre Dois Números Inteiros",
+    "examplesLength": 177,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: 10, 5   - SAÍDA: 5 (10 - 5)  - Exemplo 2:   - ENTRADA: -3, 8   - SAÍ"
+  },
+  {
+    "id": "Exercicio11",
+    "title": "Conversão de Dólar para Real",
+    "examplesLength": 345,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: 50 (valor em dólar)   - SAÍDA: 280.0 (valor em real, considerando a cota"
+  },
+  {
+    "id": "Exercicio12",
+    "title": "Conversão de Real para Dólar",
+    "examplesLength": 345,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: 100 (valor em real)   - SAÍDA: 17.86 (valor em dólar, considerando a cot"
+  },
+  {
+    "id": "Exercicio13",
+    "title": "Cálculo da Soma dos Quadrados de Três Números",
+    "examplesLength": 258,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: 2, 3, 4   - SAÍDA: 29 (2² + 3² + 4² = 4 + 9 + 16 = 29)  - Exemplo 2: "
+  },
+  {
+    "id": "Exercicio14",
+    "title": "Cálculo do Quadrado da Soma de Três Números",
+    "examplesLength": 234,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: 2, 3, 4   - SAÍDA: 81 ((2 + 3 + 4)² = 9² = 81)  - Exemplo 2:   - ENTR"
+  },
+  {
+    "id": "Exercicio15",
+    "title": "Cálculo do Produto e da Soma de Quatro Números",
+    "examplesLength": 272,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: 2, 3, 4, 5   - SAÍDA: Produto: 8 (2 * 4), Soma: 8 (3 + 5)  - Exemplo 2"
+  },
+  {
+    "id": "Exercicio16",
+    "title": "Cálculo do Novo Salário com Aumento",
+    "examplesLength": 340,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: Salário = 1000, Aumento = 10%   - SAÍDA: Novo salário: 1100, Aumento con"
+  },
+  {
+    "id": "Exercicio17",
+    "title": "Cálculo da Área de uma Circunferência",
+    "examplesLength": 246,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: raio = 5   - SAÍDA: 78.54 (área da circunferência)  - Exemplo 2:   - "
+  },
+  {
+    "id": "Exercicio18",
+    "title": "Apuração de Votos em uma Eleição Sindical",
+    "examplesLength": 1276,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: Votos válidos para o candidato 1 = 200, candidato 2 = 150,     candidato"
+  },
+  {
+    "id": "Exercicio19",
+    "title": "Cálculo das Quatro Operações Básicas",
+    "examplesLength": 592,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: valor1 = 10, valor2 = 5   - SAÍDA: Adição: 10 + 5 = 15;            Subt"
+  },
+  {
+    "id": "Exercicio20",
+    "title": "Cálculo da Velocidade de um Projétil",
+    "examplesLength": 297,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: Distância = 100 km, Tempo = 2 horas   - SAÍDA: Velocidade = 27.78 m/s \r"
+  },
+  {
+    "id": "Exercicio21",
+    "title": "Cálculo de Potência",
+    "examplesLength": 289,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: base = 2, expoente = 3   - SAÍDA: 8 (2 elevado a 3 é igual a 8)  - Exe"
+  },
+  {
+    "id": "Exercicio22",
+    "title": "Cálculo do Volume de uma Esfera",
+    "examplesLength": 229,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: raio = 5   - SAÍDA: 523.6 (volume da esfera)  - Exemplo 2:   - ENTRAD"
+  },
+  {
+    "id": "Exercicio23",
+    "title": "Conversão de Pés para Metros",
+    "examplesLength": 289,
+    "examplesPreview": "- Exemplo 1:   - ENTRADA: medida em pés = 10   - SAÍDA: 3.048 (medida equivalente em metros)  - "
+  },
+  {
+    "id": "Exercicio24",
+    "title": "Cálculo de Raiz",
+    "examplesLength": 381,
+    "examplesPreview": "- Exemplo 1:   - Calcular a raiz quadrada de 16:   - ENTRADA: base = 16, índice = 2   - SAÍDA: 4."
+  },
+  {
+    "id": "Exercicio25",
+    "title": "Sucessor e Antecessor de um Número Inteiro",
+    "examplesLength": 214,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 5   - Saída: Sucessor: 6, Antecessor: 4  - Exemplo 2:   - Entrada: -3"
+  },
+  {
+    "id": "Exercicio26",
+    "title": "Cálculo do Quadrado da Divisão de Dois Números Inteiros",
+    "examplesLength": 211,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 10, 2   - Saída: 25 (10 / 2 = 5, 5² = 25)  - Exemplo 2:   - Entrada: "
+  },
+  {
+    "id": "Exercicio27",
+    "title": "Cálculo da Diferença entre Dois Números Inteiros",
+    "examplesLength": 177,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 10, 5   - Saída: 5 (10 - 5)  - Exemplo 2:   - Entrada: 20, 8   - Saí"
+  },
+  {
+    "id": "Exercicio28",
+    "title": "Classificação de Número Positivo ou Negativo",
+    "examplesLength": 162,
+    "examplesPreview": "- Exemplo 1:   - Entrada: -5   - Saída: Negativo  - Exemplo 2:   - Entrada: 10   - Saída: Posi"
+  },
+  {
+    "id": "Exercicio29",
+    "title": "Cálculo da Média e Verificação de Aprovação",
+    "examplesLength": 220,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 7, 6, 4, 5   - Saída: Média: 5.5, Aprovado  - Exemplo 2:   - Entrada:"
+  },
+  {
+    "id": "Exercicio30",
+    "title": "Cálculo da Média e Verificação de Aprovação com Exame",
+    "examplesLength": 215,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 6, 7, 5, 8   - Saída: Média: 6.5, Aprovado  - Exemplo 2:   - Entrada:"
+  },
+  {
+    "id": "Exercicio31",
+    "title": "Resolução de Equação de Segundo Grau",
+    "examplesLength": 295,
+    "examplesPreview": "- Exemplo 1:   - Entrada: a = 1, b = -3, c = -4   - Saída: x1 = 4, x2 = -1 (raízes da equação)  "
+  },
+  {
+    "id": "Exercicio32",
+    "title": "Ordenação de Três Números Inteiros",
+    "examplesLength": 178,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 5, 2, 7   - Saída: 2, 5, 7  - Exemplo 2:   - Entrada: 10, 1, 8   - S"
+  },
+  {
+    "id": "Exercicio33",
+    "title": "Valores Divisíveis por 2 e 3",
+    "examplesLength": 174,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 6, 8, 9, 12   - Saída: 6, 12  - Exemplo 2:   - Entrada: 2, 3, 4, 5  "
+  },
+  {
+    "id": "Exercicio34",
+    "title": "Valores Divisíveis por 2 ou 3",
+    "examplesLength": 192,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 6, 8, 9, 12   - Saída: 6, 8, 9, 12  - Exemplo 2:   - Entrada: 2, 3, 4"
+  },
+  {
+    "id": "Exercicio35",
+    "title": "Maior e Menor Valor",
+    "examplesLength": 281,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 10, 5, 8, 12, 3   - Saída: Maior valor: 12, Menor valor: 3  - Exemplo "
+  },
+  {
+    "id": "Exercicio36",
+    "title": "Par ou Ímpar",
+    "examplesLength": 146,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 7   - Saída: Ímpar  - Exemplo 2:   - Entrada: 10   - Saída: Par  -"
+  },
+  {
+    "id": "Exercicio37",
+    "title": "Verificação de Faixa de Valor",
+    "examplesLength": 223,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 5   - Saída: Valor está na faixa permitida  - Exemplo 2:   - Entrada:"
+  },
+  {
+    "id": "Exercicio38",
+    "title": "Verificação de Valor Menor ou Igual a 3",
+    "examplesLength": 159,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 2   - Saída: 2  - Exemplo 2:   - Entrada: 5   - Saída: (Nenhum valor"
+  },
+  {
+    "id": "Exercicio39",
+    "title": "Múltiplo de 3 e 5",
+    "examplesLength": 297,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 15   - Saída: 15   - Explicação: 15 é divisível por 3 e 5.  - Exemplo"
+  },
+  {
+    "id": "Exercicio40",
+    "title": "Soma e Verificação",
+    "examplesLength": 446,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 50, 30, 40   - Saída: 120   - Explicação: A soma de 50, 30 e 40 é igual"
+  },
+  {
+    "id": "Exercicio41",
+    "title": "Multiplicação e Verificação",
+    "examplesLength": 415,
+    "examplesPreview": "- Exemplo 1:   - Entrada: 20   - Saída: 40   - Explicação: 20 multiplicado por 2 é igual a 40, qu"
+  },
+  {
+    "id": "Exercicio42",
+    "title": "Quadrados na Faixa de Valores",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio43",
+    "title": "Tabuada de um Número",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio44",
+    "title": "Soma dos Cem Primeiros Números Naturais",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio45",
+    "title": "Somatório dos Valores Pares",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio46",
+    "title": "Números Ímpares na Faixa de Valores",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio47",
+    "title": "Valores Divisíveis por 4 Menores que 200",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio48",
+    "title": "Potências de 3",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio49",
+    "title": "Potência de uma Base Elevada a um Expoente",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio50",
+    "title": "Sequência de Fibonacci",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio51",
+    "title": "Conversão de Graus Celsius em Fahrenheit",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio52",
+    "title": "Somatório de Grãos de Trigo no Tabuleiro de Xadrez",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio53",
+    "title": "Somatório da Fatorial de Quinze Valores",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio54",
+    "title": "Somatório e Média de Dez Valores",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio55",
+    "title": "Somatório, Média e Total de Valores Lidos",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio56",
+    "title": "Fatorial dos Valores Ímpares entre 1 e 100",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio57",
+    "title": "Cálculo da Área Total de uma Residência",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio58",
+    "title": "Maior e Menor Valores entre Valores Positivos",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio59",
+    "title": "Divisão Inteira Sem Usar o Operador de Divisão",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio60",
+    "title": "Quadrados dos Valores Inteiros de 15 a 200 Contando de 3 em 3",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio61",
+    "title": "Leitura e Apresentação de Nomes",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio62",
+    "title": "Multiplicação de Elementos de uma Matriz por 3",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio63",
+    "title": "Subtração de Elementos de Matrizes",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio64",
+    "title": "Construção de Matriz com Quadrados de Elementos",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio65",
+    "title": "Fatorial de Elementos de uma Matriz",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio66",
+    "title": "Junção de Dois Vetores em um Terceiro",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio67",
+    "title": "Junção de Dois Vetores de Nomes",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio68",
+    "title": "Inversão de Elementos em um Vetor",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio69",
+    "title": "Junção de Três Vetores",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio70",
+    "title": "Somatório dos Valores até o Elemento Correspondente",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio71",
+    "title": "Vetor com Valores Negativos",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio72",
+    "title": "Divisão por Dois dos Elementos de um Vetor",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio73",
+    "title": "Tabuada em um Vetor",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio74",
+    "title": "Análise de Temperaturas em Graus Celsius",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio75",
+    "title": "Conversão de Temperaturas de Celsius para Fahrenheit",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio76",
+    "title": "Manipulação de Elementos de um Vetor",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio77",
+    "title": "Manipulação de Elementos de um Vetor",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio78",
+    "title": "Manipulação de Índices de Matrizes",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio79",
+    "title": "Junção de Vetores com Validação de Entrada",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio80",
+    "title": "Junção de Vetores com Validação de Entrada",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio81",
+    "title": "Junção de Vetores com Validação de Entrada",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio82",
+    "title": "Contagem de Números Pares e Ímpares em um Vetor",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio83",
+    "title": "Construção de um Vetor a partir do Quadrado da Soma de Outros Dois Vetores",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio84",
+    "title": "Construção de uma Segunda Matriz a partir de um Vetor",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio85",
+    "title": "Contagem de Números Pares em uma Matriz",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio86",
+    "title": "Contagem e Porcentagem de Números Ímpares em um Vetor",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio87",
+    "title": "Soma de Matrizes",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio88",
+    "title": "Junção de Matrizes",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio89",
+    "title": "Leitura e Apresentação de Matriz",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio90",
+    "title": "Manipulação de Matrizes",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio91",
+    "title": "Manipulação de Matrizes",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio92",
+    "title": "Fatorial de Elementos de uma Matriz",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio93",
+    "title": "Conversão de Temperaturas",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio94",
+    "title": "Matriz com Dobro dos Elementos, Exceto Diagonal Principal",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio95",
+    "title": "Matriz com Somatório e Valores Específicos",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio96",
+    "title": "Manipulação de Matrizes",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio97",
+    "title": "Somatório dos Elementos da Diagonal Principal",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio98",
+    "title": "Somatório dos Elementos de uma Matriz",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio99",
+    "title": "Somatório de Elementos em Posições Ímpares",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio100",
+    "title": "Contagem de Números Pares",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio101",
+    "title": "Soma de Linhas em Matriz e Somatório Total",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio102",
+    "title": "Contagem de Números Pares e Ímpares em Matriz",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio103",
+    "title": "Soma de Linhas e Colunas em Matriz",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio104",
+    "title": "Operações com Matrizes",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio105",
+    "title": "Soma de Matrizes com Condições",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio106",
+    "title": "Subtração de Matrizes com Condições",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio107",
+    "title": "Multiplicação de Matrizes com Condições",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio108",
+    "title": "Soma de Matrizes com Condições",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio109",
+    "title": "Construção de Matriz com Condições Específicas",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio110",
+    "title": "Agenda de Contatos",
+    "examplesLength": 448,
+    "examplesPreview": "- Entrada:   Cadastro de 10 pessoas com seus respectivos nomes, endereços e telefones. - Processam"
+  },
+  {
+    "id": "Exercicio111",
+    "title": "Sistema de Notas Escolares",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio112",
+    "title": "Cadastro de Pessoas e Alturas",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio113",
+    "title": "Gerenciamento de Funcionários",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio114",
+    "title": "Agenda de Contatos",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio115",
+    "title": "Gerenciamento de Notas de Alunos",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio116",
+    "title": "Cadastro de Pessoas e Alturas",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  },
+  {
+    "id": "Exercicio117",
+    "title": "Gerenciamento de Funcionários",
+    "examplesLength": 0,
+    "examplesPreview": ""
+  }
+]

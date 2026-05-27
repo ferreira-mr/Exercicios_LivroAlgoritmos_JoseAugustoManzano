@@ -6,6 +6,7 @@ export interface RunOptions {
   onOutput: (text: string) => void;
   onInputRequired?: (prompt: string, onSubmit: (val: string) => void) => void;
   onClearScreen?: () => void;
+  abortSignal?: AbortSignal;
 }
 
 export interface RunResult {
@@ -74,6 +75,9 @@ export async function runCode(options: RunOptions): Promise<RunResult> {
     let latestVariables: any[] = [];
     const originalExecutar = interpreter.executar;
     interpreter.executar = async function(declaracao: any, mostrarResultado?: boolean) {
+      if (options.abortSignal?.aborted) {
+        throw new Error('Execução abortada pelo usuário');
+      }
       const res = await originalExecutar.call(this, declaracao, mostrarResultado);
       const rawVars = this.pilhaEscoposExecucao.obterTodasVariaveis();
       const filteredVars = rawVars.filter((v: any) => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
@@ -148,14 +152,28 @@ export async function runJSCode(options: RunOptions): Promise<RunResult> {
   };
 
   const read = (promptText?: string) => {
-    return new Promise<string>((resolve) => {
+    return new Promise<string>((resolve, reject) => {
+      if (options.abortSignal?.aborted) {
+        reject(new Error('Execução abortada pelo usuário'));
+        return;
+      }
+      const onAbort = () => {
+        reject(new Error('Execução abortada pelo usuário'));
+      };
+      if (options.abortSignal) {
+        options.abortSignal.addEventListener('abort', onAbort);
+      }
+
       if (inputIndex < inputs.length) {
+        if (options.abortSignal) options.abortSignal.removeEventListener('abort', onAbort);
         resolve(inputs[inputIndex++]);
       } else if (onInputRequired) {
         onInputRequired(promptText || 'Digite um valor:', (val) => {
+          if (options.abortSignal) options.abortSignal.removeEventListener('abort', onAbort);
           resolve(val);
         });
       } else {
+        if (options.abortSignal) options.abortSignal.removeEventListener('abort', onAbort);
         resolve('');
       }
     });

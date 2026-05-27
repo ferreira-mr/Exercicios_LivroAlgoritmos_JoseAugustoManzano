@@ -22,7 +22,8 @@ import {
   Workflow,
   Bug,
   SkipForward,
-  Square
+  Square,
+  X
 } from 'lucide-react';
 
 import exercisesData from './data/exercises.json';
@@ -314,6 +315,7 @@ export default function App() {
   const [activeEx, setActiveEx] = useState<Exercise>(exercises[0]);
   const [searchQuery, setSearchQuery] = useState('');
   const [code, setCode] = useState('');
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
   // Active Language state
   const [activeLanguage, setActiveLanguage] = useState<'portugol' | 'javascript'>(() => {
@@ -361,8 +363,8 @@ export default function App() {
   const [completedExs, setCompletedExs] = useState<string[]>([]);
   const [savedCodes, setSavedCodes] = useState<Record<string, string>>({});
   
-  // Left Panel Tab state
-  const [leftTab, setLeftTab] = useState<'enunciado' | 'fluxograma'>('enunciado');
+  // Right Panel Tab state (Editor vs Flowchart)
+  const [rightTab, setRightTab] = useState<'editor' | 'fluxograma'>('editor');
   
   // AST state for Portugol code to render flowchart in real-time
   const [astDeclarations, setAstDeclarations] = useState<any[]>([]);
@@ -998,14 +1000,17 @@ export default function App() {
   };
 
   const resetExercise = () => {
-    if (window.confirm('Tem certeza de que deseja restaurar o código original deste exercício?')) {
-      const codeKey = `${activeEx.id}_${activeLanguage}`;
-      const updated = { ...savedCodes };
-      delete updated[codeKey];
-      setSavedCodes(updated);
-      localStorage.setItem('manzano_saved_codes', JSON.stringify(updated));
-      setCode(getDefaultCode(activeEx, activeLanguage));
-    }
+    setShowResetConfirm(true);
+  };
+
+  const confirmResetExercise = () => {
+    const codeKey = `${activeEx.id}_${activeLanguage}`;
+    const updated = { ...savedCodes };
+    delete updated[codeKey];
+    setSavedCodes(updated);
+    localStorage.setItem('manzano_saved_codes', JSON.stringify(updated));
+    setCode(getDefaultCode(activeEx, activeLanguage));
+    setShowResetConfirm(false);
   };
 
   // Group exercises by chapter for rendering in the sidebar
@@ -1158,20 +1163,9 @@ export default function App() {
                     <Menu className="w-4 h-4" />
                   </button>
                 )}
-                <div className="language-selector-tabs" style={{ display: 'flex', gap: '4px' }}>
-                  <button 
-                    className={`lang-tab ${leftTab === 'enunciado' ? 'active' : ''}`}
-                    onClick={() => setLeftTab('enunciado')}
-                  >
-                    <BookOpen className="w-3.5 h-3.5" style={{ marginRight: '4px', display: 'inline', verticalAlign: 'middle' }} /> Enunciado
-                  </button>
-                  <button 
-                    className={`lang-tab ${leftTab === 'fluxograma' ? 'active' : ''}`}
-                    onClick={() => setLeftTab('fluxograma')}
-                  >
-                    <Workflow className="w-3.5 h-3.5" style={{ marginRight: '4px', display: 'inline', verticalAlign: 'middle' }} /> Fluxograma
-                  </button>
-                </div>
+                <span className="panel-title" style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}>
+                  <BookOpen className="w-4 h-4 text-cyan" /> Enunciado
+                </span>
               </div>
               
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -1191,12 +1185,10 @@ export default function App() {
             </div>
             
             <div 
-              className={`instruction-content ${leftTab === 'fluxograma' ? 'flowchart-tab-active' : ''}`}
+              className="instruction-content"
               onCopy={(e) => e.preventDefault()}
             >
-              {leftTab === 'enunciado' ? (
-                <>
-                  {/* Description Card */}
+              {/* Description Card */}
                   <div className="description-card">
                     <div className="section-title-wrapper">
                       <BookOpen className="section-title-icon text-cyan" />
@@ -1280,37 +1272,26 @@ export default function App() {
                       </div>
                     </div>
                   )}
-                </>
-              ) : (
-                <FlowchartTab 
-                  code={code} 
-                  language={activeLanguage} 
-                  astDeclarations={astDeclarations} 
-                  activeLine={activeLine} 
-                  onChangeCode={(newCode) => {
-                    saveCode(newCode);
-                    if (editorRef.current) {
-                      const model = editorRef.current.getModel();
-                      if (model) {
-                        editorRef.current.executeEdits('flowchart-sync', [{
-                          range: model.getFullModelRange(),
-                          text: newCode,
-                          forceMoveMarkers: true
-                        }]);
-                      }
-                    }
-                  }}
-                />
-              )}
             </div>
           </section>
 
-          {/* RIGHT: Monaco Editor */}
+          {/* RIGHT: Monaco Editor / Flowchart */}
           <section className="editor-panel">
             <div className="panel-header">
-              <span className="panel-title">
-                <Code className="w-4 h-4 text-purple-400" /> Editor
-              </span>
+              <div className="language-selector-tabs" style={{ display: 'flex', gap: '4px' }}>
+                <button 
+                  className={`lang-tab ${rightTab === 'editor' ? 'active' : ''}`}
+                  onClick={() => setRightTab('editor')}
+                >
+                  <Code className="w-3.5 h-3.5" style={{ marginRight: '4px', display: 'inline', verticalAlign: 'middle' }} /> Editor
+                </button>
+                <button 
+                  className={`lang-tab ${rightTab === 'fluxograma' ? 'active' : ''}`}
+                  onClick={() => setRightTab('fluxograma')}
+                >
+                  <Workflow className="w-3.5 h-3.5" style={{ marginRight: '4px', display: 'inline', verticalAlign: 'middle' }} /> Fluxograma
+                </button>
+              </div>
               
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div className="language-selector-tabs">
@@ -1336,30 +1317,54 @@ export default function App() {
               </div>
             </div>
 
-            <div 
-              className="editor-wrapper"
-              onCopy={(e) => e.preventDefault()}
-              onCut={(e) => e.preventDefault()}
-              onPaste={(e) => e.preventDefault()}
-            >
-              <Editor
-                height="100%"
-                language={activeLanguage === 'javascript' ? 'javascript' : 'portugol'}
-                theme={theme === 'dark' ? 'vs-dark' : 'vs'}
-                value={code}
-                onChange={(val) => saveCode(val || '')}
-                onMount={handleEditorMount}
-                options={{
-                  fontSize: 14,
-                  fontFamily: 'JetBrains Mono, Courier New, monospace',
-                  minimap: { enabled: false },
-                  automaticLayout: true,
-                  padding: { top: 12 },
-                  lineNumbersMinChars: 3,
-                  contextmenu: false
-                }}
-              />
-            </div>
+            {rightTab === 'editor' ? (
+              <div 
+                className="editor-wrapper"
+                onCopy={(e) => e.preventDefault()}
+                onCut={(e) => e.preventDefault()}
+                onPaste={(e) => e.preventDefault()}
+              >
+                <Editor
+                  height="100%"
+                  language={activeLanguage === 'javascript' ? 'javascript' : 'portugol'}
+                  theme={theme === 'dark' ? 'vs-dark' : 'vs'}
+                  value={code}
+                  onChange={(val) => saveCode(val || '')}
+                  onMount={handleEditorMount}
+                  options={{
+                    fontSize: 14,
+                    fontFamily: 'JetBrains Mono, Courier New, monospace',
+                    minimap: { enabled: false },
+                    automaticLayout: true,
+                    padding: { top: 12 },
+                    lineNumbersMinChars: 3,
+                    contextmenu: false
+                  }}
+                />
+              </div>
+            ) : (
+              <div className="editor-wrapper flowchart-tab-active">
+                <FlowchartTab 
+                  code={code} 
+                  language={activeLanguage} 
+                  astDeclarations={astDeclarations} 
+                  activeLine={activeLine} 
+                  onChangeCode={(newCode) => {
+                    saveCode(newCode);
+                    if (editorRef.current) {
+                      const model = editorRef.current.getModel();
+                      if (model) {
+                        editorRef.current.executeEdits('flowchart-sync', [{
+                          range: model.getFullModelRange(),
+                          text: newCode,
+                          forceMoveMarkers: true
+                        }]);
+                      }
+                    }
+                  }}
+                />
+              </div>
+            )}
 
             <div className="action-bar">
               <button 
@@ -1598,7 +1603,51 @@ export default function App() {
         </section>
       </main>
 
-
+      {/* Confirmation Modal for Reset */}
+      {showResetConfirm && (
+        <div className="flow-modal-backdrop" onClick={() => setShowResetConfirm(false)}>
+          <div className="flow-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="flow-modal-header">
+              <h3 className="flow-modal-title">
+                <RefreshCw size={18} />
+                <span>Restaurar Código Original</span>
+              </h3>
+              <button 
+                type="button" 
+                className="flow-modal-close-btn" 
+                onClick={() => setShowResetConfirm(false)}
+                title="Fechar"
+              >
+                <X size={16} />
+              </button>
+            </div>
+            <div className="flow-modal-body">
+              <div className="flow-modal-help-box" style={{ background: 'rgba(227, 6, 19, 0.05)', borderColor: 'rgba(227, 6, 19, 0.15)', color: 'var(--text-secondary)' }}>
+                Esta ação irá apagar o progresso atual e restaurar o código para o estado inicial deste exercício.
+              </div>
+              <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: '1.5' }}>
+                Tem certeza de que deseja restaurar o código original deste exercício?
+              </p>
+            </div>
+            <div className="flow-modal-footer">
+              <button 
+                type="button" 
+                className="flow-modal-btn cancel" 
+                onClick={() => setShowResetConfirm(false)}
+              >
+                Cancelar
+              </button>
+              <button 
+                type="button" 
+                className="flow-modal-btn save" 
+                onClick={confirmResetExercise}
+              >
+                Confirmar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

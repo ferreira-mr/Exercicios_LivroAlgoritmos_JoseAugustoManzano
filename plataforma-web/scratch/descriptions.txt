@@ -1,0 +1,683 @@
+Exercicio01 (Conversor de Temperatura):
+Este exercício tem como objetivo desenvolver um programa simples para
+converter temperaturas de graus Celsius para Fahrenheit. O programa irá
+solicitar ao usuário que insira a temperatura em graus Celsius e, em
+seguida, realizará o cálculo para converter essa temperatura para
+Fahrenheit utilizando a fórmula de conversão adequada. Por fim, o programa
+exibirá a temperatura convertida em graus Fahrenheit.
+
+---
+
+Exercicio02 (Conversor de Temperatura):
+Este exercício consiste em desenvolver um programa que converta a
+temperatura de Fahrenheit para Celsius. O programa receberá a temperatura
+em graus Fahrenheit como entrada, calculará a temperatura equivalente em
+graus Celsius usando a fórmula de conversão adequada e, por fim, exibirá a
+temperatura convertida em graus Celsius.
+
+---
+
+Exercicio03 (Cálculo do Volume de uma Lata de Óleo):
+Este exercício tem como objetivo desenvolver um programa que calcule e
+apresente o valor do volume de uma lata de óleo. O programa receberá como
+entrada o raio da base da lata e a altura da lata, calculará o volume usando
+a fórmula fornecida e, por fim, exibirá o volume calculado da lata de óleo.
+
+---
+
+Exercicio04 (Cálculo da Quantidade de Combustível Gasta em uma Viagem):
+Este exercício tem como objetivo desenvolver um programa que calcule e
+apresente a quantidade de litros de combustível gasta em uma viagem. O
+programa receberá como entrada a distância percorrida em quilômetros e o
+consumo do veículo em quilômetros por litro, calculará a quantidade de
+litros de combustível gasta usando a fórmula fornecida e, por fim, exibirá
+a quantidade de litros de combustível gasta na viagem.
+
+---
+
+Exercicio05 (Cálculo do Valor de uma Prestação em Atraso):
+Este exercício tem como objetivo desenvolver um programa que calcule e
+apresente o valor de uma prestação em atraso. O programa receberá como
+entrada o valor original da prestação sem os juros e o número de meses em
+atraso, calculará o valor da prestação em atraso usando a fórmula fornecida
+e, por fim, exibirá o valor da prestação em atraso.
+
+---
+
+Exercicio06 (Troca de Valores entre Variáveis):
+Este exercício consiste em desenvolver um programa que efetue a troca de
+valores entre duas variáveis, A e B. O programa receberá como entrada os
+valores das variáveis A e B, realizará a troca dos valores entre elas e,
+por fim, apresentará os valores antes e após a troca.
+
+---
+
+Exercicio07 (Adição e Multiplicação de Quatro Números Inteiros):
+Este exercício consiste em desenvolver um programa que leia quatro valores
+numéricos inteiros, realize as operações de adição e multiplicação desses
+quatro números entre si e, por fim, exiba os resultados das adições e
+multiplicacões dos quatro números.
+
+---
+
+Exercicio08 (Cálculo do Volume de uma Caixa Retangular):
+Este exercício tem como objetivo desenvolver um programa que calcule e
+apresente o valor do volume de uma caixa retangular. O programa receberá
+como entrada as dimensões da caixa retangular (comprimento, largura e altura),
+calculará o volume usando a fórmula fornecida e, por fim, exibirá o volume
+calculado da caixa retangular.
+
+---
+
+Exercicio09 (Cálculo do Quadrado de um Número Inteiro):
+Este exercício consiste em desenvolver um programa que efetue a leitura
+de um valor numérico inteiro, calcule o quadrado desse valor e exiba o
+resultado. O programa receberá como entrada um número inteiro, elevará
+esse número ao quadrado e, por fim, exibirá o resultado.
+
+---
+
+Exercicio10 (Cálculo da Diferença entre Dois Números Inteiros):
+Este exercício consiste em desenvolver um programa que leia dois valores
+numéricos inteiros, calcule a diferença do primeiro pelo segundo e exiba o
+resultado. O programa receberá como entrada dois números inteiros, calculará
+a diferença do primeiro número pelo segundo e, por fim, exibirá o resultado.
+
+---
+
+Exercicio11 (Conversão de Dólar para Real):
+Este exercício consiste em desenvolver um programa que leia um valor em
+dólar (US$), calcule e apresente o valor da conversão desse valor em real
+(R$), considerando uma cotação do dólar previamente definida. O programa
+receberá como entrada o valor em dólar, calculará o valor equivalente em
+real usando a cotação do dólar e, por fim, exibirá o resultado da conversão.
+
+---
+
+Exercicio12 (Conversão de Real para Dólar):
+Este exercício consiste em desenvolver um programa que leia um valor em
+real (R$), calcule e apresente o valor da conversão desse valor em dólar
+(US$), considerando uma cotação do dólar previamente definida. O programa
+receberá como entrada o valor em real, calculará o valor equivalente em
+dólar usando a cotação do dólar e, por fim, exibirá o resultado da conversão.
+
+---
+
+Exercicio13 (Cálculo da Soma dos Quadrados de Três Números):
+Este exercício consiste em desenvolver um programa que leia três valores
+numéricos, calcule a soma dos quadrados desses números e exiba o resultado.
+O programa receberá como entrada três números, calculará o quadrado de cada
+um deles, somará os quadrados e, por fim, exibirá o resultado da soma.
+
+---
+
+Exercicio14 (Cálculo do Quadrado da Soma de Três Números):
+Este exercício consiste em desenvolver um programa que leia três valores
+numéricos, calcule o quadrado da soma desses números e exiba o resultado.
+O programa receberá como entrada três números, calculará a soma desses números
+e, em seguida, calculará o quadrado da soma, exibindo o resultado final.
+
+---
+
+Exercicio15 (Cálculo do Produto e da Soma de Quatro Números):
+Este exercício consiste em desenvolver um programa que leia quatro valores
+numéricos, calcule o produto do primeiro com o terceiro e a soma do segundo
+com o quarto, e exiba os resultados do produto e da soma. O programa receberá
+como entrada quatro números, realizará os cálculos especificados e exibirá os
+resultados do produto e da soma.
+
+---
+
+Exercicio16 (Cálculo do Novo Salário com Aumento):
+Este exercício consiste em desenvolver um programa que leia o valor do
+salário mensal de um trabalhador e a porcentagem de aumento do salário,
+calcule o novo salário e o aumento concedido, e exiba esses valores.
+O programa receberá como entrada o salário mensal e a porcentagem de aumento,
+calculará o valor do aumento e o novo salário, e por fim, exibirá esses valores.
+
+---
+
+Exercicio17 (Cálculo da Área de uma Circunferência):
+Este exercício consiste em desenvolver um programa que leia o valor do raio
+de uma circunferência, calcule o valor da área da circunferência e exiba o
+resultado. O programa receberá como entrada o raio da circunferência,
+calculará a área usando a fórmula π * raio² e, por fim, exibirá a área calculada.
+
+---
+
+Exercicio18 (Apuração de Votos em uma Eleição Sindical):
+Este exercício consiste em desenvolver um programa que faça a leitura da
+quantidade de votos válidos para cada candidato, além da quantidade de votos
+nulos e em branco, calcule o número total de eleitores, o percentual
+correspondente de votos válidos dos candidatos e de votos brancos e nulos, e
+exiba esses resultados.
+
+---
+
+Exercicio19 (Cálculo das Quatro Operações Básicas):
+Este exercício consiste em desenvolver um programa que leia dois valores numéricos,
+calcule as quatro operações básicas (adição, subtração, multiplicação e divisão) utilizando
+esses valores e exiba os resultados.
+
+---
+
+Exercicio20 (Cálculo da Velocidade de um Projétil):
+Este exercício consiste em desenvolver um programa que leia a distância percorrida em quilômetros e
+o tempo em horas, calcule a velocidade do projétil em metros por segundo e exiba o resultado.
+
+---
+
+Exercicio21 (Cálculo de Potência):
+Este exercício consiste em desenvolver um programa que leia dois valores numéricos inteiros
+representando a base e o expoente de uma potência, calcule a potência utilizando os valores de entrada e
+apresente o resultado.
+
+---
+
+Exercicio22 (Cálculo do Volume de uma Esfera):
+Este exercício consiste em desenvolver um programa que leia o raio da esfera,
+calcule o volume da esfera utilizando a fórmula volume = (4/3) * π * raio³ e
+exiba o resultado.
+
+---
+
+Exercicio23 (Conversão de Pés para Metros):
+Este exercício consiste em desenvolver um programa que leia uma medida em
+pés, converta a medida de pés para metros usando a fórmula metros = pés * 0.3048
+e exiba o resultado.
+
+---
+
+Exercicio24 (Cálculo de Raiz):
+Este exercício consiste em desenvolver um programa que leia a base e o
+índice de uma raiz e calcule a raiz.
+
+---
+
+Exercicio25 (Sucessor e Antecessor de um Número Inteiro):
+Este exercício consiste em desenvolver um programa que leia um valor numérico inteiro,
+calcule e apresente o sucessor e o antecessor desse número.
+
+---
+
+Exercicio26 (Cálculo do Quadrado da Divisão de Dois Números Inteiros):
+Este exercício consiste em desenvolver um programa que leia dois valores numéricos inteiros,
+calcule a divisão do primeiro número pelo segundo número e, em seguida, calcule o quadrado do resultado da divisão.
+
+---
+
+Exercicio27 (Cálculo da Diferença entre Dois Números Inteiros):
+Este exercício consiste em desenvolver um programa que leia dois valores numéricos inteiros
+e apresente o resultado da diferença entre o maior e o menor valor.
+
+---
+
+Exercicio28 (Classificação de Número Positivo ou Negativo):
+Este exercício consiste em desenvolver um programa que leia um valor numérico inteiro
+e o classifique como positivo, negativo ou neutro (zero).
+
+---
+
+Exercicio29 (Cálculo da Média e Verificação de Aprovação):
+Este exercício consiste em desenvolver um programa que leia os valores de
+quatro notas bimestrais de um aluno, calcule a média aritmética e informe
+se o aluno foi aprovado ou reprovado. A nota para ser aprovado é 5.
+
+---
+
+Exercicio30 (Cálculo da Média e Verificação de Aprovação com Exame):
+Este exercício consiste em desenvolver um programa que leia os valores de
+quatro notas bimestrais de um aluno, calcule a média aritmética e verifique
+a aprovação do aluno. Se a média for maior que 7, o aluno é aprovado.
+Caso contrário, solicite a nota do exame para calcular a nova média. Se a
+nova média for maior que 5, o aluno é aprovado em exame. Caso contrário, é
+reprovado.
+
+---
+
+Exercicio31 (Resolução de Equação de Segundo Grau):
+Este exercício consiste em desenvolver um programa que leia três números
+inteiros "a", "b" e "c" referentes aos valores dos coeficientes da equação
+de segundo grau ax² + bx + c = 0 e resolva a equação.
+
+---
+
+Exercicio32 (Ordenação de Três Números Inteiros):
+Este exercício consiste em desenvolver um programa que leia três valores
+inteiros e apresente os valores dispostos em ordem crescente.
+
+---
+
+Exercicio33 (Valores Divisíveis por 2 e 3):
+Este exercício consiste em desenvolver um programa que leia quatro valores
+numéricos inteiros e apresente apenas os valores que sejam divisíveis por 2 e 3.
+
+---
+
+Exercicio34 (Valores Divisíveis por 2 ou 3):
+Este exercício consiste em desenvolver um programa que leia quatro valores
+numéricos inteiros e apresente apenas os valores que sejam divisíveis por 2
+ou 3.
+
+---
+
+Exercicio35 (Maior e Menor Valor):
+Este exercício consiste em desenvolver um programa que leia cinco valores
+numéricos inteiros e apresente o maior e o menor valor.
+
+---
+
+Exercicio36 (Par ou Ímpar):
+Este exercício consiste em desenvolver um programa que leia um número inteiro
+e informe se ele é par ou ímpar.
+
+---
+
+Exercicio37 (Verificação de Faixa de Valor):
+Este exercício consiste em desenvolver um programa que leia um valor numérico
+inteiro que esteja na faixa de valores de 1 até 9 e informe se o número está
+na faixa permitida ou não.
+
+---
+
+Exercicio38 (Verificação de Valor Menor ou Igual a 3):
+Este exercício consiste em desenvolver um programa que leia um valor inteiro
+qualquer e apresente-o caso não seja maior que 3.
+
+---
+
+Exercicio39 (Múltiplo de 3 e 5):
+Este exercício consiste em desenvolver um programa que leia um número e 
+apresente-o apenas se ele for múltiplo de 3 e 5.
+
+---
+
+Exercicio40 (Soma e Verificação):
+Este exercício consiste em desenvolver um programa que leia três valores desconhecidos,
+some-os e apresente o resultado apenas se a soma for maior que 100.
+
+---
+
+Exercicio41 (Multiplicação e Verificação):
+Este exercício consiste em desenvolver um programa que leia um número inteiro qualquer
+e o multiplique por dois. Apresente o resultado da multiplicação somente se o resultado for maior que 30.
+
+---
+
+Exercicio42 (Quadrados na Faixa de Valores):
+Este exercício consiste em desenvolver um programa que apresente como resultado os quadrados dos números inteiros existentes na faixa de valores de 15 a 200.
+
+---
+
+Exercicio43 (Tabuada de um Número):
+Este exercício consiste em desenvolver um programa que mostre os resultados da tabuada de um número qualquer.
+
+---
+
+Exercicio44 (Soma dos Cem Primeiros Números Naturais):
+Este exercício consiste em desenvolver um programa que apresente a soma dos cem primeiros números naturais.
+
+---
+
+Exercicio45 (Somatório dos Valores Pares):
+Este exercício consiste em desenvolver um programa que apresente o somatório dos valores pares existentes na faixa de 1 até 500.
+
+---
+
+Exercicio46 (Números Ímpares na Faixa de Valores):
+Este programa consiste em apresentar todos os valores numéricos inteiros ímpares situados na faixa de 0 a 200.
+
+---
+
+Exercicio47 (Valores Divisíveis por 4 Menores que 200):
+Este exercício consiste em desenvolver um programa que apresente todos os valores numéricos divisíveis por 4 e menores que 200.
+
+---
+
+Exercicio48 (Potências de 3):
+Este programa apresenta os resultados das potências do valor de base 3, elevado a um expoente de 0 a 15.
+
+---
+
+Exercicio49 (Potência de uma Base Elevada a um Expoente):
+Este programa calcula a potência de uma base qualquer elevada a um expoente qualquer.
+
+---
+
+Exercicio50 (Sequência de Fibonacci):
+Este exercício consiste em desenvolver um programa que apresente os valores da sequência numérica de Fibonacci até o décimo quinto termo.
+
+---
+
+Exercicio51 (Conversão de Graus Celsius em Fahrenheit):
+Este programa converte os valores de graus Celsius em graus Fahrenheit, de dez em dez graus, iniciando em 10°C e finalizando em 100°C.
+
+---
+
+Exercicio52 (Somatório de Grãos de Trigo no Tabuleiro de Xadrez):
+Este programa calcula e apresenta o somatório do número de grãos de trigo que se pode obter em um tabuleiro de xadrez, seguindo a regra de colocar um grão no primeiro quadro e o dobro de grãos no quadro seguinte.
+
+---
+
+Exercicio53 (Somatório da Fatorial de Quinze Valores):
+Este programa lê quinze valores numéricos inteiros e, ao final, apresenta o somatório da fatorial de cada valor lido.
+
+---
+
+Exercicio54 (Somatório e Média de Dez Valores):
+Este programa lê dez valores numéricos reais e, ao final, apresenta o somatório e a média dos valores lidos.
+
+---
+
+Exercicio55 (Somatório, Média e Total de Valores Lidos):
+Este programa lê sucessivamente valores numéricos fornecidos pelo usuário e, ao final, apresenta o somatório, a média e o total de valores lidos. O programa continua a ler os valores enquanto o usuário fornecer valores positivos.
+
+---
+
+Exercicio56 (Fatorial dos Valores Ímpares entre 1 e 100):
+Este programa calcula a fatorial dos valores ímpares situados na faixa de 1 a 100 e apresenta o resultado.
+
+---
+
+Exercicio57 (Cálculo da Área Total de uma Residência):
+Este programa permite calcular a área total em metros quadrados de uma residência com vários cômodos, como sala, cozinha, banheiro, quartos, área de serviço, quintal, garagem, entre outros. O programa solicita ao usuário o nome, a largura e o comprimento de cada cômodo e oferece a opção de continuar adicionando novos cômodos ou encerrar o cálculo. Ao encerrar, o programa apresenta o valor total acumulado da área residencial.
+
+---
+
+Exercicio58 (Maior e Menor Valores entre Valores Positivos):
+Este programa lê valores positivos inteiros até que um valor negativo seja informado. Ao final, apresenta o maior e o menor valores informados pelo usuário.
+
+---
+
+Exercicio59 (Divisão Inteira Sem Usar o Operador de Divisão):
+Este programa realiza a divisão inteira de dois números sem usar o operador aritmético de divisão.
+
+---
+
+Exercicio60 (Quadrados dos Valores Inteiros de 15 a 200 Contando de 3 em 3):
+Este programa apresenta os quadrados dos valores inteiros no intervalo de 15 a 200, contando de 3 em 3.
+
+---
+
+Exercicio61 (Leitura e Apresentação de Nomes):
+Este exercício consiste em desenvolver um programa que leia dez nomes e os apresente em seguida.
+
+---
+
+Exercicio62 (Multiplicação de Elementos de uma Matriz por 3):
+Este exercício consiste em desenvolver um programa que leia oito elementos inteiros e construa uma segunda matriz com os elementos da primeira matriz multiplicados por 3.
+
+---
+
+Exercicio63 (Subtração de Elementos de Matrizes):
+Este exercício consiste em desenvolver um programa que leia duas matrizes com 20 elementos reais e construa uma terceira matriz onde cada elemento deve ser a subtração do elemento de mesma posição das duas primeiras matrizes.
+
+---
+
+Exercicio64 (Construção de Matriz com Quadrados de Elementos):
+Este exercício consiste em desenvolver um programa que leia 15 elementos inteiros e construa uma segunda matriz onde cada elemento seja o quadrado do elemento da primeira matriz na mesma posição.
+
+---
+
+Exercicio65 (Fatorial de Elementos de uma Matriz):
+Este exercício consiste em desenvolver um programa que leia uma matriz com 15 elementos inteiros e construa uma segunda matriz onde cada elemento seja o resultado da fatorial do elemento correspondente da primeira matriz.
+
+---
+
+Exercicio66 (Junção de Dois Vetores em um Terceiro):
+Este exercício consiste em desenvolver um programa que leia dois vetores com 15 elementos inteiros quaisquer e construa um terceiro vetor que será a junção dos dois primeiros vetores, ou seja, terá 30 elementos.
+
+---
+
+Exercicio67 (Junção de Dois Vetores de Nomes):
+Este exercício consiste em desenvolver um programa que leia dois vetores para armazenar nomes de pessoas, sendo o primeiro com 20 elementos e o segundo com 30 elementos. Em seguida, deve-se construir um terceiro vetor com a junção dos dois primeiros.
+
+---
+
+Exercicio68 (Inversão de Elementos em um Vetor):
+Este exercício consiste em desenvolver um programa que leia 20 elementos do tipo real em um vetor e construa uma segunda matriz de mesma dimensão com os elementos da primeira matriz armazenados, porém de forma invertida.
+
+---
+
+Exercicio69 (Junção de Três Vetores):
+Este exercício consiste em desenvolver um programa que leia três vetores com cinco elementos cada que sejam do tipo inteiro e construa um quarto vetor como resultado da junção das três primeiras.
+
+---
+
+Exercicio70 (Somatório dos Valores até o Elemento Correspondente):
+Este exercício consiste em desenvolver um programa que leia um vetor com vinte elementos inteiros e construa um segundo vetor de mesmo tipo e dimensão onde cada elemento da segunda matriz é o somatório de 1 até o valor do elemento correspondente armazenado na primeira matriz.
+
+---
+
+Exercicio71 (Vetor com Valores Negativos):
+Este exercício consiste em desenvolver um programa que leia uma matriz A do tipo vetor com dez elementos inteiros positivos e construa um segundo vetor em que cada elemento seja o valor negativo do elemento correspondente do primeiro vetor.
+
+---
+
+Exercicio72 (Divisão por Dois dos Elementos de um Vetor):
+Este exercício consiste em desenvolver um programa que leia um vetor com dez elementos inteiros e construa uma segunda matriz em que cada elemento seja a metade exata de cada um dos elementos existentes na primeira matriz.
+
+---
+
+Exercicio73 (Tabuada em um Vetor):
+Este exercício consiste em desenvolver um programa que calcule a tabuada de um valor qualquer de 1 até 10 e armazene os resultados em um vetor.
+
+---
+
+Exercicio74 (Análise de Temperaturas em Graus Celsius):
+Este exercício consiste em desenvolver um programa que leia 20 elementos (valores reais) para temperaturas em graus Celsius e armazene esses valores em um vetor. O programa ao final deve apresentar a menor, a maior e a média das temperaturas.
+
+---
+
+Exercicio75 (Conversão de Temperaturas de Celsius para Fahrenheit):
+Este exercício consiste em desenvolver um programa que leia 25 elementos (valores reais) para temperaturas em graus Celsius e armazene os valores em um vetor. Em seguida, o programa deve construir outro vetor onde seus elementos são as temperaturas do primeiro vetor convertido para Fahrenheit.
+
+---
+
+Exercicio76 (Manipulação de Elementos de um Vetor):
+Este exercício consiste em desenvolver um programa que leia um vetor de 12 elementos inteiros. Em seguida, o programa deve construir uma segunda matriz com a seguinte lei de formação: todo elemento da primeira matriz que for ímpar deve ser multiplicado por 2; caso contrário, o elemento da matriz deve permanecer constante.
+
+---
+
+Exercicio77 (Manipulação de Elementos de um Vetor):
+Este exercício consiste em desenvolver um programa que leia um vetor de 15 elementos reais. Em seguida, o programa deve construir uma segunda matriz com a seguinte lei de formação: todo elemento da primeira matriz que possuir índice par deve ter seus elementos divididos por 2, caso contrário, o elemento deve ser multiplicado por 1.5.
+
+---
+
+Exercicio78 (Manipulação de Índices de Matrizes):
+Este exercício consiste em desenvolver um programa que leia seis elementos (valores inteiros) para duas matrizes. Em seguida, o programa deve construir outras duas matrizes onde uma é formada pelos elementos de índices pares dos dois primeiros vetores e a outra com os elementos dos índices ímpares.
+
+---
+
+Exercicio79 (Junção de Vetores com Validação de Entrada):
+Este exercício consiste em desenvolver um programa que leia dois vetores A e B com seis elementos cada. O vetor A deve aceitar apenas a entrada de valores pares, enquanto o vetor B deve aceitar apenas a entrada de valores ímpares. A entrada dos vetores deve ser validada pelo programa. Em seguida, o programa deve construir o vetor C que seja o resultado da junção dos vetores A e B.
+
+---
+
+Exercicio80 (Junção de Vetores com Validação de Entrada):
+Este exercício consiste em desenvolver um programa que leia dois vetores com dez elementos cada. O primeiro vetor deve aceitar apenas a entrada de valores divisíveis por 2 e 3, enquanto o segundo deve aceitar apenas os múltiplos de 5. A entrada dos valores deve ser validada pelo programa. Em seguida, o programa deve construir um terceiro vetor que seja a junção dos outros dois.
+
+---
+
+Exercicio81 (Junção de Vetores com Validação de Entrada):
+Este exercício consiste em desenvolver um programa que leia dois vetores. O primeiro vetor deve aceitar apenas a entrada de valores divisíveis por 2 ou 3, enquanto o segundo vetor deve aceitar apenas a entrada de valores que não sejam múltiplos de 5. A entrada deve ser validada pelo programa. Em seguida, o programa deve construir um terceiro vetor que seja a junção dos outros dois.
+
+---
+
+Exercicio82 (Contagem de Números Pares e Ímpares em um Vetor):
+Este exercício consiste em desenvolver um programa que leia um vetor com 30 elementos do tipo inteiro. Ao final, o programa deve apresentar as quantidades de valores pares e ímpares existentes no vetor.
+
+---
+
+Exercicio83 (Construção de um Vetor a partir do Quadrado da Soma de Outros Dois Vetores):
+Este exercício consiste em desenvolver um programa que leia dois vetores com valores inteiros com dez elementos cada. O programa deve construir um terceiro vetor formado pelo quadrado da soma dos elementos correspondentes nos dois primeiros vetores.
+
+---
+
+Exercicio84 (Construção de uma Segunda Matriz a partir de um Vetor):
+Este exercício consiste em desenvolver um programa que leia um vetor com seis elementos do tipo real. O programa deve construir uma segunda matriz em que cada posição de índice par no primeiro vetor deve ser atribuído às índices impares e os índices ímpares do primeiro vetor nos índices pares do segundo.
+
+---
+
+Exercicio85 (Contagem de Números Pares em uma Matriz):
+Este exercício consiste em desenvolver um programa que leia uma matriz com 15 elementos números inteiros e apresente o total de elementos pares existentes nesse vetor.
+
+---
+
+Exercicio86 (Contagem e Porcentagem de Números Ímpares em um Vetor):
+Este exercício consiste em desenvolver um programa que leia um vetor com dez elementos inteiros. O programa deve apresentar o total de elementos ímpares no vetor e também a porcentagem de números ímpares em relação ao total de elementos armazenados no vetor.
+
+---
+
+Exercicio87 (Soma de Matrizes):
+Este exercício consiste em desenvolver um programa que leia duas matrizes, cada uma com cinco linhas e três colunas para valores inteiros. O programa deve construir uma terceira matriz com as mesmas dimensões que seja formada pela soma dos elementos da primeira e segunda matriz.
+
+---
+
+Exercicio88 (Junção de Matrizes):
+Este exercício consiste em desenvolver um programa que leia duas matrizes, cada uma com uma linha e sete colunas, para receber números inteiros. O programa deve construir uma terceira matriz cuja primeira coluna deve ser formada pelos elementos da primeira matriz e a segunda coluna pelos elementos da segunda matriz.
+
+---
+
+Exercicio89 (Leitura e Apresentação de Matriz):
+Este exercício consiste em desenvolver um programa que leia 20 elementos para uma matriz com quatro linhas e cinco colunas. Em seguida, apresentar a matriz.
+
+---
+
+Exercicio90 (Manipulação de Matrizes):
+Este exercício consiste em desenvolver um programa que leia uma matriz de uma dimensão com dez elementos. Construir uma segunda matriz com três colunas de dez linhas sendo a primeira coluna formada pelos elementos da primeira matriz somados com 5, a segunda formada pelo cálculo do fatorial de cada elemento correspondente na primeira matriz e a terceira coluna formada pelo quadrado dos elementos da primeira.
+
+---
+
+Exercicio91 (Manipulação de Matrizes):
+Este exercício consiste em desenvolver um programa que leia duas matrizes com uma linha de doze colunas e construa uma terceira matriz.
+
+---
+
+Exercicio92 (Fatorial de Elementos de uma Matriz):
+Este exercício consiste em desenvolver um programa que leia uma matriz com cinco linhas e quatro colunas e construa uma segunda matriz com o fatorial de cada elemento da primeira matriz.
+
+---
+
+Exercicio93 (Conversão de Temperaturas):
+Este exercício consiste em desenvolver um programa que leia uma matriz com quatro linhas e cinco colunas, contendo temperaturas em Celsius, e então crie uma segunda matriz com os valores de cada elemento da primeira matriz convertidos em Fahrenheit.
+
+---
+
+Exercicio94 (Matriz com Dobro dos Elementos, Exceto Diagonal Principal):
+Este exercício consiste em desenvolver um programa que leia uma matriz A do tipo inteiro com cinco linhas e cinco colunas e construa uma segunda matriz B em que cada elemento seja o dobro de cada elemento da primeira matriz, com exceção dos valores situados na diagonal principal.
+
+---
+
+Exercicio95 (Matriz com Somatório e Valores Específicos):
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteiro com sete linhas e sete colunas e construa uma segunda matriz com base em regras específicas.
+
+---
+
+Exercicio96 (Manipulação de Matrizes):
+Este exercício consiste em desenvolver um programa que leia uma matriz com seis linhas e cinco colunas e construa uma segunda matriz com base em regras específicas.
+
+---
+
+Exercicio97 (Somatório dos Elementos da Diagonal Principal):
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo real de cinco linhas e cinco colunas e apresente o somatório dos elementos situados na diagonal principal.
+
+---
+
+Exercicio98 (Somatório dos Elementos de uma Matriz):
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteiro com cinco linhas e cinco colunas e apresente o somatório de todos os elementos da matriz.
+
+---
+
+Exercicio99 (Somatório de Elementos em Posições Ímpares):
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo real com cinco linhas e cinco colunas e apresente o somatório dos elementos situados nas posições de linha e coluna ímpares.
+
+---
+
+Exercicio100 (Contagem de Números Pares):
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteiro com sete linhas e sete colunas e apresente o total de elementos pares existentes na matriz.
+
+---
+
+Exercicio101 (Soma de Linhas em Matriz e Somatório Total):
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo real com oito linhas e seis colunas. Construir uma segunda matriz que seja formada pela soma de cada linha da primeira matriz. Ao final, apresentar o somatório dos elementos da primeira e segunda matriz.
+
+---
+
+Exercicio102 (Contagem de Números Pares e Ímpares em Matriz):
+Este exercício consiste em desenvolver um programa que leia uma matriz de dez linhas e sete colunas. Ao final, apresentar o total de elementos pares e ímpares existentes na matriz. Apresentar também o percentual de elementos pares e ímpares em relação ao total de elementos da matriz.
+
+---
+
+Exercicio103 (Soma de Linhas e Colunas em Matriz):
+Este exercício consiste em desenvolver um programa que faça a leitura de 20 valores inteiros em uma matriz com quatro linhas e cinco colunas. Construir uma segunda matriz com quatro elementos que seja formada pelo somatório dos elementos correspondentes de cada linha da primeira matriz. Construir também uma terceira matriz com cinco elementos que seja formada pelo somatório de cada elemento das colunas da primeira matriz.
+
+---
+
+Exercicio104 (Operações com Matrizes):
+Este exercício consiste em desenvolver um programa que leia quatro matrizes de uma linha e quatro colunas. Construir uma quinta matriz com quatro linhas e quatro colunas, sendo a primeira linha formada pelo dobro dos valores dos elementos da primeira matriz, a segunda linha formada pelo triplo dos valores dos elementos da segunda matriz, e a terceira linha formada pelo quádruplo dos valores dos elementos da terceira matriz.
+
+---
+
+Exercicio105 (Soma de Matrizes com Condições):
+Este exercício consiste em desenvolver um programa que leia duas matrizes com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 e 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão, que seja formada pela soma dos elementos da primeira matriz com os elementos da segunda. Apresentar as matrizes.
+
+---
+
+Exercicio106 (Subtração de Matrizes com Condições):
+Este exercício consiste em desenvolver um programa que leia duas matrizes com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 e 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz da mesma dimensão que contenha a subtração dos elementos da primeira matriz pelos elementos da segunda.
+
+---
+
+Exercicio107 (Multiplicação de Matrizes com Condições):
+Este exercício consiste em desenvolver um programa que leia duas matrizes de duas dimensões com quatro linhas e cinco colunas. A primeira matriz deve ser formada por valores divisíveis por 3 ou 4, enquanto a segunda matriz deve ser formada por valores divisíveis por 5 e 6. As entradas dos valores nas matrizes devem ser validadas pelo programa e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão que contenha o valor da multiplicação dos elementos da primeira matriz com os elementos da segunda matriz.
+
+---
+
+Exercicio108 (Soma de Matrizes com Condições):
+Este exercício consiste em desenvolver um programa que faça a leitura de duas matrizes com cinco linhas e cinco colunas. A primeira matriz deve ser formada por valores que não sejam divisíveis por 3, enquanto a segunda matriz deve ser formada por valores que não sejam divisíveis por 6. As entradas dos valores nas matrizes devem ser validadas pelo programa, e não pelo usuário. Construir e apresentar uma terceira matriz de mesma dimensão que contenha a soma dos elementos da primeira e da segunda matriz.
+
+---
+
+Exercicio109 (Construção de Matriz com Condições Específicas):
+Este exercício consiste em desenvolver um programa que leia uma matriz do tipo inteira de duas dimensões com cinco linhas e cinco colunas. Construir uma segunda matriz de mesma dimensão, em que cada elemento seja o dobro de cada elemento correspondente da primeira matriz, com exceção dos valores situados na diagonal inversa (posições [1,5], [2,4], [3,3], [4,2] e [5,1]), os quais devem ser o triplo de cada elemento correspondente da primeira matriz. Apresentar as três matrizes.
+
+---
+
+Exercicio110 (Agenda de Contatos):
+Este exercício consiste em desenvolver um programa que gerencie os registros de 10 pessoas na forma de uma agenda de contatos, contendo os campos nome, endereço e telefone. O programa deve, por meio de um menu de opções, executar as seguintes etapas:
+
+---
+
+Exercicio111 (Sistema de Notas Escolares):
+Elaborar um programa escolar que armazene o nome e as notas bimestrais de 20 alunos de um determinado curso. O programa deverá realizar as seguintes operações.
+
+---
+
+Exercicio112 (Cadastro de Pessoas e Alturas):
+Elaborar um programa que armazene o nome e a altura de 15 pessoas com o uso de registros. O programa deve usar um menu que execute as seguintes etapas:
+
+---
+
+Exercicio113 (Gerenciamento de Funcionários):
+Elaborar um programa que gerencie os registros de 20 funcionários, contendo os campos matrícula, nome e salário. O programa deve, por meio de um menu, executar as seguintes etapas.
+
+---
+
+Exercicio114 (Agenda de Contatos):
+Desenvolva um programa de agenda que contenha nomes, endereços e telefones de dez pessoas capaz de executar as seguintes ações.
+
+---
+
+Exercicio115 (Gerenciamento de Notas de Alunos):
+Crie um programa de computador que armazene o nome e as notas bimestrais de 20 alunos do curso de Técnicas de Programação que execute as seguintes etapas:
+
+---
+
+Exercicio116 (Cadastro de Pessoas e Alturas):
+Elaborar um programa que armazene o nome e a altura de 15 pessoas com o uso de registros. O programa deve utilizar subprogramas tanto na apresentação do menu como de suas rotinas para a execução das seguintes etapas:
+
+---
+
+Exercicio117 (Gerenciamento de Funcionários):
+Considerando os registros de 20 funcionários, com os campos matrícula, nome e salário, desenvolver um programa que utilize subprogramas e apresente um menu para a execução das seguintes etapas:

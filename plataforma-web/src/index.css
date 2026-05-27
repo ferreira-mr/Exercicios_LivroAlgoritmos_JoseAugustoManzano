@@ -1702,13 +1702,15 @@ html.light-theme .zoom-widget-btn:hover {
 }
 
 /* Flowchart active tab styling to prevent double scrollbars and fit perfectly */
-.instruction-content.flowchart-tab-active {
+.instruction-content.flowchart-tab-active,
+.editor-wrapper.flowchart-tab-active {
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-.instruction-content.flowchart-tab-active .flowchart-container {
+.instruction-content.flowchart-tab-active .flowchart-container,
+.editor-wrapper.flowchart-tab-active .flowchart-container {
   flex: 1;
   height: auto !important;
 }

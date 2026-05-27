@@ -7,7 +7,10 @@ import {
   insertNodeInTree,
   deleteNodeInTree,
   updateNodeInTree,
-  generateCodeFromFlowNodes
+  generateCodeFromFlowNodes,
+  replaceFunctionBodyInCode,
+  addNewFunctionToCode,
+  deleteFunctionFromCode
 } from '../utils/flowchart-parser';
 
 interface FlowchartTabProps {
@@ -157,6 +160,7 @@ function layoutNodes(
       
       const loopBackY = bodyEndY - 10;
       
+      const nextY = Math.max(y + h + 30, loopBackY + 30);
       const lines: LayoutNode['lines'] = [
         // True branch exits from right of loop block, goes right, then turns down to loop body
         { x1: startX + w / 2, y1: y + h / 2, x2: bodyStartX, y2: y + h / 2 },
@@ -165,15 +169,15 @@ function layoutNodes(
           insertPoint: { fromNodeId: node.id, branchType: 'body' }
         },
         
-        // Loop-back line: goes down from loop body end, left, up, right back to main line
+        // Loop-back line: goes down from loop body end, right, up, left back to main line
         { x1: bodyStartX, y1: bodyEndY - 30, x2: bodyStartX, y2: loopBackY },
-        { x1: bodyStartX, y1: loopBackY, x2: startX - 110, y2: loopBackY },
-        { x1: startX - 110, y1: loopBackY, x2: startX - 110, y2: y - 15 },
-        { x1: startX - 110, y1: y - 15, x2: startX, y2: y - 15, arrow: true },
+        { x1: bodyStartX, y1: loopBackY, x2: bodyStartX + 80, y2: loopBackY },
+        { x1: bodyStartX + 80, y1: loopBackY, x2: bodyStartX + 80, y2: y - 15 },
+        { x1: bodyStartX + 80, y1: y - 15, x2: startX, y2: y - 15, arrow: true },
         
         // False branch exits from bottom of loop block and goes straight down
         { 
-          x1: startX, y1: y + h, x2: startX, y2: y + h + 30, arrow: true, label: 'Falso',
+          x1: startX, y1: y + h, x2: startX, y2: nextY, arrow: true, label: 'Falso',
           insertPoint: { fromNodeId: node.id }
         }
       ];
@@ -189,10 +193,10 @@ function layoutNodes(
       
       list.push(...bodyLayout.layoutNodes);
       
-      currentY = Math.max(y + h + 30, loopBackY + 30);
+      currentY = nextY;
       
-      const loopRightBoundary = bodyStartX - startX + bodyLayout.width / 2;
-      const loopLeftBoundary = 110;
+      const loopRightBoundary = (bodyStartX + 80) - startX + 20;
+      const loopLeftBoundary = 40;
       maxWidth = Math.max(maxWidth, Math.max(loopLeftBoundary * 2, loopRightBoundary * 2));
     }
   }
@@ -539,7 +543,7 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
 };
 
 interface NodeConfigModalProps {
-  node: { id: string; type: string; text: string; isDeclare?: boolean };
+  node: { id: string; type: string; text: string; isDeclare?: boolean; isAssignment?: boolean; isProcessing?: boolean };
   language: 'portugol' | 'javascript';
   declaredVars: string[];
   onSave: (text: string) => void;
@@ -560,7 +564,11 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
   const [declSize2, setDeclSize2] = useState(initialData.declSize2 || '3');
 
   // Process states
-  const [procVar, setProcVar] = useState(initialData.procVar || '');
+  const [procVar, setProcVar] = useState(() => {
+    if (initialData.procVar) return initialData.procVar;
+    if (node.isAssignment && declaredVars.length > 0) return declaredVars[0];
+    return '';
+  });
   const [procExpr, setProcExpr] = useState(initialData.procExpr || '');
 
   // Input states
@@ -666,6 +674,10 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
         return;
       }
     } else if (node.type === 'process') {
+      if (node.isAssignment && !procVar) {
+        setErrorMsg('Por favor, selecione uma variável de destino para a atribuição.');
+        return;
+      }
       const err = validateExpression(procExpr);
       if (err) {
         setErrorMsg(err);
@@ -751,8 +763,13 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
   } else {
     switch (node.type) {
       case 'process':
-        title = 'Configurar Atribuição (Processamento)';
-        helpText = 'Permite realizar cálculos ou definir valores e guardar o resultado em uma variável. Se você deixar o campo de variável de destino em branco, funcionará como um processamento livre (ex: chamada de função).';
+        if (node.isAssignment) {
+          title = 'Configurar Atribuição';
+          helpText = 'Permite definir ou atualizar o valor de uma variável. Escolha a variável de destino e especifique o novo valor ou expressão matemática/lógica.';
+        } else {
+          title = 'Configurar Processamento';
+          helpText = 'Permite realizar processamentos livres, cálculos ou chamadas de função. Se desejar, você também pode optar por atribuir o resultado a uma variável de destino.';
+        }
         break;
       case 'input':
         title = 'Configurar Entrada (Leia)';
@@ -899,14 +916,19 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
             {!node.isDeclare && node.type === 'process' && (
               <>
                 <div className="flow-modal-field-group">
-                  <label className="flow-modal-label">Variável de Destino (Opcional)</label>
+                  <label className="flow-modal-label">
+                    {node.isAssignment ? 'Variável de Destino' : 'Variável de Destino (Opcional)'}
+                  </label>
                   {allProcVars.length > 0 ? (
                     <select 
                       className="flow-modal-select"
                       value={procVar}
                       onChange={(e) => setProcVar(e.target.value)}
+                      required={!!node.isAssignment}
                     >
-                      <option value="">-- Processamento Livre (Sem atribuição) --</option>
+                      {!node.isAssignment && (
+                        <option value="">-- Processamento Livre (Sem atribuição) --</option>
+                      )}
                       {allProcVars.map(v => (
                         <option key={v} value={v}>{v}</option>
                       ))}
@@ -921,7 +943,7 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
                   <label className="flow-modal-label">Valor / Expressão</label>
                   <AutocompleteInput 
                     className="flow-modal-input" 
-                    placeholder="ex: x + y" 
+                    placeholder={node.isAssignment ? "ex: x + y" : "Escreva o cálculo a ser executado"} 
                     value={procExpr} 
                     onChange={setProcExpr} 
                     required
@@ -991,7 +1013,25 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
                   <select 
                     className="flow-modal-select" 
                     value={loopType} 
-                    onChange={(e) => setLoopType(e.target.value as 'Enquanto' | 'Para')}
+                    onChange={(e) => {
+                      const type = e.target.value as 'Enquanto' | 'Para';
+                      setLoopType(type);
+                      if (type === 'Para') {
+                        if (!loopInit.trim()) {
+                          setLoopInit(language === 'portugol' ? 'inteiro i = 1' : 'let i = 0');
+                        }
+                        if (!loopCond.trim() || loopCond === 'x < 10') {
+                          setLoopCond(language === 'portugol' ? 'i <= 10' : 'i < 10');
+                        }
+                        if (!loopInc.trim()) {
+                          setLoopInc(language === 'portugol' ? 'i = i + 1' : 'i++');
+                        }
+                      } else {
+                        if (loopCond === 'i <= 10' || loopCond === 'i < 10') {
+                          setLoopCond('x < 10');
+                        }
+                      }
+                    }}
                   >
                     <option value="Enquanto">Enquanto (condicional simples)</option>
                     <option value="Para">Para (com contador inicializado)</option>
@@ -1107,9 +1147,53 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
   const [activeModalNode, setActiveModalNode] = useState<{ id: string; type: string; text: string; isDeclare?: boolean } | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
   const [insertMenu, setInsertMenu] = useState<{ x: number; y: number; fromNodeId: string; branchType?: 'then' | 'else' | 'body' } | null>(null);
+  const [insertSubmenu, setInsertSubmenu] = useState<'main' | 'loop'>('main');
 
   // Local tree state for editing
   const [treeNodes, setTreeNodes] = useState<FlowNode[]>([]);
+
+  // Function selection state
+  const [selectedFunctionName, setSelectedFunctionName] = useState<string>(() => {
+    return language === 'portugol' ? 'inicio' : 'principal';
+  });
+
+  const [showNewFuncModal, setShowNewFuncModal] = useState(false);
+  const [showDeleteFuncModal, setShowDeleteFuncModal] = useState(false);
+  const [newFuncName, setNewFuncName] = useState('');
+  const [newFuncError, setNewFuncError] = useState('');
+
+  const availableFunctions = useMemo(() => {
+    if (language === 'portugol') {
+      if (!astDeclarations || astDeclarations.length === 0) return ['inicio'];
+      const names = astDeclarations
+        .filter(d => d.funcao !== undefined)
+        .map(d => d.simbolo?.lexema || d.assinaturaMetodo || '')
+        .filter(name => name !== '')
+        .map(name => name.replace(/[<>]/g, ''));
+      const uniqueNames = Array.from(new Set(names));
+      return uniqueNames.length > 0 ? uniqueNames : ['inicio'];
+    } else {
+      const names: string[] = [];
+      const functionRegex = /(?:async\s+)?function\s+([a-zA-Z0-9_]+)\s*\(/g;
+      let match;
+      while ((match = functionRegex.exec(code)) !== null) {
+        names.push(match[1]);
+      }
+      const arrowRegex = /(?:const\s+|let\s+|var\s+)([a-zA-Z0-9_]+)\s*=\s*(?:async\s*)?\([^)]*\)\s*=>/g;
+      while ((match = arrowRegex.exec(code)) !== null) {
+        names.push(match[1]);
+      }
+      const cleanNames = names.map(name => name.replace(/[<>]/g, '')).filter(Boolean);
+      const uniqueNames = Array.from(new Set(cleanNames));
+      return uniqueNames.length > 0 ? uniqueNames : ['principal'];
+    }
+  }, [code, astDeclarations, language]);
+
+  useEffect(() => {
+    if (!availableFunctions.includes(selectedFunctionName)) {
+      setSelectedFunctionName(availableFunctions[0]);
+    }
+  }, [availableFunctions, selectedFunctionName]);
 
   const declaredVars = useMemo(() => {
     return getDeclaredVariables(treeNodes);
@@ -1246,17 +1330,24 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
   // Synchronize local tree with compiled changes
   useEffect(() => {
     try {
+      const bodyCode = generateCodeFromFlowNodes(treeNodes, language, language === 'portugol' ? 2 : 0);
+      const generated = replaceFunctionBodyInCode(code, selectedFunctionName, bodyCode, language);
+
+      if (code.trim() === generated.trim()) {
+        return;
+      }
+
       if (language === 'portugol' && astDeclarations) {
-        const parsed = parsePortugolASTToFlowNodes(astDeclarations);
+        const parsed = parsePortugolASTToFlowNodes(astDeclarations, selectedFunctionName);
         setTreeNodes(parsed);
       } else {
-        const parsed = parseJSCodeToFlowNodes(code);
+        const parsed = parseJSCodeToFlowNodes(code, selectedFunctionName);
         setTreeNodes(parsed);
       }
     } catch (e) {
       console.error('Error generating flowchart nodes:', e);
     }
-  }, [code, language, astDeclarations]);
+  }, [code, language, astDeclarations, selectedFunctionName]);
 
   // Wrap in Start / End nodes for layouts
   const layout = useMemo(() => {
@@ -1268,6 +1359,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
   }, [treeNodes]);
 
   const displayNodeText = (text: string) => {
+    if (!text.trim()) return '[Vazio]';
     if (text.length > 18) {
       return text.slice(0, 16) + '...';
     }
@@ -1279,10 +1371,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
     if (!onChangeCode) return;
     
     const bodyCode = generateCodeFromFlowNodes(updatedTree, language, language === 'portugol' ? 2 : 0);
-    
-    const fullCode = language === 'portugol'
-      ? `programa {\n  funcao inicio() {\n${bodyCode}  }\n}`
-      : bodyCode;
+    const fullCode = replaceFunctionBodyInCode(code, selectedFunctionName, bodyCode, language);
 
     onChangeCode(fullCode);
   };
@@ -1310,9 +1399,10 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
 
   const handleOpenInsertMenu = (x: number, y: number, fromNodeId: string, branchType?: 'then' | 'else' | 'body') => {
     setInsertMenu({ x, y, fromNodeId, branchType });
+    setInsertSubmenu('main');
   };
 
-  const handleInsertNode = (type: 'declare' | 'process' | 'input' | 'output' | 'decision' | 'loop') => {
+  const handleInsertNode = (type: 'declare' | 'process_assign' | 'process_free' | 'input' | 'output' | 'decision' | 'loop_enquanto' | 'loop_para') => {
     if (!insertMenu) return;
     const { fromNodeId, branchType } = insertMenu;
     setInsertMenu(null);
@@ -1325,7 +1415,11 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
     let elseBranch: FlowNode[] = [];
     let bodyBranch: FlowNode[] = [];
 
-    const actualType = type === 'declare' ? 'process' : type;
+    const actualType = (type === 'declare' || type === 'process_assign' || type === 'process_free') 
+      ? 'process' 
+      : (type === 'loop_enquanto' || type === 'loop_para') 
+        ? 'loop' 
+        : type;
 
     switch (type) {
       case 'declare': {
@@ -1340,7 +1434,10 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
         text = language === 'portugol' ? `inteiro ${name}` : `let ${name}`;
         break;
       }
-      case 'process':
+      case 'process_assign':
+        text = declaredVars.length > 0 ? `${declaredVars[0]} = 0` : 'x = 0';
+        break;
+      case 'process_free':
         text = '';
         break;
       case 'input':
@@ -1354,8 +1451,12 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
         thenBranch = [];
         elseBranch = [];
         break;
-      case 'loop':
+      case 'loop_enquanto':
         text = declaredVars.length > 0 ? `Enquanto (${declaredVars[0]} < 10)` : 'Enquanto (x < 10)';
+        bodyBranch = [];
+        break;
+      case 'loop_para':
+        text = 'Para (i = 1; i <= 10; i = i + 1)';
         bodyBranch = [];
         break;
     }
@@ -1366,7 +1467,10 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
       text,
       thenBranch: actualType === 'decision' ? thenBranch : undefined,
       elseBranch: actualType === 'decision' ? elseBranch : undefined,
-      bodyBranch: actualType === 'loop' ? bodyBranch : undefined
+      bodyBranch: actualType === 'loop' ? bodyBranch : undefined,
+      isDeclare: type === 'declare',
+      isAssignment: type === 'process_assign',
+      isProcessing: type === 'process_free'
     };
 
     const treeCopy = JSON.parse(JSON.stringify(treeNodes));
@@ -1385,7 +1489,9 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
         id,
         type: actualType,
         text,
-        isDeclare: type === 'declare'
+        isDeclare: type === 'declare',
+        isAssignment: type === 'process_assign',
+        isProcessing: type === 'process_free'
       });
     }
   };
@@ -1463,8 +1569,8 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           style={{
             position: 'absolute',
             left: `${insertMenu.x * scale + translate.x}px`,
-            top: `${insertMenu.y * scale + translate.y}px`,
-            transform: 'translate(-50%, -50%)',
+            top: `${insertMenu.y * scale + translate.y + 10}px`,
+            transform: 'translate(-50%, 0)',
             background: 'var(--bg-elevated, #161c28)',
             border: '1px solid var(--border-color, rgba(255,255,255,0.08))',
             borderRadius: '8px',
@@ -1476,12 +1582,14 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
             zIndex: 100
           }}
         >
-          <button className="flow-insert-menu-item" onClick={() => handleInsertNode('declare')} style={menuItemStyle}>Declaração (Variável)</button>
-          <button className="flow-insert-menu-item" onClick={() => handleInsertNode('process')} style={menuItemStyle}>Atribuição</button>
-          <button className="flow-insert-menu-item" onClick={() => handleInsertNode('input')} style={menuItemStyle}>Entrada (Ler)</button>
-          <button className="flow-insert-menu-item" onClick={() => handleInsertNode('output')} style={menuItemStyle}>Saída (Escrever)</button>
-          <button className="flow-insert-menu-item" onClick={() => handleInsertNode('decision')} style={menuItemStyle}>Decisão (Se)</button>
-          <button className="flow-insert-menu-item" onClick={() => handleInsertNode('loop')} style={menuItemStyle}>Repetição (Enquanto)</button>
+            <>
+              <button className="flow-insert-menu-item" onClick={() => handleInsertNode('declare')} style={menuItemStyle}>Declaração</button>
+              <button className="flow-insert-menu-item" onClick={() => handleInsertNode('input')} style={menuItemStyle}>Entrada</button>
+              <button className="flow-insert-menu-item" onClick={() => handleInsertNode('process_free')} style={menuItemStyle}>Processamento</button>
+              <button className="flow-insert-menu-item" onClick={() => handleInsertNode('output')} style={menuItemStyle}>Saída</button>
+              <button className="flow-insert-menu-item" onClick={() => handleInsertNode('decision')} style={menuItemStyle}>Estrutura de decisão</button>
+              <button className="flow-insert-menu-item" onClick={() => handleInsertNode('loop_enquanto')} style={menuItemStyle}>Estrutura de repetição</button>
+            </>
           <div style={{ height: '1px', background: 'var(--border-color, rgba(255,255,255,0.08))', margin: '2px 0' }} />
           <button className="flow-insert-menu-item" onClick={() => setInsertMenu(null)} style={{ ...menuItemStyle, color: 'var(--accent-rose, #f43f5e)' }}>Cancelar</button>
         </div>
@@ -1618,7 +1726,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           let colorClass: string;
           
           const isDeclaration = node.type === 'process' && (
-            /^(inteiro|real|caracter|logico|let|const|var)\s/i.test(node.text)
+            /^(inteiro|real|caracter|cadeia|logico|let|const|var)\s/i.test(node.text)
           );
 
           if (isDeclaration) {
@@ -1686,11 +1794,16 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
               onMouseLeave={() => setHoveredNodeId(null)}
               onDoubleClick={() => {
                 if (node.type !== 'start' && node.type !== 'end') {
+                  const isDecl = node.type === 'process' && /^(inteiro|real|caracter|cadeia|logico|let|const|var)\s/i.test(node.text);
+                  const isAssign = node.type === 'process' && !isDecl && node.text.includes('=');
+                  const isProc = node.type === 'process' && !isDecl && !node.text.includes('=');
                   setActiveModalNode({
                     id: node.id,
                     type: node.type,
                     text: node.text,
-                    isDeclare: isDeclaration
+                    isDeclare: isDecl,
+                    isAssignment: isAssign,
+                    isProcessing: isProc
                   });
                 }
               }}
@@ -1732,6 +1845,122 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
         })}
         </g>
       </svg>
+
+      {/* Floating Function Selector Overlay */}
+      <div 
+        className="flow-function-selector glass"
+        style={{
+          position: 'absolute',
+          top: '16px',
+          left: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          padding: '6px 12px',
+          borderRadius: '8px',
+          boxShadow: 'var(--shadow-lg)',
+          zIndex: 80,
+          background: 'var(--bg-elevated, #161c28)',
+          border: '1px solid var(--border-color, rgba(255,255,255,0.08))',
+          fontFamily: 'var(--font-sans, sans-serif)',
+          fontSize: '0.8rem',
+          fontWeight: '500'
+        }}
+      >
+        <span style={{ color: 'var(--text-muted, #64748b)' }}>Função:</span>
+        <select
+          value={selectedFunctionName}
+          onChange={(e) => setSelectedFunctionName(e.target.value)}
+          style={{
+            background: 'rgba(0, 0, 0, 0.2)',
+            border: '1px solid var(--border-color, rgba(255, 255, 255, 0.08))',
+            borderRadius: '4px',
+            color: 'var(--text-primary, #f8fafc)',
+            padding: '2px 8px',
+            fontSize: '0.8rem',
+            outline: 'none',
+            cursor: 'pointer',
+            fontFamily: 'var(--font-mono, monospace)',
+            fontWeight: '600'
+          }}
+        >
+          {availableFunctions.map(name => (
+            <option key={name} value={name} style={{ background: 'var(--bg-elevated, #161c28)' }}>
+              {name}
+            </option>
+          ))}
+        </select>
+        
+        <button
+          type="button"
+          onClick={() => {
+            setNewFuncName('');
+            setNewFuncError('');
+            setShowNewFuncModal(true);
+          }}
+          title="Adicionar Nova Função"
+          style={{
+            background: 'transparent',
+            color: 'var(--text-muted, #64748b)',
+            border: '1px dashed var(--border-color, rgba(255, 255, 255, 0.15))',
+            borderRadius: '4px',
+            width: '22px',
+            height: '22px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease',
+            marginLeft: '4px'
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+            e.currentTarget.style.color = 'var(--text-primary, #f8fafc)';
+            e.currentTarget.style.borderColor = 'var(--text-muted, #64748b)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.background = 'transparent';
+            e.currentTarget.style.color = 'var(--text-muted, #64748b)';
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+          }}
+        >
+          <Plus size={14} />
+        </button>
+
+        {selectedFunctionName !== (language === 'portugol' ? 'inicio' : 'principal') && (
+          <button
+            type="button"
+            onClick={() => setShowDeleteFuncModal(true)}
+            title="Excluir Função Atual"
+            style={{
+              background: 'transparent',
+              color: 'var(--text-muted, #64748b)',
+              border: '1px dashed var(--border-color, rgba(255, 255, 255, 0.15))',
+              borderRadius: '4px',
+              width: '22px',
+              height: '22px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              marginLeft: '4px'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.background = 'rgba(244, 63, 94, 0.1)';
+              e.currentTarget.style.color = 'var(--accent-rose, #f43f5e)';
+              e.currentTarget.style.borderColor = 'var(--accent-rose, #f43f5e)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = 'var(--text-muted, #64748b)';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+            }}
+          >
+            <Minus size={14} />
+          </button>
+        )}
+      </div>
 
       {/* Floating Zoom / Pan Controls Overlay */}
       <div 
@@ -1801,6 +2030,140 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           }}
           onClose={() => setActiveModalNode(null)}
         />
+      )}
+
+      {showNewFuncModal && (
+        <div className="flow-modal-backdrop" onClick={() => setShowNewFuncModal(false)}>
+          <div className="flow-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="flow-modal-header">
+              <h3 className="flow-modal-title" style={{ color: '#0891b2', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Plus size={20} style={{ width: '20px', height: '20px', color: '#0891b2', flexShrink: 0 }} />
+                <span>Adicionar Nova Função</span>
+              </h3>
+              <button 
+                type="button" 
+                className="flow-modal-close-btn" 
+                onClick={() => setShowNewFuncModal(false)}
+                title="Fechar"
+              >
+                <X size={16} />
+              </button>
+            </div>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              const name = newFuncName.trim();
+              if (!name) {
+                setNewFuncError('O nome da função não pode ser vazio.');
+                return;
+              }
+              if (!/^[a-zA-Z][a-zA-Z0-9_]*$/.test(name)) {
+                setNewFuncError('O nome deve começar com uma letra e conter apenas letras, números e sublinhados (_).');
+                return;
+              }
+              if (availableFunctions.includes(name)) {
+                setNewFuncError('Já existe uma função com este nome.');
+                return;
+              }
+              
+              const updatedCode = addNewFunctionToCode(code, name, language);
+              if (onChangeCode) {
+                onChangeCode(updatedCode);
+              }
+              setSelectedFunctionName(name);
+              setShowNewFuncModal(false);
+            }}>
+              <div className="flow-modal-body">
+                <div className="flow-modal-field-group">
+                  <label className="flow-modal-label">Nome da Função</label>
+                  <input 
+                    type="text" 
+                    className="flow-modal-input" 
+                    value={newFuncName}
+                    onChange={(e) => {
+                      setNewFuncName(e.target.value);
+                      setNewFuncError('');
+                    }}
+                    placeholder="ex: calcularMedia"
+                    autoFocus
+                  />
+                </div>
+                {newFuncError && (
+                  <div style={{ color: 'var(--accent-rose, #f43f5e)', fontSize: '0.8rem', fontWeight: 600, marginTop: '4px' }}>
+                    {newFuncError}
+                  </div>
+                )}
+              </div>
+              <div className="flow-modal-footer">
+                <button 
+                  type="button" 
+                  className="flow-modal-btn cancel" 
+                  onClick={() => setShowNewFuncModal(false)}
+                >
+                  Cancelar
+                </button>
+                <button 
+                  type="submit" 
+                  className="flow-modal-btn save"
+                >
+                  Adicionar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+      {showDeleteFuncModal && (
+        <div className="flow-modal-backdrop" onClick={() => setShowDeleteFuncModal(false)}>
+          <div className="flow-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="flow-modal-header">
+              <h3 className="flow-modal-title" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-rose, #f43f5e)' }}>
+                <Minus size={20} style={{ color: 'var(--accent-rose, #f43f5e)', flexShrink: 0 }} />
+                <span>Excluir Função</span>
+              </h3>
+              <button 
+                type="button" 
+                className="flow-modal-close-btn" 
+                onClick={() => setShowDeleteFuncModal(false)}
+                title="Fechar"
+              >
+                <X size={16} />
+              </button>
+            </div>
+            <div className="flow-modal-body">
+              <div className="flow-modal-help-box" style={{ background: 'rgba(244, 63, 94, 0.05)', borderColor: 'rgba(244, 63, 94, 0.15)', color: 'var(--text-secondary)' }}>
+                Esta ação irá remover permanentemente a função <strong>{selectedFunctionName}</strong> e todo o seu conteúdo do código.
+              </div>
+              <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: '1.5' }}>
+                Tem certeza de que deseja excluir a função <strong>{selectedFunctionName}</strong>?
+              </p>
+            </div>
+            <div className="flow-modal-footer">
+              <button 
+                type="button" 
+                className="flow-modal-btn cancel" 
+                onClick={() => setShowDeleteFuncModal(false)}
+              >
+                Cancelar
+              </button>
+              <button 
+                type="button" 
+                className="flow-modal-btn save" 
+                style={{ background: 'var(--accent-rose, #f43f5e)' }}
+                onClick={() => {
+                  const updatedCode = deleteFunctionFromCode(code, selectedFunctionName, language);
+                  if (onChangeCode) {
+                    onChangeCode(updatedCode);
+                  }
+                  const mainFunc = language === 'portugol' ? 'inicio' : 'principal';
+                  setSelectedFunctionName(mainFunc);
+                  setShowDeleteFuncModal(false);
+                }}
+              >
+                Confirmar
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
