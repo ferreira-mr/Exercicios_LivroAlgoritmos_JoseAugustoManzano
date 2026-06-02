@@ -6,29 +6,24 @@ Escreva um programa que faça a leitura da quantidade de votos válidos para cad
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira a quantidade de votos válidos para cada
-     candidato.
-   - Solicite ao usuário que insira a quantidade de votos nulos.
-   - Solicite ao usuário que insira a quantidade de votos em branco.
-   - Aguarde a entrada do usuário.
+   - Solicite a quantidade de votos válidos para cada um dos três candidatos (Candidato 1, Candidato 2 e Candidato 3).
+   - Solicite a quantidade de votos nulos.
+   - Solicite a quantidade de votos em branco.
 
 2. Processamento:
-   - Calcule o número total de eleitores somando os votos válidos, nulos e
-     em branco.
-   - Calcule o percentual de votos válidos para cada candidato e o total de
-     votos nulos e em branco.
+   - Calcule o número total de eleitores somando os votos de todos os candidatos, os nulos e os em branco.
+   - Calcule o percentual correspondente de votos válidos para cada candidato, bem como o percentual de votos nulos e o percentual de votos em branco em relação ao número total de eleitores.
 
 3. Saída de Dados:
    - Exiba o número total de eleitores.
-   - Exiba o percentual de votos válidos para cada candidato.
+   - Exiba o percentual de votos de cada candidato.
    - Exiba o percentual de votos nulos.
    - Exiba o percentual de votos em branco.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: Votos válidos para o candidato 1 = 200, candidato 2 = 150,
-    candidato 3 = 100; Votos nulos = 50; Votos em branco = 30
+  - ENTRADA: Votos válidos para o candidato 1 = 200, candidato 2 = 150, candidato 3 = 100; Votos nulos = 50; Votos em branco = 30
   - SAÍDA: Total de eleitores: 530;
            Percentual de votos válidos:
            candidato 1 = 37.74%,
@@ -38,8 +33,7 @@ Escreva um programa que faça a leitura da quantidade de votos válidos para cad
            Percentual de votos em branco: 5.66%
 
 - Exemplo 2:
-  - ENTRADA: Votos válidos para o candidato 1 = 300, candidato 2 = 180,
-    candidato 3 = 120; Votos nulos = 20; Votos em branco = 40
+  - ENTRADA: Votos válidos para o candidato 1 = 300, candidato 2 = 180, candidato 3 = 120; Votos nulos = 20; Votos em branco = 40
   - SAÍDA: Total de eleitores: 660;
            Percentual de votos válidos:
            candidato 1 = 45.45%,
@@ -49,8 +43,7 @@ Escreva um programa que faça a leitura da quantidade de votos válidos para cad
            Percentual de votos em branco: 6.06%
 
 - Exemplo 3:
-  - ENTRADA: Votos válidos para o candidato 1 = 150, candidato 2 = 100,
-    candidato 3 = 50; Votos nulos = 30; Votos em branco = 20
+  - ENTRADA: Votos válidos para o candidato 1 = 150, candidato 2 = 100, candidato 3 = 50; Votos nulos = 30; Votos em branco = 20
   - SAÍDA: Total de eleitores: 350;
            Percentual de votos válidos:
            candidato 1 = 42.86%,

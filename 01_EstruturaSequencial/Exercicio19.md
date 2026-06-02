@@ -47,10 +47,10 @@ Escreva um programa que leia dois valores numéricos, calcule as quatro operaç�
 ENTRADA: valor1, valor2
 PROCESSAMENTO: adicao = valor1 + valor2
                subtracao = valor1 - valor2
-               multiplicacao = valor1 * valor2
+               multiplicaçao = valor1 * valor2
                divisao = valor1 / valor2
 SAÍDA: Adição: " + valor1 + " + " + valor2 + " = " + adicao + ";
        Subtração: " + valor1 + " - " + valor2 + " = " + subtracao + ";
-       Multiplicação: " + valor1 + " * " + valor2 + " = " + multiplicacao + ";
+       Multiplicação: " + valor1 + " * " + valor2 + " = " + multiplicaçao + ";
        Divisão: " + valor1 + " / " + valor2 + " = " + divisao
 ```

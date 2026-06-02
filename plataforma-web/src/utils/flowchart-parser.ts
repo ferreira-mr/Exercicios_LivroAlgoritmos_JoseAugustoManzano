@@ -123,8 +123,10 @@ export function parsePortugolASTToFlowNodes(declarations: any[], functionName: s
     const list: FlowNode[] = [];
     for (let i = 0; i < statements.length; i++) {
       const stmt = statements[i];
+      if (!stmt) continue;
       const type = getStmtType(stmt);
-      const id = `pt-${type}-${stmt.linha}-${i}`;
+      const lineNum = stmt.linha !== undefined ? stmt.linha : i;
+      const id = `pt-${type}-${lineNum}-${i}`;
 
       if (type === 'Comentario') {
         continue;

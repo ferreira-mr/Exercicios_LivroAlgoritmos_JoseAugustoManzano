@@ -66,23 +66,55 @@ async function run() {
   });
   await new Promise(r => setTimeout(r, 1500));
 
-  // Get lines coordinates
-  const lines = await page.evaluate(() => {
-    const lineElems = document.querySelectorAll('g.flow-connection-interactive line, svg > g > g > line');
+  // Get interactive lines coordinates
+  const interactiveLines = await page.evaluate(() => {
+    const groups = document.querySelectorAll('g.flow-connection-interactive');
     const coords = [];
-    lineElems.forEach(l => {
-      const x1 = l.getAttribute('x1');
-      const y1 = l.getAttribute('y1');
-      const x2 = l.getAttribute('x2');
-      const y2 = l.getAttribute('y2');
-      const stroke = l.getAttribute('stroke');
-      if (stroke !== 'transparent') {
-        coords.push({ x1, y1, x2, y2 });
+    groups.forEach((g, idx) => {
+      const line = g.querySelector('line:not([stroke="transparent"])');
+      if (line) {
+        coords.push({
+          index: idx,
+          x1: line.getAttribute('x1'),
+          y1: line.getAttribute('y1'),
+          x2: line.getAttribute('x2'),
+          y2: line.getAttribute('y2'),
+        });
       }
     });
     return coords;
   });
-  console.log('Line coordinates:', lines);
+  console.log('Interactive lines in DOM:', interactiveLines);
+
+  // Click on a loop-back line segment (like x1: 440, y1: 225)
+  console.log('Attempting to click on the loop-back connection below the body node...');
+  const menuVisibleBefore = await page.evaluate(() => !!document.querySelector('.flow-insert-menu'));
+  console.log('Menu visible before click:', menuVisibleBefore);
+
+  await page.evaluate(() => {
+    // Find the connection group with the line from 440, 225 to 440, 255
+    const groups = document.querySelectorAll('g.flow-connection-interactive');
+    const loopBackGroup = Array.from(groups).find(g => {
+      const line = g.querySelector('line:not([stroke="transparent"])');
+      return line && line.getAttribute('x1') === '440' && line.getAttribute('y1') === '225';
+    });
+    if (loopBackGroup) {
+      loopBackGroup.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    } else {
+      console.error('Could not find loopBackGroup at 440, 225');
+    }
+  });
+
+  await new Promise(r => setTimeout(r, 500));
+
+  const menuVisibleAfter = await page.evaluate(() => !!document.querySelector('.flow-insert-menu'));
+  console.log('Menu visible after click:', menuVisibleAfter);
+
+  if (!menuVisibleAfter) {
+    console.error('Test failed: Flow insert menu did not appear after clicking loop-back connection!');
+  } else {
+    console.log('Test passed: Flow insert menu appeared successfully!');
+  }
 
   await browser.close();
 }

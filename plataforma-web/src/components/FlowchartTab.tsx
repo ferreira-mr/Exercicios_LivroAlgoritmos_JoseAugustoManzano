@@ -105,19 +105,33 @@ function layoutNodes(
       
       // Connect branches back to join node
       if (node.thenBranch && node.thenBranch.length > 0) {
-        lines.push({ x1: startX - 110, y1: thenLayout.endY - 30, x2: startX - 110, y2: joinY + joinH / 2 });
-        lines.push({ x1: startX - 110, y1: joinY + joinH / 2, x2: startX - joinW / 2, y2: joinY + joinH / 2, arrow: true });
+        const lastThenNode = node.thenBranch[node.thenBranch.length - 1];
+        lines.push({ 
+          x1: startX - 110, y1: thenLayout.endY - 30, x2: startX - 110, y2: joinY + joinH / 2,
+          insertPoint: { fromNodeId: lastThenNode.id }
+        });
+        lines.push({ 
+          x1: startX - 110, y1: joinY + joinH / 2, x2: startX - joinW / 2, y2: joinY + joinH / 2, arrow: true,
+          insertPoint: { fromNodeId: lastThenNode.id }
+        });
       } else {
         lines.push({ x1: startX - 110, y1: y + h / 2, x2: startX - 110, y2: joinY + joinH / 2 });
         lines.push({ x1: startX - 110, y1: joinY + joinH / 2, x2: startX - joinW / 2, y2: joinY + joinH / 2, arrow: true });
       }
       
       if (node.elseBranch && node.elseBranch.length > 0) {
-        lines.push({ x1: startX + 110, y1: elseLayout.endY - 30, x2: startX + 110, y2: joinY + joinH / 2 });
-        lines.push({ x1: startX + 110, y1: joinY + joinH / 2, x2: startX + joinW / 2, y2: joinY + joinH / 2, arrow: true });
+        const lastElseNode = node.elseBranch[node.elseBranch.length - 1];
+        lines.push({ 
+          x1: startX + 110, y1: elseLayout.endY - 30, x2: startX + 110, y2: joinY + joinH / 2,
+          insertPoint: { fromNodeId: lastElseNode.id }
+        });
+        lines.push({ 
+          x1: startX + 110, y1: joinY + joinH / 2, x2: startX - joinW / 2, y2: joinY + joinH / 2, arrow: true,
+          insertPoint: { fromNodeId: lastElseNode.id }
+        });
       } else {
         lines.push({ x1: startX + 110, y1: y + h / 2, x2: startX + 110, y2: joinY + joinH / 2 });
-        lines.push({ x1: startX + 110, y1: joinY + joinH / 2, x2: startX + joinW / 2, y2: joinY + joinH / 2, arrow: true });
+        lines.push({ x1: startX + 110, y1: joinY + joinH / 2, x2: startX - joinW / 2, y2: joinY + joinH / 2, arrow: true });
       }
       
       list.push({
@@ -158,9 +172,33 @@ function layoutNodes(
       const bodyLayout = layoutNodes(node.bodyBranch || [], bodyStartX, bodyStartY);
       const bodyEndY = Math.max(bodyLayout.endY, y + h + 60);
       
-      const loopBackY = bodyEndY - 10;
+      const loopBackY = bodyEndY;
+      
+      // Calculate the maximum X coordinate reached by any node or line in the body layout
+      let maxBodyX = bodyStartX;
+      for (const lNode of bodyLayout.layoutNodes) {
+        maxBodyX = Math.max(maxBodyX, lNode.x + lNode.width);
+        for (const line of lNode.lines) {
+          maxBodyX = Math.max(maxBodyX, line.x1, line.x2);
+        }
+      }
+      // Position the vertical loop-back line safely to the right of the entire body layout
+      const loopBackX = maxBodyX + 30;
       
       const nextY = Math.max(y + h + 30, loopBackY + 30);
+      const loopBackLineSegment: LayoutNode['lines'][0] = { x1: bodyStartX, y1: bodyEndY - 30, x2: bodyStartX, y2: loopBackY };
+      const loopBackSegmentRight: LayoutNode['lines'][0] = { x1: bodyStartX, y1: loopBackY, x2: loopBackX, y2: loopBackY };
+      const loopBackSegmentUp: LayoutNode['lines'][0] = { x1: loopBackX, y1: loopBackY, x2: loopBackX, y2: y - 15 };
+      const loopBackSegmentLeft: LayoutNode['lines'][0] = { x1: loopBackX, y1: y - 15, x2: startX, y2: y - 15, arrow: true };
+      
+      if (node.bodyBranch && node.bodyBranch.length > 0) {
+        const lastBodyNode = node.bodyBranch[node.bodyBranch.length - 1];
+        loopBackLineSegment.insertPoint = { fromNodeId: lastBodyNode.id };
+        loopBackSegmentRight.insertPoint = { fromNodeId: lastBodyNode.id };
+        loopBackSegmentUp.insertPoint = { fromNodeId: lastBodyNode.id };
+        loopBackSegmentLeft.insertPoint = { fromNodeId: lastBodyNode.id };
+      }
+
       const lines: LayoutNode['lines'] = [
         // True branch exits from right of loop block, goes right, then turns down to loop body
         { x1: startX + w / 2, y1: y + h / 2, x2: bodyStartX, y2: y + h / 2 },
@@ -170,10 +208,10 @@ function layoutNodes(
         },
         
         // Loop-back line: goes down from loop body end, right, up, left back to main line
-        { x1: bodyStartX, y1: bodyEndY - 30, x2: bodyStartX, y2: loopBackY },
-        { x1: bodyStartX, y1: loopBackY, x2: bodyStartX + 80, y2: loopBackY },
-        { x1: bodyStartX + 80, y1: loopBackY, x2: bodyStartX + 80, y2: y - 15 },
-        { x1: bodyStartX + 80, y1: y - 15, x2: startX, y2: y - 15, arrow: true },
+        loopBackLineSegment,
+        loopBackSegmentRight,
+        loopBackSegmentUp,
+        loopBackSegmentLeft,
         
         // False branch exits from bottom of loop block and goes straight down
         { 
@@ -195,7 +233,7 @@ function layoutNodes(
       
       currentY = nextY;
       
-      const loopRightBoundary = (bodyStartX + 80) - startX + 20;
+      const loopRightBoundary = loopBackX - startX + 20;
       const loopLeftBoundary = 40;
       maxWidth = Math.max(maxWidth, Math.max(loopLeftBoundary * 2, loopRightBoundary * 2));
     }
@@ -2117,7 +2155,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           <div className="flow-modal" onClick={(e) => e.stopPropagation()}>
             <div className="flow-modal-header">
               <h3 className="flow-modal-title" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-rose, #f43f5e)' }}>
-                <Minus size={20} style={{ color: 'var(--accent-rose, #f43f5e)', flexShrink: 0 }} />
+                <Minus size={20} style={{ width: '20px', height: '20px', color: 'var(--accent-rose, #f43f5e)', flexShrink: 0 }} />
                 <span>Excluir Função</span>
               </h3>
               <button 
