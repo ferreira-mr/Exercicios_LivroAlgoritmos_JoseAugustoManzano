@@ -646,12 +646,7 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
     return declaredVars;
   }, [procVar, declaredVars]);
 
-  const allInputVars = useMemo(() => {
-    if (inputVar && !declaredVars.includes(inputVar)) {
-      return [inputVar, ...declaredVars];
-    }
-    return declaredVars;
-  }, [inputVar, declaredVars]);
+
 
   const validateExpression = (expr: string): string | null => {
     const trimmed = expr.trim();
@@ -722,8 +717,8 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
         return;
       }
     } else if (node.type === 'input') {
-      if (!inputVar) {
-        setErrorMsg('Por favor, selecione uma variável para entrada de dados.');
+      if (!inputVar.trim()) {
+        setErrorMsg('Por favor, preencha o nome da variável para entrada de dados.');
         return;
       }
     } else if (node.type === 'output') {
@@ -993,24 +988,15 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
 
             {node.type === 'input' && (
               <div className="flow-modal-field-group">
-                <label className="flow-modal-label">Nome da Variável</label>
-                {allInputVars.length > 0 ? (
-                  <select 
-                    className="flow-modal-select"
-                    value={inputVar}
-                    onChange={(e) => setInputVar(e.target.value)}
-                    required
-                  >
-                    <option value="" disabled>-- Selecione uma variável --</option>
-                    {allInputVars.map(v => (
-                      <option key={v} value={v}>{v}</option>
-                    ))}
-                  </select>
-                ) : (
-                  <div style={{ color: 'var(--accent-rose)', fontSize: '0.8rem', padding: '0.25rem 0' }}>
-                    Nenhuma variável declarada. Adicione um bloco de Declaração antes.
-                  </div>
-                )}
+                <label className="flow-modal-label">Nome da Variável (ou Expressão de Índice)</label>
+                <AutocompleteInput 
+                  className="flow-modal-input"
+                  placeholder={language === 'portugol' ? 'ex: pessoas[i]' : 'ex: pessoas[i]'}
+                  value={inputVar}
+                  onChange={setInputVar}
+                  required
+                  declaredVars={declaredVars}
+                />
               </div>
             )}
 
