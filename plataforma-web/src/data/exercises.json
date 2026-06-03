@@ -665,10 +665,10 @@
     "title": "Leitura e Apresentação de Nomes",
     "chapterDir": "04_EstruturaDeDadosDeUmaDimensão",
     "chapterName": "Estrutura de Dados de Uma Dimensão (Vetores)",
-    "description": "Escreva um programa que leia dez nomes e os apresente em seguida.",
-    "steps": "1. Inicialização:\r\n   - Inicialize um contador como 1 e uma lista vazia para armazenar os nomes.\r\n\r\n2. Enquanto o contador for menor ou igual a 10:\r\n   - Solicite ao usuário que insira um nome.\r\n   - Adicione o nome à lista de nomes.\r\n   - Incremente o contador.\r\n\r\n3. Apresentação dos Nomes:\r\n   - Apresente os nomes lidos na forma \"Nomes lidos: nome1, nome2, ..., nome10\".",
-    "examples": "",
-    "pseudocode": "contador = 1\r\nnomes = []\r\nENQUANTO contador <= 10 FAÇA\r\n    SOLICITAR nome\r\n    ADICIONAR nome À nomes\r\n    contador = contador + 1\r\nEXIBIR \"Nomes lidos: \" + juntar(nomes, \", \")"
+    "description": "Escreva um programa que leia cinco nomes e os apresente em seguida.",
+    "steps": "1. Inicialização:\n   - Inicialize um contador como 1 e uma lista vazia para armazenar os nomes.\n\n2. Enquanto o contador for menor ou igual a 5:\n   - Solicite ao usuário que insira um nome.\n   - Adicione o nome à lista de nomes.\n   - Incremente o contador.\n\n3. Apresentação dos Nomes:\n   - Apresente os nomes lidos na forma \"Nomes lidos: nome1, nome2, ..., nome5\".",
+    "examples": "- Exemplo 1:\n  - Entrada: Ana, Bruno, Carlos, Daniel, Eduardo\n  - Saída: Nomes lidos: Ana, Bruno, Carlos, Daniel, Eduardo",
+    "pseudocode": "contador = 1\nnomes = []\nENQUANTO contador <= 5 FAÇA\n    SOLICITAR nome\n    ADICIONAR nome À nomes\n    contador = contador + 1\nEXIBIR \"Nomes lidos: \" + juntar(nomes, \", \")"
   },
   {
     "id": "Exercicio62",
@@ -775,10 +775,10 @@
     "title": "Vetor com Valores Negativos",
     "chapterDir": "04_EstruturaDeDadosDeUmaDimensão",
     "chapterName": "Estrutura de Dados de Uma Dimensão (Vetores)",
-    "description": "Escreva um programa que leia uma matriz A do tipo vetor com dez elementos inteiros positivos e construa um segundo vetor em que cada elemento seja o valor negativo do elemento correspondente do primeiro vetor.",
-    "steps": "1. Entrada de Dados:\r\n   - Leia os dez elementos do vetor de inteiros positivos.\r\n   - Aguarde a entrada dos elementos.\r\n\r\n2. Inicialização:\r\n   - Inicialize o segundo vetor como vazio.\r\n\r\n3. Construção do Vetor com Valores Negativos:\r\n   - Para cada elemento do primeiro vetor, calcule o valor negativo e adicione ao segundo vetor.\r\n\r\n4. Exibição dos Vetores:\r\n   - Apresente os elementos do primeiro vetor.\r\n   - Apresente os elementos do segundo vetor.",
+    "description": "Escreva um programa que leia uma matriz A do tipo vetor com cinco elementos inteiros positivos e construa um segundo vetor em que cada elemento seja o valor negativo do elemento correspondente do primeiro vetor.",
+    "steps": "1. Entrada de Dados:\n   - Leia os cinco elementos do vetor de inteiros positivos.\n   - Aguarde a entrada dos elementos.\n\n2. Inicialização:\n   - Inicialize o segundo vetor como vazio.\n\n3. Construção do Vetor com Valores Negativos:\n   - Para cada elemento do primeiro vetor, calcule o valor negativo e adicione ao segundo vetor.\n\n4. Exibição dos Vetores:\n   - Apresente os elementos do primeiro vetor.\n   - Apresente os elementos do segundo vetor.",
     "examples": "",
-    "pseudocode": "ENTRADA: vetorOriginal\r\nvetorNegativo = []\r\nPARA i DE 0 ATÉ 9 FAÇA\r\n    ADICIONAR -vetorOriginal[i] À vetorNegativo\r\nEXIBIR \"Vetor original:\", vetorOriginal\r\nEXIBIR \"Vetor com valores negativos:\", vetorNegativo"
+    "pseudocode": "ENTRADA: vetorOriginal\nvetorNegativo = []\nPARA i DE 0 ATÉ 4 FAÇA\n    ADICIONAR -vetorOriginal[i] À vetorNegativo\nEXIBIR \"Vetor original:\", vetorOriginal\nEXIBIR \"Vetor com valores negativos:\", vetorNegativo"
   },
   {
     "id": "Exercicio72",
@@ -786,10 +786,10 @@
     "title": "Divisão por Dois dos Elementos de um Vetor",
     "chapterDir": "04_EstruturaDeDadosDeUmaDimensão",
     "chapterName": "Estrutura de Dados de Uma Dimensão (Vetores)",
-    "description": "Escreva um programa que leia um vetor com dez elementos inteiros e construa uma segunda matriz em que cada elemento seja a metade exata de cada um dos elementos existentes na primeira matriz.",
-    "steps": "1. Entrada de Dados:\r\n   - Leia os dez elementos do vetor de inteiros.\r\n   - Aguarde a entrada dos elementos.\r\n\r\n2. Inicialização:\r\n   - Inicialize o segundo vetor como vazio.\r\n\r\n3. Construção do Vetor com Metade dos Valores:\r\n   - Para cada elemento do primeiro vetor, calcule a metade e adicione ao segundo vetor.\r\n\r\n4. Exibição dos Vetores:\r\n   - Apresente os elementos do primeiro vetor.\r\n   - Apresente os elementos do segundo vetor.",
+    "description": "Escreva um programa que leia um vetor com cinco elementos inteiros e construa uma segunda matriz em que cada elemento seja a metade exata de cada um dos elementos existentes na primeira matriz.",
+    "steps": "1. Entrada de Dados:\n   - Leia os cinco elementos do vetor de inteiros.\n   - Aguarde a entrada dos elementos.\n\n2. Inicialização:\n   - Inicialize o segundo vetor como vazio.\n\n3. Construção do Vetor com Metade dos Valores:\n   - Para cada elemento do primeiro vetor, calcule a metade e adicione ao segundo vetor.\n\n4. Exibição dos Vetores:\n   - Apresente os elementos do primeiro vetor.\n   - Apresente os elementos do segundo vetor.",
     "examples": "",
-    "pseudocode": "ENTRADA: vetorOriginal\r\nvetorMetade = []\r\nPARA i DE 0 ATÉ 9 FAÇA\r\n    ADICIONAR vetorOriginal[i] / 2 À vetorMetade\r\nEXIBIR \"Vetor original:\", vetorOriginal\r\nEXIBIR \"Vetor com metade dos valores:\", vetorMetade"
+    "pseudocode": "ENTRADA: vetorOriginal\nvetorMetade = []\nPARA i DE 0 ATÉ 4 FAÇA\n    ADICIONAR vetorOriginal[i] / 2 À vetorMetade\nEXIBIR \"Vetor original:\", vetorOriginal\nEXIBIR \"Vetor com metade dos valores:\", vetorMetade"
   },
   {
     "id": "Exercicio73",
@@ -797,10 +797,10 @@
     "title": "Tabuada em um Vetor",
     "chapterDir": "04_EstruturaDeDadosDeUmaDimensão",
     "chapterName": "Estrutura de Dados de Uma Dimensão (Vetores)",
-    "description": "Escreva um programa que calcule a tabuada de um valor qualquer de 1 até 10 e armazene os resultados em um vetor.",
-    "steps": "1. Entrada de Dados:\r\n   - Leia o valor para o qual a tabuada será calculada.\r\n   - Aguarde a entrada do valor.\r\n\r\n2. Inicialização:\r\n   - Inicialize o vetor da tabuada como vazio.\r\n\r\n3. Cálculo da Tabuada:\r\n   - Para cada número de 1 a 10, calcule o produto com o valor fornecido e adicione ao vetor da tabuada.\r\n\r\n4. Exibição da Tabuada:\r\n   - Apresente os elementos do vetor da tabuada.",
+    "description": "Escreva um programa que calcule a tabuada de um valor qualquer de 1 até 5 e armazene os resultados em um vetor.",
+    "steps": "1. Entrada de Dados:\n   - Leia o valor para o qual a tabuada será calculada.\n   - Aguarde a entrada do valor.\n\n2. Inicialização:\n   - Inicialize o vetor da tabuada como vazio.\n\n3. Cálculo da Tabuada:\n   - Para cada número de 1 a 5, calcule o produto com o valor fornecido e adicione ao vetor da tabuada.\n\n4. Exibição da Tabuada:\n   - Apresente os elementos do vetor da tabuada.",
     "examples": "",
-    "pseudocode": "ENTRADA: valor\r\ntabuada = []\r\nPARA i DE 1 ATÉ 10 FAÇA\r\n    ADICIONAR valor * i À tabuada\r\nEXIBIR \"Tabuada do\", valor, \":\", tabuada"
+    "pseudocode": "ENTRADA: valor\ntabuada = []\nPARA i DE 1 ATÉ 5 FAÇA\n    ADICIONAR valor * i À tabuada\nEXIBIR \"Tabuada do\", valor, \":\", tabuada"
   },
   {
     "id": "Exercicio74",
@@ -874,10 +874,10 @@
     "title": "Junção de Vetores com Validação de Entrada",
     "chapterDir": "04_EstruturaDeDadosDeUmaDimensão",
     "chapterName": "Estrutura de Dados de Uma Dimensão (Vetores)",
-    "description": "Escreva um programa que leia dois vetores com dez elementos cada. O primeiro vetor deve aceitar apenas a entrada de valores divisíveis por 2 e 3, enquanto o segundo deve aceitar apenas os múltiplos de 5. A entrada dos valores deve ser validada pelo programa. Em seguida, o programa deve construir um terceiro vetor que seja a junção dos outros dois.",
-    "steps": "1. Entrada de Dados:\r\n   - Leia os dez elementos para o vetor 1, aceitando apenas valores divisíveis por 2 e 3.\r\n   - Leia os dez elementos para o vetor 2, aceitando apenas valores múltiplos de 5.\r\n   - Aguarde a entrada dos valores.\r\n\r\n2. Validação da Entrada:\r\n   - Para cada valor lido para o vetor 1, verifique se é divisível por 2 e 3.\r\n   - Para cada valor lido para o vetor 2, verifique se é múltiplo de 5.\r\n\r\n3. Construção do Vetor 3:\r\n   - Combine os elementos dos vetores 1 e 2 para formar o vetor 3.\r\n\r\n4. Exibição dos Vetores:\r\n   - Apresente os elementos dos vetores 1, 2 e 3.",
+    "description": "Escreva um programa que leia dois vetores com cinco elementos cada. O primeiro vetor deve aceitar apenas a entrada de valores divisíveis por 2 e 3, enquanto o segundo deve aceitar apenas os múltiplos de 5. A entrada dos valores deve ser validada pelo programa. Em seguida, o programa deve construir um terceiro vetor que seja a junção dos outros dois.",
+    "steps": "1. Entrada de Dados:\n   - Leia os cinco elementos para o vetor 1, aceitando apenas valores divisíveis por 2 e 3.\n   - Leia os cinco elementos para o vetor 2, aceitando apenas valores múltiplos de 5.\n   - Aguarde a entrada dos valores.\n\n2. Validação da Entrada:\n   - Para cada valor lido para o vetor 1, verifique se é divisível por 2 e 3.\n   - Para cada valor lido para o vetor 2, verifique se é múltiplo de 5.\n\n3. Construção do Vetor 3:\n   - Combine os elementos dos vetores 1 e 2 para formar o vetor 3.\n\n4. Exibição dos Vetores:\n   - Apresente os elementos dos vetores 1, 2 e 3.",
     "examples": "",
-    "pseudocode": "ENTRADA: vetor1, vetor2\r\nvetor3 = []\r\nPARA i DE 0 ATÉ 9 FAÇA\r\n    valor = LER \"Digite um valor divisível por 2 e 3 para o vetor 1: \"\r\n    ENQUANTO valor % 2 != 0 OU valor % 3 != 0 FAÇA\r\n        valor = LER \"Valor inválido! Digite um valor divisível por 2 e 3 para o vetor 1: \"\r\n    ADICIONAR valor À vetor1\r\n\r\nPARA i DE 0 ATÉ 9 FAÇA\r\n    valor = LER \"Digite um valor múltiplo de 5 para o vetor 2: \"\r\n    ENQUANTO valor % 5 != 0 FAÇA\r\n        valor = LER \"Valor inválido! Digite um valor múltiplo de 5 para o vetor 2: \"\r\n    ADICIONAR valor À vetor2\r\n\r\nPARA i DE 0 ATÉ 9 FAÇA\r\n    ADICIONAR vetor1[i] À vetor3\r\n    ADICIONAR vetor2[i] À vetor3\r\nEXIBIR \"Vetor 1:\", vetor1\r\nEXIBIR \"Vetor 2:\", vetor2\r\nEXIBIR \"Vetor 3:\", vetor3"
+    "pseudocode": "ENTRADA: vetor1, vetor2\nvetor3 = []\nPARA i DE 0 ATÉ 4 FAÇA\n    valor = LER \"Digite um valor divisível por 2 e 3 para o vetor 1: \"\n    ENQUANTO valor % 2 != 0 OU valor % 3 != 0 FAÇA\n        valor = LER \"Valor inválido! Digite um valor divisível por 2 e 3 para o vetor 1: \"\n    ADICIONAR valor À vetor1\n\nPARA i DE 0 ATÉ 4 FAÇA\n    valor = LER \"Digite um valor múltiplo de 5 para o vetor 2: \"\n    ENQUANTO valor % 5 != 0 FAÇA\n        valor = LER \"Valor inválido! Digite um valor múltiplo de 5 para o vetor 2: \"\n    ADICIONAR valor À vetor2\n\nPARA i DE 0 ATÉ 4 FAÇA\n    ADICIONAR vetor1[i] À vetor3\n    ADICIONAR vetor2[i] À vetor3\nEXIBIR \"Vetor 1:\", vetor1\nEXIBIR \"Vetor 2:\", vetor2\nEXIBIR \"Vetor 3:\", vetor3"
   },
   {
     "id": "Exercicio81",
@@ -885,10 +885,10 @@
     "title": "Junção de Vetores com Validação de Entrada",
     "chapterDir": "04_EstruturaDeDadosDeUmaDimensão",
     "chapterName": "Estrutura de Dados de Uma Dimensão (Vetores)",
-    "description": "Escreva um programa que leia dois vetores. O primeiro vetor deve aceitar apenas a entrada de valores divisíveis por 2 ou 3, enquanto o segundo vetor deve aceitar apenas a entrada de valores que não sejam múltiplos de 5. A entrada deve ser validada pelo programa. Em seguida, o programa deve construir um terceiro vetor que seja a junção dos outros dois.",
-    "steps": "1. Entrada de Dados:\r\n   - Leia os elementos para o vetor 1, aceitando apenas valores divisíveis por 2 ou 3.\r\n   - Leia os elementos para o vetor 2, aceitando apenas valores que não sejam múltiplos de 5.\r\n   - Aguarde a entrada dos valores.\r\n\r\n2. Validação da Entrada:\r\n   - Para cada valor lido para o vetor 1, verifique se é divisível por 2 ou 3.\r\n   - Para cada valor lido para o vetor 2, verifique se não é múltiplo de 5.\r\n\r\n3. Construção do Vetor 3:\r\n   - Combine os elementos dos vetores 1 e 2 para formar o vetor 3.\r\n\r\n4. Exibição dos Vetores:\r\n   - Apresente os elementos dos vetores 1, 2 e 3.",
+    "description": "Escreva um programa que leia dois vetores com cinco elementos cada. O primeiro vetor deve aceitar apenas a entrada de valores divisíveis por 2 ou 3, enquanto o segundo vetor deve aceitar apenas a entrada de valores que não sejam múltiplos de 5. A entrada deve ser validada pelo programa. Em seguida, o programa deve construir um terceiro vetor que seja a junção dos outros dois.",
+    "steps": "1. Entrada de Dados:\n   - Leia os cinco elementos para o vetor 1, aceitando apenas valores divisíveis por 2 ou 3.\n   - Leia os cinco elementos para o vetor 2, aceitando apenas valores que não sejam múltiplos de 5.\n   - Aguarde a entrada dos valores.\n\n2. Validação da Entrada:\n   - Para cada valor lido para o vetor 1, verifique se é divisível por 2 ou 3.\n   - Para cada valor lido para o vetor 2, verifique se não é múltiplo de 5.\n\n3. Construção do Vetor 3:\n   - Combine os elementos dos vetores 1 e 2 para formar o vetor 3.\n\n4. Exibição dos Vetores:\n   - Apresente os elementos dos vetores 1, 2 e 3.",
     "examples": "",
-    "pseudocode": "ENTRADA: vetor1, vetor2\r\nvetor3 = []\r\nPARA i DE 0 ATÉ 9 FAÇA\r\n    valor = LER \"Digite um valor divisível por 2 ou 3 para o vetor 1: \"\r\n    ENQUANTO valor % 2 != 0 E valor % 3 != 0 FAÇA\r\n        valor = LER \"Valor inválido! Digite um valor divisível por 2 ou 3 para o vetor 1: \"\r\n    ADICIONAR valor À vetor1\r\n\r\nPARA i DE 0 ATÉ 9 FAÇA\r\n    valor = LER \"Digite um valor que não seja múltiplo de 5 para o vetor 2: \"\r\n    ENQUANTO valor % 5 == 0 FAÇA\r\n        valor = LER \"Valor inválido! Digite um valor que não seja múltiplo de 5 para o vetor 2: \"\r\n    ADICIONAR valor À vetor2\r\n\r\nPARA i DE 0 ATÉ 9 FAÇA\r\n    ADICIONAR vetor1[i] À vetor3\r\n    ADICIONAR vetor2[i] À vetor3\r\nEXIBIR \"Vetor 1:\", vetor1\r\nEXIBIR \"Vetor 2:\", vetor2\r\nEXIBIR \"Vetor 3:\", vetor3"
+    "pseudocode": "ENTRADA: vetor1, vetor2\nvetor3 = []\nPARA i DE 0 ATÉ 4 FAÇA\n    valor = LER \"Digite um valor divisível por 2 ou 3 para o vetor 1: \"\n    ENQUANTO valor % 2 != 0 E valor % 3 != 0 FAÇA\n        valor = LER \"Valor inválido! Digite um valor divisível por 2 ou 3 para o vetor 1: \"\n    ADICIONAR valor À vetor1\n\nPARA i DE 0 ATÉ 4 FAÇA\n    valor = LER \"Digite um valor que não seja múltiplo de 5 para o vetor 2: \"\n    ENQUANTO valor % 5 == 0 FAÇA\n        valor = LER \"Valor inválido! Digite um valor que não seja múltiplo de 5 para o vetor 2: \"\n    ADICIONAR valor À vetor2\n\nPARA i DE 0 ATÉ 4 FAÇA\n    ADICIONAR vetor1[i] À vetor3\n    ADICIONAR vetor2[i] À vetor3\nEXIBIR \"Vetor 1:\", vetor1\nEXIBIR \"Vetor 2:\", vetor2\nEXIBIR \"Vetor 3:\", vetor3"
   },
   {
     "id": "Exercicio82",
@@ -907,10 +907,10 @@
     "title": "Construção de um Vetor a partir do Quadrado da Soma de Outros Dois Vetores",
     "chapterDir": "04_EstruturaDeDadosDeUmaDimensão",
     "chapterName": "Estrutura de Dados de Uma Dimensão (Vetores)",
-    "description": "Escreva um programa que leia dois vetores com valores inteiros com dez elementos cada. O programa deve construir um terceiro vetor formado pelo quadrado da soma dos elementos correspondentes nos dois primeiros vetores.",
-    "steps": "1. Entrada de Dados:\r\n   - Leia os dez elementos para o vetor 1.\r\n   - Leia os dez elementos para o vetor 2.\r\n   - Aguarde a entrada dos valores.\r\n\r\n2. Construção do Vetor Resultante:\r\n   - Para cada elemento de índice i nos vetores 1 e 2, calcule o quadrado da soma dos elementos correspondentes e adicione ao vetor resultante.\r\n\r\n3. Exibição do Vetor Resultante:\r\n   - Apresente os elementos do vetor resultante.",
+    "description": "Escreva um programa que leia dois vetores com valores inteiros com cinco elementos cada. O programa deve construir um terceiro vetor formado pelo quadrado da soma dos elementos correspondentes nos dois primeiros vetores.",
+    "steps": "1. Entrada de Dados:\n   - Leia os cinco elementos para o vetor 1.\n   - Leia os cinco elementos para o vetor 2.\n   - Aguarde a entrada dos valores.\n\n2. Construção do Vetor Resultante:\n   - Para cada elemento de índice i nos vetores 1 e 2, calcule o quadrado da soma dos elementos correspondentes e adicione ao vetor resultante.\n\n3. Exibição do Vetor Resultante:\n   - Apresente os elementos do vetor resultante.",
     "examples": "",
-    "pseudocode": "ENTRADA: vetor1, vetor2\r\nvetor_resultante = []\r\nPARA i DE 0 ATÉ 9 FAÇA\r\n    soma = vetor1[i] + vetor2[i]\r\n    quadrado = soma^2\r\n    ADICIONAR quadrado À vetor_resultante\r\nEXIBIR \"Vetor resultante:\", vetor_resultante"
+    "pseudocode": "ENTRADA: vetor1, vetor2\nvetor_resultante = []\nPARA i DE 0 ATÉ 4 FAÇA\n    soma = vetor1[i] + vetor2[i]\n    quadrado = soma^2\n    ADICIONAR quadrado À vetor_resultante\nEXIBIR \"Vetor resultante:\", vetor_resultante"
   },
   {
     "id": "Exercicio84",
@@ -940,10 +940,10 @@
     "title": "Contagem e Porcentagem de Números Ímpares em um Vetor",
     "chapterDir": "04_EstruturaDeDadosDeUmaDimensão",
     "chapterName": "Estrutura de Dados de Uma Dimensão (Vetores)",
-    "description": "Escreva um programa que leia um vetor com dez elementos inteiros. Ao final, apresente o total de números ímpares e a porcentagem que esses valores representam em relação ao total de elementos lidos.",
-    "steps": "1. Entrada de Dados:\r\n   - Leia os dez elementos para o vetor.\r\n   - Aguarde a entrada dos valores.\r\n\r\n2. Contagem de Números Ímpares:\r\n   - Para cada elemento do vetor, verifique se é ímpar e incremente o contador correspondente.\r\n\r\n3. Cálculo da Porcentagem:\r\n   - Calcule a porcentagem de números ímpares em relação ao total de elementos no vetor.\r\n\r\n4. Exibição dos Resultados:\r\n   - Apresente o total de números ímpares e a porcentagem.",
+    "description": "Escreva um programa que leia um vetor com cinco elementos inteiros. Ao final, apresente o total de números ímpares e a porcentagem que esses valores representam em relação ao total de elementos lidos.",
+    "steps": "1. Entrada de Dados:\n   - Leia os cinco elementos para o vetor.\n   - Aguarde a entrada dos valores.\n\n2. Contagem de Números Ímpares:\n   - Para cada elemento do vetor, verifique se é ímpar e incremente o contador correspondente.\n\n3. Cálculo da Porcentagem:\n   - Calcule a porcentagem de números ímpares em relação ao total de elementos no vetor.\n\n4. Exibição dos Resultados:\n   - Apresente o total de números ímpares e a porcentagem.",
     "examples": "",
-    "pseudocode": "ENTRADA: vetor\r\nímpares = 0\r\nPARA i DE 0 ATÉ 9 FAÇA\r\n    SE vetor[i] % 2 != 0 ENTÃO\r\n        ímpares = ímpares + 1\r\ntotal_elementos = 10\r\nporcentagem = (ímpares / total_elementos) * 100\r\nEXIBIR \"Total de números ímpares:\", ímpares\r\nEXIBIR \"Porcentagem de números ímpares:\", porcentagem, \"%\""
+    "pseudocode": "ENTRADA: vetor\nímpares = 0\nPARA i DE 0 ATÉ 4 FAÇA\n    SE vetor[i] % 2 != 0 ENTÃO\n        ímpares = ímpares + 1\ntotal_elementos = 5\nporcentagem = (ímpares / total_elementos) * 100\nEXIBIR \"Total de números ímpares:\", ímpares\nEXIBIR \"Porcentagem de números ímpares:\", porcentagem, \"%\""
   },
   {
     "id": "Exercicio87",

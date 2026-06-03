@@ -1,12 +1,12 @@
 # 📝 Exercício 71: Vetor com Valores Negativos
 
 ## 📖 Descrição
-Escreva um programa que leia uma matriz A do tipo vetor com dez elementos inteiros positivos e construa um segundo vetor em que cada elemento seja o valor negativo do elemento correspondente do primeiro vetor.
+Escreva um programa que leia uma matriz A do tipo vetor com cinco elementos inteiros positivos e construa um segundo vetor em que cada elemento seja o valor negativo do elemento correspondente do primeiro vetor.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Leia os dez elementos do vetor de inteiros positivos.
+   - Leia os cinco elementos do vetor de inteiros positivos.
    - Aguarde a entrada dos elementos.
 
 2. Inicialização:
@@ -24,7 +24,7 @@ Escreva um programa que leia uma matriz A do tipo vetor com dez elementos inteir
 ```plaintext
 ENTRADA: vetorOriginal
 vetorNegativo = []
-PARA i DE 0 ATÉ 9 FAÇA
+PARA i DE 0 ATÉ 4 FAÇA
     ADICIONAR -vetorOriginal[i] À vetorNegativo
 EXIBIR "Vetor original:", vetorOriginal
 EXIBIR "Vetor com valores negativos:", vetorNegativo

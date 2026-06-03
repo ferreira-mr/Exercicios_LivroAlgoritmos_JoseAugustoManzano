@@ -1,7 +1,7 @@
 # 📝 Exercício 73: Tabuada em um Vetor
 
 ## 📖 Descrição
-Escreva um programa que calcule a tabuada de um valor qualquer de 1 até 10 e armazene os resultados em um vetor.
+Escreva um programa que calcule a tabuada de um valor qualquer de 1 até 5 e armazene os resultados em um vetor.
 
 ## 🚶 Passo a Passo
 
@@ -13,7 +13,7 @@ Escreva um programa que calcule a tabuada de um valor qualquer de 1 até 10 e ar
    - Inicialize o vetor da tabuada como vazio.
 
 3. Cálculo da Tabuada:
-   - Para cada número de 1 a 10, calcule o produto com o valor fornecido e adicione ao vetor da tabuada.
+   - Para cada número de 1 a 5, calcule o produto com o valor fornecido e adicione ao vetor da tabuada.
 
 4. Exibição da Tabuada:
    - Apresente os elementos do vetor da tabuada.
@@ -23,7 +23,7 @@ Escreva um programa que calcule a tabuada de um valor qualquer de 1 até 10 e ar
 ```plaintext
 ENTRADA: valor
 tabuada = []
-PARA i DE 1 ATÉ 10 FAÇA
+PARA i DE 1 ATÉ 5 FAÇA
     ADICIONAR valor * i À tabuada
 EXIBIR "Tabuada do", valor, ":", tabuada
 ```

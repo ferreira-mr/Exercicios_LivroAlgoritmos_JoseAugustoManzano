@@ -1,13 +1,13 @@
 # 📝 Exercício 83: Construção de um Vetor a partir do Quadrado da Soma de Outros Dois Vetores
 
 ## 📖 Descrição
-Escreva um programa que leia dois vetores com valores inteiros com dez elementos cada. O programa deve construir um terceiro vetor formado pelo quadrado da soma dos elementos correspondentes nos dois primeiros vetores.
+Escreva um programa que leia dois vetores com valores inteiros com cinco elementos cada. O programa deve construir um terceiro vetor formado pelo quadrado da soma dos elementos correspondentes nos dois primeiros vetores.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Leia os dez elementos para o vetor 1.
-   - Leia os dez elementos para o vetor 2.
+   - Leia os cinco elementos para o vetor 1.
+   - Leia os cinco elementos para o vetor 2.
    - Aguarde a entrada dos valores.
 
 2. Construção do Vetor Resultante:
@@ -21,7 +21,7 @@ Escreva um programa que leia dois vetores com valores inteiros com dez elementos
 ```plaintext
 ENTRADA: vetor1, vetor2
 vetor_resultante = []
-PARA i DE 0 ATÉ 9 FAÇA
+PARA i DE 0 ATÉ 4 FAÇA
     soma = vetor1[i] + vetor2[i]
     quadrado = soma^2
     ADICIONAR quadrado À vetor_resultante

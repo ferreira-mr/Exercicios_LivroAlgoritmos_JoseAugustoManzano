@@ -263,7 +263,7 @@ const customRules = {
   // ================= CHAPTER 4: VETORES =================
   Exercicio61: {
     cases: [
-      { inputs: repeatElements(10, (i) => `Nome${i}`), outputs: ["Nome0", "Nome9", "Nome4"] }
+      { inputs: repeatElements(5, (i) => `Nome${i}`), outputs: ["Nome0", "Nome4", "Nome2"] }
     ]
   },
   Exercicio62: {
@@ -313,17 +313,17 @@ const customRules = {
   },
   Exercicio71: {
     cases: [
-      { inputs: repeatElements(10, "5"), outputs: ["-5"] }
+      { inputs: repeatElements(5, "5"), outputs: ["-5"] }
     ]
   },
   Exercicio72: {
     cases: [
-      { inputs: repeatElements(10, "20"), outputs: ["10"] }
+      { inputs: repeatElements(5, "20"), outputs: ["10"] }
     ]
   },
   Exercicio73: {
     cases: [
-      { inputs: ["9"], outputs: ["9", "90", "45"] }
+      { inputs: ["9"], outputs: ["9", "45", "18"] }
     ]
   },
   Exercicio74: {
@@ -358,12 +358,12 @@ const customRules = {
   },
   Exercicio80: {
     cases: [
-      { inputs: [...repeatElements(10, "6"), ...repeatElements(10, "5")], outputs: ["6", "5"] }
+      { inputs: [...repeatElements(5, "6"), ...repeatElements(5, "5")], outputs: ["6", "5"] }
     ]
   },
   Exercicio81: {
     cases: [
-      { inputs: [...repeatElements(10, "2"), ...repeatElements(10, "4")], outputs: ["2", "4"] }
+      { inputs: [...repeatElements(5, "2"), ...repeatElements(5, "4")], outputs: ["2", "4"] }
     ]
   },
   Exercicio82: {
@@ -373,7 +373,7 @@ const customRules = {
   },
   Exercicio83: {
     cases: [
-      { inputs: [...repeatElements(10, "2"), ...repeatElements(10, "3")], outputs: ["25"] }
+      { inputs: [...repeatElements(5, "2"), ...repeatElements(5, "3")], outputs: ["25"] }
     ]
   },
   Exercicio84: {
@@ -388,7 +388,7 @@ const customRules = {
   },
   Exercicio86: {
     cases: [
-      { inputs: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], outputs: ["5", "50"] }
+      { inputs: ["1", "2", "3", "4", "5"], outputs: ["3", "60"] }
     ]
   },
 
