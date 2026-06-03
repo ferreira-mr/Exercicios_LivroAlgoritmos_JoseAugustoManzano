@@ -33,6 +33,50 @@ import { registerPortugolLanguage } from './utils/portugol-monaco';
 import { LexadorPortugolStudio, AvaliadorSintaticoPortugolStudio, InterpretadorPortugolStudioComDepuracao } from '@designliquido/portugol-studio';
 import FlowchartTab from './components/FlowchartTab';
 
+function levenshtein(a: string, b: string): number {
+  const matrix = [];
+  for (let i = 0; i <= b.length; i++) {
+    matrix[i] = [i];
+  }
+  for (let j = 0; j <= a.length; j++) {
+    matrix[0][j] = j;
+  }
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      if (b.charAt(i - 1) === a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1, // substitution
+          Math.min(
+            matrix[i][j - 1] + 1, // insertion
+            matrix[i - 1][j] + 1  // deletion
+          )
+        );
+      }
+    }
+  }
+  return matrix[b.length][a.length];
+}
+
+function getClosestKeyword(word: string): string | null {
+  const keywords = [
+    'programa', 'funcao', 'se', 'senao', 'escolha', 'caso', 'contrario',
+    'enquanto', 'faca', 'para', 'pare', 'retorne', 'escreva', 'leia'
+  ];
+  let closest = null;
+  let minDistance = 3; // only suggest if distance < 3
+  
+  for (const kw of keywords) {
+    const dist = levenshtein(word.toLowerCase(), kw);
+    if (dist < minDistance) {
+      minDistance = dist;
+      closest = kw;
+    }
+  }
+  return closest;
+}
+
 interface Exercise {
   id: string;
   number: number;
@@ -552,6 +596,33 @@ export default function App() {
         if (parserResult && parserResult.erros && parserResult.erros.length > 0) {
           parserResult.erros.forEach((err: any) => {
             const lineNum = err.simbolo?.linha || err.linha || 1;
+            const lineText = lines[lineNum - 1] || '';
+
+            // Check for misspelled keyword first
+            const misspelledMatch = lineText.match(/^\s*([a-zA-Z_a-áâãéêíóôõúçüA-ÁÂÃÉÊÍÓÔÕÚÇÜ]{2,})\s*\(/);
+            if (misspelledMatch) {
+              const word = misspelledMatch[1];
+              const reserved = new Set([
+                'programa', 'funcao', 'se', 'senao', 'escolha', 'caso', 'contrario',
+                'enquanto', 'faca', 'para', 'pare', 'retorne', 'escreva', 'leia', 'verdadeiro', 'falso'
+              ]);
+              if (!reserved.has(word.toLowerCase())) {
+                const closest = getClosestKeyword(word);
+                if (closest) {
+                  const colStart = lineText.indexOf(word) + 1;
+                  const colEnd = colStart + word.length;
+                  markers.push({
+                    startLineNumber: lineNum,
+                    startColumn: colStart,
+                    endLineNumber: lineNum,
+                    endColumn: colEnd,
+                    message: `Erro Sintático: A palavra '${word}' não é reconhecida como instrução ou função. Você quis dizer '${closest}'?`,
+                    severity: 8
+                  });
+                }
+              }
+            }
+
             const startCol = err.simbolo?.colunaInicio || 1;
             let endCol = err.simbolo?.colunaFim || (startCol + 1);
             if (startCol === endCol) {
