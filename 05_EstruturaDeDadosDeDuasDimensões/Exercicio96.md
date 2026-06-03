@@ -1,7 +1,7 @@
 # 📝 Exercício 96: Manipulação de Matrizes
 
 ## 📖 Descrição
-Escreva um programa que leia uma matriz com seis linhas e cinco colunas e construa uma segunda matriz com base em regras específicas.
+Escreva um programa que leia uma matriz A com seis linhas e cinco colunas. Construir uma matriz B de mesma dimensão, de modo que cada elemento de B seja o elemento correspondente de A somado com 5 se o elemento for par, e subtraído de 4 se o elemento for ímpar. Ao final, apresente as duas matrizes.
 
 ## 🚶 Passo a Passo
 
@@ -21,20 +21,14 @@ Escreva um programa que leia uma matriz com seis linhas e cinco colunas e constr
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-
-matrizOriginal = lerMatriz(6, 5) // função para ler matriz com 6 linhas e 5 colunas
-matrizModificada = novaMatriz(6, 5) // função para criar nova matriz com 6 linhas e 5 colunas
-
-PARA cada linha i da matrizOriginal FAÇA
-    PARA cada coluna j da matrizOriginal FAÇA
-        SE matrizOriginal[i][j] % 2 = 0 ENTÃO
+ENTRADA: matrizOriginal
+matrizModificada = matriz vazia de 6x5
+PARA i DE 0 ATÉ 5 FAÇA
+    PARA j DE 0 ATÉ 4 FAÇA
+        SE matrizOriginal[i][j] % 2 == 0 ENTÃO
             matrizModificada[i][j] = matrizOriginal[i][j] + 5
         SENÃO
             matrizModificada[i][j] = matrizOriginal[i][j] - 4
-
-EXIBIR "Matriz Original:"
-EXIBIR matrizOriginal
-
-EXIBIR "Matriz Modificada:"
-EXIBIR matrizModificada
+EXIBIR "Matriz Original:", matrizOriginal
+EXIBIR "Matriz Modificada:", matrizModificada
 ```

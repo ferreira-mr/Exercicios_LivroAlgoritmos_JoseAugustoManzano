@@ -1,7 +1,7 @@
 # 📝 Exercício 86: Contagem e Porcentagem de Números Ímpares em um Vetor
 
 ## 📖 Descrição
-Escreva um programa que leia um vetor com dez elementos inteiros.
+Escreva um programa que leia um vetor com dez elementos inteiros. Ao final, apresente o total de números ímpares e a porcentagem que esses valores representam em relação ao total de elementos lidos.
 
 ## 🚶 Passo a Passo
 

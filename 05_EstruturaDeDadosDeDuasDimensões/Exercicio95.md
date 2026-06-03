@@ -1,7 +1,7 @@
 # 📝 Exercício 95: Matriz com Somatório e Valores Específicos
 
 ## 📖 Descrição
-Escreva um programa que leia uma matriz do tipo inteiro com sete linhas e sete colunas e construa uma segunda matriz com base em regras específicas.
+Escreva um programa que leia uma matriz A de duas dimensões com sete linhas e sete colunas. Construir uma matriz B de mesma dimensão, onde cada elemento de B deverá ser o somatório de 1 até o valor correspondente em A, caso o elemento não esteja na diagonal principal (i ≠ j) ou esteja em uma linha par (i % 2 = 0). Caso contrário (se estiver na diagonal principal e em uma linha ímpar), o elemento correspondente em B deverá ser o triplo do elemento de A. Ao final, apresente as duas matrizes.
 
 ## 🚶 Passo a Passo
 
@@ -21,20 +21,14 @@ Escreva um programa que leia uma matriz do tipo inteiro com sete linhas e sete c
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-
-matrizOriginal = lerMatriz(7, 7) // função para ler matriz com 7 linhas e 7 colunas
-matrizFinal = novaMatriz(7, 7) // função para criar nova matriz com 7 linhas e 7 colunas
-
-PARA cada linha i da matrizOriginal FAÇA
-    PARA cada coluna j da matrizOriginal FAÇA
-        SE i ≠ j OU i % 2 = 0 ENTÃO
-            matrizFinal[i][j] = somatorioAte(matrizOriginal[i][j])
+ENTRADA: matrizOriginal
+matrizFinal = matriz vazia de 7x7
+PARA i DE 0 ATÉ 6 FAÇA
+    PARA j DE 0 ATÉ 6 FAÇA
+        SE i != j OU i % 2 == 0 ENTÃO
+            matrizFinal[i][j] = somatorio(matrizOriginal[i][j])
         SENÃO
-            matrizFinal[i][j] = 3 * matrizOriginal[i][j]
-
-EXIBIR "Matriz Original:"
-EXIBIR matrizOriginal
-
-EXIBIR "Matriz Final:"
-EXIBIR matrizFinal
+            matrizFinal[i][j] = matrizOriginal[i][j] * 3
+EXIBIR "Matriz Original:", matrizOriginal
+EXIBIR "Matriz Final:", matrizFinal
 ```

@@ -18,14 +18,11 @@ Escreva um programa que leia uma matriz do tipo real com cinco linhas e cinco co
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-
-matriz = lerMatriz(5, 5) // função para ler matriz com 5 linhas e 5 colunas
+ENTRADA: matriz
 somatorio = 0
-
-PARA cada linha i da matriz FAÇA
-    PARA cada coluna j da matriz FAÇA
-        SE i % 2 = 0 E j % 2 = 0 ENTÃO
+PARA i DE 0 ATÉ 4 FAÇA
+    PARA j DE 0 ATÉ 4 FAÇA
+        SE i % 2 != 0 E j % 2 != 0 ENTÃO
             somatorio = somatorio + matriz[i][j]
-
 EXIBIR "Somatório dos Elementos em Posições Ímpares:", somatorio
 ```

@@ -1,7 +1,7 @@
 # 📝 Exercício 91: Manipulação de Matrizes
 
 ## 📖 Descrição
-Escreva um programa que leia duas matrizes com uma linha de doze colunas e construa uma terceira matriz.
+Escreva um programa que leia duas matrizes A e B, cada uma com 1 linha e 12 colunas. O programa deve construir uma terceira matriz C de duas colunas e doze linhas, onde a primeira coluna de C deve ser formada pelos elementos da matriz A multiplicados por 2, e a segunda coluna de C deve ser formada pelos elementos da matriz B subtraídos de 5. Ao final, apresente as três matrizes.
 
 ## 🚶 Passo a Passo
 
@@ -22,24 +22,12 @@ Escreva um programa que leia duas matrizes com uma linha de doze colunas e const
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-
-matriz1 = lerMatriz(1, 12) // função para ler matriz com 1 linha e 12 colunas
-matriz2 = lerMatriz(2, 12) // função para ler matriz com 1 linha e 12 colunas
-matrizResultado = novaMatriz(12, 2) // função para criar nova matriz com 12 linhas e 2 colunas
-
-PARA cada elemento i da matriz1 FAÇA
+ENTRADA: matriz1, matriz2
+matrizResultado = matriz vazia de 12x2
+PARA i DE 0 ATÉ 11 FAÇA
     matrizResultado[i][0] = matriz1[i] * 2
-
-PARA cada elemento i da matriz2 FAÇA
     matrizResultado[i][1] = matriz2[i] - 5
-
-EXIBIR "Matriz 1:"
-EXIBIR matriz1
-
-EXIBIR "Matriz 2:"
-EXIBIR matriz2
-
-EXIBIR "Matriz Resultante:"
-EXIBIR matrizResultado
-
+EXIBIR "Matriz 1:", matriz1
+EXIBIR "Matriz 2:", matriz2
+EXIBIR "Matriz Resultante:", matrizResultado
 ```

@@ -1,7 +1,7 @@
 # 📝 Exercício 82: Contagem de Números Pares e Ímpares em um Vetor
 
 ## 📖 Descrição
-Escreva um programa que leia um vetor com 30 elementos do tipo inteiro. Ao final,.
+Escreva um programa que leia um vetor com 30 elementos do tipo inteiro. Ao final, o programa deve apresentar as quantidades de valores pares e ímpares existentes no vetor.
 
 ## 🚶 Passo a Passo
 

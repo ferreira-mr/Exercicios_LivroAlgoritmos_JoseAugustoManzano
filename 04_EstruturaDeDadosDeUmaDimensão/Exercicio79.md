@@ -1,7 +1,7 @@
 # 📝 Exercício 79: Junção de Vetores com Validação de Entrada
 
 ## 📖 Descrição
-Escreva um programa que leia dois vetores A e B com seis elementos cada. O vetor A deve aceitar apenas a entrada de valores pares, enquanto o vetor B deve aceitar apenas a entrada de valores ímpares. A entrada dos vetores deve ser validada pelo programa. Em seguida,.
+Escreva um programa que leia dois vetores A e B com seis elementos cada. O vetor A deve aceitar apenas a entrada de valores pares, enquanto o vetor B deve aceitar apenas a entrada de valores ímpares. A entrada dos vetores deve ser validada pelo programa. Em seguida, o programa deve construir um terceiro vetor C que seja a junção dos outros dois.
 
 ## 🚶 Passo a Passo
 
@@ -27,13 +27,16 @@ ENTRADA: vetorA, vetorB
 vetorC = []
 PARA i DE 0 ATÉ 5 FAÇA
     valor = LER "Digite um valor par para o vetor A: "
-    ENQUANTO valor for ímpar FAÇA
+    ENQUANTO valor % 2 != 0 FAÇA
         valor = LER "Valor inválido! Digite um valor par para o vetor A: "
     ADICIONAR valor À vetorA
+
+PARA i DE 0 ATÉ 5 FAÇA
     valor = LER "Digite um valor ímpar para o vetor B: "
-    ENQUANTO valor for par FAÇA
+    ENQUANTO valor % 2 == 0 FAÇA
         valor = LER "Valor inválido! Digite um valor ímpar para o vetor B: "
     ADICIONAR valor À vetorB
+
 PARA i DE 0 ATÉ 5 FAÇA
     ADICIONAR vetorA[i] À vetorC
     ADICIONAR vetorB[i] À vetorC

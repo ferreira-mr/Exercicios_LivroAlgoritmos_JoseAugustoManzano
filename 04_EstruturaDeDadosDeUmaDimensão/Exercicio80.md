@@ -30,10 +30,13 @@ PARA i DE 0 ATÉ 9 FAÇA
     ENQUANTO valor % 2 != 0 OU valor % 3 != 0 FAÇA
         valor = LER "Valor inválido! Digite um valor divisível por 2 e 3 para o vetor 1: "
     ADICIONAR valor À vetor1
+
+PARA i DE 0 ATÉ 9 FAÇA
     valor = LER "Digite um valor múltiplo de 5 para o vetor 2: "
     ENQUANTO valor % 5 != 0 FAÇA
         valor = LER "Valor inválido! Digite um valor múltiplo de 5 para o vetor 2: "
     ADICIONAR valor À vetor2
+
 PARA i DE 0 ATÉ 9 FAÇA
     ADICIONAR vetor1[i] À vetor3
     ADICIONAR vetor2[i] À vetor3
