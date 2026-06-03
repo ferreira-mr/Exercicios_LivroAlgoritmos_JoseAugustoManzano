@@ -1,58 +1,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700;1,900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
-  /* Premium Dark Palette - SENAI SP Charcoal & Graphite */
-  --bg-primary: #0b0b0c;
-  --bg-secondary: rgba(22, 22, 23, 0.7);
-  --bg-tertiary: rgba(35, 35, 37, 0.5);
-  --bg-elevated: #161618;
+  /* GitHub Dark theme variables */
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --bg-elevated: #161b22;
   
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-color-hover: rgba(255, 255, 255, 0.16);
+  --border-color: #30363d;
+  --border-color-hover: #8b949e;
   
-  /* Neons and Statuses - SENAI SP Vermelho Preferencial & Variant Dark Reds */
-  --accent-cyan: #e30613; /* Vermelho Preferencial SENAI SP */
-  --accent-cyan-glow: rgba(227, 6, 19, 0.2);
-  --accent-purple: #9a1915; /* Vermelho Variante (Pantone 7622) */
-  --accent-purple-glow: rgba(154, 25, 21, 0.2);
-  --accent-emerald: #10b981;
-  --accent-emerald-glow: rgba(16, 185, 129, 0.2);
-  --accent-rose: #f43f5e;
-  --accent-rose-glow: rgba(244, 63, 94, 0.2);
-  --accent-amber: #f59e0b;
-  --accent-amber-glow: rgba(245, 158, 11, 0.2);
+  /* Neons and Statuses - GitHub Colors */
+  --accent-cyan: #58a6ff; /* GitHub Dark Blue Accent */
+  --accent-cyan-glow: rgba(88, 166, 255, 0.15);
+  --accent-purple: #ab7df6; /* GitHub purple */
+  --accent-purple-glow: rgba(171, 125, 246, 0.15);
+  --accent-emerald: #3fb950; /* GitHub green success */
+  --accent-emerald-glow: rgba(63, 185, 80, 0.15);
+  --accent-rose: #f85149; /* GitHub red danger */
+  --accent-rose-glow: rgba(248, 81, 73, 0.15);
+  --accent-amber: #d29922; /* GitHub yellow warning */
+  --accent-amber-glow: rgba(210, 153, 34, 0.15);
 
   /* Typography */
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #8e8e93;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
   
-  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, SF Font, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   
-  --backdrop-blur: blur(16px);
-  --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
-  --shadow-neon-cyan: 0 0 15px rgba(227, 6, 19, 0.25);
-  --shadow-neon-purple: 0 0 15px rgba(154, 25, 21, 0.25);
-  --shadow-neon-emerald: 0 0 15px rgba(16, 185, 129, 0.25);
+  --backdrop-blur: blur(8px);
+  --transition-smooth: all 0.2s ease-in-out;
+  --shadow-lg: 0 8px 24px rgba(1, 4, 9, 0.2);
+  --shadow-neon-cyan: 0 0 10px rgba(88, 166, 255, 0.2);
+  --shadow-neon-purple: 0 0 10px rgba(171, 125, 246, 0.2);
+  --shadow-neon-emerald: 0 0 10px rgba(63, 185, 80, 0.2);
 }
 
 /* Light Theme Overrides */
 html.light-theme {
-  --bg-primary: #f5f5f7;
-  --bg-secondary: rgba(255, 255, 255, 0.8);
-  --bg-tertiary: rgba(240, 240, 243, 0.7);
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --bg-tertiary: #eaeef2;
   --bg-elevated: #ffffff;
   
-  --border-color: rgba(15, 23, 42, 0.08);
-  --border-color-hover: rgba(15, 23, 42, 0.16);
+  --border-color: #d0d7de;
+  --border-color-hover: #8c959f;
   
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
+  --accent-cyan: #0969da; /* GitHub Light Blue Accent */
+  --accent-cyan-glow: rgba(9, 105, 218, 0.15);
+  --accent-purple: #8250df; /* GitHub Light purple */
+  --accent-purple-glow: rgba(130, 80, 223, 0.15);
+  --accent-emerald: #1a7f37; /* GitHub Light green success */
+  --accent-emerald-glow: rgba(26, 127, 55, 0.15);
+  --accent-rose: #cf222e; /* GitHub Light red danger */
+  --accent-rose-glow: rgba(207, 34, 46, 0.15);
+  --accent-amber: #9a6700; /* GitHub Light yellow warning */
+  --accent-amber-glow: rgba(154, 103, 0, 0.15);
+
+  --text-primary: #24292f;
+  --text-secondary: #57606a;
+  --text-muted: #6e7781;
   
-  --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 8px 24px rgba(140, 149, 159, 0.2);
 }
 
 body, .sidebar, .panel-header, .action-bar, .bottom-drawer, .console-panel, .tests-panel, .instruction-panel, .btn-secondary, .chapter-header, .exercise-item, .console-input-wrapper, .variables-panel, .variable-row {
@@ -68,8 +79,8 @@ body, .sidebar, .panel-header, .action-bar, .bottom-drawer, .console-panel, .tes
 body {
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(at 0% 0%, rgba(227, 6, 19, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(154, 25, 21, 0.08) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(88, 166, 255, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(171, 125, 246, 0.05) 0px, transparent 50%);
   background-attachment: fixed;
   color: var(--text-primary);
   font-family: var(--font-sans);
@@ -81,8 +92,8 @@ body {
 
 html.light-theme body {
   background-image: 
-    radial-gradient(at 0% 0%, rgba(227, 6, 19, 0.04) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(154, 25, 21, 0.04) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(9, 105, 218, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(130, 80, 223, 0.03) 0px, transparent 50%);
 }
 
 /* Custom Scrollbar */
