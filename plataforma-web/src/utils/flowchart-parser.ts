@@ -9,6 +9,10 @@ export interface FlowNode {
   thenBranch?: FlowNode[];
   elseBranch?: FlowNode[];
   bodyBranch?: FlowNode[];
+  isDeclare?: boolean;
+  isAssignment?: boolean;
+  isProcessing?: boolean;
+  data?: any;
 }
 
 export function stringifyPortugolExpr(expr: any): string {

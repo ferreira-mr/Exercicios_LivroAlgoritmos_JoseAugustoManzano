@@ -461,6 +461,7 @@ export default function App() {
   const consoleEndRef = useRef<HTMLDivElement>(null);
   const consoleInputRef = useRef<HTMLInputElement>(null);
   const editorRef = useRef<any>(null);
+  const monacoRef = useRef<Monaco | null>(null);
 
   // --- INITIAL LOAD & SYNC ---
   useEffect(() => {
@@ -499,19 +500,83 @@ export default function App() {
     localStorage.setItem('manzano_active_language', activeLanguage);
   }, [activeLanguage]);
 
-  // Parse Portugol code in real-time with a debounce to feed the flowchart
+  // Parse Portugol code in real-time with a debounce to feed the flowchart and update model markers
   useEffect(() => {
-    if (activeLanguage !== 'portugol') return;
-    if (!code) return;
+    const editor = editorRef.current;
+    const monaco = monacoRef.current;
+    const model = editor?.getModel();
+
+    if (activeLanguage !== 'portugol' || !code) {
+      if (editor && monaco && model) {
+        monaco.editor.setModelMarkers(model, 'portugol', []);
+      }
+      return;
+    }
     
     const parseCode = async () => {
       try {
         const lexer = new LexadorPortugolStudio();
         const parser = new AvaliadorSintaticoPortugolStudio();
-        const lex = lexer.mapear(code.split('\n'), -1);
-        const parsed = await parser.analisar(lex, -1);
-        if (parsed && parsed.declaracoes) {
-          setAstDeclarations(parsed.declaracoes);
+        const lines = code.split('\n');
+        const lexerResult = lexer.mapear(lines, -1);
+        
+        const markers: any[] = [];
+
+        // 1. Process Lexical Errors
+        if (lexerResult.erros && lexerResult.erros.length > 0) {
+          lexerResult.erros.forEach((err) => {
+            const lineNum = err.linha || 1;
+            const lineText = lines[lineNum - 1] || '';
+            let startCol = 1;
+            if (err.caractere) {
+              const idx = lineText.indexOf(err.caractere);
+              if (idx !== -1) {
+                startCol = idx + 1;
+              }
+            }
+            const endCol = startCol + (err.caractere?.length || 1);
+            markers.push({
+              startLineNumber: lineNum,
+              startColumn: startCol,
+              endLineNumber: lineNum,
+              endColumn: endCol,
+              message: `Erro Léxico: ${err.mensagem || 'Caractere inesperado'}`,
+              severity: 8 // monaco.MarkerSeverity.Error
+            });
+          });
+        }
+
+        // 2. Process Syntactic Errors
+        const parserResult = await parser.analisar(lexerResult, -1);
+        
+        if (parserResult && parserResult.erros && parserResult.erros.length > 0) {
+          parserResult.erros.forEach((err: any) => {
+            const lineNum = err.simbolo?.linha || err.linha || 1;
+            const startCol = err.simbolo?.colunaInicio || 1;
+            let endCol = err.simbolo?.colunaFim || (startCol + 1);
+            if (startCol === endCol) {
+              endCol = startCol + 1;
+            } else {
+              endCol = endCol + 1;
+            }
+            markers.push({
+              startLineNumber: lineNum,
+              startColumn: startCol,
+              endLineNumber: lineNum,
+              endColumn: endCol,
+              message: `Erro Sintático: ${err.message || 'Erro de sintaxe'}`,
+              severity: 8 // monaco.MarkerSeverity.Error
+            });
+          });
+        }
+
+        // Set markers on the model
+        if (editor && monaco && model) {
+          monaco.editor.setModelMarkers(model, 'portugol', markers);
+        }
+
+        if (parserResult && parserResult.declaracoes) {
+          setAstDeclarations(parserResult.declaracoes);
         }
       } catch (e) {
         // Silent error while editing code
@@ -650,10 +715,10 @@ export default function App() {
 
       const interpreter = new InterpretadorPortugolStudioComDepuracao(
         '.',
-        (output) => {
+        (output: any) => {
           setConsoleLines(prev => [...prev, { type: 'stdout', text: String(output) }]);
         },
-        (output) => {
+        (output: any) => {
           setConsoleLines(prev => [...prev, { type: 'stdout', text: String(output) }]);
         },
         () => {
@@ -661,7 +726,7 @@ export default function App() {
         }
       );
 
-      interpreter.avancarPrimeiroEscopoAposInstrucao = () => {};
+      (interpreter as any).avancarPrimeiroEscopoAposInstrucao = () => {};
 
       interpreter.paraTexto = function(objeto: any): string {
         if (typeof objeto === 'number') {
@@ -674,8 +739,8 @@ export default function App() {
 
       const originalExecutar = interpreter.executar;
       interpreter.executar = async function(declaracao: any, mostrarResultado?: boolean) {
-        const res = await originalExecutar.call(this, declaracao, mostrarResultado);
-        const rawVars = this.pilhaEscoposExecucao.obterTodasVariaveis();
+        const res = await (originalExecutar as any).call(this, declaracao, mostrarResultado);
+        const rawVars = (this.pilhaEscoposExecucao as any).obterTodasVariaveis();
         const filteredVars = rawVars.filter((v: any) => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
         if (filteredVars.length > 0) {
           setDebugVariables(filteredVars);
@@ -703,8 +768,8 @@ export default function App() {
         const currentLineNum = interpreter.linhaDeclaracaoAtual;
         setActiveLine(currentLineNum);
         
-        const rawVars = interpreter.pilhaEscoposExecucao.obterTodasVariaveis();
-        const filteredVars = rawVars.filter(v => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
+        const rawVars = (interpreter.pilhaEscoposExecucao as any).obterTodasVariaveis();
+        const filteredVars = rawVars.filter((v: any) => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
         if (filteredVars.length > 0) {
           setDebugVariables(filteredVars);
         }
@@ -738,8 +803,8 @@ export default function App() {
       const interpreter = debugInterpreterRef.current;
       await interpreter.instrucaoPasso();
       
-      const rawVars = interpreter.pilhaEscoposExecucao.obterTodasVariaveis();
-      const filteredVars = rawVars.filter(v => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
+      const rawVars = (interpreter.pilhaEscoposExecucao as any).obterTodasVariaveis();
+      const filteredVars = rawVars.filter((v: any) => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
       if (filteredVars.length > 0) {
         setDebugVariables(filteredVars);
       }
@@ -760,8 +825,8 @@ export default function App() {
       const interpreter = debugInterpreterRef.current;
       await interpreter.instrucaoContinuarInterpretacao();
       
-      const rawVars = interpreter.pilhaEscoposExecucao.obterTodasVariaveis();
-      const filteredVars = rawVars.filter(v => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
+      const rawVars = (interpreter.pilhaEscoposExecucao as any).obterTodasVariaveis();
+      const filteredVars = rawVars.filter((v: any) => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
       if (filteredVars.length > 0) {
         setDebugVariables(filteredVars);
       }
@@ -811,6 +876,7 @@ export default function App() {
 
   const handleEditorMount = (editor: any, monaco: Monaco) => {
     editorRef.current = editor;
+    monacoRef.current = monaco;
     registerPortugolLanguage(monaco);
   };
 

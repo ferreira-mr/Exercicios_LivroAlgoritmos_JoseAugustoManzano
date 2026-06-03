@@ -111,7 +111,7 @@ export function registerPortugolLanguage(monaco: Monaco) {
 
   // Register autocomplete/suggestions
   monaco.languages.registerCompletionItemProvider(languageId, {
-    provideCompletionItems: (model, position) => {
+    provideCompletionItems: (model: any, position: any) => {
       const word = model.getWordUntilPosition(position);
       const range = {
         startLineNumber: position.lineNumber,
@@ -145,6 +145,18 @@ export function registerPortugolLanguage(monaco: Monaco) {
           label: t,
           kind: monaco.languages.CompletionItemKind.TypeParameter,
           insertText: t,
+          range
+        });
+      });
+
+      // Add user-declared variables
+      const code = model.getValue();
+      const variables = getVariablesFromCode(code);
+      variables.forEach(v => {
+        suggestions.push({
+          label: v,
+          kind: monaco.languages.CompletionItemKind.Variable,
+          insertText: v,
           range
         });
       });
@@ -184,4 +196,64 @@ export function registerPortugolLanguage(monaco: Monaco) {
       return { suggestions };
     }
   });
+}
+
+/**
+ * Extracts declared variables from Portugol code.
+ */
+export function getVariablesFromCode(code: string): string[] {
+  const variables: string[] = [];
+  const lines = code.split('\n');
+  const reserved = new Set([
+    'programa', 'funcao', 'se', 'senao', 'escolha', 'caso', 'contrario',
+    'enquanto', 'faca', 'para', 'pare', 'retorne', 'const', 'biblioteca',
+    'inclua', 'limpa', 'escreva', 'leia', 'verdadeiro', 'falso',
+    'inteiro', 'real', 'caracter', 'cadeia', 'logico', 'vazio', 'inicio'
+  ]);
+
+  const typeRegex = /(?:^|[\s(;{,])(?:const\s+)?(inteiro|real|caracter|cadeia|logico)(?:\s+)/gi;
+
+  for (let line of lines) {
+    // Strip comments
+    const commentIdx = line.indexOf('//');
+    if (commentIdx !== -1) {
+      line = line.substring(0, commentIdx);
+    }
+
+    let match;
+    typeRegex.lastIndex = 0;
+    const matches: { type: string, index: number, end: number }[] = [];
+    
+    while ((match = typeRegex.exec(line)) !== null) {
+      matches.push({
+        type: match[1],
+        index: match.index,
+        end: typeRegex.lastIndex
+      });
+    }
+
+    for (let i = 0; i < matches.length; i++) {
+      const start = matches[i].end;
+      const end = (i + 1 < matches.length) ? matches[i + 1].index : line.length;
+      let part = line.substring(start, end);
+      
+      const semiIdx = part.search(/[;)]/);
+      if (semiIdx !== -1) {
+        part = part.substring(0, semiIdx);
+      }
+
+      const tokens = part.split(',');
+      for (const token of tokens) {
+        const trimmed = token.trim();
+        const idMatch = trimmed.match(/^([a-zA-Z_a-áâãéêíóôõúçüA-ÁÂÃÉÊÍÓÔÕÚÇÜ][a-zA-Z0-9_a-áâãéêíóôõúçüA-ÁÂÃÉÊÍÓÔÕÚÇÜ]*)/);
+        if (idMatch) {
+          const name = idMatch[1];
+          if (!reserved.has(name.toLowerCase())) {
+            variables.push(name);
+          }
+        }
+      }
+    }
+  }
+  return Array.from(new Set(variables));
 }

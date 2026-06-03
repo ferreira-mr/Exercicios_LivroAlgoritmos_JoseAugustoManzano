@@ -12,6 +12,7 @@ import {
   addNewFunctionToCode,
   deleteFunctionFromCode
 } from '../utils/flowchart-parser';
+import { getVariablesFromCode } from '../utils/portugol-monaco';
 
 interface FlowchartTabProps {
   code: string;
@@ -399,6 +400,12 @@ function getDeclaredVariables(nodes: FlowNode[]): string[] {
         if (match) {
           vars.push(match[2]);
         }
+      } else if (node.type === 'loop') {
+        const textToMatch = node.data?.loopInit || node.text || '';
+        const match = textToMatch.trim().match(/^(inteiro|real|caracter|cadeia|logico|let|const|var)\s+([a-zA-Z0-9_]+)/i);
+        if (match) {
+          vars.push(match[2]);
+        }
       }
       if (node.thenBranch) scan(node.thenBranch);
       if (node.elseBranch) scan(node.elseBranch);
@@ -510,7 +517,7 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
     setShowSuggestions(true);
   };
 
-  const handleKeyUpOrClick = (e: React.MouseEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyUpOrClick = () => {
     if (inputRef.current) {
       setCaretPos(inputRef.current.selectionStart || 0);
     }
@@ -1168,10 +1175,9 @@ function isNodeActive(nodeId: string, activeLine: number | null | undefined): bo
 
 export default function FlowchartTab({ code, language, astDeclarations, onChangeCode, activeLine }: FlowchartTabProps) {
   // Editing states
-  const [activeModalNode, setActiveModalNode] = useState<{ id: string; type: string; text: string; isDeclare?: boolean } | null>(null);
+  const [activeModalNode, setActiveModalNode] = useState<{ id: string; type: string; text: string; isDeclare?: boolean; isAssignment?: boolean; isProcessing?: boolean } | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
   const [insertMenu, setInsertMenu] = useState<{ x: number; y: number; fromNodeId: string; branchType?: 'then' | 'else' | 'body' } | null>(null);
-  const [insertSubmenu, setInsertSubmenu] = useState<'main' | 'loop'>('main');
 
   // Local tree state for editing
   const [treeNodes, setTreeNodes] = useState<FlowNode[]>([]);
@@ -1220,8 +1226,10 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
   }, [availableFunctions, selectedFunctionName]);
 
   const declaredVars = useMemo(() => {
-    return getDeclaredVariables(treeNodes);
-  }, [treeNodes]);
+    const flowVars = getDeclaredVariables(treeNodes);
+    const codeVars = getVariablesFromCode(code || '');
+    return Array.from(new Set([...flowVars, ...codeVars]));
+  }, [treeNodes, code]);
 
   // Zoom & Pan states
   const [scale, setScale] = useState(1);
@@ -1423,7 +1431,6 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
 
   const handleOpenInsertMenu = (x: number, y: number, fromNodeId: string, branchType?: 'then' | 'else' | 'body') => {
     setInsertMenu({ x, y, fromNodeId, branchType });
-    setInsertSubmenu('main');
   };
 
   const handleInsertNode = (type: 'declare' | 'process_assign' | 'process_free' | 'input' | 'output' | 'decision' | 'loop_enquanto' | 'loop_para') => {

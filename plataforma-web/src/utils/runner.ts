@@ -78,8 +78,8 @@ export async function runCode(options: RunOptions): Promise<RunResult> {
       if (options.abortSignal?.aborted) {
         throw new Error('Execução abortada pelo usuário');
       }
-      const res = await originalExecutar.call(this, declaracao, mostrarResultado);
-      const rawVars = this.pilhaEscoposExecucao.obterTodasVariaveis();
+      const res = await (originalExecutar as any).call(this, declaracao, mostrarResultado);
+      const rawVars = (this.pilhaEscoposExecucao as any).obterTodasVariaveis();
       const filteredVars = rawVars.filter((v: any) => v.valor?.constructor?.name !== 'DeleguaFuncao' && v.tipo !== 'vazio');
       if (filteredVars.length > 0) {
         latestVariables = filteredVars;
