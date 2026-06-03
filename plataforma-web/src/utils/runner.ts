@@ -115,7 +115,7 @@ export async function runCode(options: RunOptions): Promise<RunResult> {
     if (interpreterResult.erros && interpreterResult.erros.length > 0) {
       interpreterResult.erros.forEach((err: any) => {
         const line = err.linha || '?';
-        const msg = err.mensagem || String(err);
+        const msg = err.erroInterno?.mensagem || err.mensagem || err.message || (err.erroInterno ? String(err.erroInterno) : String(err));
         errors.push(`Erro de Execução (linha ${line}): ${msg}`);
       });
       return { success: false, errors, variables };

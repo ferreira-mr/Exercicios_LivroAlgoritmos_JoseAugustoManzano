@@ -77,6 +77,23 @@ function getClosestKeyword(word: string): string | null {
   return closest;
 }
 
+function getClosestKeywordOrFunc(word: string, declaredFuncs: Set<string>): string | null {
+  const builtins = ['escreva', 'leia', 'limpa'];
+  const candidates = Array.from(new Set([...builtins, ...Array.from(declaredFuncs)]));
+  
+  let closest = null;
+  let minDistance = 3; // only suggest if distance < 3
+  
+  for (const candidate of candidates) {
+    const dist = levenshtein(word.toLowerCase(), candidate.toLowerCase());
+    if (dist < minDistance) {
+      minDistance = dist;
+      closest = candidate;
+    }
+  }
+  return closest;
+}
+
 interface Exercise {
   id: string;
   number: number;
@@ -641,6 +658,51 @@ export default function App() {
           });
         }
 
+        // 3. Static check for undeclared function calls
+        const declaredFuncs = new Set(['escreva', 'leia', 'limpa', 'inicio']);
+        const funcDeclRegex = /funcao\s+([a-zA-Z_a-áâãéêíóôõúçüA-ÁÂÃÉÊÍÓÔÕÚÇÜ][a-zA-Z0-9_a-áâãéêíóôõúçüA-ÁÂÃÉÊÍÓÔÕÚÇÜ]*)/g;
+        let funcMatch;
+        funcDeclRegex.lastIndex = 0;
+        while ((funcMatch = funcDeclRegex.exec(code)) !== null) {
+          declaredFuncs.add(funcMatch[1]);
+        }
+
+        const controlKeywords = new Set([
+          'se', 'senao', 'escolha', 'caso', 'para', 'enquanto', 'retorne', 'programa', 'funcao'
+        ]);
+
+        lines.forEach((lineText, index) => {
+          const commentIdx = lineText.indexOf('//');
+          if (commentIdx !== -1) {
+            lineText = lineText.substring(0, commentIdx);
+          }
+
+          const callRegex = /\b([a-zA-Z_a-áâãéêíóôõúçüA-ÁÂÃÉÊÍÓÔÕÚÇÜ][a-zA-Z0-9_a-áâãéêíóôõúçüA-ÁÂÃÉÊÍÓÔÕÚÇÜ]*)\s*\(/g;
+          let callMatch;
+          while ((callMatch = callRegex.exec(lineText)) !== null) {
+            const funcName = callMatch[1];
+            const charBeforeIdx = callMatch.index - 1;
+            const isLibraryCall = charBeforeIdx >= 0 && lineText[charBeforeIdx] === '.';
+
+            if (!controlKeywords.has(funcName) && !declaredFuncs.has(funcName) && !isLibraryCall) {
+              const colStart = callMatch.index + 1;
+              const colEnd = colStart + funcName.length;
+
+              const closest = getClosestKeywordOrFunc(funcName, declaredFuncs);
+              const suggestion = closest ? ` Você quis dizer '${closest}'?` : '';
+
+              markers.push({
+                startLineNumber: index + 1,
+                startColumn: colStart,
+                endLineNumber: index + 1,
+                endColumn: colEnd,
+                message: `Erro Sintático: A função '${funcName}' não foi declarada.${suggestion}`,
+                severity: 8 // Error
+              });
+            }
+          }
+        });
+
         // Set markers on the model
         if (editor && monaco && model) {
           monaco.editor.setModelMarkers(model, 'portugol', markers);
@@ -918,9 +980,10 @@ export default function App() {
     debugInterpreterRef.current = null;
     
     if (err) {
+      const errMsg = err.erroInterno?.mensagem || err.mensagem || err.message || (err.erroInterno ? String(err.erroInterno) : String(err));
       setConsoleLines(prev => [
         ...prev, 
-        { type: 'stderr', text: `Erro de Depuração: ${err.message || err}` },
+        { type: 'stderr', text: `Erro de Depuração: ${errMsg}` },
         { type: 'stderr', text: '\n--- DEPURAÇÃO INTERROMPIDA COM ERRO ---' }
       ]);
     } else {
