@@ -1,39 +1,38 @@
-# 📝 Exercício 12: Conversão de Real para Dólar
+# 📝 Exercício 12: Cálculo de Potência
 
 ## 📖 Descrição
-Escreva um programa que leia um valor em real (R$), calcule e apresente o valor da conversão desse valor em dólar (US$), considerando uma cotação do dólar previamente definida.
+Escreva um programa que leia dois valores numéricos inteiros representando a base e o expoente de uma potência, calcule a potência utilizando os valores de entrada e apresente o resultado.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira um valor em real (R$).
+   - Solicite ao usuário que insira dois valores numéricos inteiros representando a base e o expoente da potência.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule o valor equivalente em dólar (US$) dividindo o valor em real
-     pela cotação do dólar.
+   - Calcule a potência utilizando a base e o expoente fornecidos.
 
 3. Saída de Dados:
-   - Exiba o valor convertido em dólar.
+   - Exiba o resultado da potência calculada.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: 100 (valor em real)
-  - SAÍDA: 17.86 (valor em dólar, considerando a cotação de 5.60)
+  - ENTRADA: base = 2, expoente = 3
+  - SAÍDA: 8 (2 elevado a 3 é igual a 8)
 
 - Exemplo 2:
-  - ENTRADA: 500 (valor em real)
-  - SAÍDA: 89.29 (valor em dólar, considerando a cotação de 5.60)
+  - ENTRADA: base = 5, expoente = 2
+  - SAÍDA: 25 (5 elevado a 2 é igual a 25)
 
 - Exemplo 3:
-  - ENTRADA: 50 (valor em real)
-  - SAÍDA: 8.93 (valor em dólar, considerando a cotação de 5.60)
+  - ENTRADA: base = -3, expoente = 4
+  - SAÍDA: 81 ((-3) elevado a 4 é igual a 81)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: valor_em_real
-PROCESSAMENTO: valor_em_dolar = valor_em_real / cotacao_do_dolar
-SAÍDA: exibir valor_em_dolar
+ENTRADA: base, expoente
+PROCESSAMENTO: potencia = base elevado ao expoente
+SAÍDA: exibir potencia
 ```

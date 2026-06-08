@@ -16,8 +16,8 @@ const chapters = [
   { dir: '03_EstruturaDeRepetição', name: 'Estrutura de Repetição' },
   { dir: '04_EstruturaDeDadosDeUmaDimensão', name: 'Estrutura de Dados de Uma Dimensão (Vetores)' },
   { dir: '05_EstruturaDeDadosDeDuasDimensões', name: 'Estrutura de Dados de Duas Dimensões (Matrizes)' },
-  { dir: '06_EstruturasHeterogêneas', name: 'Estruturas Heterogêneas (Registros)' },
-  { dir: '07_EstruturaDeSubprogramas', name: 'Estrutura de Subprogramas (Funções e Procedimentos)' }
+  { dir: '06_EstruturasHeterogêneas', name: 'Modularização e Estruturas de Dados', groupDir: '06_ModularizacaoEEstruturasDeDados' },
+  { dir: '07_EstruturaDeSubprogramas', name: 'Modularização e Estruturas de Dados', groupDir: '06_ModularizacaoEEstruturasDeDados' }
 ];
 
 function parseExercise(filePath, chapterName, chapterDir) {
@@ -99,13 +99,16 @@ function run() {
     for (const file of files) {
       const filePath = path.join(chapterPath, file);
       try {
-        const exerciseData = parseExercise(filePath, chapter.name, chapter.dir);
+        const exerciseData = parseExercise(filePath, chapter.name, chapter.groupDir || chapter.dir);
         allExercises.push(exerciseData);
       } catch (err) {
         console.error(`Error parsing ${filePath}:`, err);
       }
     }
   }
+
+  // Sort exercises by number to ensure perfect sequential order
+  allExercises.sort((a, b) => a.number - b.number);
 
   // Ensure output directory exists
   if (!fs.existsSync(outputDir)) {

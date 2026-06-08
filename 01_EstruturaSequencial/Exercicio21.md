@@ -1,38 +1,38 @@
-# 📝 Exercício 21: Cálculo de Potência
+# 📝 Exercício 21: Cálculo da Velocidade de um Projétil
 
 ## 📖 Descrição
-Escreva um programa que leia dois valores numéricos inteiros representando a base e o expoente de uma potência, calcule a potência utilizando os valores de entrada e apresente o resultado.
+Escreva um programa que leia a distância percorrida em quilômetros e o tempo em horas, calcule a velocidade do projétil em metros por segundo e exiba o resultado.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira dois valores numéricos inteiros representando a base e o expoente da potência.
+   - Solicite ao usuário que insira a distância percorrida em quilômetros e o tempo em horas.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule a potência utilizando a base e o expoente fornecidos.
+   - Calcule a velocidade do projétil em metros por segundo usando a fórmula: velocidade = distância / tempo / 3.6.
 
 3. Saída de Dados:
-   - Exiba o resultado da potência calculada.
+   - Exiba o valor da velocidade em metros por segundo.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: base = 2, expoente = 3
-  - SAÍDA: 8 (2 elevado a 3 é igual a 8)
+  - ENTRADA: Distância = 100 km, Tempo = 2 horas
+  - SAÍDA: Velocidade = 27.78 m/s
 
 - Exemplo 2:
-  - ENTRADA: base = 5, expoente = 2
-  - SAÍDA: 25 (5 elevado a 2 é igual a 25)
+  - ENTRADA: Distância = 50 km, Tempo = 1 hora
+  - SAÍDA: Velocidade = 13.89 m/s
 
 - Exemplo 3:
-  - ENTRADA: base = -3, expoente = 4
-  - SAÍDA: 81 ((-3) elevado a 4 é igual a 81)
+  - ENTRADA: Distância = 200 km, Tempo = 4 horas
+  - SAÍDA: Velocidade = 13.89 m/s
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: base, expoente
-PROCESSAMENTO: potencia = base elevado ao expoente
-SAÍDA: exibir potencia
+ENTRADA: distancia_km, tempo_horas
+PROCESSAMENTO: velocidade_ms = distancia_km / tempo_horas / 3.6
+SAÍDA: exibir "Velocidade = " + velocidade_ms + " m/s"
 ```

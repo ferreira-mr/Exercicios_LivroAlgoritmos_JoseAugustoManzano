@@ -1,40 +1,43 @@
-# 📝 Exercício 15: Cálculo do Produto e da Soma de Quatro Números
+# 📝 Exercício 15: Conversor de Temperatura
 
 ## 📖 Descrição
-Escreva um programa que leia quatro valores numéricos, calcule o produto do primeiro com o terceiro e a soma do segundo com o quarto, e exiba os resultados do produto e da soma.
+Escreva um programa que converta a temperatura de Fahrenheit para Celsius.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira quatro valores numéricos.
+   - Solicite ao usuário que insira a temperatura em graus Fahrenheit.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule o produto do primeiro e do terceiro número.
-   - Calcule a soma do segundo e do quarto número.
+   - Utilize a fórmula de conversão de temperatura: C = (F - 32) * 5/9, onde
+     C é a temperatura em Celsius e F é a temperatura em Fahrenheit.
+   - Calcule a temperatura em Celsius usando a fórmula mencionada.
 
 3. Saída de Dados:
-   - Exiba os resultados do produto e da soma.
+   - Exiba a temperatura convertida em graus Celsius.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: 2, 3, 4, 5
-  - SAÍDA: Produto: 8 (2 * 4), Soma: 8 (3 + 5)
+  - Entrada: 77 (temperatura em graus Fahrenheit)
+  - Processamento: C = (77 - 32) * 5/9 = 25.0
+  - Saída: 25.0 (temperatura em graus Celsius)
 
 - Exemplo 2:
-  - ENTRADA: -1, 8, 0, 2
-  - SAÍDA: Produto: 0 ((-1) * 0), Soma: 10 (8 + 2)
+  - Entrada: 14.0 (temperatura em graus Fahrenheit)
+  - Processamento: C = (14.0 - 32) * 5/9 = -10.0
+  - Saída: -10.0 (temperatura em graus Celsius)
 
 - Exemplo 3:
-  - ENTRADA: 10, 5, 3, 7
-  - SAÍDA: Produto: 30 (10 * 3), Soma: 12 (5 + 7)
+  - Entrada: 212.0 (temperatura em graus Fahrenheit)
+  - Processamento: C = (212.0 - 32) * 5/9 = 100.0
+  - Saída: 100.0 (temperatura em graus Celsius)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: num1, num2, num3, num4
-PROCESSAMENTO: produto = num1 * num3
-               soma = num2 + num4
-SAÍDA: exibir "Produto: " + produto + ", Soma: " + soma
+1. Solicitar temperaturaFahrenheit
+2. temperaturaCelsius = (temperaturaFahrenheit - 32) * 5/9
+3. Exibir temperaturaCelsius
 ```

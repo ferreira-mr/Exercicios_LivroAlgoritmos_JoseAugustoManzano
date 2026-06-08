@@ -1,38 +1,41 @@
-# 📝 Exercício 22: Cálculo do Volume de uma Esfera
+# 📝 Exercício 22: Troca de Valores entre Variáveis
 
 ## 📖 Descrição
-Escreva um programa que leia o raio da esfera, calcule o volume da esfera utilizando a fórmula volume = (4/3) * π * raio³ e exiba o resultado.
+Escreva um programa que efetue a troca de valores entre duas variáveis, A e B.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira o raio da esfera.
+   - Solicite ao usuário que insira o valor para a variável A.
+   - Solicite ao usuário que insira o valor para a variável B.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule o volume da esfera utilizando a fórmula: volume = (4/3) * π * raio³.
+   - Efetue a troca dos valores entre as variáveis A e B, de forma que
+     A passe a possuir o valor de B e B passe a possuir o valor de A.
+     Utilize uma variável temporária para realizar a troca.
 
 3. Saída de Dados:
-   - Exiba o valor do volume da esfera.
+   - Apresente os valores antes e após a efetivação do processo de troca.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: raio = 5
-  - SAÍDA: 523.6 (volume da esfera)
+  - Entrada: A = 5, B = 10
+  - Saída: Antes da troca - A = 5, B = 10; Após a troca - A = 10, B = 5
 
 - Exemplo 2:
-  - ENTRADA: raio = 10
-  - SAÍDA: 4188.79 (volume da esfera)
+  - Entrada: A = 7, B = 3
+  - Saída: Antes da troca - A = 7, B = 3; Após a troca - A = 3, B = 7
 
 - Exemplo 3:
-  - ENTRADA: raio = 2.5
-  - SAÍDA: 65.45 (volume da esfera)
+  - Entrada: A = -2, B = 8
+  - Saída: Antes da troca - A = -2, B = 8; Após a troca - A = 8, B = -2
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: raio
-PROCESSAMENTO: volume = (4/3) * π * raio elevado a 3
-SAÍDA: exibir volume
+1. Solicitar A, B
+2. temp = A; A = B; B = temp;
+3. Exibir "Antes da troca - A =", A, ", B =", B, "; Após a troca - A =", B, ", B =", A
 ```

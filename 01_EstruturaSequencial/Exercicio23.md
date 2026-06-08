@@ -1,38 +1,41 @@
-# 📝 Exercício 23: Conversão de Pés para Metros
+# 📝 Exercício 23: Adição e Multiplicação de Quatro Números Inteiros
 
 ## 📖 Descrição
-Escreva um programa que leia uma medida em pés, converta a medida de pés para metros usando a fórmula metros = pés * 0.3048 e exiba o resultado.
+Escreva um programa que leia quatro valores numéricos inteiros, realize as operações de adição e multiplicação desses quatro números entre si e, por fim, exiba os resultados das adições e multiplicações dos quatro números.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira uma medida em pés.
+   - Solicite ao usuário que insira quatro valores numéricos inteiros.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Converta a medida de pés para metros usando a fórmula: metros = pés * 0.3048.
+   - Realize as operações de adição e multiplicação dos quatro números entre si.
 
 3. Saída de Dados:
-   - Exiba a medida equivalente em metros.
+   - Exiba as adições e multiplicações dos quatro números.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: medida em pés = 10
-  - SAÍDA: 3.048 (medida equivalente em metros)
+  - ENTRADA: 1, 2, 3, 4
+  - SAÍDA: Adições: 1+2=3, 1+3=4, 1+4=5, 2+3=5, 2+4=6, 3+4=7
+           Multiplicações: 1x2=2, 1x3=3, 1x4=4, 2x3=6, 2x4=8, 3x4=12
 
 - Exemplo 2:
-  - ENTRADA: medida em pés = 20
-  - SAÍDA: 6.096 (medida equivalente em metros)
+  - ENTRADA: -2, 5, 0, -1
+  - SAÍDA: Adições: -2+5=3, -2+0=-2, -2-1=-3, 5+0=5, 5-1=4, 0-1=-1
+           Multiplicações: -2x5=-10, -2x0=0, -2x-1=2, 5x0=0, 5x-1=-5, 0x-1=0
 
 - Exemplo 3:
-  - ENTRADA: medida em pés = 5
-  - SAÍDA: 1.524 (medida equivalente em metros)
+  - ENTRADA: 10, 10, 10, 10
+  - SAÍDA: Adições: 10+10=20, 10+10=20, 10+10=20, 10+10=20, 10+10=20, 10+10=20
+           Multiplicações: 10x10=100, 10x10=100, 10x10=100, 10x10=100, 10x10=100, 10x10=100
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: medida_pés
-PROCESSAMENTO: medida_metros = medida_pés * 0.3048
-SAÍDA: exibir medida_metros
+ENTRADA: num1, num2, num3, num4
+PROCESSAMENTO: Realize as operações de adição e multiplicação dos quatro números entre si.
+SAÍDA: Exiba as adições e multiplicações dos quatro números.
 ```

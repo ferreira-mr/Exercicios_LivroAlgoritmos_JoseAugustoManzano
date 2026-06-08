@@ -1,46 +1,39 @@
-# 📝 Exercício 33: Valores Divisíveis por 2 e 3
+# 📝 Exercício 33: Verificação de Valor Menor ou Igual a 3
 
 ## 📖 Descrição
-Escreva um programa que leia quatro valores numéricos inteiros e apresente apenas os valores que sejam divisíveis por 2 e 3.
+Escreva um programa que leia um valor inteiro qualquer e apresente-o caso não seja maior que 3.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira quatro valores numéricos inteiros.
+   - Solicite ao usuário que insira um valor inteiro.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Verifique se cada valor é divisível por 2 e 3.
-   - Se um valor for divisível por 2 e 3, apresente-o.
+   - Verifique se o valor inserido é menor ou igual a 3.
 
 3. Saída de Dados:
-   - Apresente os valores divisíveis por 2 e 3.
+   - Apresente o valor inserido se ele for menor ou igual a 3.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - Entrada: 6, 8, 9, 12
-  - Saída: 6, 12
+  - Entrada: 2
+  - Saída: 2
 
 - Exemplo 2:
-  - Entrada: 2, 3, 4, 5
-  - Saída: 2, 3
+  - Entrada: 5
+  - Saída: (Nenhum valor apresentado)
 
 - Exemplo 3:
-  - Entrada: 10, 15, 18, 20
-  - Saída: 18
+  - Entrada: 0
+  - Saída: 0
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: num1, num2, num3, num4
+ENTRADA: valor
 PROCESSAMENTO:
-  - SE num1 for divisível por 2 e por 3 ENTÃO
-    - EXIBIR num1
-  - SE num2 for divisível por 2 e por 3 ENTÃO
-    - EXIBIR num2
-  - SE num3 for divisível por 2 e por 3 ENTÃO
-    - EXIBIR num3
-  - SE num4 for divisível por 2 e por 3 ENTÃO
-    - EXIBIR num4
+  - SE valor é menor ou igual a 3 ENTÃO
+    - EXIBIR valor
 ```

@@ -1,44 +1,39 @@
-# 📝 Exercício 3: Cálculo do Volume de uma Lata de Óleo
+# 📝 Exercício 3: Cálculo da Diferença entre Dois Números Inteiros
 
 ## 📖 Descrição
-Escreva um programa que calcule e apresente o valor do volume de uma lata de óleo.
+Escreva um programa que leia dois valores numéricos inteiros, calcule a diferença do primeiro pelo segundo e exiba o resultado.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira o raio da base da lata em centímetros.
-   - Solicite ao usuário que insira a altura da lata em centímetros.
+   - Solicite ao usuário que insira dois valores numéricos inteiros.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Utilize a fórmula para calcular o volume da lata de óleo: V = π * raio^2 * altura,
-     onde V é o volume, raio é o raio da base da lata e altura é a altura da lata.
-   - Calcule o volume utilizando a fórmula mencionada.
+   - Calcule a diferença entre os dois números, subtraindo o segundo número
+     do primeiro.
 
 3. Saída de Dados:
-   - Exiba o volume calculado da lata de óleo em centímetros cúbicos (cm³).
+   - Exiba a diferença entre os dois números.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - Entrada: raio = 5 cm, altura = 10 cm
-  - Processamento: V = π * 5^2 * 10 = 785.3981625 cm³
-  - Saída: 785.3981625 cm³ (volume da lata de óleo)
+  - ENTRADA: 10, 5
+  - SAÍDA: 5 (10 - 5)
 
 - Exemplo 2:
-  - Entrada: raio = 3 cm, altura = 8 cm
-  - Processamento: V = π * 3^2 * 8 = 226.19467080000004 cm³
-  - Saída: 226.19467080000004 cm³ (volume da lata de óleo)
+  - ENTRADA: -3, 8
+  - SAÍDA: -11 (-3 - 8)
 
 - Exemplo 3:
-  - Entrada: raio = 7 cm, altura = 15 cm
-  - Processamento: V = π * 7^2 * 15 = 2309.07059775 cm³
-  - Saída: 2309.07059775 cm³ (volume da lata de óleo)
+  - ENTRADA: 20, 20
+  - SAÍDA: 0 (20 - 20)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-1. Solicitar raio, altura
-2. volume = π * raio^2 * altura
-3. Exibir volume
+ENTRADA: num1, num2
+PROCESSAMENTO: diferenca = num1 - num2
+SAÍDA: exibir diferenca
 ```

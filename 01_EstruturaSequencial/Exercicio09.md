@@ -1,38 +1,38 @@
-# 📝 Exercício 9: Cálculo do Quadrado de um Número Inteiro
+# 📝 Exercício 9: Cálculo do Volume de uma Esfera
 
 ## 📖 Descrição
-Escreva um programa que efetue a leitura de um valor numérico inteiro, calcule o quadrado desse valor e exiba o resultado.
+Escreva um programa que leia o raio da esfera, calcule o volume da esfera utilizando a fórmula volume = (4/3) * π * raio³ e exiba o resultado.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira um valor numérico inteiro.
+   - Solicite ao usuário que insira o raio da esfera.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule o quadrado do número lido, multiplicando-o por ele mesmo.
+   - Calcule o volume da esfera utilizando a fórmula: volume = (4/3) * π * raio³.
 
 3. Saída de Dados:
-   - Exiba o valor do número elevado ao quadrado.
+   - Exiba o valor do volume da esfera.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: 5
-  - SAÍDA: 25 (5 elevado ao quadrado)
+  - ENTRADA: raio = 5
+  - SAÍDA: 523.6 (volume da esfera)
 
 - Exemplo 2:
-  - ENTRADA: -3
-  - SAÍDA: 9 ((-3) elevado ao quadrado)
+  - ENTRADA: raio = 10
+  - SAÍDA: 4188.79 (volume da esfera)
 
 - Exemplo 3:
-  - ENTRADA: 0
-  - SAÍDA: 0 (0 elevado ao quadrado)
+  - ENTRADA: raio = 2.5
+  - SAÍDA: 65.45 (volume da esfera)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: num
-PROCESSAMENTO: quadrado = num * num
-SAÍDA: exibir quadrado
+ENTRADA: raio
+PROCESSAMENTO: volume = (4/3) * π * raio elevado a 3
+SAÍDA: exibir volume
 ```

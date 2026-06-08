@@ -1,44 +1,39 @@
-# 📝 Exercício 5: Cálculo do Valor de uma Prestação em Atraso
+# 📝 Exercício 5: Conversão de Dólar para Real
 
 ## 📖 Descrição
-Escreva um programa que calcule e apresente o valor de uma prestação em atraso.
+Escreva um programa que leia um valor em dólar (US$), calcule e apresente o valor da conversão desse valor em real (R$), considerando uma cotação do dólar previamente definida.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira o valor original da prestação.
-   - Solicite ao usuário que insira o número de meses em atraso.
+   - Solicite ao usuário que insira um valor em dólar (US$).
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Utilize a fórmula para calcular o valor da prestação em atraso: 
-     valor = valor_original * (1 + (taxa_juros / 100) * meses_atraso), 
-     onde valor_original é o valor da prestação sem os juros, 
-     taxa_juros é a taxa de juros mensal e 
-     meses_atraso é o número de meses em atraso.
-   - Calcule o valor da prestação em atraso usando a fórmula mencionada.
+   - Calcule o valor equivalente em real (R$) multiplicando o valor em
+     dólar pela cotação do dólar.
 
 3. Saída de Dados:
-   - Exiba o valor da prestação em atraso.
+   - Exiba o valor convertido em real.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - Entrada: valor_original = 1000, meses_atraso = 3
-  - Saída: 1030 (valor da prestação em atraso)
+  - ENTRADA: 50 (valor em dólar)
+  - SAÍDA: 280.0 (valor em real, considerando a cotação de 5.60)
 
 - Exemplo 2:
-  - Entrada: valor_original = 500, meses_atraso = 2
-  - Saída: 510 (valor da prestação em atraso)
+  - ENTRADA: 100 (valor em dólar)
+  - SAÍDA: 560.0 (valor em real, considerando a cotação de 5.60)
 
 - Exemplo 3:
-  - Entrada: valor_original = 1500, meses_atraso = 5
-  - Saída: 1575 (valor da prestação em atraso)
+  - ENTRADA: 20 (valor em dólar)
+  - SAÍDA: 112.0 (valor em real, considerando a cotação de 5.60)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-1. Solicitar valor_original, meses_atraso
-2. valor = valor_original * (1 + (taxa_juros / 100) * meses_atraso)
-3. Exibir valor
+ENTRADA: valor_em_dolar
+PROCESSAMENTO: valor_em_real = valor_em_dolar * cotacao_do_dolar
+SAÍDA: exibir valor_em_real
 ```

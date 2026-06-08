@@ -1,41 +1,44 @@
-# 📝 Exercício 24: Cálculo de Raiz
+# 📝 Exercício 24: Cálculo do Valor de uma Prestação em Atraso
 
 ## 📖 Descrição
-Escreva um programa que leia a base e o índice de uma raiz e calcule a raiz.
+Escreva um programa que calcule e apresente o valor de uma prestação em atraso.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira a base e o índice da raiz.
+   - Solicite ao usuário que insira o valor original da prestação.
+   - Solicite ao usuário que insira o número de meses em atraso.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule a raiz de base qualquer com índice qualquer.
+   - Utilize a fórmula para calcular o valor da prestação em atraso: 
+     valor = valor_original * (1 + (taxa_juros / 100) * meses_atraso), 
+     onde valor_original é o valor da prestação sem os juros, 
+     taxa_juros é a taxa de juros mensal e 
+     meses_atraso é o número de meses em atraso.
+   - Calcule o valor da prestação em atraso usando a fórmula mencionada.
 
 3. Saída de Dados:
-   - Exiba o valor da raiz calculada.
+   - Exiba o valor da prestação em atraso.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - Calcular a raiz quadrada de 16:
-  - ENTRADA: base = 16, índice = 2
-  - SAÍDA: 4.0 (raiz quadrada de 16 é 4)
+  - Entrada: valor_original = 1000, meses_atraso = 3
+  - Saída: 1030 (valor da prestação em atraso)
 
 - Exemplo 2:
-  - Calcular a raiz cúbica de 27:
-  - ENTRADA: base = 27, índice = 3
-  - SAÍDA: 3.0 (raiz cúbica de 27 é 3)
+  - Entrada: valor_original = 500, meses_atraso = 2
+  - Saída: 510 (valor da prestação em atraso)
 
 - Exemplo 3:
-  - Calcular a raiz quarta de 81:
-  - ENTRADA: base = 81, índice = 4
-  - SAÍDA: 3.0 (raiz quarta de 81 é 3)
+  - Entrada: valor_original = 1500, meses_atraso = 5
+  - Saída: 1575 (valor da prestação em atraso)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: base, índice
-PROCESSAMENTO: raiz = base^(1/índice)
-SAÍDA: exibir raiz
+1. Solicitar valor_original, meses_atraso
+2. valor = valor_original * (1 + (taxa_juros / 100) * meses_atraso)
+3. Exibir valor
 ```

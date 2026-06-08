@@ -1,43 +1,38 @@
-# 📝 Exercício 2: Conversor de Temperatura
+# 📝 Exercício 2: Cálculo do Quadrado de um Número Inteiro
 
 ## 📖 Descrição
-Escreva um programa que converta a temperatura de Fahrenheit para Celsius.
+Escreva um programa que efetue a leitura de um valor numérico inteiro, calcule o quadrado desse valor e exiba o resultado.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira a temperatura em graus Fahrenheit.
+   - Solicite ao usuário que insira um valor numérico inteiro.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Utilize a fórmula de conversão de temperatura: C = (F - 32) * 5/9, onde
-     C é a temperatura em Celsius e F é a temperatura em Fahrenheit.
-   - Calcule a temperatura em Celsius usando a fórmula mencionada.
+   - Calcule o quadrado do número lido, multiplicando-o por ele mesmo.
 
 3. Saída de Dados:
-   - Exiba a temperatura convertida em graus Celsius.
+   - Exiba o valor do número elevado ao quadrado.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - Entrada: 77 (temperatura em graus Fahrenheit)
-  - Processamento: C = (77 - 32) * 5/9 = 25.0
-  - Saída: 25.0 (temperatura em graus Celsius)
+  - ENTRADA: 5
+  - SAÍDA: 25 (5 elevado ao quadrado)
 
 - Exemplo 2:
-  - Entrada: 14.0 (temperatura em graus Fahrenheit)
-  - Processamento: C = (14.0 - 32) * 5/9 = -10.0
-  - Saída: -10.0 (temperatura em graus Celsius)
+  - ENTRADA: -3
+  - SAÍDA: 9 ((-3) elevado ao quadrado)
 
 - Exemplo 3:
-  - Entrada: 212.0 (temperatura em graus Fahrenheit)
-  - Processamento: C = (212.0 - 32) * 5/9 = 100.0
-  - Saída: 100.0 (temperatura em graus Celsius)
+  - ENTRADA: 0
+  - SAÍDA: 0 (0 elevado ao quadrado)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-1. Solicitar temperaturaFahrenheit
-2. temperaturaCelsius = (temperaturaFahrenheit - 32) * 5/9
-3. Exibir temperaturaCelsius
+ENTRADA: num
+PROCESSAMENTO: quadrado = num * num
+SAÍDA: exibir quadrado
 ```

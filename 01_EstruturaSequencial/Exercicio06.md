@@ -1,41 +1,39 @@
-# 📝 Exercício 6: Troca de Valores entre Variáveis
+# 📝 Exercício 6: Conversão de Real para Dólar
 
 ## 📖 Descrição
-Escreva um programa que efetue a troca de valores entre duas variáveis, A e B.
+Escreva um programa que leia um valor em real (R$), calcule e apresente o valor da conversão desse valor em dólar (US$), considerando uma cotação do dólar previamente definida.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira o valor para a variável A.
-   - Solicite ao usuário que insira o valor para a variável B.
+   - Solicite ao usuário que insira um valor em real (R$).
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Efetue a troca dos valores entre as variáveis A e B, de forma que
-     A passe a possuir o valor de B e B passe a possuir o valor de A.
-     Utilize uma variável temporária para realizar a troca.
+   - Calcule o valor equivalente em dólar (US$) dividindo o valor em real
+     pela cotação do dólar.
 
 3. Saída de Dados:
-   - Apresente os valores antes e após a efetivação do processo de troca.
+   - Exiba o valor convertido em dólar.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - Entrada: A = 5, B = 10
-  - Saída: Antes da troca - A = 5, B = 10; Após a troca - A = 10, B = 5
+  - ENTRADA: 100 (valor em real)
+  - SAÍDA: 17.86 (valor em dólar, considerando a cotação de 5.60)
 
 - Exemplo 2:
-  - Entrada: A = 7, B = 3
-  - Saída: Antes da troca - A = 7, B = 3; Após a troca - A = 3, B = 7
+  - ENTRADA: 500 (valor em real)
+  - SAÍDA: 89.29 (valor em dólar, considerando a cotação de 5.60)
 
 - Exemplo 3:
-  - Entrada: A = -2, B = 8
-  - Saída: Antes da troca - A = -2, B = 8; Após a troca - A = 8, B = -2
+  - ENTRADA: 50 (valor em real)
+  - SAÍDA: 8.93 (valor em dólar, considerando a cotação de 5.60)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-1. Solicitar A, B
-2. temp = A; A = B; B = temp;
-3. Exibir "Antes da troca - A =", A, ", B =", B, "; Após a troca - A =", B, ", B =", A
+ENTRADA: valor_em_real
+PROCESSAMENTO: valor_em_dolar = valor_em_real / cotacao_do_dolar
+SAÍDA: exibir valor_em_dolar
 ```

@@ -1,43 +1,38 @@
-# 📝 Exercício 8: Cálculo do Volume de uma Caixa Retangular
+# 📝 Exercício 8: Cálculo da Área de uma Circunferência
 
 ## 📖 Descrição
-Escreva um programa que calcule e apresente o valor do volume de uma caixa retangular.
+Escreva um programa que leia o valor do raio de uma circunferência, calcule o valor da área da circunferência e exiba o resultado.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira o valor do comprimento da caixa retangular.
-   - Solicite ao usuário que insira o valor da largura da caixa retangular.
-   - Solicite ao usuário que insira o valor da altura da caixa retangular.
+   - Solicite ao usuário que insira o valor do raio da circunferência.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Utilize a fórmula para calcular o volume da caixa retangular: 
-     volume = comprimento * largura * altura, onde
-     comprimento, largura e altura são as dimensões da caixa.
-   - Calcule o volume usando a fórmula mencionada.
+   - Calcule a área da circunferência usando a fórmula: área = π * raio * raio.
 
 3. Saída de Dados:
-   - Exiba o volume calculado da caixa retangular.
+   - Exiba o valor da área calculada.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: comprimento = 5, largura = 3, altura = 2
-  - SAÍDA: 30 (volume da caixa retangular)
+  - ENTRADA: raio = 5
+  - SAÍDA: 78.54 (área da circunferência)
 
 - Exemplo 2:
-  - ENTRADA: comprimento = 4, largura = 6, altura = 2
-  - SAÍDA: 48 (volume da caixa retangular)
+  - ENTRADA: raio = 10
+  - SAÍDA: 314.16 (área da circunferência)
 
 - Exemplo 3:
-  - ENTRADA: comprimento = 10, largura = 10, altura = 10
-  - SAÍDA: 1000 (volume da caixa retangular)
+  - ENTRADA: raio = 2.5
+  - SAÍDA: 19.63 (área da circunferência)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: comprimento, largura, altura
-PROCESSAMENTO: volume = comprimento * largura * altura
-SAÍDA: exibir volume
+ENTRADA: raio
+PROCESSAMENTO: area = 3.14159 * raio * raio
+SAÍDA: exibir area
 ```

@@ -1,41 +1,43 @@
-# 📝 Exercício 37: Verificação de Faixa de Valor
+# 📝 Exercício 37: Cálculo da Diferença entre Dois Números Inteiros
 
 ## 📖 Descrição
-Escreva um programa que leia um valor numérico inteiro que esteja na faixa de valores de 1 até 9 e informe se o número está na faixa permitida ou não.
+Escreva um programa que leia dois valores numéricos inteiros e apresente o resultado da diferença entre o maior e o menor valor.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira um valor numérico inteiro.
+   - Solicite ao usuário que insira dois valores numéricos inteiros.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Verifique se o valor está na faixa de 1 até 9.
+   - Identifique o maior e o menor valor entre os dois números.
+   - Calcule a diferença entre o maior e o menor valor.
 
 3. Saída de Dados:
-   - Apresente se o valor está na faixa permitida ou não.
+   - Apresente o resultado da diferença entre o maior e o menor valor.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - Entrada: 5
-  - Saída: Valor está na faixa permitida
+  - Entrada: 10, 5
+  - Saída: 5 (10 - 5)
 
 - Exemplo 2:
-  - Entrada: 10
-  - Saída: Valor não está na faixa permitida
+  - Entrada: 20, 8
+  - Saída: 12 (20 - 8)
 
 - Exemplo 3:
-  - Entrada: 3
-  - Saída: Valor está na faixa permitida
+  - Entrada: -5, 3
+  - Saída: -8 (3 - (-5))
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: valor
+ENTRADA: num1, num2
 PROCESSAMENTO:
-  - SE valor está entre 1 e 9 INCLUSIVE ENTÃO
-    - EXIBIR "Valor está na faixa permitida"
+  - SE num1 > num2
+    - diferenca = num1 - num2
   - SENÃO
-    - EXIBIR "Valor não está na faixa permitida"
+    - diferenca = num2 - num1
+SAÍDA: exibir diferenca
 ```

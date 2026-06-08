@@ -1,39 +1,41 @@
-# 📝 Exercício 13: Cálculo da Soma dos Quadrados de Três Números
+# 📝 Exercício 13: Cálculo de Raiz
 
 ## 📖 Descrição
-Escreva um programa que leia três valores numéricos, calcule a soma dos quadrados desses números e exiba o resultado.
+Escreva um programa que leia a base e o índice de uma raiz e calcule a raiz.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira três valores numéricos.
+   - Solicite ao usuário que insira a base e o índice da raiz.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule o quadrado de cada um dos três números.
-   - Some os quadrados calculados.
+   - Calcule a raiz de base qualquer com índice qualquer.
 
 3. Saída de Dados:
-   - Exiba o resultado da soma dos quadrados.
+   - Exiba o valor da raiz calculada.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: 2, 3, 4
-  - SAÍDA: 29 (2² + 3² + 4² = 4 + 9 + 16 = 29)
+  - Calcular a raiz quadrada de 16:
+  - ENTRADA: base = 16, índice = 2
+  - SAÍDA: 4.0 (raiz quadrada de 16 é 4)
 
 - Exemplo 2:
-  - ENTRADA: 1, 5, 6
-  - SAÍDA: 62 (1² + 5² + 6² = 1 + 25 + 36 = 62)
+  - Calcular a raiz cúbica de 27:
+  - ENTRADA: base = 27, índice = 3
+  - SAÍDA: 3.0 (raiz cúbica de 27 é 3)
 
 - Exemplo 3:
-  - ENTRADA: -3, 0, 2
-  - SAÍDA: 13 ((-3)² + 0² + 2² = 9 + 0 + 4 = 13)
+  - Calcular a raiz quarta de 81:
+  - ENTRADA: base = 81, índice = 4
+  - SAÍDA: 3.0 (raiz quarta de 81 é 3)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: num1, num2, num3
-PROCESSAMENTO: soma_quadrados = (num1 * num1) + (num2 * num2) + (num3 * num3)
-SAÍDA: exibir soma_quadrados
+ENTRADA: base, índice
+PROCESSAMENTO: raiz = base^(1/índice)
+SAÍDA: exibir raiz
 ```

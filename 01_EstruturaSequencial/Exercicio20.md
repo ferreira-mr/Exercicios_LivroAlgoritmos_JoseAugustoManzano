@@ -1,38 +1,40 @@
-# 📝 Exercício 20: Cálculo da Velocidade de um Projétil
+# 📝 Exercício 20: Cálculo do Quadrado da Soma de Três Números
 
 ## 📖 Descrição
-Escreva um programa que leia a distância percorrida em quilômetros e o tempo em horas, calcule a velocidade do projétil em metros por segundo e exiba o resultado.
+Escreva um programa que leia três valores numéricos, calcule o quadrado da soma desses números e exiba o resultado.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira a distância percorrida em quilômetros e o tempo em horas.
+   - Solicite ao usuário que insira três valores numéricos.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule a velocidade do projétil em metros por segundo usando a fórmula: velocidade = distância / tempo / 3.6.
+   - Calcule a soma dos três números.
+   - Calcule o quadrado da soma.
 
 3. Saída de Dados:
-   - Exiba o valor da velocidade em metros por segundo.
+   - Exiba o resultado do quadrado da soma.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: Distância = 100 km, Tempo = 2 horas
-  - SAÍDA: Velocidade = 27.78 m/s
+  - ENTRADA: 2, 3, 4
+  - SAÍDA: 81 ((2 + 3 + 4)² = 9² = 81)
 
 - Exemplo 2:
-  - ENTRADA: Distância = 50 km, Tempo = 1 hora
-  - SAÍDA: Velocidade = 13.89 m/s
+  - ENTRADA: 1, 5, 6
+  - SAÍDA: 144 ((1 + 5 + 6)² = 12² = 144)
 
 - Exemplo 3:
-  - ENTRADA: Distância = 200 km, Tempo = 4 horas
-  - SAÍDA: Velocidade = 13.89 m/s
+  - ENTRADA: -3, 0, 2
+  - SAÍDA: 1 ((-3 + 0 + 2)² = -1² = 1)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: distancia_km, tempo_horas
-PROCESSAMENTO: velocidade_ms = distancia_km / tempo_horas / 3.6
-SAÍDA: exibir "Velocidade = " + velocidade_ms + " m/s"
+ENTRADA: num1, num2, num3
+PROCESSAMENTO: soma = num1 + num2 + num3
+               quadrado_soma = soma * soma
+SAÍDA: exibir quadrado_soma
 ```

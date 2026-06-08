@@ -2,34 +2,24 @@
   "Exercicio01": {
     "cases": [
       {
+        "matchType": "all",
         "inputs": [
-          "25"
+          "5"
         ],
         "outputs": [
-          "77.0",
-          "77"
-        ],
-        "matchType": "any"
+          "6",
+          "4"
+        ]
       },
       {
+        "matchType": "all",
         "inputs": [
-          "-10"
+          "-3"
         ],
         "outputs": [
-          "14.0",
-          "14"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "100"
-        ],
-        "outputs": [
-          "212.0",
-          "212"
-        ],
-        "matchType": "any"
+          "-2",
+          "-4"
+        ]
       }
     ]
   },
@@ -37,37 +27,320 @@
     "cases": [
       {
         "inputs": [
-          "77"
+          "5"
         ],
         "outputs": [
-          "25.0",
           "25"
         ],
         "matchType": "any"
       },
       {
         "inputs": [
-          "14.0"
+          "-3"
         ],
         "outputs": [
-          "-10.0",
-          "-10"
+          "9"
         ],
         "matchType": "any"
       },
       {
         "inputs": [
-          "212.0"
+          "0"
         ],
         "outputs": [
-          "100.0",
-          "100"
+          "0"
         ],
         "matchType": "any"
       }
     ]
   },
   "Exercicio03": {
+    "cases": [
+      {
+        "inputs": [
+          "10",
+          "5"
+        ],
+        "outputs": [
+          "5"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "-3",
+          "8"
+        ],
+        "outputs": [
+          "-11"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "20",
+          "20"
+        ],
+        "outputs": [
+          "0"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio04": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "10",
+          "5"
+        ],
+        "outputs": [
+          "15",
+          "5",
+          "50",
+          "2"
+        ]
+      },
+      {
+        "matchType": "all",
+        "inputs": [
+          "20",
+          "8"
+        ],
+        "outputs": [
+          "28",
+          "12",
+          "160",
+          "2.5"
+        ]
+      }
+    ]
+  },
+  "Exercicio05": {
+    "cases": [
+      {
+        "inputs": [
+          "50"
+        ],
+        "outputs": [
+          "280.0",
+          "280"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "100"
+        ],
+        "outputs": [
+          "560.0",
+          "560"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "20"
+        ],
+        "outputs": [
+          "112.0",
+          "112"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio06": {
+    "cases": [
+      {
+        "inputs": [
+          "100"
+        ],
+        "outputs": [
+          "17.86",
+          "17.9",
+          "18"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "500"
+        ],
+        "outputs": [
+          "89.29",
+          "89.3",
+          "89"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "50"
+        ],
+        "outputs": [
+          "8.93",
+          "8.9",
+          "9"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio07": {
+    "cases": [
+      {
+        "inputs": [
+          "10"
+        ],
+        "outputs": [
+          "3.048",
+          "3.05",
+          "3.0",
+          "3"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "20"
+        ],
+        "outputs": [
+          "6.096",
+          "6.10",
+          "6.1",
+          "6"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "5"
+        ],
+        "outputs": [
+          "1.524",
+          "1.52",
+          "1.5",
+          "2"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio08": {
+    "cases": [
+      {
+        "inputs": [
+          "5"
+        ],
+        "outputs": [
+          "78.54",
+          "78.5",
+          "79"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10"
+        ],
+        "outputs": [
+          "314.16",
+          "314.2",
+          "314"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "2.5"
+        ],
+        "outputs": [
+          "19.63",
+          "19.6",
+          "20"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio09": {
+    "cases": [
+      {
+        "inputs": [
+          "5"
+        ],
+        "outputs": [
+          "523.6",
+          "523.60",
+          "524"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10"
+        ],
+        "outputs": [
+          "4188.79",
+          "4188.8",
+          "4189"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "2.5"
+        ],
+        "outputs": [
+          "65.45",
+          "65.5",
+          "65"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio10": {
+    "cases": [
+      {
+        "inputs": [
+          "5",
+          "3",
+          "2"
+        ],
+        "outputs": [
+          "30"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "4",
+          "6",
+          "2"
+        ],
+        "outputs": [
+          "48"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10",
+          "10",
+          "10"
+        ],
+        "outputs": [
+          "1000"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio11": {
     "cases": [
       {
         "inputs": [
@@ -110,7 +383,146 @@
       }
     ]
   },
-  "Exercicio04": {
+  "Exercicio12": {
+    "cases": [
+      {
+        "inputs": [
+          "2",
+          "3"
+        ],
+        "outputs": [
+          "8"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "5",
+          "2"
+        ],
+        "outputs": [
+          "25"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "-3",
+          "4"
+        ],
+        "outputs": [
+          "81"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio13": {
+    "cases": [
+      {
+        "inputs": [
+          "16",
+          "2"
+        ],
+        "outputs": [
+          "4.0",
+          "4"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "27",
+          "3"
+        ],
+        "outputs": [
+          "3.0",
+          "3"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "81",
+          "4"
+        ],
+        "outputs": [
+          "3.0",
+          "3"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio14": {
+    "cases": [
+      {
+        "inputs": [
+          "25"
+        ],
+        "outputs": [
+          "77.0",
+          "77"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "-10"
+        ],
+        "outputs": [
+          "14.0",
+          "14"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "100"
+        ],
+        "outputs": [
+          "212.0",
+          "212"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio15": {
+    "cases": [
+      {
+        "inputs": [
+          "77"
+        ],
+        "outputs": [
+          "25.0",
+          "25"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "14.0"
+        ],
+        "outputs": [
+          "-10.0",
+          "-10"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "212.0"
+        ],
+        "outputs": [
+          "100.0",
+          "100"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio16": {
     "cases": [
       {
         "inputs": [
@@ -144,276 +556,63 @@
       }
     ]
   },
-  "Exercicio05": {
-    "cases": [
-      {
-        "inputs": [
-          "1000",
-          "3"
-        ],
-        "outputs": [
-          "1030"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "500",
-          "2"
-        ],
-        "outputs": [
-          "510"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "1500",
-          "5"
-        ],
-        "outputs": [
-          "1575"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio06": {
+  "Exercicio17": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
-          "5",
-          "10"
+          "2",
+          "3",
+          "4",
+          "5"
         ],
         "outputs": [
-          "10",
-          "5"
+          "8",
+          "8"
         ]
       },
       {
         "matchType": "all",
         "inputs": [
-          "7",
-          "3"
-        ],
-        "outputs": [
+          "10",
+          "5",
           "3",
           "7"
-        ]
-      }
-    ]
-  },
-  "Exercicio07": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "1",
-          "2",
-          "3",
-          "4"
         ],
         "outputs": [
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "2",
-          "8",
+          "30",
           "12"
         ]
-      },
-      {
-        "matchType": "all",
-        "inputs": [
-          "2",
-          "2",
-          "2",
-          "2"
-        ],
-        "outputs": [
-          "4",
-          "8"
-        ]
       }
     ]
   },
-  "Exercicio08": {
+  "Exercicio18": {
     "cases": [
       {
+        "matchType": "all",
         "inputs": [
-          "5",
-          "3",
-          "2"
-        ],
-        "outputs": [
-          "30"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "4",
-          "6",
-          "2"
-        ],
-        "outputs": [
-          "48"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "10",
-          "10",
+          "1000",
           "10"
         ],
         "outputs": [
-          "1000"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio09": {
-    "cases": [
-      {
-        "inputs": [
-          "5"
-        ],
-        "outputs": [
-          "25"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "-3"
-        ],
-        "outputs": [
-          "9"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "0"
-        ],
-        "outputs": [
-          "0"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio10": {
-    "cases": [
-      {
-        "inputs": [
-          "10",
-          "5"
-        ],
-        "outputs": [
-          "5"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "-3",
-          "8"
-        ],
-        "outputs": [
-          "-11"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "20",
-          "20"
-        ],
-        "outputs": [
-          "0"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio11": {
-    "cases": [
-      {
-        "inputs": [
-          "50"
-        ],
-        "outputs": [
-          "280.0",
-          "280"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
+          "1100",
           "100"
-        ],
-        "outputs": [
-          "560.0",
-          "560"
-        ],
-        "matchType": "any"
+        ]
       },
       {
+        "matchType": "all",
         "inputs": [
-          "20"
+          "2000",
+          "5"
         ],
         "outputs": [
-          "112.0",
-          "112"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio12": {
-    "cases": [
-      {
-        "inputs": [
+          "2100",
           "100"
-        ],
-        "outputs": [
-          "17.86",
-          "17.9",
-          "18"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "500"
-        ],
-        "outputs": [
-          "89.29",
-          "89.3",
-          "89"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "50"
-        ],
-        "outputs": [
-          "8.93",
-          "8.9",
-          "9"
-        ],
-        "matchType": "any"
+        ]
       }
     ]
   },
-  "Exercicio13": {
+  "Exercicio19": {
     "cases": [
       {
         "inputs": [
@@ -450,7 +649,7 @@
       }
     ]
   },
-  "Exercicio14": {
+  "Exercicio20": {
     "cases": [
       {
         "inputs": [
@@ -487,100 +686,131 @@
       }
     ]
   },
-  "Exercicio15": {
+  "Exercicio21": {
     "cases": [
+      {
+        "matchType": "any",
+        "inputs": [
+          "100",
+          "2"
+        ],
+        "outputs": [
+          "27.78",
+          "27.7",
+          "27.8"
+        ]
+      },
+      {
+        "matchType": "any",
+        "inputs": [
+          "50",
+          "1"
+        ],
+        "outputs": [
+          "13.89",
+          "13.8",
+          "13.9"
+        ]
+      }
+    ]
+  },
+  "Exercicio22": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "5",
+          "10"
+        ],
+        "outputs": [
+          "10",
+          "5"
+        ]
+      },
+      {
+        "matchType": "all",
+        "inputs": [
+          "7",
+          "3"
+        ],
+        "outputs": [
+          "3",
+          "7"
+        ]
+      }
+    ]
+  },
+  "Exercicio23": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "outputs": [
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "2",
+          "8",
+          "12"
+        ]
+      },
       {
         "matchType": "all",
         "inputs": [
           "2",
-          "3",
-          "4",
-          "5"
+          "2",
+          "2",
+          "2"
         ],
         "outputs": [
-          "8",
+          "4",
           "8"
         ]
-      },
-      {
-        "matchType": "all",
-        "inputs": [
-          "10",
-          "5",
-          "3",
-          "7"
-        ],
-        "outputs": [
-          "30",
-          "12"
-        ]
       }
     ]
   },
-  "Exercicio16": {
+  "Exercicio24": {
     "cases": [
       {
-        "matchType": "all",
         "inputs": [
           "1000",
-          "10"
+          "3"
         ],
         "outputs": [
-          "1100",
-          "100"
-        ]
-      },
-      {
-        "matchType": "all",
-        "inputs": [
-          "2000",
-          "5"
-        ],
-        "outputs": [
-          "2100",
-          "100"
-        ]
-      }
-    ]
-  },
-  "Exercicio17": {
-    "cases": [
-      {
-        "inputs": [
-          "5"
-        ],
-        "outputs": [
-          "78.54",
-          "78.5",
-          "79"
+          "1030"
         ],
         "matchType": "any"
       },
       {
         "inputs": [
-          "10"
+          "500",
+          "2"
         ],
         "outputs": [
-          "314.16",
-          "314.2",
-          "314"
+          "510"
         ],
         "matchType": "any"
       },
       {
         "inputs": [
-          "2.5"
+          "1500",
+          "5"
         ],
         "outputs": [
-          "19.63",
-          "19.6",
-          "20"
+          "1575"
         ],
         "matchType": "any"
       }
     ]
   },
-  "Exercicio18": {
+  "Exercicio25": {
     "cases": [
       {
         "matchType": "all",
@@ -620,271 +850,376 @@
       }
     ]
   },
-  "Exercicio19": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "10",
-          "5"
-        ],
-        "outputs": [
-          "15",
-          "5",
-          "50",
-          "2"
-        ]
-      },
-      {
-        "matchType": "all",
-        "inputs": [
-          "20",
-          "8"
-        ],
-        "outputs": [
-          "28",
-          "12",
-          "160",
-          "2.5"
-        ]
-      }
-    ]
-  },
-  "Exercicio20": {
-    "cases": [
-      {
-        "matchType": "any",
-        "inputs": [
-          "100",
-          "2"
-        ],
-        "outputs": [
-          "27.78",
-          "27.7",
-          "27.8"
-        ]
-      },
-      {
-        "matchType": "any",
-        "inputs": [
-          "50",
-          "1"
-        ],
-        "outputs": [
-          "13.89",
-          "13.8",
-          "13.9"
-        ]
-      }
-    ]
-  },
-  "Exercicio21": {
-    "cases": [
-      {
-        "inputs": [
-          "2",
-          "3"
-        ],
-        "outputs": [
-          "8"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "5",
-          "2"
-        ],
-        "outputs": [
-          "25"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "-3",
-          "4"
-        ],
-        "outputs": [
-          "81"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio22": {
-    "cases": [
-      {
-        "inputs": [
-          "5"
-        ],
-        "outputs": [
-          "523.6",
-          "523.60",
-          "524"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "10"
-        ],
-        "outputs": [
-          "4188.79",
-          "4188.8",
-          "4189"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "2.5"
-        ],
-        "outputs": [
-          "65.45",
-          "65.5",
-          "65"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio23": {
-    "cases": [
-      {
-        "inputs": [
-          "10"
-        ],
-        "outputs": [
-          "3.048",
-          "3.05",
-          "3.0",
-          "3"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "20"
-        ],
-        "outputs": [
-          "6.096",
-          "6.10",
-          "6.1",
-          "6"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "5"
-        ],
-        "outputs": [
-          "1.524",
-          "1.52",
-          "1.5",
-          "2"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio24": {
-    "cases": [
-      {
-        "inputs": [
-          "16",
-          "2"
-        ],
-        "outputs": [
-          "4.0",
-          "4"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "27",
-          "3"
-        ],
-        "outputs": [
-          "3.0",
-          "3"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "81",
-          "4"
-        ],
-        "outputs": [
-          "3.0",
-          "3"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio25": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "5"
-        ],
-        "outputs": [
-          "6",
-          "4"
-        ]
-      },
-      {
-        "matchType": "all",
-        "inputs": [
-          "-3"
-        ],
-        "outputs": [
-          "-2",
-          "-4"
-        ]
-      }
-    ]
-  },
   "Exercicio26": {
     "cases": [
       {
         "inputs": [
-          "10",
-          "2"
+          "7.0",
+          "8.0",
+          "9.0"
         ],
         "outputs": [
-          "25"
+          "8.30",
+          "8.3"
         ],
         "matchType": "any"
       },
       {
         "inputs": [
-          "8",
-          "4"
+          "5.0",
+          "6.0",
+          "4.0"
         ],
         "outputs": [
-          "4"
+          "4.80",
+          "4.8"
         ],
         "matchType": "any"
       },
       {
         "inputs": [
-          "15",
-          "3"
+          "10.0",
+          "10.0",
+          "10.0"
         ],
         "outputs": [
-          "25"
+          "10.00",
+          "10"
         ],
         "matchType": "any"
       }
     ]
   },
   "Exercicio27": {
+    "cases": [
+      {
+        "inputs": [
+          "300",
+          "5.50",
+          "12"
+        ],
+        "outputs": [
+          "25.00",
+          "137.50"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "150",
+          "6.00",
+          "10"
+        ],
+        "outputs": [
+          "15.00",
+          "90.00"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "450",
+          "4.80",
+          "15"
+        ],
+        "outputs": [
+          "30.00",
+          "144.00"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio28": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "2",
+          "4",
+          "6"
+        ],
+        "outputs": [
+          "5.00",
+          "5"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "0",
+          "0",
+          "3",
+          "4"
+        ],
+        "outputs": [
+          "5.00",
+          "5"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "-1",
+          "-2",
+          "2",
+          "2"
+        ],
+        "outputs": [
+          "5.00",
+          "5"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio29": {
+    "cases": [
+      {
+        "inputs": [
+          "5"
+        ],
+        "outputs": [
+          "30.00",
+          "64.95"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "10"
+        ],
+        "outputs": [
+          "60.00",
+          "259.80"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "2.5"
+        ],
+        "outputs": [
+          "15.00",
+          "16.24"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio30": {
+    "cases": [
+      {
+        "inputs": [
+          "3665"
+        ],
+        "outputs": [
+          "1",
+          "1",
+          "5"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "7200"
+        ],
+        "outputs": [
+          "2",
+          "0",
+          "0"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "59"
+        ],
+        "outputs": [
+          "0",
+          "0",
+          "59"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio31": {
+    "cases": [
+      {
+        "inputs": [
+          "389"
+        ],
+        "outputs": [
+          "3",
+          "1",
+          "1",
+          "1",
+          "1",
+          "2",
+          "0"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "72"
+        ],
+        "outputs": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "15"
+        ],
+        "outputs": [
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "0",
+          "0"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio32": {
+    "cases": [
+      {
+        "inputs": [
+          "160",
+          "25.00",
+          "11",
+          "2"
+        ],
+        "outputs": [
+          "4000.00",
+          "440.00",
+          "70.00",
+          "3630.00"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "200",
+          "50.00",
+          "12",
+          "0"
+        ],
+        "outputs": [
+          "10000.00",
+          "1200.00",
+          "0.00",
+          "8800.00"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio33": {
+    "cases": [
+      {
+        "inputs": [
+          "2"
+        ],
+        "outputs": [
+          "2"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "0"
+        ],
+        "outputs": [
+          "0"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio34": {
+    "cases": [
+      {
+        "matchType": "any",
+        "inputs": [
+          "7"
+        ],
+        "outputs": [
+          "impar",
+          "ímpar"
+        ]
+      },
+      {
+        "matchType": "any",
+        "inputs": [
+          "10"
+        ],
+        "outputs": [
+          "par"
+        ]
+      }
+    ]
+  },
+  "Exercicio35": {
+    "cases": [
+      {
+        "inputs": [
+          "20"
+        ],
+        "outputs": [
+          "40"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "18"
+        ],
+        "outputs": [
+          "36"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio36": {
+    "cases": [
+      {
+        "matchType": "any",
+        "inputs": [
+          "5"
+        ],
+        "outputs": [
+          "permitida",
+          "dentro"
+        ]
+      },
+      {
+        "matchType": "any",
+        "inputs": [
+          "10"
+        ],
+        "outputs": [
+          "nao",
+          "não",
+          "fora"
+        ]
+      }
+    ]
+  },
+  "Exercicio37": {
     "cases": [
       {
         "matchType": "any",
@@ -919,7 +1254,7 @@
       }
     ]
   },
-  "Exercicio28": {
+  "Exercicio38": {
     "cases": [
       {
         "matchType": "any",
@@ -950,339 +1285,6 @@
           "neutro",
           "zero"
         ]
-      }
-    ]
-  },
-  "Exercicio29": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "7",
-          "6",
-          "4",
-          "5"
-        ],
-        "outputs": [
-          "5.5",
-          "aprovado"
-        ]
-      },
-      {
-        "matchType": "all",
-        "inputs": [
-          "6",
-          "5",
-          "3",
-          "4"
-        ],
-        "outputs": [
-          "4.5",
-          "reprovado"
-        ]
-      }
-    ]
-  },
-  "Exercicio30": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "8",
-          "8",
-          "7",
-          "9"
-        ],
-        "outputs": [
-          "8",
-          "aprovado"
-        ]
-      },
-      {
-        "matchType": "all",
-        "inputs": [
-          "5",
-          "6",
-          "5",
-          "6",
-          "8"
-        ],
-        "outputs": [
-          "5.5",
-          "6.75",
-          "aprovado"
-        ]
-      },
-      {
-        "matchType": "all",
-        "inputs": [
-          "4",
-          "4",
-          "4",
-          "4",
-          "3"
-        ],
-        "outputs": [
-          "4",
-          "3.5",
-          "reprovado"
-        ]
-      }
-    ]
-  },
-  "Exercicio31": {
-    "cases": [
-      {
-        "inputs": [
-          "1",
-          "-3",
-          "-4"
-        ],
-        "outputs": [
-          "1"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "2",
-          "-7",
-          "3"
-        ],
-        "outputs": [
-          "1"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "1",
-          "0",
-          "-9"
-        ],
-        "outputs": [
-          "1"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio32": {
-    "cases": [
-      {
-        "inputs": [
-          "5",
-          "2",
-          "7"
-        ],
-        "outputs": [
-          "2"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "10",
-          "1",
-          "8"
-        ],
-        "outputs": [
-          "1"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "-3",
-          "-8",
-          "-1"
-        ],
-        "outputs": [
-          "-8"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio33": {
-    "cases": [
-      {
-        "inputs": [
-          "6",
-          "8",
-          "9",
-          "12"
-        ],
-        "outputs": [
-          "6"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ],
-        "outputs": [
-          "2"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "10",
-          "15",
-          "18",
-          "20"
-        ],
-        "outputs": [
-          "18"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio34": {
-    "cases": [
-      {
-        "inputs": [
-          "6",
-          "8",
-          "9",
-          "12"
-        ],
-        "outputs": [
-          "6"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ],
-        "outputs": [
-          "2"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "10",
-          "15",
-          "18",
-          "20"
-        ],
-        "outputs": [
-          "10"
-        ],
-        "matchType": "any"
-      }
-    ]
-  },
-  "Exercicio35": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "10",
-          "5",
-          "8",
-          "12",
-          "3"
-        ],
-        "outputs": [
-          "12",
-          "3"
-        ]
-      },
-      {
-        "matchType": "all",
-        "inputs": [
-          "-1",
-          "-5",
-          "-3",
-          "-8",
-          "-2"
-        ],
-        "outputs": [
-          "-1",
-          "-8"
-        ]
-      }
-    ]
-  },
-  "Exercicio36": {
-    "cases": [
-      {
-        "matchType": "any",
-        "inputs": [
-          "7"
-        ],
-        "outputs": [
-          "impar",
-          "ímpar"
-        ]
-      },
-      {
-        "matchType": "any",
-        "inputs": [
-          "10"
-        ],
-        "outputs": [
-          "par"
-        ]
-      }
-    ]
-  },
-  "Exercicio37": {
-    "cases": [
-      {
-        "matchType": "any",
-        "inputs": [
-          "5"
-        ],
-        "outputs": [
-          "permitida",
-          "dentro"
-        ]
-      },
-      {
-        "matchType": "any",
-        "inputs": [
-          "10"
-        ],
-        "outputs": [
-          "nao",
-          "não",
-          "fora"
-        ]
-      }
-    ]
-  },
-  "Exercicio38": {
-    "cases": [
-      {
-        "inputs": [
-          "2"
-        ],
-        "outputs": [
-          "2"
-        ],
-        "matchType": "any"
-      },
-      {
-        "inputs": [
-          "0"
-        ],
-        "outputs": [
-          "0"
-        ],
-        "matchType": "any"
       }
     ]
   },
@@ -1338,19 +1340,28 @@
     "cases": [
       {
         "inputs": [
-          "20"
+          "6"
         ],
         "outputs": [
-          "40"
+          "Infantil A"
         ],
         "matchType": "any"
       },
       {
         "inputs": [
-          "18"
+          "12"
         ],
         "outputs": [
-          "36"
+          "Juvenil A"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "25"
+        ],
+        "outputs": [
+          "Adulto"
         ],
         "matchType": "any"
       }
@@ -1359,18 +1370,873 @@
   "Exercicio42": {
     "cases": [
       {
-        "matchType": "all",
-        "inputs": [],
+        "inputs": [
+          "9.5"
+        ],
         "outputs": [
-          "225",
-          "40000",
-          "900",
-          "10000"
-        ]
+          "A"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "7.8"
+        ],
+        "outputs": [
+          "B"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "3.5"
+        ],
+        "outputs": [
+          "F"
+        ],
+        "matchType": "any"
       }
     ]
   },
   "Exercicio43": {
+    "cases": [
+      {
+        "inputs": [
+          "6",
+          "8",
+          "9",
+          "12"
+        ],
+        "outputs": [
+          "6"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "outputs": [
+          "2"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10",
+          "15",
+          "18",
+          "20"
+        ],
+        "outputs": [
+          "18"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio44": {
+    "cases": [
+      {
+        "inputs": [
+          "6",
+          "8",
+          "9",
+          "12"
+        ],
+        "outputs": [
+          "6"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "outputs": [
+          "2"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10",
+          "15",
+          "18",
+          "20"
+        ],
+        "outputs": [
+          "10"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio45": {
+    "cases": [
+      {
+        "inputs": [
+          "2024"
+        ],
+        "outputs": [
+          "bissexto"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "1900"
+        ],
+        "outputs": [
+          "nao bissexto"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "2000"
+        ],
+        "outputs": [
+          "bissexto"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio46": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "7",
+          "6",
+          "4",
+          "5"
+        ],
+        "outputs": [
+          "5.5",
+          "aprovado"
+        ]
+      },
+      {
+        "matchType": "all",
+        "inputs": [
+          "6",
+          "5",
+          "3",
+          "4"
+        ],
+        "outputs": [
+          "4.5",
+          "reprovado"
+        ]
+      }
+    ]
+  },
+  "Exercicio47": {
+    "cases": [
+      {
+        "inputs": [
+          "10",
+          "5",
+          "+"
+        ],
+        "outputs": [
+          "15.00",
+          "15"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10",
+          "0",
+          "/"
+        ],
+        "outputs": [
+          "erro: divisao por zero"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "5",
+          "4",
+          "x"
+        ],
+        "outputs": [
+          "operacao invalida"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio48": {
+    "cases": [
+      {
+        "inputs": [
+          "2"
+        ],
+        "outputs": [
+          "10.00",
+          "10"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "3"
+        ],
+        "outputs": [
+          "12.00",
+          "12"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "6"
+        ],
+        "outputs": [
+          "18.00",
+          "18"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio49": {
+    "cases": [
+      {
+        "inputs": [
+          "1200"
+        ],
+        "outputs": [
+          "1380.00",
+          "1380"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "2000"
+        ],
+        "outputs": [
+          "2200.00",
+          "2200"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "4000"
+        ],
+        "outputs": [
+          "4200.00",
+          "4200"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio50": {
+    "cases": [
+      {
+        "inputs": [
+          "70",
+          "1.75"
+        ],
+        "outputs": [
+          "22.86",
+          "Peso normal"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "50",
+          "1.70"
+        ],
+        "outputs": [
+          "17.30",
+          "Abaixo do peso"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "90",
+          "1.70"
+        ],
+        "outputs": [
+          "31.14",
+          "Obesidade"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio51": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "10",
+          "5",
+          "8",
+          "12",
+          "3"
+        ],
+        "outputs": [
+          "12",
+          "3"
+        ]
+      },
+      {
+        "matchType": "all",
+        "inputs": [
+          "-1",
+          "-5",
+          "-3",
+          "-8",
+          "-2"
+        ],
+        "outputs": [
+          "-1",
+          "-8"
+        ]
+      }
+    ]
+  },
+  "Exercicio52": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "8",
+          "8",
+          "7",
+          "9"
+        ],
+        "outputs": [
+          "8",
+          "aprovado"
+        ]
+      },
+      {
+        "matchType": "all",
+        "inputs": [
+          "5",
+          "6",
+          "5",
+          "6",
+          "8"
+        ],
+        "outputs": [
+          "5.5",
+          "6.75",
+          "aprovado"
+        ]
+      },
+      {
+        "matchType": "all",
+        "inputs": [
+          "4",
+          "4",
+          "4",
+          "4",
+          "3"
+        ],
+        "outputs": [
+          "4",
+          "3.5",
+          "reprovado"
+        ]
+      }
+    ]
+  },
+  "Exercicio53": {
+    "cases": [
+      {
+        "inputs": [
+          "3",
+          "4",
+          "5"
+        ],
+        "outputs": [
+          "escaleno"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "5",
+          "5",
+          "5"
+        ],
+        "outputs": [
+          "equilatero"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "3",
+          "3",
+          "5"
+        ],
+        "outputs": [
+          "isoceles"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "1",
+          "2",
+          "3"
+        ],
+        "outputs": [
+          "invalido"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio54": {
+    "cases": [
+      {
+        "inputs": [
+          "2000.00"
+        ],
+        "outputs": [
+          "0.00",
+          "0"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "2500.00"
+        ],
+        "outputs": [
+          "18.06"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "4000.00"
+        ],
+        "outputs": [
+          "237.23"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio55": {
+    "cases": [
+      {
+        "inputs": [
+          "5",
+          "2",
+          "7"
+        ],
+        "outputs": [
+          "2"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10",
+          "1",
+          "8"
+        ],
+        "outputs": [
+          "1"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "-3",
+          "-8",
+          "-1"
+        ],
+        "outputs": [
+          "-8"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio56": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "-3",
+          "-4"
+        ],
+        "outputs": [
+          "1"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "2",
+          "-7",
+          "3"
+        ],
+        "outputs": [
+          "1"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "1",
+          "0",
+          "-9"
+        ],
+        "outputs": [
+          "1"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio57": {
+    "cases": [
+      {
+        "inputs": [
+          "29",
+          "2",
+          "2020"
+        ],
+        "outputs": [
+          "valida"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "29",
+          "2",
+          "2021"
+        ],
+        "outputs": [
+          "invalida"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "31",
+          "4",
+          "2022"
+        ],
+        "outputs": [
+          "invalida"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "15",
+          "8",
+          "2023"
+        ],
+        "outputs": [
+          "valida"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio58": {
+    "cases": [
+      {
+        "inputs": [
+          "3",
+          "4"
+        ],
+        "outputs": [
+          "Primeiro quadrante",
+          "5.00"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "0",
+          "0"
+        ],
+        "outputs": [
+          "Origem",
+          "0.00"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "-3",
+          "0"
+        ],
+        "outputs": [
+          "Eixo X",
+          "3.00"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio59": {
+    "cases": [
+      {
+        "inputs": [
+          "3",
+          "4",
+          "5"
+        ],
+        "outputs": [
+          "retangulo"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "6",
+          "8",
+          "12"
+        ],
+        "outputs": [
+          "obtusangulo"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "5",
+          "5",
+          "6"
+        ],
+        "outputs": [
+          "acutangulo"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10",
+          "1",
+          "1"
+        ],
+        "outputs": [
+          "invalido"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio60": {
+    "cases": [
+      {
+        "inputs": [
+          "3",
+          "4",
+          "5"
+        ],
+        "outputs": [
+          "escaleno retangulo"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "5",
+          "5",
+          "5"
+        ],
+        "outputs": [
+          "equilatero acutangulo"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "5",
+          "5",
+          "8"
+        ],
+        "outputs": [
+          "isoceles",
+          "obtusangulo"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio61": {
+    "cases": [
+      {
+        "inputs": [
+          "23",
+          "59",
+          "59"
+        ],
+        "outputs": [
+          "00:00:00"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "12",
+          "30",
+          "45"
+        ],
+        "outputs": [
+          "12:30:46"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "25",
+          "0",
+          "0"
+        ],
+        "outputs": [
+          "horario invalido"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio62": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "5",
+          "3",
+          "7"
+        ],
+        "outputs": [
+          "[3, 5]"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10",
+          "20",
+          "25",
+          "30"
+        ],
+        "outputs": [
+          "sem intersecao"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "1",
+          "10",
+          "5",
+          "8"
+        ],
+        "outputs": [
+          "[5, 8]"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio63": {
+    "cases": [
+      {
+        "inputs": [
+          "256"
+        ],
+        "outputs": [
+          "2",
+          "1",
+          "0",
+          "1",
+          "1"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "8"
+        ],
+        "outputs": [
+          "saque invalido"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "601"
+        ],
+        "outputs": [
+          "saque invalido"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio64": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "-2",
+          "5"
+        ],
+        "outputs": [
+          "1.00 + 2.00i",
+          "1.00 - 2.00i"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "1",
+          "-4",
+          "4"
+        ],
+        "outputs": [
+          "2.00"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "0",
+          "2",
+          "3"
+        ],
+        "outputs": [
+          "nao e equacao de segundo grau"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio65": {
     "cases": [
       {
         "matchType": "all",
@@ -1398,29 +2264,7 @@
       }
     ]
   },
-  "Exercicio44": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [],
-        "outputs": [
-          "5050"
-        ]
-      }
-    ]
-  },
-  "Exercicio45": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [],
-        "outputs": [
-          "62750"
-        ]
-      }
-    ]
-  },
-  "Exercicio46": {
+  "Exercicio66": {
     "cases": [
       {
         "matchType": "all",
@@ -1434,7 +2278,43 @@
       }
     ]
   },
-  "Exercicio47": {
+  "Exercicio67": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [],
+        "outputs": [
+          "225",
+          "40000",
+          "900",
+          "10000"
+        ]
+      }
+    ]
+  },
+  "Exercicio68": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [],
+        "outputs": [
+          "5050"
+        ]
+      }
+    ]
+  },
+  "Exercicio69": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [],
+        "outputs": [
+          "62750"
+        ]
+      }
+    ]
+  },
+  "Exercicio70": {
     "cases": [
       {
         "matchType": "all",
@@ -1448,46 +2328,7 @@
       }
     ]
   },
-  "Exercicio48": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [],
-        "outputs": [
-          "3^0 = 1",
-          "3^15 = 14348907",
-          "14348907"
-        ]
-      }
-    ]
-  },
-  "Exercicio49": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "2",
-          "10"
-        ],
-        "outputs": [
-          "1024",
-          "2 elevado a 10"
-        ]
-      },
-      {
-        "matchType": "all",
-        "inputs": [
-          "5",
-          "3"
-        ],
-        "outputs": [
-          "125",
-          "5 elevado a 3"
-        ]
-      }
-    ]
-  },
-  "Exercicio50": {
+  "Exercicio71": {
     "cases": [
       {
         "matchType": "all",
@@ -1502,7 +2343,7 @@
       }
     ]
   },
-  "Exercicio51": {
+  "Exercicio72": {
     "cases": [
       {
         "matchType": "all",
@@ -1516,7 +2357,31 @@
       }
     ]
   },
-  "Exercicio52": {
+  "Exercicio73": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "15",
+          "3"
+        ],
+        "outputs": [
+          "5"
+        ]
+      },
+      {
+        "matchType": "all",
+        "inputs": [
+          "17",
+          "5"
+        ],
+        "outputs": [
+          "3"
+        ]
+      }
+    ]
+  },
+  "Exercicio74": {
     "cases": [
       {
         "matchType": "all",
@@ -1528,7 +2393,7 @@
       }
     ]
   },
-  "Exercicio53": {
+  "Exercicio75": {
     "cases": [
       {
         "matchType": "all",
@@ -1578,7 +2443,157 @@
       }
     ]
   },
-  "Exercicio54": {
+  "Exercicio76": {
+    "cases": [
+      {
+        "inputs": [
+          "1"
+        ],
+        "outputs": [
+          "1.00",
+          "1"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "3"
+        ],
+        "outputs": [
+          "1.83"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "5"
+        ],
+        "outputs": [
+          "2.28"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio77": {
+    "cases": [
+      {
+        "inputs": [
+          "1234"
+        ],
+        "outputs": [
+          "10"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "905"
+        ],
+        "outputs": [
+          "14"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "7"
+        ],
+        "outputs": [
+          "7"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio78": {
+    "cases": [
+      {
+        "inputs": [
+          "1234"
+        ],
+        "outputs": [
+          "4321"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "509"
+        ],
+        "outputs": [
+          "905"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "100"
+        ],
+        "outputs": [
+          "1"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio79": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [],
+        "outputs": [
+          "3^0 = 1",
+          "3^15 = 14348907",
+          "14348907"
+        ]
+      }
+    ]
+  },
+  "Exercicio80": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [],
+        "outputs": [
+          "Infinity",
+          "infinito"
+        ]
+      }
+    ]
+  },
+  "Exercicio81": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "10",
+          "20",
+          "30",
+          "0"
+        ],
+        "outputs": [
+          "60",
+          "20",
+          "3"
+        ]
+      },
+      {
+        "matchType": "all",
+        "inputs": [
+          "8",
+          "12",
+          "-1"
+        ],
+        "outputs": [
+          "20",
+          "10",
+          "2"
+        ]
+      }
+    ]
+  },
+  "Exercicio82": {
     "cases": [
       {
         "matchType": "all",
@@ -1620,50 +2635,173 @@
       }
     ]
   },
-  "Exercicio55": {
+  "Exercicio83": {
+    "cases": [
+      {
+        "inputs": [
+          "7"
+        ],
+        "outputs": [
+          "primo"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "4"
+        ],
+        "outputs": [
+          "nao primo"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "1"
+        ],
+        "outputs": [
+          "nao primo"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio84": {
+    "cases": [
+      {
+        "inputs": [
+          "24",
+          "36"
+        ],
+        "outputs": [
+          "12"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "17",
+          "5"
+        ],
+        "outputs": [
+          "1"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "50",
+          "10"
+        ],
+        "outputs": [
+          "10"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio85": {
+    "cases": [
+      {
+        "inputs": [
+          "12",
+          "15"
+        ],
+        "outputs": [
+          "60"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "6",
+          "8"
+        ],
+        "outputs": [
+          "24"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "5",
+          "7"
+        ],
+        "outputs": [
+          "35"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio86": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
-          "10",
-          "20",
-          "30",
-          "0"
+          "2",
+          "10"
         ],
         "outputs": [
-          "60",
-          "20",
-          "3"
+          "1024",
+          "2 elevado a 10"
         ]
       },
       {
         "matchType": "all",
         "inputs": [
-          "8",
-          "12",
-          "-1"
+          "5",
+          "3"
         ],
         "outputs": [
-          "20",
-          "10",
-          "2"
+          "125",
+          "5 elevado a 3"
         ]
       }
     ]
   },
-  "Exercicio56": {
+  "Exercicio87": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [],
         "outputs": [
-          "Infinity",
-          "infinito"
+          "225",
+          "39204",
+          "324",
+          "10000"
         ]
       }
     ]
   },
-  "Exercicio57": {
+  "Exercicio88": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "10",
+          "5",
+          "20",
+          "-1"
+        ],
+        "outputs": [
+          "20",
+          "5"
+        ]
+      },
+      {
+        "matchType": "all",
+        "inputs": [
+          "100",
+          "-5"
+        ],
+        "outputs": [
+          "100"
+        ]
+      }
+    ]
+  },
+  "Exercicio89": {
     "cases": [
       {
         "matchType": "all",
@@ -1695,72 +2833,238 @@
       }
     ]
   },
-  "Exercicio58": {
+  "Exercicio90": {
     "cases": [
       {
-        "matchType": "all",
         "inputs": [
+          "6"
+        ],
+        "outputs": [
+          "6",
+          "3",
           "10",
           "5",
-          "20",
-          "-1"
+          "16",
+          "8",
+          "4",
+          "2",
+          "1",
+          "9"
         ],
-        "outputs": [
-          "20",
-          "5"
-        ]
+        "matchType": "all"
       },
       {
-        "matchType": "all",
         "inputs": [
-          "100",
-          "-5"
-        ],
-        "outputs": [
-          "100"
-        ]
-      }
-    ]
-  },
-  "Exercicio59": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "15",
           "3"
         ],
         "outputs": [
-          "5"
-        ]
+          "3",
+          "10",
+          "5",
+          "16",
+          "8",
+          "4",
+          "2",
+          "1",
+          "8"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio91": {
+    "cases": [
+      {
+        "inputs": [
+          "6"
+        ],
+        "outputs": [
+          "perfeito"
+        ],
+        "matchType": "any"
       },
       {
-        "matchType": "all",
         "inputs": [
+          "28"
+        ],
+        "outputs": [
+          "perfeito"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "12"
+        ],
+        "outputs": [
+          "nao perfeito"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio92": {
+    "cases": [
+      {
+        "inputs": [
+          "13"
+        ],
+        "outputs": [
+          "1101"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "25"
+        ],
+        "outputs": [
+          "11001"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "0"
+        ],
+        "outputs": [
+          "0"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio93": {
+    "cases": [
+      {
+        "inputs": [
+          "1"
+        ],
+        "outputs": [
+          "2.72"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "2"
+        ],
+        "outputs": [
+          "7.38"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "0"
+        ],
+        "outputs": [
+          "1.00",
+          "1"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio94": {
+    "cases": [
+      {
+        "inputs": [
+          "25"
+        ],
+        "outputs": [
+          "5.00",
+          "5"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "2"
+        ],
+        "outputs": [
+          "1.41"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10"
+        ],
+        "outputs": [
+          "3.16"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio95": {
+    "cases": [
+      {
+        "inputs": [
+          "1232",
+          "2321"
+        ],
+        "outputs": [
+          "anagrama"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "123",
+          "456"
+        ],
+        "outputs": [
+          "nao anagrama"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "112",
+          "122"
+        ],
+        "outputs": [
+          "nao anagrama"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio96": {
+    "cases": [
+      {
+        "inputs": [
+          "10",
+          "20"
+        ],
+        "outputs": [
+          "11",
+          "13",
           "17",
-          "5"
+          "19",
+          "60"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "1",
+          "10"
         ],
         "outputs": [
-          "3"
-        ]
+          "2",
+          "3",
+          "5",
+          "7",
+          "17"
+        ],
+        "matchType": "all"
       }
     ]
   },
-  "Exercicio60": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [],
-        "outputs": [
-          "225",
-          "39204",
-          "324",
-          "10000"
-        ]
-      }
-    ]
-  },
-  "Exercicio61": {
+  "Exercicio97": {
     "cases": [
       {
         "matchType": "all",
@@ -1779,7 +3083,7 @@
       }
     ]
   },
-  "Exercicio62": {
+  "Exercicio98": {
     "cases": [
       {
         "matchType": "all",
@@ -1802,93 +3106,11 @@
       }
     ]
   },
-  "Exercicio63": {
+  "Exercicio99": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3"
-        ],
-        "outputs": [
-          "7"
-        ]
-      }
-    ]
-  },
-  "Exercicio64": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2"
-        ],
-        "outputs": [
-          "4"
-        ]
-      }
-    ]
-  },
-  "Exercicio65": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "3",
-          "3",
-          "3",
           "3",
           "3",
           "3",
@@ -1908,113 +3130,7 @@
       }
     ]
   },
-  "Exercicio66": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2"
-        ],
-        "outputs": [
-          "1",
-          "2"
-        ]
-      }
-    ]
-  },
-  "Exercicio67": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B",
-          "B"
-        ],
-        "outputs": [
-          "A",
-          "B"
-        ]
-      }
-    ]
-  },
-  "Exercicio68": {
+  "Exercicio100": {
     "cases": [
       {
         "matchType": "all",
@@ -2048,149 +3164,70 @@
       }
     ]
   },
-  "Exercicio69": {
+  "Exercicio101": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3"
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "A",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B"
         ],
         "outputs": [
-          "1",
-          "2",
-          "3"
+          "A",
+          "B"
         ]
       }
     ]
   },
-  "Exercicio70": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5"
-        ],
-        "outputs": [
-          "15"
-        ]
-      }
-    ]
-  },
-  "Exercicio71": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "5",
-          "5",
-          "5",
-          "5",
-          "5"
-        ],
-        "outputs": [
-          "-5"
-        ]
-      }
-    ]
-  },
-  "Exercicio72": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "20",
-          "20",
-          "20",
-          "20",
-          "20"
-        ],
-        "outputs": [
-          "10"
-        ]
-      }
-    ]
-  },
-  "Exercicio73": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "9"
-        ],
-        "outputs": [
-          "9",
-          "45",
-          "18"
-        ]
-      }
-    ]
-  },
-  "Exercicio74": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15",
-          "15"
-        ],
-        "outputs": [
-          "15"
-        ]
-      }
-    ]
-  },
-  "Exercicio75": {
+  "Exercicio102": {
     "cases": [
       {
         "matchType": "all",
@@ -2227,11 +3264,66 @@
       }
     ]
   },
-  "Exercicio76": {
+  "Exercicio103": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2"
+        ],
+        "outputs": [
+          "4"
+        ]
+      }
+    ]
+  },
+  "Exercicio104": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
           "3",
           "3",
           "3",
@@ -2246,12 +3338,12 @@
           "3"
         ],
         "outputs": [
-          "6"
+          "7"
         ]
       }
     ]
   },
-  "Exercicio77": {
+  "Exercicio105": {
     "cases": [
       {
         "matchType": "all",
@@ -2279,82 +3371,197 @@
       }
     ]
   },
-  "Exercicio78": {
+  "Exercicio106": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2"
+          "9"
         ],
         "outputs": [
-          "1",
-          "2"
-        ]
-      }
-    ]
-  },
-  "Exercicio79": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "2",
-          "4",
-          "6",
-          "8",
-          "10",
-          "12",
-          "1",
-          "3",
-          "5",
-          "7",
           "9",
-          "11"
+          "45",
+          "18"
+        ]
+      }
+    ]
+  },
+  "Exercicio107": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15"
+        ],
+        "outputs": [
+          "15"
+        ]
+      }
+    ]
+  },
+  "Exercicio108": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "6",
+          "6",
+          "6",
+          "6",
+          "6",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5"
+        ],
+        "outputs": [
+          "6",
+          "5"
+        ]
+      }
+    ]
+  },
+  "Exercicio109": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4"
         ],
         "outputs": [
           "2",
-          "12",
+          "4"
+        ]
+      }
+    ]
+  },
+  "Exercicio110": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
           "1",
-          "11"
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2"
+        ],
+        "outputs": [
+          "1",
+          "2"
         ]
       }
     ]
   },
-  "Exercicio80": {
+  "Exercicio111": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
-          "6",
-          "6",
-          "6",
-          "6",
-          "6",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5"
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3"
         ],
         "outputs": [
-          "6",
-          "5"
+          "1",
+          "2",
+          "3"
         ]
       }
     ]
   },
-  "Exercicio81": {
+  "Exercicio112": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2"
+        ],
+        "outputs": [
+          "1",
+          "2"
+        ]
+      }
+    ]
+  },
+  "Exercicio113": {
     "cases": [
       {
         "matchType": "all",
@@ -2364,20 +3571,19 @@
           "2",
           "2",
           "2",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4"
+          "3",
+          "3",
+          "3",
+          "3",
+          "3"
         ],
         "outputs": [
-          "2",
-          "4"
+          "25"
         ]
       }
     ]
   },
-  "Exercicio82": {
+  "Exercicio114": {
     "cases": [
       {
         "matchType": "all",
@@ -2419,29 +3625,68 @@
       }
     ]
   },
-  "Exercicio83": {
+  "Exercicio115": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
           "2",
-          "2",
-          "2",
-          "2",
-          "2",
+          "4",
+          "6",
+          "8",
+          "10",
+          "12",
+          "1",
           "3",
-          "3",
-          "3",
-          "3",
-          "3"
+          "5",
+          "7",
+          "9",
+          "11"
         ],
         "outputs": [
-          "25"
+          "2",
+          "12",
+          "1",
+          "11"
         ]
       }
     ]
   },
-  "Exercicio84": {
+  "Exercicio116": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "5",
+          "5",
+          "5",
+          "5",
+          "5"
+        ],
+        "outputs": [
+          "-5"
+        ]
+      }
+    ]
+  },
+  "Exercicio117": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "20",
+          "20",
+          "20",
+          "20",
+          "20"
+        ],
+        "outputs": [
+          "10"
+        ]
+      }
+    ]
+  },
+  "Exercicio118": {
     "cases": [
       {
         "matchType": "all",
@@ -2464,7 +3709,39 @@
       }
     ]
   },
-  "Exercicio85": {
+  "Exercicio119": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5"
+        ],
+        "outputs": [
+          "15"
+        ]
+      }
+    ]
+  },
+  "Exercicio120": {
     "cases": [
       {
         "matchType": "all",
@@ -2491,196 +3768,11 @@
       }
     ]
   },
-  "Exercicio86": {
+  "Exercicio121": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5"
-        ],
-        "outputs": [
-          "3",
-          "60"
-        ]
-      }
-    ]
-  },
-  "Exercicio87": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3"
-        ],
-        "outputs": [
-          "5"
-        ]
-      }
-    ]
-  },
-  "Exercicio88": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2"
-        ],
-        "outputs": [
-          "1",
-          "2"
-        ]
-      }
-    ]
-  },
-  "Exercicio89": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4"
-        ],
-        "outputs": [
-          "4"
-        ]
-      }
-    ]
-  },
-  "Exercicio90": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3"
-        ],
-        "outputs": [
-          "8",
-          "6",
-          "9"
-        ]
-      }
-    ]
-  },
-  "Exercicio91": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10",
-          "10"
-        ],
-        "outputs": [
-          "10",
-          "5"
-        ]
-      }
-    ]
-  },
-  "Exercicio92": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
           "3",
           "3",
           "3",
@@ -2703,58 +3795,239 @@
       }
     ]
   },
-  "Exercicio93": {
+  "Exercicio122": {
     "cases": [
       {
-        "matchType": "all",
         "inputs": [
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25",
-          "25"
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
         ],
         "outputs": [
-          "77"
-        ]
+          "10",
+          "9",
+          "8",
+          "7",
+          "6",
+          "5",
+          "4",
+          "3",
+          "2",
+          "1"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "5",
+          "3",
+          "8",
+          "1",
+          "2",
+          "9",
+          "4",
+          "7",
+          "6",
+          "0"
+        ],
+        "outputs": [
+          "0",
+          "6",
+          "7",
+          "4",
+          "9",
+          "2",
+          "1",
+          "8",
+          "3",
+          "5"
+        ],
+        "matchType": "all"
       }
     ]
   },
-  "Exercicio94": {
+  "Exercicio123": {
     "cases": [
       {
-        "matchType": "all",
         "inputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "outputs": [
+          "3",
+          "4",
+          "5"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "outputs": [
+          "vazio"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio124": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "2",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "outputs": [
+          "4.70",
+          "4.50",
+          "2"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10"
+        ],
+        "outputs": [
+          "10.00",
+          "10.00",
+          "10"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio125": {
+    "cases": [
+      {
+        "inputs": [
+          "2",
+          "2",
           "5",
           "5",
           "5",
+          "8",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "outputs": [
+          "4",
+          "2",
+          "0",
+          "0",
+          "3",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "10",
+          "9",
+          "8",
+          "7",
+          "6",
           "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
+          "4",
+          "3",
+          "2",
+          "1"
+        ],
+        "outputs": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio126": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "2",
+          "2",
+          "3",
+          "3",
+          "3",
+          "4",
+          "4",
+          "4",
+          "4"
+        ],
+        "outputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
           "5",
           "5",
           "5",
@@ -2768,74 +4041,245 @@
         ],
         "outputs": [
           "5",
-          "10"
-        ]
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "matchType": "all"
       }
     ]
   },
-  "Exercicio95": {
+  "Exercicio127": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "3",
+          "5",
+          "7",
+          "9",
+          "2",
+          "4",
+          "6",
+          "8",
+          "10"
+        ],
+        "outputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "1",
+          "2",
+          "5",
+          "8",
+          "9",
+          "3",
+          "4",
+          "6",
+          "7",
+          "10"
+        ],
+        "outputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio128": {
+    "cases": [
+      {
+        "inputs": [
+          "9",
+          "3",
+          "7",
+          "1",
+          "5",
+          "8",
+          "2",
+          "0",
+          "4",
+          "6",
+          "5"
+        ],
+        "outputs": [
+          "5"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "9",
+          "3",
+          "7",
+          "1",
+          "5",
+          "8",
+          "2",
+          "0",
+          "4",
+          "6",
+          "10"
+        ],
+        "outputs": [
+          "-1"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio129": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4",
-          "4"
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3"
         ],
         "outputs": [
-          "10",
-          "12"
+          "5"
         ]
       }
     ]
   },
-  "Exercicio96": {
+  "Exercicio130": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2"
+        ],
+        "outputs": [
+          "1",
+          "2"
+        ]
+      }
+    ]
+  },
+  "Exercicio131": {
+    "cases": [
+      {
+        "inputs": [
+          "1.0",
+          "2.0",
+          "3.0",
+          "4.0",
+          "5.0",
+          "6.0",
+          "2.0"
+        ],
+        "outputs": [
+          "2.00",
+          "4.00",
+          "6.00",
+          "8.00",
+          "10.00",
+          "12.00"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio132": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "2",
+          "2",
+          "2",
+          "2",
+          "3",
+          "3",
+          "3",
+          "3",
+          "4",
+          "4",
+          "4",
+          "4",
+          "5",
+          "5",
+          "5",
+          "5"
+        ],
+        "outputs": [
+          "4",
+          "9",
+          "16",
+          "25"
+        ]
+      }
+    ]
+  },
+  "Exercicio133": {
     "cases": [
       {
         "matchType": "all",
@@ -2915,53 +4359,11 @@
       }
     ]
   },
-  "Exercicio97": {
+  "Exercicio134": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3"
-        ],
-        "outputs": [
-          "15"
-        ]
-      }
-    ]
-  },
-  "Exercicio98": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
           "2",
           "2",
           "2",
@@ -2984,92 +4386,17 @@
           "2"
         ],
         "outputs": [
-          "50"
+          "10",
+          "8"
         ]
       }
     ]
   },
-  "Exercicio99": {
+  "Exercicio135": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5",
-          "5"
-        ],
-        "outputs": [
-          "20"
-        ]
-      }
-    ]
-  },
-  "Exercicio100": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
           "3",
           "3",
           "3",
@@ -3082,12 +4409,160 @@
           "3"
         ],
         "outputs": [
-          "24"
+          "8",
+          "6",
+          "9"
         ]
       }
     ]
   },
-  "Exercicio101": {
+  "Exercicio136": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4"
+        ],
+        "outputs": [
+          "4"
+        ]
+      }
+    ]
+  },
+  "Exercicio137": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4"
+        ],
+        "outputs": [
+          "10",
+          "12"
+        ]
+      }
+    ]
+  },
+  "Exercicio138": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "12",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30"
+        ],
+        "outputs": [
+          "42"
+        ]
+      }
+    ]
+  },
+  "Exercicio139": {
     "cases": [
       {
         "matchType": "all",
@@ -3148,7 +4623,7 @@
       }
     ]
   },
-  "Exercicio102": {
+  "Exercicio140": {
     "cases": [
       {
         "matchType": "all",
@@ -3231,227 +4706,7 @@
       }
     ]
   },
-  "Exercicio103": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2"
-        ],
-        "outputs": [
-          "10",
-          "8"
-        ]
-      }
-    ]
-  },
-  "Exercicio104": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "2",
-          "2",
-          "2",
-          "2",
-          "3",
-          "3",
-          "3",
-          "3",
-          "4",
-          "4",
-          "4",
-          "4",
-          "5",
-          "5",
-          "5",
-          "5"
-        ],
-        "outputs": [
-          "4",
-          "9",
-          "16",
-          "25"
-        ]
-      }
-    ]
-  },
-  "Exercicio105": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "12",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30"
-        ],
-        "outputs": [
-          "42"
-        ]
-      }
-    ]
-  },
-  "Exercicio106": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "24",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30"
-        ],
-        "outputs": [
-          "-6"
-        ]
-      }
-    ]
-  },
-  "Exercicio107": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "3",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30",
-          "30"
-        ],
-        "outputs": [
-          "90"
-        ]
-      }
-    ]
-  },
-  "Exercicio108": {
+  "Exercicio141": {
     "cases": [
       {
         "matchType": "all",
@@ -3513,7 +4768,7 @@
       }
     ]
   },
-  "Exercicio109": {
+  "Exercicio142": {
     "cases": [
       {
         "matchType": "all",
@@ -3551,55 +4806,1416 @@
       }
     ]
   },
-  "Exercicio110": {
+  "Exercicio143": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25"
+        ],
+        "outputs": [
+          "77"
+        ]
+      }
+    ]
+  },
+  "Exercicio144": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5"
+        ],
+        "outputs": [
+          "5",
+          "10"
+        ]
+      }
+    ]
+  },
+  "Exercicio145": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "outputs": [
+          "1",
+          "4",
+          "7",
+          "2",
+          "5",
+          "8",
+          "3",
+          "6",
+          "9"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio146": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3"
+        ],
+        "outputs": [
+          "15"
+        ]
+      }
+    ]
+  },
+  "Exercicio147": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "24",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30"
+        ],
+        "outputs": [
+          "-6"
+        ]
+      }
+    ]
+  },
+  "Exercicio148": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3"
+        ],
+        "outputs": [
+          "6"
+        ]
+      }
+    ]
+  },
+  "Exercicio149": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30",
+          "30"
+        ],
+        "outputs": [
+          "90"
+        ]
+      }
+    ]
+  },
+  "Exercicio150": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5"
+        ],
+        "outputs": [
+          "20"
+        ]
+      }
+    ]
+  },
+  "Exercicio151": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3"
+        ],
+        "outputs": [
+          "24"
+        ]
+      }
+    ]
+  },
+  "Exercicio152": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2"
+        ],
+        "outputs": [
+          "50"
+        ]
+      }
+    ]
+  },
+  "Exercicio153": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "5",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10"
+        ],
+        "outputs": [
+          "10",
+          "5"
+        ]
+      }
+    ]
+  },
+  "Exercicio154": {
+    "cases": [
+      {
+        "inputs": [
+          "0",
+          "0",
+          "1",
+          "1",
+          "1",
+          "0",
+          "0",
+          "1",
+          "1",
+          "1",
+          "0",
+          "0",
+          "1",
+          "1",
+          "1",
+          "0"
+        ],
+        "outputs": [
+          "caminho encontrado"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "0",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "0"
+        ],
+        "outputs": [
+          "sem caminho"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio155": {
+    "cases": [
+      {
+        "inputs": [
+          "8",
+          "1",
+          "6",
+          "3",
+          "5",
+          "7",
+          "4",
+          "9",
+          "2"
+        ],
+        "outputs": [
+          "quadrado magico",
+          "15"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "outputs": [
+          "nao quadrado magico"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio156": {
+    "cases": [
+      {
+        "inputs": [
+          "5",
+          "6",
+          "7",
+          "4",
+          "9",
+          "8",
+          "1",
+          "2",
+          "3"
+        ],
+        "outputs": [
+          "5",
+          "0",
+          "0"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "2",
+          "3",
+          "4",
+          "5",
+          "1",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "outputs": [
+          "nao possui ponto de sela"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio157": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "1",
+          "2",
+          "3"
+        ],
+        "outputs": [
+          "31",
+          "19",
+          "85",
+          "55"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio158": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "outputs": [
+          "7",
+          "4",
+          "1",
+          "8",
+          "5",
+          "2",
+          "9",
+          "6",
+          "3"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio159": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "2",
+          "3",
+          "0",
+          "1",
+          "4",
+          "5",
+          "6",
+          "0"
+        ],
+        "outputs": [
+          "1"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "outputs": [
+          "0"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio160": {
+    "cases": [
+      {
+        "inputs": [
+          "9",
+          "0",
+          "0",
+          "0",
+          "9",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "outputs": [
+          "9",
+          "2",
+          "1",
+          "2",
+          "9",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio161": {
+    "cases": [
+      {
+        "inputs": [
+          "2",
+          "5"
+        ],
+        "outputs": [
+          "32"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio162": {
+    "cases": [
+      {
+        "inputs": [
+          "25.0"
+        ],
+        "outputs": [
+          "77.00",
+          "77"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio163": {
+    "cases": [
+      {
+        "inputs": [
+          "10",
+          "34",
+          "56",
+          "2",
+          "12"
+        ],
+        "outputs": [
+          "56"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio164": {
+    "cases": [
+      {
+        "inputs": [
+          "3"
+        ],
+        "outputs": [
+          "28.27"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio165": {
+    "cases": [
+      {
+        "inputs": [
+          "5",
+          "3",
+          "1",
+          "4",
+          "2"
+        ],
+        "outputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio166": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "outputs": [
+          "15"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio167": {
+    "cases": [
+      {
+        "inputs": [
+          "42"
+        ],
+        "outputs": [
+          "par"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "17"
+        ],
+        "outputs": [
+          "impar"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio168": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "10",
+          "20",
+          "30",
+          "40",
+          "50"
+        ],
+        "outputs": [
+          "11",
+          "22",
+          "33",
+          "44",
+          "55"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio169": {
+    "cases": [
+      {
+        "inputs": [
+          "5"
+        ],
+        "outputs": [
+          "120"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "0"
+        ],
+        "outputs": [
+          "1"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio170": {
+    "cases": [
+      {
+        "inputs": [
+          "7.0",
+          "6.0",
+          "8.0"
+        ],
+        "outputs": [
+          "7.00",
+          "aprovado"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "4.0",
+          "5.0",
+          "5.5"
+        ],
+        "outputs": [
+          "4.83",
+          "reprovado"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio171": {
+    "cases": [
+      {
+        "inputs": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "0",
+          "1"
+        ],
+        "outputs": [
+          "21"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio172": {
+    "cases": [
+      {
+        "inputs": [
+          "10",
+          "20",
+          "30",
+          "40",
+          "50",
+          "30"
+        ],
+        "outputs": [
+          "2"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10",
+          "20",
+          "30",
+          "40",
+          "50",
+          "60"
+        ],
+        "outputs": [
+          "-1"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio173": {
+    "cases": [
+      {
+        "inputs": [
+          "6"
+        ],
+        "outputs": [
+          "perfeito"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "10"
+        ],
+        "outputs": [
+          "nao perfeito"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio174": {
+    "cases": [
+      {
+        "inputs": [
+          "2004"
+        ],
+        "outputs": [
+          "bissexto"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "2100"
+        ],
+        "outputs": [
+          "nao bissexto"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio175": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
           "1",
           "Nome00",
-          "Endereço00",
-          "1000",
+          "Rua00",
+          "990",
           "Nome01",
-          "Endereço01",
-          "1001",
+          "Rua01",
+          "991",
           "Nome02",
-          "Endereço02",
-          "1002",
+          "Rua02",
+          "992",
           "Nome03",
-          "Endereço03",
-          "1003",
+          "Rua03",
+          "993",
           "Nome04",
-          "Endereço04",
-          "1004",
+          "Rua04",
+          "994",
           "Nome05",
-          "Endereço05",
-          "1005",
+          "Rua05",
+          "995",
           "Nome06",
-          "Endereço06",
-          "1006",
+          "Rua06",
+          "996",
           "Nome07",
-          "Endereço07",
-          "1007",
+          "Rua07",
+          "997",
           "Nome08",
-          "Endereço08",
-          "1008",
+          "Rua08",
+          "998",
           "Nome09",
-          "Endereço09",
-          "1009",
+          "Rua09",
+          "999",
           "4",
           "5"
         ],
         "outputs": [
           "Nome00",
           "Nome09",
-          "Endereço00",
-          "1009"
+          "Rua09",
+          "990"
         ]
       }
     ]
   },
-  "Exercicio111": {
+  "Exercicio176": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "1",
+          "Aluno00",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno01",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno02",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno03",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno04",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno05",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno06",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno07",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno08",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno09",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno10",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno11",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno12",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno13",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno14",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno15",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno16",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno17",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno18",
+          "6",
+          "6",
+          "6",
+          "6",
+          "Aluno19",
+          "6",
+          "6",
+          "6",
+          "6",
+          "3",
+          "6"
+        ],
+        "outputs": [
+          "Aluno00",
+          "Aluno19",
+          "6.0",
+          "Aprovado"
+        ]
+      }
+    ]
+  },
+  "Exercicio177": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "1",
+          "Nome00",
+          "1.7",
+          "Nome01",
+          "1.7",
+          "Nome02",
+          "1.7",
+          "Nome03",
+          "1.7",
+          "Nome04",
+          "1.7",
+          "Nome05",
+          "1.7",
+          "Nome06",
+          "1.7",
+          "Nome07",
+          "1.7",
+          "Nome08",
+          "1.7",
+          "Nome09",
+          "1.7",
+          "Nome10",
+          "1.7",
+          "Nome11",
+          "1.7",
+          "Nome12",
+          "1.7",
+          "Nome13",
+          "1.7",
+          "Nome14",
+          "1.7",
+          "4",
+          "6"
+        ],
+        "outputs": [
+          "Nome00",
+          "Nome14",
+          "1.7"
+        ]
+      }
+    ]
+  },
+  "Exercicio178": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "1",
+          "1000",
+          "Func00",
+          "1200",
+          "1001",
+          "Func01",
+          "1200",
+          "1002",
+          "Func02",
+          "1200",
+          "1003",
+          "Func03",
+          "1200",
+          "1004",
+          "Func04",
+          "1200",
+          "1005",
+          "Func05",
+          "1200",
+          "1006",
+          "Func06",
+          "1200",
+          "1007",
+          "Func07",
+          "1200",
+          "1008",
+          "Func08",
+          "1200",
+          "1009",
+          "Func09",
+          "1200",
+          "1010",
+          "Func10",
+          "1200",
+          "1011",
+          "Func11",
+          "1200",
+          "1012",
+          "Func12",
+          "1200",
+          "1013",
+          "Func13",
+          "1200",
+          "1014",
+          "Func14",
+          "1200",
+          "1015",
+          "Func15",
+          "1200",
+          "1016",
+          "Func16",
+          "1200",
+          "1017",
+          "Func17",
+          "1200",
+          "1018",
+          "Func18",
+          "1200",
+          "1019",
+          "Func19",
+          "1200",
+          "4",
+          "7"
+        ],
+        "outputs": [
+          "Func00",
+          "Func19",
+          "1200"
+        ]
+      }
+    ]
+  },
+  "Exercicio179": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "1",
+          "1000",
+          "Func00",
+          "1200",
+          "1001",
+          "Func01",
+          "1200",
+          "1002",
+          "Func02",
+          "1200",
+          "1003",
+          "Func03",
+          "1200",
+          "1004",
+          "Func04",
+          "1200",
+          "1005",
+          "Func05",
+          "1200",
+          "1006",
+          "Func06",
+          "1200",
+          "1007",
+          "Func07",
+          "1200",
+          "1008",
+          "Func08",
+          "1200",
+          "1009",
+          "Func09",
+          "1200",
+          "1010",
+          "Func10",
+          "1200",
+          "1011",
+          "Func11",
+          "1200",
+          "1012",
+          "Func12",
+          "1200",
+          "1013",
+          "Func13",
+          "1200",
+          "1014",
+          "Func14",
+          "1200",
+          "1015",
+          "Func15",
+          "1200",
+          "1016",
+          "Func16",
+          "1200",
+          "1017",
+          "Func17",
+          "1200",
+          "1018",
+          "Func18",
+          "1200",
+          "1019",
+          "Func19",
+          "1200",
+          "4",
+          "7"
+        ],
+        "outputs": [
+          "Func00",
+          "Func19",
+          "1200"
+        ]
+      }
+    ]
+  },
+  "Exercicio180": {
+    "cases": [
+      {
+        "matchType": "all",
+        "inputs": [
+          "1",
+          "Nome00",
+          "1.7",
+          "Nome01",
+          "1.7",
+          "Nome02",
+          "1.7",
+          "Nome03",
+          "1.7",
+          "Nome04",
+          "1.7",
+          "Nome05",
+          "1.7",
+          "Nome06",
+          "1.7",
+          "Nome07",
+          "1.7",
+          "Nome08",
+          "1.7",
+          "Nome09",
+          "1.7",
+          "Nome10",
+          "1.7",
+          "Nome11",
+          "1.7",
+          "Nome12",
+          "1.7",
+          "Nome13",
+          "1.7",
+          "Nome14",
+          "1.7",
+          "5",
+          "6"
+        ],
+        "outputs": [
+          "Nome00",
+          "Nome14",
+          "1.7"
+        ]
+      }
+    ]
+  },
+  "Exercicio181": {
     "cases": [
       {
         "matchType": "all",
@@ -3717,417 +6333,307 @@
       }
     ]
   },
-  "Exercicio112": {
+  "Exercicio182": {
     "cases": [
       {
         "matchType": "all",
         "inputs": [
           "1",
           "Nome00",
-          "1.7",
-          "Nome01",
-          "1.7",
-          "Nome02",
-          "1.7",
-          "Nome03",
-          "1.7",
-          "Nome04",
-          "1.7",
-          "Nome05",
-          "1.7",
-          "Nome06",
-          "1.7",
-          "Nome07",
-          "1.7",
-          "Nome08",
-          "1.7",
-          "Nome09",
-          "1.7",
-          "Nome10",
-          "1.7",
-          "Nome11",
-          "1.7",
-          "Nome12",
-          "1.7",
-          "Nome13",
-          "1.7",
-          "Nome14",
-          "1.7",
-          "5",
-          "6"
-        ],
-        "outputs": [
-          "Nome00",
-          "Nome14",
-          "1.7"
-        ]
-      }
-    ]
-  },
-  "Exercicio113": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "1",
+          "Endereço00",
           "1000",
-          "Func00",
-          "1200",
-          "1001",
-          "Func01",
-          "1200",
-          "1002",
-          "Func02",
-          "1200",
-          "1003",
-          "Func03",
-          "1200",
-          "1004",
-          "Func04",
-          "1200",
-          "1005",
-          "Func05",
-          "1200",
-          "1006",
-          "Func06",
-          "1200",
-          "1007",
-          "Func07",
-          "1200",
-          "1008",
-          "Func08",
-          "1200",
-          "1009",
-          "Func09",
-          "1200",
-          "1010",
-          "Func10",
-          "1200",
-          "1011",
-          "Func11",
-          "1200",
-          "1012",
-          "Func12",
-          "1200",
-          "1013",
-          "Func13",
-          "1200",
-          "1014",
-          "Func14",
-          "1200",
-          "1015",
-          "Func15",
-          "1200",
-          "1016",
-          "Func16",
-          "1200",
-          "1017",
-          "Func17",
-          "1200",
-          "1018",
-          "Func18",
-          "1200",
-          "1019",
-          "Func19",
-          "1200",
-          "4",
-          "7"
-        ],
-        "outputs": [
-          "Func00",
-          "Func19",
-          "1200"
-        ]
-      }
-    ]
-  },
-  "Exercicio114": {
-    "cases": [
-      {
-        "matchType": "all",
-        "inputs": [
-          "1",
-          "Nome00",
-          "Rua00",
-          "990",
           "Nome01",
-          "Rua01",
-          "991",
+          "Endereço01",
+          "1001",
           "Nome02",
-          "Rua02",
-          "992",
+          "Endereço02",
+          "1002",
           "Nome03",
-          "Rua03",
-          "993",
+          "Endereço03",
+          "1003",
           "Nome04",
-          "Rua04",
-          "994",
+          "Endereço04",
+          "1004",
           "Nome05",
-          "Rua05",
-          "995",
+          "Endereço05",
+          "1005",
           "Nome06",
-          "Rua06",
-          "996",
+          "Endereço06",
+          "1006",
           "Nome07",
-          "Rua07",
-          "997",
+          "Endereço07",
+          "1007",
           "Nome08",
-          "Rua08",
-          "998",
+          "Endereço08",
+          "1008",
           "Nome09",
-          "Rua09",
-          "999",
+          "Endereço09",
+          "1009",
           "4",
           "5"
         ],
         "outputs": [
           "Nome00",
           "Nome09",
-          "Rua09",
-          "990"
+          "Endereço00",
+          "1009"
         ]
       }
     ]
   },
-  "Exercicio115": {
+  "Exercicio186": {
     "cases": [
       {
-        "matchType": "all",
         "inputs": [
-          "1",
-          "Aluno00",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno01",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno02",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno03",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno04",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno05",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno06",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno07",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno08",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno09",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno10",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno11",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno12",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno13",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno14",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno15",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno16",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno17",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno18",
-          "6",
-          "6",
-          "6",
-          "6",
-          "Aluno19",
-          "6",
-          "6",
-          "6",
-          "6",
+          "8",
+          "12"
+        ],
+        "outputs": [
+          "2",
+          "3"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "15",
+          "5"
+        ],
+        "outputs": [
           "3",
-          "6"
+          "1"
         ],
-        "outputs": [
-          "Aluno00",
-          "Aluno19",
-          "6.0",
-          "Aprovado"
-        ]
+        "matchType": "all"
       }
     ]
   },
-  "Exercicio116": {
+  "Exercicio187": {
     "cases": [
       {
-        "matchType": "all",
         "inputs": [
           "1",
-          "Nome00",
-          "1.7",
-          "Nome01",
-          "1.7",
-          "Nome02",
-          "1.7",
-          "Nome03",
-          "1.7",
-          "Nome04",
-          "1.7",
-          "Nome05",
-          "1.7",
-          "Nome06",
-          "1.7",
-          "Nome07",
-          "1.7",
-          "Nome08",
-          "1.7",
-          "Nome09",
-          "1.7",
-          "Nome10",
-          "1.7",
-          "Nome11",
-          "1.7",
-          "Nome12",
-          "1.7",
-          "Nome13",
-          "1.7",
-          "Nome14",
-          "1.7",
+          "2",
+          "3",
           "4",
+          "5",
           "6"
         ],
         "outputs": [
-          "Nome00",
-          "Nome14",
-          "1.7"
-        ]
+          "32.00",
+          "3.74",
+          "8.77"
+        ],
+        "matchType": "all"
       }
     ]
   },
-  "Exercicio117": {
+  "Exercicio188": {
     "cases": [
       {
-        "matchType": "all",
         "inputs": [
           "1",
-          "1000",
-          "Func00",
-          "1200",
-          "1001",
-          "Func01",
-          "1200",
-          "1002",
-          "Func02",
-          "1200",
-          "1003",
-          "Func03",
-          "1200",
-          "1004",
-          "Func04",
-          "1200",
-          "1005",
-          "Func05",
-          "1200",
-          "1006",
-          "Func06",
-          "1200",
-          "1007",
-          "Func07",
-          "1200",
-          "1008",
-          "Func08",
-          "1200",
-          "1009",
-          "Func09",
-          "1200",
-          "1010",
-          "Func10",
-          "1200",
-          "1011",
-          "Func11",
-          "1200",
-          "1012",
-          "Func12",
-          "1200",
-          "1013",
-          "Func13",
-          "1200",
-          "1014",
-          "Func14",
-          "1200",
-          "1015",
-          "Func15",
-          "1200",
-          "1016",
-          "Func16",
-          "1200",
-          "1017",
-          "Func17",
-          "1200",
-          "1018",
-          "Func18",
-          "1200",
-          "1019",
-          "Func19",
-          "1200",
+          "B",
+          "10",
+          "10.00",
+          "2",
+          "A",
+          "5",
+          "20.00",
+          "3",
+          "D",
+          "2",
+          "50.00",
           "4",
-          "7"
+          "C",
+          "1",
+          "100.00",
+          "5",
+          "E",
+          "4",
+          "25.00"
         ],
         "outputs": [
-          "Func00",
-          "Func19",
-          "1200"
-        ]
+          "500.00",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio189": {
+    "cases": [
+      {
+        "inputs": [
+          "101",
+          "Alice",
+          "1000.00",
+          "102",
+          "Bob",
+          "500.00",
+          "103",
+          "Charlie",
+          "2000.00",
+          "102",
+          "200.00",
+          "101",
+          "500.00"
+        ],
+        "outputs": [
+          "Charlie",
+          "2000.00",
+          "Alice",
+          "1500.00",
+          "Bob",
+          "300.00"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio190": {
+    "cases": [
+      {
+        "inputs": [
+          "12345678909"
+        ],
+        "outputs": [
+          "valido"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "11111111111"
+        ],
+        "outputs": [
+          "invalido"
+        ],
+        "matchType": "any"
+      },
+      {
+        "inputs": [
+          "12345678900"
+        ],
+        "outputs": [
+          "invalido"
+        ],
+        "matchType": "any"
+      }
+    ]
+  },
+  "Exercicio191": {
+    "cases": [
+      {
+        "inputs": [
+          "Ana",
+          "101",
+          "7",
+          "8",
+          "9",
+          "Bia",
+          "102",
+          "6",
+          "6",
+          "6",
+          "Cid",
+          "103",
+          "8",
+          "9",
+          "10",
+          "Duo",
+          "104",
+          "5",
+          "5",
+          "5",
+          "Eva",
+          "105",
+          "7.5",
+          "8.5",
+          "9.5"
+        ],
+        "outputs": [
+          "Cid",
+          "9.10",
+          "Eva",
+          "8.80",
+          "Ana",
+          "8.30",
+          "Bia",
+          "6.00",
+          "Duo",
+          "5.00",
+          "Cid",
+          "Eva",
+          "Ana"
+        ],
+        "matchType": "all"
+      }
+    ]
+  },
+  "Exercicio192": {
+    "cases": [
+      {
+        "inputs": [
+          "5",
+          "E",
+          "e@e.com",
+          "555",
+          "3",
+          "C",
+          "c@c.com",
+          "333",
+          "1",
+          "A",
+          "a@a.com",
+          "111",
+          "4",
+          "D",
+          "d@d.com",
+          "444",
+          "2",
+          "B",
+          "b@b.com",
+          "222",
+          "3"
+        ],
+        "outputs": [
+          "C",
+          "c@c.com"
+        ],
+        "matchType": "all"
+      },
+      {
+        "inputs": [
+          "5",
+          "E",
+          "e@e.com",
+          "555",
+          "3",
+          "C",
+          "c@c.com",
+          "333",
+          "1",
+          "A",
+          "a@a.com",
+          "111",
+          "4",
+          "D",
+          "d@d.com",
+          "444",
+          "2",
+          "B",
+          "b@b.com",
+          "222",
+          "6"
+        ],
+        "outputs": [
+          "nao encontrado"
+        ],
+        "matchType": "any"
       }
     ]
   }

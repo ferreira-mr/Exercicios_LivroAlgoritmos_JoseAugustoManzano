@@ -1,41 +1,43 @@
-# 📝 Exercício 16: Cálculo do Novo Salário com Aumento
+# 📝 Exercício 16: Cálculo da Quantidade de Combustível Gasta em uma Viagem
 
 ## 📖 Descrição
-Escreva um programa que leia o valor do salário mensal de um trabalhador e a porcentagem de aumento do salário, calcule o novo salário e o aumento concedido, e exiba esses valores.
+Escreva um programa que calcule e apresente a quantidade de litros de combustível gasta em uma viagem.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira o valor do salário mensal.
-   - Solicite ao usuário que insira a porcentagem de aumento do salário.
+   - Solicite ao usuário que insira a distância percorrida em quilômetros.
+   - Solicite ao usuário que insira o consumo do veículo em quilômetros por litro.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule o valor do aumento usando a fórmula: aumento = salario * (aumento_porcentagem / 100)
-   - Calcule o novo salário somando o salário original ao aumento.
+   - Utilize a fórmula para calcular a quantidade de litros de combustível
+     gasta na viagem: litros = distância / consumo, onde litros é a quantidade
+     de litros de combustível gasta, distância é a distância percorrida em
+     quilômetros e consumo é o consumo do veículo em quilômetros por litro.
+   - Calcule a quantidade de litros de combustível gasta utilizando a fórmula mencionada.
 
 3. Saída de Dados:
-   - Exiba o valor do novo salário e o valor do aumento concedido.
+   - Exiba a quantidade de litros de combustível gasta na viagem.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: Salário = 1000, Aumento = 10%
-  - SAÍDA: Novo salário: 1100, Aumento concedido: 100
+  - Entrada: distância = 240 km
+  - Saída: 20 litros (quantidade de combustível gasta na viagem)
 
 - Exemplo 2:
-  - ENTRADA: Salário = 2000, Aumento = 5%
-  - SAÍDA: Novo salário: 2100, Aumento concedido: 100
+  - Entrada: distância = 360 km
+  - Saída: 30 litros (quantidade de combustível gasta na viagem)
 
 - Exemplo 3:
-  - ENTRADA: Salário = 1500, Aumento = 12%
-  - SAÍDA: Novo salário: 1680, Aumento concedido: 180
+  - Entrada: distância = 180 km
+  - Saída: 15 litros (quantidade de combustível gasta na viagem)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: salario, aumento_porcentagem
-PROCESSAMENTO: aumento = salario * (aumento_porcentagem / 100)
-               novo_salario = salario + aumento
-SAÍDA: exibir "Novo salário: " + novo_salario + ", Aumento concedido: " + aumento
+1. Solicitar distância, consumo
+2. litros = distância / consumo
+3. Exibir litros
 ```

@@ -1,40 +1,43 @@
-# 📝 Exercício 14: Cálculo do Quadrado da Soma de Três Números
+# 📝 Exercício 14: Conversor de Temperatura
 
 ## 📖 Descrição
-Escreva um programa que leia três valores numéricos, calcule o quadrado da soma desses números e exiba o resultado.
+Escreva um programa para converter temperaturas de graus Celsius para Fahrenheit.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira três valores numéricos.
+   - Solicite ao usuário que insira a temperatura em graus Celsius.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule a soma dos três números.
-   - Calcule o quadrado da soma.
+   - Utilize a fórmula de conversão de temperatura: F = C * 9/5 + 32, onde
+     F é a temperatura em Fahrenheit e C é a temperatura em Celsius.
+   - Calcule a temperatura em Fahrenheit usando a fórmula mencionada.
 
 3. Saída de Dados:
-   - Exiba o resultado do quadrado da soma.
+   - Exiba a temperatura convertida em graus Fahrenheit.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: 2, 3, 4
-  - SAÍDA: 81 ((2 + 3 + 4)² = 9² = 81)
+  - Entrada: 25 (temperatura em graus Celsius)
+  - Processamento: F = 25 * 9/5 + 32 = 77.0
+  - Saída: 77.0 (temperatura em graus Fahrenheit)
 
 - Exemplo 2:
-  - ENTRADA: 1, 5, 6
-  - SAÍDA: 144 ((1 + 5 + 6)² = 12² = 144)
+  - Entrada: -10 (temperatura em graus Celsius)
+  - Processamento: F = -10 * 9/5 + 32 = 14.0
+  - Saída: 14.0 (temperatura em graus Fahrenheit)
 
 - Exemplo 3:
-  - ENTRADA: -3, 0, 2
-  - SAÍDA: 1 ((-3 + 0 + 2)² = -1² = 1)
+  - Entrada: 100 (temperatura em graus Celsius)
+  - Processamento: F = 100 * 9/5 + 32 = 212.0
+  - Saída: 212.0 (temperatura em graus Fahrenheit)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: num1, num2, num3
-PROCESSAMENTO: soma = num1 + num2 + num3
-               quadrado_soma = soma * soma
-SAÍDA: exibir quadrado_soma
+1. Solicitar temperaturaCelsius
+2. temperaturaFahrenheit = temperaturaCelsius * 9/5 + 32
+3. Exibir temperaturaFahrenheit
 ```

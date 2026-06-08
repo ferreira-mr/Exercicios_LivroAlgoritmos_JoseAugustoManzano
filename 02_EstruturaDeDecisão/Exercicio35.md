@@ -1,46 +1,46 @@
-# 📝 Exercício 35: Maior e Menor Valor
+# 📝 Exercício 35: Multiplicação e Verificação
 
 ## 📖 Descrição
-Escreva um programa que leia cinco valores numéricos inteiros e apresente o maior e o menor valor.
+Escreva um programa que leia um número inteiro qualquer e o multiplique por dois. Apresente o resultado da multiplicação somente se o resultado for maior que 30.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira cinco valores numéricos inteiros.
+   - Solicite ao usuário que insira um número inteiro.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Encontre o maior e o menor valor dentre os cinco valores fornecidos.
+   - Multiplique o número inserido por dois.
 
-3. Saída de Dados:
-   - Apresente o maior e o menor valor encontrados.
+3. Verificação:
+   - Verifique se o resultado da multiplicação é maior que 30.
+   - Se o resultado for maior que 30, apresente-o.
+
+4. Saída de Dados:
+   - Apresente o resultado da multiplicação apenas se ele for maior que 30.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - Entrada: 10, 5, 8, 12, 3
-  - Saída: Maior valor: 12, Menor valor: 3
+  - Entrada: 20
+  - Saída: 40
+  - Explicação: 20 multiplicado por 2 é igual a 40, que é maior que 30.
 
 - Exemplo 2:
-  - Entrada: -1, -5, -3, -8, -2
-  - Saída: Maior valor: -1, Menor valor: -8
+  - Entrada: 15
+  - Saída: (Nenhum valor apresentado)
+  - Explicação: 15 multiplicado por 2 é igual a 30, que não é maior que 30. Nenhum valor é apresentado.
 
 - Exemplo 3:
-  - Entrada: 100, 200, 150, 300, 250
-  - Saída: Maior valor: 300, Menor valor: 100
+  - Entrada: 18
+  - Saída: 36
+  - Explicação: 18 multiplicado por 2 é igual a 36, que é maior que 30.
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: num1, num2, num3, num4, num5
-PROCESSAMENTO:
-  - maior_valor = num1
-  - menor_valor = num1
-  - SE num2 > maior_valor ENTÃO
-    - maior_valor = num2
-  - SE num2 < menor_valor ENTÃO
-    - menor_valor = num2
-  - REPEAT para num3, num4 e num5
-  - EXIBIR "Maior valor:", maior_valor
-  - EXIBIR "Menor valor:", menor_valor
+ENTRADA: numero
+PROCESSAMENTO: resultado = numero * 2
+VERIFICAÇÃO: SE resultado > 30 ENTÃO
+               EXIBIR resultado
 ```

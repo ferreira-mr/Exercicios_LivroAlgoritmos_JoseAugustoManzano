@@ -1,43 +1,38 @@
-# 📝 Exercício 1: Conversor de Temperatura
+# 📝 Exercício 1: Sucessor e Antecessor de um Número Inteiro
 
 ## 📖 Descrição
-Escreva um programa para converter temperaturas de graus Celsius para Fahrenheit.
+Escreva um programa que leia um valor numérico inteiro, calcule e apresente o sucessor e o antecessor desse número.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira a temperatura em graus Celsius.
+   - Solicite ao usuário que insira um valor numérico inteiro.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Utilize a fórmula de conversão de temperatura: F = C * 9/5 + 32, onde
-     F é a temperatura em Fahrenheit e C é a temperatura em Celsius.
-   - Calcule a temperatura em Fahrenheit usando a fórmula mencionada.
+   - Calcule o sucessor e o antecessor do número.
 
 3. Saída de Dados:
-   - Exiba a temperatura convertida em graus Fahrenheit.
+   - Exiba o valor do sucessor e do antecessor.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - Entrada: 25 (temperatura em graus Celsius)
-  - Processamento: F = 25 * 9/5 + 32 = 77.0
-  - Saída: 77.0 (temperatura em graus Fahrenheit)
+  - Entrada: 5
+  - Saída: Sucessor: 6, Antecessor: 4
 
 - Exemplo 2:
-  - Entrada: -10 (temperatura em graus Celsius)
-  - Processamento: F = -10 * 9/5 + 32 = 14.0
-  - Saída: 14.0 (temperatura em graus Fahrenheit)
+  - Entrada: -3
+  - Saída: Sucessor: -2, Antecessor: -4
 
 - Exemplo 3:
-  - Entrada: 100 (temperatura em graus Celsius)
-  - Processamento: F = 100 * 9/5 + 32 = 212.0
-  - Saída: 212.0 (temperatura em graus Fahrenheit)
+  - Entrada: 10
+  - Saída: Sucessor: 11, Antecessor: 9
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-1. Solicitar temperaturaCelsius
-2. temperaturaFahrenheit = temperaturaCelsius * 9/5 + 32
-3. Exibir temperaturaFahrenheit
+ENTRADA: numero
+PROCESSAMENTO: sucessor = numero + 1; antecessor = numero - 1
+SAÍDA: exibir "Sucessor: ", sucessor, ", Antecessor: ", antecessor
 ```

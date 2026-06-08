@@ -1,46 +1,40 @@
-# 📝 Exercício 41: Multiplicação e Verificação
+# 📝 Exercício 41: Classificação de Categoria de Atleta
 
 ## 📖 Descrição
-Escreva um programa que leia um número inteiro qualquer e o multiplique por dois. Apresente o resultado da multiplicação somente se o resultado for maior que 30.
+Escreva um programa que leia a idade de um nadador e determine sua categoria correspondente: Infantil A (5 a 7 anos), Infantil B (8 a 10 anos), Juvenil A (11 a 13 anos), Juvenil B (14 a 17 anos), Adulto (18 anos ou mais), ou Sem categoria (menos de 5 anos).
 
 ## 🚶 Passo a Passo
-
 1. Entrada de Dados:
-   - Solicite ao usuário que insira um número inteiro.
-   - Aguarde a entrada do usuário.
-
+   - Solicite a idade do nadador (valor inteiro).
 2. Processamento:
-   - Multiplique o número inserido por dois.
-
-3. Verificação:
-   - Verifique se o resultado da multiplicação é maior que 30.
-   - Se o resultado for maior que 30, apresente-o.
-
-4. Saída de Dados:
-   - Apresente o resultado da multiplicação apenas se ele for maior que 30.
-
+   - Verifique em qual categoria a idade se enquadra de forma sequencial-exclusiva.
+3. Saída de Dados:
+   - Apresente o nome da categoria obtida.
+   
 ## 🧪 Exemplos
-
 - Exemplo 1:
-  - Entrada: 20
-  - Saída: 40
-  - Explicação: 20 multiplicado por 2 é igual a 40, que é maior que 30.
-
+  - Entrada: 6
+  - Saída: Infantil A
 - Exemplo 2:
-  - Entrada: 15
-  - Saída: (Nenhum valor apresentado)
-  - Explicação: 15 multiplicado por 2 é igual a 30, que não é maior que 30. Nenhum valor é apresentado.
-
-- Exemplo 3:
-  - Entrada: 18
-  - Saída: 36
-  - Explicação: 18 multiplicado por 2 é igual a 36, que é maior que 30.
-
+  - Entrada: 25
+  - Saída: Adulto
+   
 ## 💻 Exemplo em Pseudocódigo
-
 ```plaintext
-ENTRADA: numero
-PROCESSAMENTO: resultado = numero * 2
-VERIFICAÇÃO: SE resultado > 30 ENTÃO
-               EXIBIR resultado
+ENTRADA: idade
+PROCESSAMENTO:
+  SE idade < 5 ENTÃO
+    cat = "Sem categoria"
+  SENÃO SE idade <= 7 ENTÃO
+    cat = "Infantil A"
+  SENÃO SE idade <= 10 ENTÃO
+    cat = "Infantil B"
+  SENÃO SE idade <= 13 ENTÃO
+    cat = "Juvenil A"
+  SENÃO SE idade <= 17 ENTÃO
+    cat = "Juvenil B"
+  SENÃO
+    cat = "Adulto"
+  FIM SE
+SAÍDA: exibir cat
 ```

@@ -1,38 +1,40 @@
-# 📝 Exercício 17: Cálculo da Área de uma Circunferência
+# 📝 Exercício 17: Cálculo do Produto e da Soma de Quatro Números
 
 ## 📖 Descrição
-Escreva um programa que leia o valor do raio de uma circunferência, calcule o valor da área da circunferência e exiba o resultado.
+Escreva um programa que leia quatro valores numéricos, calcule o produto do primeiro com o terceiro e a soma do segundo com o quarto, e exiba os resultados do produto e da soma.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira o valor do raio da circunferência.
+   - Solicite ao usuário que insira quatro valores numéricos.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule a área da circunferência usando a fórmula: área = π * raio * raio.
+   - Calcule o produto do primeiro e do terceiro número.
+   - Calcule a soma do segundo e do quarto número.
 
 3. Saída de Dados:
-   - Exiba o valor da área calculada.
+   - Exiba os resultados do produto e da soma.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: raio = 5
-  - SAÍDA: 78.54 (área da circunferência)
+  - ENTRADA: 2, 3, 4, 5
+  - SAÍDA: Produto: 8 (2 * 4), Soma: 8 (3 + 5)
 
 - Exemplo 2:
-  - ENTRADA: raio = 10
-  - SAÍDA: 314.16 (área da circunferência)
+  - ENTRADA: -1, 8, 0, 2
+  - SAÍDA: Produto: 0 ((-1) * 0), Soma: 10 (8 + 2)
 
 - Exemplo 3:
-  - ENTRADA: raio = 2.5
-  - SAÍDA: 19.63 (área da circunferência)
+  - ENTRADA: 10, 5, 3, 7
+  - SAÍDA: Produto: 30 (10 * 3), Soma: 12 (5 + 7)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: raio
-PROCESSAMENTO: area = 3.14159 * raio * raio
-SAÍDA: exibir area
+ENTRADA: num1, num2, num3, num4
+PROCESSAMENTO: produto = num1 * num3
+               soma = num2 + num4
+SAÍDA: exibir "Produto: " + produto + ", Soma: " + soma
 ```

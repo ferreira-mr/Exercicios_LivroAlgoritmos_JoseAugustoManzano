@@ -1,43 +1,56 @@
-# 📝 Exercício 4: Cálculo da Quantidade de Combustível Gasta em uma Viagem
+# 📝 Exercício 4: Cálculo das Quatro Operações Básicas
 
 ## 📖 Descrição
-Escreva um programa que calcule e apresente a quantidade de litros de combustível gasta em uma viagem.
+Escreva um programa que leia dois valores numéricos, calcule as quatro operações básicas (adição, subtração, multiplicação e divisão) utilizando esses valores e exiba os resultados.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira a distância percorrida em quilômetros.
-   - Solicite ao usuário que insira o consumo do veículo em quilômetros por litro.
+   - Solicite ao usuário que insira dois valores numéricos.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Utilize a fórmula para calcular a quantidade de litros de combustível
-     gasta na viagem: litros = distância / consumo, onde litros é a quantidade
-     de litros de combustível gasta, distância é a distância percorrida em
-     quilômetros e consumo é o consumo do veículo em quilômetros por litro.
-   - Calcule a quantidade de litros de combustível gasta utilizando a fórmula mencionada.
+   - Calcule a adição dos dois valores.
+   - Calcule a subtração do primeiro valor pelo segundo.
+   - Calcule a multiplicação dos dois valores.
+   - Calcule a divisão do primeiro valor pelo segundo.
 
 3. Saída de Dados:
-   - Exiba a quantidade de litros de combustível gasta na viagem.
+   - Exiba os resultados das quatro operações.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - Entrada: distância = 240 km
-  - Saída: 20 litros (quantidade de combustível gasta na viagem)
+  - ENTRADA: valor1 = 10, valor2 = 5
+  - SAÍDA: Adição: 10 + 5 = 15;
+           Subtração: 10 - 5 = 5;
+           Multiplicação: 10 * 5 = 50;
+           Divisão: 10 / 5 = 2
 
 - Exemplo 2:
-  - Entrada: distância = 360 km
-  - Saída: 30 litros (quantidade de combustível gasta na viagem)
+  - ENTRADA: valor1 = 20, valor2 = 8
+  - SAÍDA: Adição: 20 + 8 = 28;
+           Subtração: 20 - 8 = 12;
+           Multiplicação: 20 * 8 = 160;
+           Divisão: 20 / 8 = 2.5
 
 - Exemplo 3:
-  - Entrada: distância = 180 km
-  - Saída: 15 litros (quantidade de combustível gasta na viagem)
+  - ENTRADA: valor1 = -15, valor2 = 3
+  - SAÍDA: Adição: -15 + 3 = -12;
+           Subtração: -15 - 3 = -18;
+           Multiplicação: -15 * 3 = -45;
+           Divisão: -15 / 3 = -5
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-1. Solicitar distância, consumo
-2. litros = distância / consumo
-3. Exibir litros
+ENTRADA: valor1, valor2
+PROCESSAMENTO: adicao = valor1 + valor2
+               subtracao = valor1 - valor2
+               multiplicaçao = valor1 * valor2
+               divisao = valor1 / valor2
+SAÍDA: Adição: " + valor1 + " + " + valor2 + " = " + adicao + ";
+       Subtração: " + valor1 + " - " + valor2 + " = " + subtracao + ";
+       Multiplicação: " + valor1 + " * " + valor2 + " = " + multiplicaçao + ";
+       Divisão: " + valor1 + " / " + valor2 + " = " + divisao
 ```

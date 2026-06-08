@@ -1,39 +1,27 @@
-# 📝 Exercício 26: Cálculo do Quadrado da Divisão de Dois Números Inteiros
+# 📝 Exercício 26: Média Ponderada com Três Notas
 
 ## 📖 Descrição
-Escreva um programa que leia dois valores numéricos inteiros, calcule a divisão do primeiro número pelo segundo número e, em seguida, calcule o quadrado do resultado da divisão.
+Escreva um programa que leia três notas de um aluno e calcule a média ponderada, considerando os pesos 2, 3 e 5, respectively.
 
 ## 🚶 Passo a Passo
-
 1. Entrada de Dados:
-   - Solicite ao usuário que insira dois valores numéricos inteiros.
-   - Aguarde a entrada do usuário.
-
+   - Solicite três notas bimestrais.
 2. Processamento:
-   - Calcule a divisão do primeiro número pelo segundo número.
-   - Calcule o quadrado do resultado da divisão.
-
+   - Calcule a média multiplicando a primeira nota por 2, a segunda por 3 e a terceira por 5, somando os produtos e dividindo a soma total por 10 (2 + 3 + 5).
 3. Saída de Dados:
-   - Apresente o resultado inteiro do quadrado da divisão.
-
+   - Apresente a média ponderada calculada com 2 casas decimais.
+   
 ## 🧪 Exemplos
-
 - Exemplo 1:
-  - Entrada: 10, 2
-  - Saída: 25 (10 / 2 = 5, 5² = 25)
-
+  - Entrada: 7.0, 8.0, 9.0
+  - Saída: Média: 8.30
 - Exemplo 2:
-  - Entrada: 8, 4
-  - Saída: 4 (8 / 4 = 2, 2² = 4)
-
-- Exemplo 3:
-  - Entrada: 15, 3
-  - Saída: 25 (15 / 3 = 5, 5² = 25)
-
+  - Entrada: 5.0, 6.0, 4.0
+  - Saída: Média: 4.80
+   
 ## 💻 Exemplo em Pseudocódigo
-
 ```plaintext
-ENTRADA: num1, num2
-PROCESSAMENTO: resultado_divisao = num1 / num2; resultado_quadrado = resultado_divisao * resultado_divisao
-SAÍDA: exibir resultado_quadrado
+ENTRADA: n1, n2, n3
+PROCESSAMENTO: media = (n1 * 2 + n2 * 3 + n3 * 5) / 10
+SAÍDA: exibir media
 ```

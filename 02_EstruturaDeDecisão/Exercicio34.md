@@ -1,46 +1,41 @@
-# 📝 Exercício 34: Valores Divisíveis por 2 ou 3
+# 📝 Exercício 34: Par ou Ímpar
 
 ## 📖 Descrição
-Escreva um programa que leia quatro valores numéricos inteiros e apresente apenas os valores que sejam divisíveis por 2 ou 3.
+Escreva um programa que leia um número inteiro e informe se ele é par ou ímpar.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira quatro valores numéricos inteiros.
+   - Solicite ao usuário que insira um número inteiro.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Verifique se cada valor é divisível por 2 ou por 3.
-   - Se um valor for divisível por 2 ou 3, apresente-o.
+   - Verifique se o número fornecido é par ou ímpar.
 
 3. Saída de Dados:
-   - Apresente os valores divisíveis por 2 ou 3.
+   - Apresente se o número é par ou ímpar.
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - Entrada: 6, 8, 9, 12
-  - Saída: 6, 8, 9, 12
+  - Entrada: 7
+  - Saída: Ímpar
 
 - Exemplo 2:
-  - Entrada: 2, 3, 4, 5
-  - Saída: 2, 3
+  - Entrada: 10
+  - Saída: Par
 
 - Exemplo 3:
-  - Entrada: 10, 15, 18, 20
-  - Saída: 10, 15, 18, 20
+  - Entrada: -5
+  - Saída: Ímpar
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: num1, num2, num3, num4
+ENTRADA: numero
 PROCESSAMENTO:
-  - SE num1 for divisível por 2 OU por 3 ENTÃO
-    - EXIBIR num1
-  - SE num2 for divisível por 2 OU por 3 ENTÃO
-    - EXIBIR num2
-  - SE num3 for divisível por 2 OU por 3 ENTÃO
-    - EXIBIR num3
-  - SE num4 for divisível por 2 OU por 3 ENTÃO
-    - EXIBIR num4
+  - SE numero % 2 == 0 ENTÃO
+    - EXIBIR "Par"
+  - SENÃO
+    - EXIBIR "Ímpar"
 ```

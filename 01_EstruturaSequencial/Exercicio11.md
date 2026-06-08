@@ -1,39 +1,44 @@
-# 📝 Exercício 11: Conversão de Dólar para Real
+# 📝 Exercício 11: Cálculo do Volume de uma Lata de Óleo
 
 ## 📖 Descrição
-Escreva um programa que leia um valor em dólar (US$), calcule e apresente o valor da conversão desse valor em real (R$), considerando uma cotação do dólar previamente definida.
+Escreva um programa que calcule e apresente o valor do volume de uma lata de óleo.
 
 ## 🚶 Passo a Passo
 
 1. Entrada de Dados:
-   - Solicite ao usuário que insira um valor em dólar (US$).
+   - Solicite ao usuário que insira o raio da base da lata em centímetros.
+   - Solicite ao usuário que insira a altura da lata em centímetros.
    - Aguarde a entrada do usuário.
 
 2. Processamento:
-   - Calcule o valor equivalente em real (R$) multiplicando o valor em
-     dólar pela cotação do dólar.
+   - Utilize a fórmula para calcular o volume da lata de óleo: V = π * raio^2 * altura,
+     onde V é o volume, raio é o raio da base da lata e altura é a altura da lata.
+   - Calcule o volume utilizando a fórmula mencionada.
 
 3. Saída de Dados:
-   - Exiba o valor convertido em real.
+   - Exiba o volume calculado da lata de óleo em centímetros cúbicos (cm³).
 
 ## 🧪 Exemplos
 
 - Exemplo 1:
-  - ENTRADA: 50 (valor em dólar)
-  - SAÍDA: 280.0 (valor em real, considerando a cotação de 5.60)
+  - Entrada: raio = 5 cm, altura = 10 cm
+  - Processamento: V = π * 5^2 * 10 = 785.3981625 cm³
+  - Saída: 785.3981625 cm³ (volume da lata de óleo)
 
 - Exemplo 2:
-  - ENTRADA: 100 (valor em dólar)
-  - SAÍDA: 560.0 (valor em real, considerando a cotação de 5.60)
+  - Entrada: raio = 3 cm, altura = 8 cm
+  - Processamento: V = π * 3^2 * 8 = 226.19467080000004 cm³
+  - Saída: 226.19467080000004 cm³ (volume da lata de óleo)
 
 - Exemplo 3:
-  - ENTRADA: 20 (valor em dólar)
-  - SAÍDA: 112.0 (valor em real, considerando a cotação de 5.60)
+  - Entrada: raio = 7 cm, altura = 15 cm
+  - Processamento: V = π * 7^2 * 15 = 2309.07059775 cm³
+  - Saída: 2309.07059775 cm³ (volume da lata de óleo)
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
-ENTRADA: valor_em_dolar
-PROCESSAMENTO: valor_em_real = valor_em_dolar * cotacao_do_dolar
-SAÍDA: exibir valor_em_real
+1. Solicitar raio, altura
+2. volume = π * raio^2 * altura
+3. Exibir volume
 ```
