@@ -190,7 +190,7 @@ function layoutNodes(
       const loopBackLineSegment: LayoutNode['lines'][0] = { x1: bodyStartX, y1: bodyEndY - 30, x2: bodyStartX, y2: loopBackY };
       const loopBackSegmentRight: LayoutNode['lines'][0] = { x1: bodyStartX, y1: loopBackY, x2: loopBackX, y2: loopBackY };
       const loopBackSegmentUp: LayoutNode['lines'][0] = { x1: loopBackX, y1: loopBackY, x2: loopBackX, y2: y - 15 };
-      const loopBackSegmentLeft: LayoutNode['lines'][0] = { x1: loopBackX, y1: y - 15, x2: startX, y2: y - 15, arrow: true };
+      const loopBackSegmentLeft: LayoutNode['lines'][0] = { x1: loopBackX, y1: y - 15, x2: startX, y2: y - 15 };
       
       if (node.bodyBranch && node.bodyBranch.length > 0) {
         const lastBodyNode = node.bodyBranch[node.bodyBranch.length - 1];
