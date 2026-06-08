@@ -65,12 +65,12 @@ function layoutNodes(
         width: w,
         height: h,
         lines: i < nodes.length - 1 ? [{ 
-          x1: startX, y1: y + h, x2: startX, y2: y + h + 30, arrow: true,
+          x1: startX, y1: y + h, x2: startX, y2: y + h + 40, arrow: true,
           insertPoint: { fromNodeId: node.id }
         }] : []
       });
       
-      currentY += h + 30;
+      currentY += h + 40;
     } else if (node.type === 'decision') {
       const w = 160;
       const h = 55;
@@ -108,7 +108,7 @@ function layoutNodes(
       if (node.thenBranch && node.thenBranch.length > 0) {
         const lastThenNode = node.thenBranch[node.thenBranch.length - 1];
         lines.push({ 
-          x1: startX - 110, y1: thenLayout.endY - 30, x2: startX - 110, y2: joinY + joinH / 2,
+          x1: startX - 110, y1: thenLayout.endY - 40, x2: startX - 110, y2: joinY + joinH / 2,
           insertPoint: { fromNodeId: lastThenNode.id }
         });
         lines.push({ 
@@ -123,7 +123,7 @@ function layoutNodes(
       if (node.elseBranch && node.elseBranch.length > 0) {
         const lastElseNode = node.elseBranch[node.elseBranch.length - 1];
         lines.push({ 
-          x1: startX + 110, y1: elseLayout.endY - 30, x2: startX + 110, y2: joinY + joinH / 2,
+          x1: startX + 110, y1: elseLayout.endY - 40, x2: startX + 110, y2: joinY + joinH / 2,
           insertPoint: { fromNodeId: lastElseNode.id }
         });
         lines.push({ 
@@ -155,12 +155,12 @@ function layoutNodes(
         width: joinW,
         height: joinH,
         lines: i < nodes.length - 1 ? [{ 
-          x1: startX, y1: joinY + joinH, x2: startX, y2: joinY + joinH + 30, arrow: true,
+          x1: startX, y1: joinY + joinH, x2: startX, y2: joinY + joinH + 40, arrow: true,
           insertPoint: { fromNodeId: node.id }
         }] : []
       });
       
-      currentY = joinY + joinH + 30;
+      currentY = joinY + joinH + 40;
       maxWidth = Math.max(maxWidth, 260);
     } else if (node.type === 'loop') {
       const w = 160;
@@ -169,9 +169,9 @@ function layoutNodes(
       const y = currentY;
       
       const bodyStartX = startX + 140;
-      const bodyStartY = y + h + 30;
+      const bodyStartY = y + h + 40;
       const bodyLayout = layoutNodes(node.bodyBranch || [], bodyStartX, bodyStartY);
-      const bodyEndY = Math.max(bodyLayout.endY, y + h + 60);
+      const bodyEndY = Math.max(bodyLayout.endY, y + h + 80);
       
       const loopBackY = bodyEndY;
       
@@ -186,8 +186,8 @@ function layoutNodes(
       // Position the vertical loop-back line safely to the right of the entire body layout
       const loopBackX = maxBodyX + 30;
       
-      const nextY = Math.max(y + h + 30, loopBackY + 30);
-      const loopBackLineSegment: LayoutNode['lines'][0] = { x1: bodyStartX, y1: bodyEndY - 30, x2: bodyStartX, y2: loopBackY };
+      const nextY = Math.max(y + h + 40, loopBackY + 40);
+      const loopBackLineSegment: LayoutNode['lines'][0] = { x1: bodyStartX, y1: bodyEndY - 40, x2: bodyStartX, y2: loopBackY };
       const loopBackSegmentRight: LayoutNode['lines'][0] = { x1: bodyStartX, y1: loopBackY, x2: loopBackX, y2: loopBackY };
       const loopBackSegmentUp: LayoutNode['lines'][0] = { x1: loopBackX, y1: loopBackY, x2: loopBackX, y2: y - 15 };
       const loopBackSegmentLeft: LayoutNode['lines'][0] = { x1: loopBackX, y1: y - 15, x2: startX, y2: y - 15 };
@@ -1639,7 +1639,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           <marker 
             id="arrow" 
             viewBox="0 0 10 10" 
-            refX="6" 
+            refX="10" 
             refY="5" 
             markerWidth="6" 
             markerHeight="6" 
@@ -1650,7 +1650,7 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
           <marker 
             id="arrow-hover" 
             viewBox="0 0 10 10" 
-            refX="6" 
+            refX="10" 
             refY="5" 
             markerWidth="6" 
             markerHeight="6" 
