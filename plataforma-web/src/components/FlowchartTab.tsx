@@ -168,55 +168,67 @@ function layoutNodes(
       const x = startX - w / 2;
       const y = currentY;
       
-      const bodyStartX = startX + 140;
       const bodyStartY = y + h + 40;
-      const bodyLayout = layoutNodes(node.bodyBranch || [], bodyStartX, bodyStartY);
+      const bodyLayout = layoutNodes(node.bodyBranch || [], startX, bodyStartY);
       const bodyEndY = Math.max(bodyLayout.endY, y + h + 80);
       
-      const loopBackY = bodyEndY;
+      const loopBackY = bodyEndY - 20;
+      const exitY = loopBackY + 20;
+      const nextY = exitY + 40;
       
-      // Calculate the maximum X coordinate reached by any node or line in the body layout
-      let maxBodyX = bodyStartX;
+      // Calculate leftmost and rightmost X coordinates reached by any node or line in the body layout
+      let minBodyX = startX - w / 2;
+      let maxBodyX = startX + w / 2;
       for (const lNode of bodyLayout.layoutNodes) {
+        minBodyX = Math.min(minBodyX, lNode.x);
         maxBodyX = Math.max(maxBodyX, lNode.x + lNode.width);
         for (const line of lNode.lines) {
+          minBodyX = Math.min(minBodyX, line.x1, line.x2);
           maxBodyX = Math.max(maxBodyX, line.x1, line.x2);
         }
       }
-      // Position the vertical loop-back line safely to the right of the entire body layout
-      const loopBackX = maxBodyX + 30;
       
-      const nextY = Math.max(y + h + 40, loopBackY + 40);
-      const loopBackLineSegment: LayoutNode['lines'][0] = { x1: bodyStartX, y1: bodyEndY - 40, x2: bodyStartX, y2: loopBackY };
-      const loopBackSegmentRight: LayoutNode['lines'][0] = { x1: bodyStartX, y1: loopBackY, x2: loopBackX, y2: loopBackY };
-      const loopBackSegmentUp: LayoutNode['lines'][0] = { x1: loopBackX, y1: loopBackY, x2: loopBackX, y2: y - 15 };
-      const loopBackSegmentLeft: LayoutNode['lines'][0] = { x1: loopBackX, y1: y - 15, x2: startX, y2: y - 15 };
+      const loopBackLeftX = minBodyX - 35;
+      const exitRightX = maxBodyX + 35;
+      
+      const loopBackDown: LayoutNode['lines'][0] = { x1: startX, y1: bodyEndY - 40, x2: startX, y2: loopBackY };
+      const loopBackLeft: LayoutNode['lines'][0] = { x1: startX, y1: loopBackY, x2: loopBackLeftX, y2: loopBackY };
+      const loopBackUp: LayoutNode['lines'][0] = { x1: loopBackLeftX, y1: loopBackY, x2: loopBackLeftX, y2: y + h / 2 };
+      const loopBackRight: LayoutNode['lines'][0] = { x1: loopBackLeftX, y1: y + h / 2, x2: startX - w / 2, y2: y + h / 2, arrow: true };
       
       if (node.bodyBranch && node.bodyBranch.length > 0) {
         const lastBodyNode = node.bodyBranch[node.bodyBranch.length - 1];
-        loopBackLineSegment.insertPoint = { fromNodeId: lastBodyNode.id };
-        loopBackSegmentRight.insertPoint = { fromNodeId: lastBodyNode.id };
-        loopBackSegmentUp.insertPoint = { fromNodeId: lastBodyNode.id };
-        loopBackSegmentLeft.insertPoint = { fromNodeId: lastBodyNode.id };
+        loopBackDown.insertPoint = { fromNodeId: lastBodyNode.id };
+        loopBackLeft.insertPoint = { fromNodeId: lastBodyNode.id };
+        loopBackUp.insertPoint = { fromNodeId: lastBodyNode.id };
+        loopBackRight.insertPoint = { fromNodeId: lastBodyNode.id };
       }
 
+      const exitRight: LayoutNode['lines'][0] = { x1: startX + w / 2, y1: y + h / 2, x2: exitRightX, y2: y + h / 2, label: 'Falso' };
+      const exitDown: LayoutNode['lines'][0] = { x1: exitRightX, y1: y + h / 2, x2: exitRightX, y2: exitY };
+      const exitLeft: LayoutNode['lines'][0] = { x1: exitRightX, y1: exitY, x2: startX, y2: exitY };
+
       const lines: LayoutNode['lines'] = [
-        // True branch exits from right of loop block, goes right, then turns down to loop body
-        { x1: startX + w / 2, y1: y + h / 2, x2: bodyStartX, y2: y + h / 2 },
+        // True branch exits from bottom of loop block and goes straight down into loop body
         { 
-          x1: bodyStartX, y1: y + h / 2, x2: bodyStartX, y2: bodyStartY, arrow: true, label: 'Verdade',
+          x1: startX, y1: y + h, x2: startX, y2: bodyStartY, arrow: true, label: 'Verdade',
           insertPoint: { fromNodeId: node.id, branchType: 'body' }
         },
         
-        // Loop-back line: goes down from loop body end, right, up, left back to main line
-        loopBackLineSegment,
-        loopBackSegmentRight,
-        loopBackSegmentUp,
-        loopBackSegmentLeft,
+        // Loop-back lines (from body end, left, up, right back into loop block left side)
+        loopBackDown,
+        loopBackLeft,
+        loopBackUp,
+        loopBackRight,
         
-        // False branch exits from bottom of loop block and goes straight down
-        { 
-          x1: startX, y1: y + h, x2: startX, y2: nextY, arrow: true, label: 'Falso',
+        // Exit (False) lines (from loop block right side, right, down, left back to main vertical line)
+        exitRight,
+        exitDown,
+        exitLeft,
+        
+        // Connection from exit merge point to next node
+        {
+          x1: startX, y1: exitY, x2: startX, y2: nextY, arrow: true,
           insertPoint: { fromNodeId: node.id }
         }
       ];
@@ -234,8 +246,8 @@ function layoutNodes(
       
       currentY = nextY;
       
-      const loopRightBoundary = loopBackX - startX + 20;
-      const loopLeftBoundary = 40;
+      const loopRightBoundary = exitRightX - startX + 20;
+      const loopLeftBoundary = startX - loopBackLeftX + 20;
       maxWidth = Math.max(maxWidth, Math.max(loopLeftBoundary * 2, loopRightBoundary * 2));
     }
   }
