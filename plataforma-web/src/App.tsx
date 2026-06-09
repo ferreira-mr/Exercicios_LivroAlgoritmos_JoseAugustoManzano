@@ -742,13 +742,14 @@ export default function App() {
             const lineNum = err.line;
             const startCol = err.startCol || 1;
             const endCol = err.endCol || (startCol + 1);
+            const isWarning = err.severity === 'warning';
             markers.push({
               startLineNumber: lineNum,
               startColumn: startCol,
               endLineNumber: lineNum,
               endColumn: endCol,
-              message: `Erro Sintático: ${err.message}`,
-              severity: 8 // monaco.MarkerSeverity.Error
+              message: isWarning ? `Aviso: ${err.message}` : `Erro Sintático: ${err.message}`,
+              severity: isWarning ? 4 : 8 // 4 = monaco.MarkerSeverity.Warning, 8 = monaco.MarkerSeverity.Error
             });
           });
         }
