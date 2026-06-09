@@ -1,7 +1,8 @@
 # 📝 Exercício 6: Conversão de Real para Dólar
 
 ## 📖 Descrição
-Escreva um programa que leia um valor em real (R$), calcule e apresente o valor da conversão desse valor em dólar (US$), considerando uma cotação do dólar previamente definida.
+Escreva um programa que leia um valor em real (R$), calcule e apresente o valor da conversão desse valor em dólar (US$), considerando a cotação do dólar definida em 5.60.
+
 
 ## 🚶 Passo a Passo
 

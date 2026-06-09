@@ -49,7 +49,7 @@
     "title": "Conversão de Dólar para Real",
     "chapterDir": "01_EstruturaSequencial",
     "chapterName": "Estrutura Sequencial",
-    "description": "Escreva um programa que leia um valor em dólar (US$), calcule e apresente o valor da conversão desse valor em real (R$), considerando uma cotação do dólar previamente definida.",
+    "description": "Escreva um programa que leia um valor em dólar (US$), calcule e apresente o valor da conversão desse valor em real (R$), considerando a cotação do dólar definida em 5.60.",
     "steps": "1. Entrada de Dados:\r\n   - Solicite ao usuário que insira um valor em dólar (US$).\r\n   - Aguarde a entrada do usuário.\r\n\r\n2. Processamento:\r\n   - Calcule o valor equivalente em real (R$) multiplicando o valor em\r\n     dólar pela cotação do dólar.\r\n\r\n3. Saída de Dados:\r\n   - Exiba o valor convertido em real.",
     "examples": "- Exemplo 1:\r\n  - ENTRADA: 50 (valor em dólar)\r\n  - SAÍDA: 280.0 (valor em real, considerando a cotação de 5.60)\r\n\r\n- Exemplo 2:\r\n  - ENTRADA: 100 (valor em dólar)\r\n  - SAÍDA: 560.0 (valor em real, considerando a cotação de 5.60)\r\n\r\n- Exemplo 3:\r\n  - ENTRADA: 20 (valor em dólar)\r\n  - SAÍDA: 112.0 (valor em real, considerando a cotação de 5.60)",
     "pseudocode": "ENTRADA: valor_em_dolar\r\nPROCESSAMENTO: valor_em_real = valor_em_dolar * cotacao_do_dolar\r\nSAÍDA: exibir valor_em_real"
@@ -60,7 +60,7 @@
     "title": "Conversão de Real para Dólar",
     "chapterDir": "01_EstruturaSequencial",
     "chapterName": "Estrutura Sequencial",
-    "description": "Escreva um programa que leia um valor em real (R$), calcule e apresente o valor da conversão desse valor em dólar (US$), considerando uma cotação do dólar previamente definida.",
+    "description": "Escreva um programa que leia um valor em real (R$), calcule e apresente o valor da conversão desse valor em dólar (US$), considerando a cotação do dólar definida em 5.60.",
     "steps": "1. Entrada de Dados:\r\n   - Solicite ao usuário que insira um valor em real (R$).\r\n   - Aguarde a entrada do usuário.\r\n\r\n2. Processamento:\r\n   - Calcule o valor equivalente em dólar (US$) dividindo o valor em real\r\n     pela cotação do dólar.\r\n\r\n3. Saída de Dados:\r\n   - Exiba o valor convertido em dólar.",
     "examples": "- Exemplo 1:\r\n  - ENTRADA: 100 (valor em real)\r\n  - SAÍDA: 17.86 (valor em dólar, considerando a cotação de 5.60)\r\n\r\n- Exemplo 2:\r\n  - ENTRADA: 500 (valor em real)\r\n  - SAÍDA: 89.29 (valor em dólar, considerando a cotação de 5.60)\r\n\r\n- Exemplo 3:\r\n  - ENTRADA: 50 (valor em real)\r\n  - SAÍDA: 8.93 (valor em dólar, considerando a cotação de 5.60)",
     "pseudocode": "ENTRADA: valor_em_real\r\nPROCESSAMENTO: valor_em_dolar = valor_em_real / cotacao_do_dolar\r\nSAÍDA: exibir valor_em_dolar"
