@@ -5,6 +5,7 @@ import {
   Play, 
   CheckCircle, 
   AlertCircle, 
+  XCircle, 
   Search, 
   Code, 
   Terminal, 
@@ -32,6 +33,7 @@ import { runCode, runJSCode } from './utils/runner';
 import { registerPortugolLanguage } from './utils/portugol-monaco';
 import { LexadorPortugolStudio, AvaliadorSintaticoPortugolStudio, InterpretadorPortugolStudioComDepuracao } from '@designliquido/portugol-studio';
 import FlowchartTab from './components/FlowchartTab';
+import { getStaticErrors } from './utils/static-validator';
 
 function levenshtein(a: string, b: string): number {
   const matrix = [];
@@ -117,6 +119,8 @@ interface TestResult {
   actual: string;
   passed: boolean;
   error?: string;
+  matchType?: 'all' | 'any';
+  isExact?: boolean;
 }
 
 // Convert exercises data to type-safe array
@@ -199,7 +203,11 @@ function parseSteps(stepsText: string): ParsedStep[] {
       }
     } else {
       if (currentStep) {
-        currentStep.items.push(trimmed);
+        if (currentStep.items.length > 0) {
+          currentStep.items[currentStep.items.length - 1] += ' ' + trimmed;
+        } else {
+          currentStep.items.push(trimmed);
+        }
       }
     }
   }
@@ -257,17 +265,17 @@ function parseExamples(examplesText: string, exerciseId?: string): ParsedExample
   for (const block of blocks) {
     if (!block.trim()) continue;
     
-    const entradaMatch = block.match(/-\s*(?:Entrada|ENTRADA):\s*(.*)/i);
-    const saidaMatch = block.match(/-\s*(?:Saída|SAÍDA):\s*(.*)/i);
-    const procMatch = block.match(/-\s*(?:Processamento|PROCESSAMENTO):\s*(.*)/i);
+    const entradaMatch = block.match(/-\s*(?:Entrada|ENTRADA):\s*([\s\S]*?)(?=-\s*(?:Saída|SAÍDA|Processamento|PROCESSAMENTO):|$)/i);
+    const saidaMatch = block.match(/-\s*(?:Saída|SAÍDA):\s*([\s\S]*?)(?=-\s*(?:Entrada|ENTRADA|Processamento|PROCESSAMENTO):|$)/i);
+    const procMatch = block.match(/-\s*(?:Processamento|PROCESSAMENTO):\s*([\s\S]*?)(?=-\s*(?:Entrada|ENTRADA|Saída|SAÍDA):|$)/i);
     
     if (entradaMatch && saidaMatch) {
       let rawInput = entradaMatch[1].trim();
       let rawOutput = saidaMatch[1].trim();
       
-      // Clean up parentheses at the end of the lines
-      let cleanInput = rawInput.replace(/\s*\([^)]*\)\s*$/, '').trim();
-      let cleanOutput = rawOutput.replace(/\s*\([^)]*\)\s*$/, '').trim();
+      // Clean up parentheses and leading/trailing spaces from each line
+      let cleanInput = rawInput.replace(/\s*\([^)]*\)\s*$/, '').split('\n').map(l => l.trim()).filter(Boolean).join('\n');
+      let cleanOutput = rawOutput.replace(/\s*\([^)]*\)\s*$/, '').split('\n').map(l => l.trim()).filter(Boolean).join('\n');
       
       // If we have actual test inputs, show exactly what the user has to type
       const testCase = testCases?.[exampleIndex];
@@ -288,15 +296,15 @@ function parseExamples(examplesText: string, exerciseId?: string): ParsedExample
   // If the string itself did not start with "- Exemplo" but had Entrada/Saída block directly (like Exercicio110)
   if (list.length === 0 && blocks.length > 0) {
     const singleBlock = blocks[0];
-    const entradaMatch = singleBlock.match(/-\s*(?:Entrada|ENTRADA):\s*(.*)/i);
-    const saidaMatch = singleBlock.match(/-\s*(?:Saída|SAÍDA):\s*(.*)/i);
-    const procMatch = singleBlock.match(/-\s*(?:Processamento|PROCESSAMENTO):\s*(.*)/i);
+    const entradaMatch = singleBlock.match(/-\s*(?:Entrada|ENTRADA):\s*([\s\S]*?)(?=-\s*(?:Saída|SAÍDA|Processamento|PROCESSAMENTO):|$)/i);
+    const saidaMatch = singleBlock.match(/-\s*(?:Saída|SAÍDA):\s*([\s\S]*?)(?=-\s*(?:Entrada|ENTRADA|Processamento|PROCESSAMENTO):|$)/i);
+    const procMatch = singleBlock.match(/-\s*(?:Processamento|PROCESSAMENTO):\s*([\s\S]*?)(?=-\s*(?:Entrada|ENTRADA|Saída|SAÍDA):|$)/i);
     
     if (entradaMatch && saidaMatch) {
       let rawInput = entradaMatch[1].trim();
       let rawOutput = saidaMatch[1].trim();
-      let cleanInput = rawInput.replace(/\s*\([^)]*\)\s*$/, '').trim();
-      let cleanOutput = rawOutput.replace(/\s*\([^)]*\)\s*$/, '').trim();
+      let cleanInput = rawInput.replace(/\s*\([^)]*\)\s*$/, '').split('\n').map(l => l.trim()).filter(Boolean).join('\n');
+      let cleanOutput = rawOutput.replace(/\s*\([^)]*\)\s*$/, '').split('\n').map(l => l.trim()).filter(Boolean).join('\n');
       
       const testCase = testCases?.[0];
       if (testCase && testCase.inputs && testCase.inputs.length > 0) {
@@ -325,6 +333,68 @@ function formatDecimals(text: string): string {
     }
     return match;
   });
+}
+
+function getNumbersFromText(str: string): number[] {
+  const matches = str.match(/-?\d+(?:[\.,]\d+)?/g);
+  if (!matches) return [];
+  return matches.map(m => {
+    const clean = m.replace(',', '.');
+    return parseFloat(clean);
+  });
+}
+
+function checkNumbersSubsequence(expectedNums: number[], actualNums: number[]): boolean {
+  if (expectedNums.length === 0) return false;
+  let i = 0;
+  let j = 0;
+  while (i < expectedNums.length && j < actualNums.length) {
+    if (Math.abs(expectedNums[i] - actualNums[j]) < 0.01) {
+      i++;
+    }
+    j++;
+  }
+  return i === expectedNums.length;
+}
+
+function computeLineDiff(expectedStr: string, actualStr: string): { type: 'added' | 'removed' | 'unchanged'; text: string }[] {
+  const expectedLines = expectedStr.split(/\r?\n/);
+  const actualLines = actualStr.split(/\r?\n/);
+
+  const n = expectedLines.length;
+  const m = actualLines.length;
+
+  const dp = Array.from({ length: n + 1 }, () => Array(m + 1).fill(0));
+
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= m; j++) {
+      if (expectedLines[i - 1].trim() === actualLines[j - 1].trim()) {
+        dp[i][j] = dp[i - 1][j - 1] + 1;
+      } else {
+        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+      }
+    }
+  }
+
+  const diff: { type: 'added' | 'removed' | 'unchanged'; text: string }[] = [];
+  let i = n;
+  let j = m;
+
+  while (i > 0 || j > 0) {
+    if (i > 0 && j > 0 && expectedLines[i - 1].trim() === actualLines[j - 1].trim()) {
+      diff.unshift({ type: 'unchanged', text: actualLines[j - 1] });
+      i--;
+      j--;
+    } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+      diff.unshift({ type: 'added', text: actualLines[j - 1] });
+      j--;
+    } else {
+      diff.unshift({ type: 'removed', text: expectedLines[i - 1] });
+      i--;
+    }
+  }
+
+  return diff;
 }
 
 function formatVariableValue(valor: any): string {
@@ -415,6 +485,7 @@ export default function App() {
   // Debugger & Variables State
   const [isDebugging, setIsDebugging] = useState(false);
   const [activeLine, setActiveLine] = useState<number | null>(null);
+  const [errorLine, setErrorLine] = useState<number | null>(null);
   const [debugVariables, setDebugVariables] = useState<any[]>([]);
 
   const debugInterpreterRef = useRef<any>(null);
@@ -422,10 +493,12 @@ export default function App() {
   
   // Persistence (saved progress)
   const [completedExs, setCompletedExs] = useState<string[]>([]);
+  const [exerciseStatuses, setExerciseStatuses] = useState<Record<string, 'passed' | 'attention' | 'failed' | null>>({});
   const [savedCodes, setSavedCodes] = useState<Record<string, string>>({});
   
   // Right Panel Tab state (Editor vs Flowchart)
   const [rightTab, setRightTab] = useState<'editor' | 'fluxograma'>('editor');
+  const [lineToBlockMap, setLineToBlockMap] = useState<Record<number, number>>({});
   
   // AST state for Portugol code to render flowchart in real-time
   const [astDeclarations, setAstDeclarations] = useState<any[]>([]);
@@ -530,6 +603,11 @@ export default function App() {
     const savedCompleted = localStorage.getItem('manzano_completed');
     if (savedCompleted) {
       setCompletedExs(JSON.parse(savedCompleted));
+    }
+
+    const savedStatusesStr = localStorage.getItem('manzano_exercise_statuses');
+    if (savedStatusesStr) {
+      setExerciseStatuses(JSON.parse(savedStatusesStr));
     }
     
     const savedCodesStr = localStorage.getItem('manzano_saved_codes');
@@ -658,6 +736,23 @@ export default function App() {
           });
         }
 
+        const staticErrors = getStaticErrors(parserResult.declaracoes);
+        if (staticErrors && staticErrors.length > 0) {
+          staticErrors.forEach((err: any) => {
+            const lineNum = err.line;
+            const startCol = err.startCol || 1;
+            const endCol = err.endCol || (startCol + 1);
+            markers.push({
+              startLineNumber: lineNum,
+              startColumn: startCol,
+              endLineNumber: lineNum,
+              endColumn: endCol,
+              message: `Erro Sintático: ${err.message}`,
+              severity: 8 // monaco.MarkerSeverity.Error
+            });
+          });
+        }
+
         // 3. Static check for undeclared function calls
         const declaredFuncs = new Set(['escreva', 'leia', 'limpa', 'inicio']);
         const funcDeclRegex = /funcao\s+([a-zA-Z_a-áâãéêíóôõúçüA-ÁÂÃÉÊÍÓÔÕÚÇÜ][a-zA-Z0-9_a-áâãéêíóôõúçüA-ÁÂÃÉÊÍÓÔÕÚÇÜ]*)/g;
@@ -741,6 +836,7 @@ export default function App() {
       // Reset debugging status
       setIsDebugging(false);
       setActiveLine(null);
+      setErrorLine(null);
       setDebugVariables([]);
       debugInterpreterRef.current = null;
       
@@ -811,6 +907,7 @@ export default function App() {
     setConsoleLines([{ type: 'stdout', text: '--- DEPURAÇÃO INICIADA (PASSO A PASSO) ---' }]);
     setDebugVariables([]);
     setActiveLine(null);
+    setErrorLine(null);
 
     const lexer = new LexadorPortugolStudio();
     const parser = new AvaliadorSintaticoPortugolStudio();
@@ -986,8 +1083,16 @@ export default function App() {
         { type: 'stderr', text: `Erro de Depuração: ${errMsg}` },
         { type: 'stderr', text: '\n--- DEPURAÇÃO INTERROMPIDA COM ERRO ---' }
       ]);
+      
+      const match = errMsg.match(/(?:linha|line)\s+(\d+)/i);
+      if (match) {
+        setErrorLine(parseInt(match[1], 10));
+      } else if (activeLine) {
+        setErrorLine(activeLine);
+      }
     } else {
       setConsoleLines(prev => [...prev, { type: 'stdout', text: '\n--- DEPURAÇÃO CONCLUÍDA ---' }]);
+      setErrorLine(null);
     }
   };
 
@@ -995,6 +1100,7 @@ export default function App() {
     setIsRunning(false);
     setIsDebugging(false);
     setActiveLine(null);
+    setErrorLine(null);
     debugInterpreterRef.current = null;
     setConsoleLines(prev => [...prev, { type: 'stdout', text: '\n--- DEPURAÇÃO INTERROMPIDA ---' }]);
   };
@@ -1002,6 +1108,7 @@ export default function App() {
   // --- FUNCTIONS ---
   const saveCode = (newCode: string) => {
     setCode(newCode);
+    setErrorLine(null);
     const codeKey = `${activeEx.id}_${activeLanguage}`;
     const updated = { ...savedCodes, [codeKey]: newCode };
     setSavedCodes(updated);
@@ -1049,6 +1156,7 @@ export default function App() {
     if (result.success) {
       setConsoleLines(prev => [...prev, { type: 'stdout', text: '\n--- EXECUÇÃO CONCLUÍDA COM SUCESSO ---' }]);
       setDebugVariables(result.variables || []);
+      setErrorLine(null);
     } else {
       setConsoleLines(prev => [
         ...prev,
@@ -1056,6 +1164,16 @@ export default function App() {
         { type: 'stderr', text: '\n--- EXECUÇÃO FINALIZADA COM ERROS ---' }
       ]);
       setDebugVariables(result.variables || []);
+      
+      let foundLine: number | null = null;
+      for (const err of result.errors) {
+        const match = err.match(/(?:linha|line)\s+(\d+)/i);
+        if (match) {
+          foundLine = parseInt(match[1], 10);
+          break;
+        }
+      }
+      setErrorLine(foundLine);
     }
   };
 
@@ -1082,6 +1200,7 @@ export default function App() {
     setIsTesting(true);
     setActiveTab('tests');
     setTestResults([]);
+    setErrorLine(null);
 
     // 1. Get test cases
     const cases = getTestCases(activeEx);
@@ -1108,6 +1227,7 @@ export default function App() {
       });
 
       let passed = false;
+      let isExact = false;
       let error = '';
 
       if (runRes.success) {
@@ -1116,14 +1236,38 @@ export default function App() {
         const matchAll = testCase.matchType === 'all';
         if (matchAll) {
           passed = testCase.outputs.every(expected => {
-            const cleanExpected = formatDecimals(expected.toLowerCase().trim());
-            return cleanActual.includes(cleanExpected);
+            const cleanExpected = formatDecimals(expected.toLowerCase().replace(/\s+/g, ' ').trim());
+            if (cleanActual.includes(cleanExpected)) return true;
+            
+            // Fallback: Check if correct calculated values are present
+            const expectedNums = getNumbersFromText(expected);
+            const actualNums = getNumbersFromText(testOutput);
+            return checkNumbersSubsequence(expectedNums, actualNums);
           });
         } else {
           passed = testCase.outputs.some(expected => {
-            const cleanExpected = formatDecimals(expected.toLowerCase().trim());
-            return cleanActual.includes(cleanExpected);
+            const cleanExpected = formatDecimals(expected.toLowerCase().replace(/\s+/g, ' ').trim());
+            if (cleanActual.includes(cleanExpected)) return true;
+            
+            // Fallback: Check if correct calculated values are present
+            const expectedNums = getNumbersFromText(expected);
+            const actualNums = getNumbersFromText(testOutput);
+            return checkNumbersSubsequence(expectedNums, actualNums);
           });
+        }
+
+        if (passed) {
+          const normLines = (str: string) => str.toLowerCase().split(/\r?\n/).map(line => line.replace(/[,;:]/g, ' ').replace(/\s+/g, ' ').trim()).filter(Boolean).join('\n');
+          const cleanActualLines = normLines(testOutput);
+          if (matchAll) {
+            const cleanExpectedCombined = testCase.outputs.map(e => normLines(formatDecimals(e))).join('\n');
+            isExact = cleanActualLines === cleanExpectedCombined;
+          } else {
+            isExact = testCase.outputs.some(expected => {
+              const cleanExpectedLines = normLines(formatDecimals(expected));
+              return cleanActualLines === cleanExpectedLines;
+            });
+          }
         }
       } else {
         passed = false;
@@ -1135,15 +1279,41 @@ export default function App() {
         expected: testCase.outputs,
         actual: testOutput.trim(),
         passed,
-        error
+        isExact,
+        error,
+        matchType: testCase.matchType || 'any'
       });
     }
 
     setTestResults(results);
     setIsTesting(false);
 
-    // 3. Save progress if all tests passed
+    let firstErrorLine: number | null = null;
+    for (const r of results) {
+      if (r.error) {
+        const match = r.error.match(/(?:linha|line)\s+(\d+)/i);
+        if (match) {
+          firstErrorLine = parseInt(match[1], 10);
+          break;
+        }
+      }
+    }
+    setErrorLine(firstErrorLine);
+
+    // 3. Save progress and overall status
+    let overallStatus: 'passed' | 'attention' | 'failed' = 'failed';
     const allPassed = results.every(r => r.passed);
+    if (allPassed) {
+      const allExact = results.every(r => r.isExact);
+      overallStatus = allExact ? 'passed' : 'attention';
+    } else {
+      overallStatus = 'failed';
+    }
+
+    const updatedStatuses = { ...exerciseStatuses, [activeEx.id]: overallStatus };
+    setExerciseStatuses(updatedStatuses);
+    localStorage.setItem('manzano_exercise_statuses', JSON.stringify(updatedStatuses));
+
     if (allPassed && !completedExs.includes(activeEx.id)) {
       const updated = [...completedExs, activeEx.id];
       setCompletedExs(updated);
@@ -1246,6 +1416,19 @@ export default function App() {
     ? Math.round((completedExs.length / totalExercisesCount) * 100)
     : 0;
 
+  const formatErrorText = (text: string | undefined | null): string => {
+    if (!text) return '';
+    if (rightTab !== 'fluxograma') return text;
+    return text.replace(/\b(linha|line|lineNum)\s*:?\s*(\d+)\b/gi, (match, _, lineStr) => {
+      const lineNum = parseInt(lineStr, 10);
+      const blockNum = lineToBlockMap[lineNum];
+      if (blockNum !== undefined) {
+        return `bloco ${blockNum}`;
+      }
+      return match;
+    });
+  };
+
   return (
     <div className="app-container">
       {/* SIDEBAR */}
@@ -1316,18 +1499,32 @@ export default function App() {
                       const isActive = activeEx.id === ex.id;
                       const isCompleted = completedExs.includes(ex.id);
                       
+                      let status = exerciseStatuses[ex.id];
+                      if (!status && isCompleted) {
+                        status = 'passed';
+                      }
+
+                      let statusIcon;
+                      if (status === 'passed') {
+                        statusIcon = <CheckCircle className="w-3.5 h-3.5 flex-shrink-0 text-emerald-400" />;
+                      } else if (status === 'attention') {
+                        statusIcon = <AlertCircle className="w-3.5 h-3.5 flex-shrink-0 text-amber-500" />;
+                      } else if (status === 'failed') {
+                        statusIcon = <XCircle className="w-3.5 h-3.5 flex-shrink-0 text-rose-500" />;
+                      } else {
+                        statusIcon = <div className="w-3.5 h-3.5 flex-shrink-0 rounded-full border border-slate-700"></div>;
+                      }
+
+                      const statusClass = status ? `status-${status}` : '';
+
                       return (
                         <div
                           key={ex.id}
                           onClick={() => setActiveEx(ex)}
-                          className={`exercise-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}`}
+                          className={`exercise-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''} ${statusClass}`}
                           title={ex.title}
                         >
-                          {isCompleted ? (
-                            <CheckCircle className="w-3.5 h-3.5 flex-shrink-0 text-emerald-400" />
-                          ) : (
-                            <div className="w-3.5 h-3.5 flex-shrink-0 rounded-full border border-slate-700"></div>
-                          )}
+                          {statusIcon}
                           <span className="truncate">Ex {ex.number}: {ex.title}</span>
                         </div>
                       );
@@ -1364,7 +1561,7 @@ export default function App() {
                   </button>
                 )}
                 <span className="panel-title" style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}>
-                  <BookOpen className="w-4 h-4 text-cyan" /> Enunciado
+                  <BookOpen className="w-4 h-4 text-cyan" /> Exercício {activeEx.number}: {activeEx.title}
                 </span>
               </div>
               
@@ -1392,7 +1589,7 @@ export default function App() {
                   <div className="description-card">
                     <div className="section-title-wrapper">
                       <BookOpen className="section-title-icon text-cyan" />
-                      <span className="section-title-text">Enunciado</span>
+                      <span className="section-title-text">Exercício {activeEx.number}: {activeEx.title}</span>
                     </div>
                     <p className="description-text">
                       {parseInlineMarkdown(activeEx.description)}
@@ -1462,9 +1659,9 @@ export default function App() {
                                   // {item.processamento}
                                 </div>
                               )}
-                              <div className="terminal-row">
-                                <span className="terminal-label">Saída:</span>
-                                <span className="terminal-output">{item.saida}</span>
+                              <div className="terminal-row" style={{ alignItems: 'flex-start' }}>
+                                <span className="terminal-label" style={{ marginTop: '2px' }}>Saída:</span>
+                                <span className="terminal-output" style={{ whiteSpace: 'pre-wrap', display: 'inline-block' }}>{item.saida}</span>
                               </div>
                             </div>
                           </div>
@@ -1549,6 +1746,8 @@ export default function App() {
                   language={activeLanguage} 
                   astDeclarations={astDeclarations} 
                   activeLine={activeLine} 
+                  errorLine={errorLine}
+                  onLineToBlockMapChange={setLineToBlockMap}
                   onChangeCode={(newCode) => {
                     saveCode(newCode);
                     if (editorRef.current) {
@@ -1683,7 +1882,7 @@ export default function App() {
                           line.type === 'stdin' ? 'input-line' : line.type === 'stderr' ? 'error-line' : ''
                         }`}
                       >
-                        {line.text}
+                        {formatErrorText(line.text)}
                       </div>
                     ))}
                     <div ref={consoleEndRef} />
@@ -1752,18 +1951,22 @@ export default function App() {
                     testResults.map((res, index) => (
                       <div 
                         key={index} 
-                        className={`test-card ${res.passed ? 'passed' : 'failed'}`}
+                        className={`test-card ${!res.passed ? 'failed' : res.isExact ? 'passed' : 'attention'}`}
                       >
-                        <div className={`test-card-header ${res.passed ? 'passed' : 'failed'}`}>
+                        <div className={`test-card-header ${!res.passed ? 'failed' : res.isExact ? 'passed' : 'attention'}`}>
                           <span>Caso de Teste #{index + 1}</span>
                           <span className="flex items-center gap-1">
-                            {res.passed ? (
+                            {!res.passed ? (
+                              <>
+                                <AlertCircle className="w-4 h-4" /> Falhou
+                              </>
+                            ) : res.isExact ? (
                               <>
                                 <Check className="w-4 h-4" /> Passou
                               </>
                             ) : (
                               <>
-                                <AlertCircle className="w-4 h-4" /> Falhou
+                                <AlertCircle className="w-4 h-4 text-amber-500" /> Atenção
                               </>
                             )}
                           </span>
@@ -1776,20 +1979,63 @@ export default function App() {
                           </div>
                           <div className="test-details-line">
                             <span className="test-details-label">Esperado:</span>
-                            <span>{res.expected.join(' ou ')}</span>
+                            <span className="whitespace-pre-wrap">
+                              {res.matchType === 'all' 
+                                ? res.expected.join(' ') 
+                                : res.expected[0]}
+                            </span>
                           </div>
                           
                           {res.error ? (
                             <div className="test-details-line text-rose-400 font-sans mt-1">
                               <span className="test-details-label">Erro:</span>
-                              <span className="whitespace-pre-wrap">{res.error}</span>
+                              <span className="whitespace-pre-wrap">{formatErrorText(res.error)}</span>
                             </div>
                           ) : (
                             <div className="test-details-line">
                               <span className="test-details-label">Obtido:</span>
-                              <span className={res.passed ? 'text-emerald-400' : 'text-rose-400'}>
+                              <span className={`whitespace-pre-wrap ${!res.passed ? 'text-rose-400' : res.isExact ? 'text-emerald-400' : 'text-amber-400'}`}>
                                 {res.actual || '(sem saída impressa)'}
                               </span>
+                            </div>
+                          )}
+
+                          {!res.isExact && !res.error && (
+                            <div className="test-diff-section">
+                              <span className="test-details-label">Diferenças (- Esperado / + Obtido):</span>
+                              <div className="test-diff-container">
+                                {computeLineDiff(
+                                  res.matchType === 'all' ? res.expected.join('\n') : res.expected[0],
+                                  res.actual || ''
+                                ).map((line, lIdx) => {
+                                  if (line.type === 'added') {
+                                    return (
+                                      <span key={lIdx} className="test-diff-line added">
+                                        + {line.text}
+                                      </span>
+                                    );
+                                  } else if (line.type === 'removed') {
+                                    return (
+                                      <span key={lIdx} className="test-diff-line removed">
+                                        - {line.text}
+                                      </span>
+                                    );
+                                  } else {
+                                    return (
+                                      <span key={lIdx} className="test-diff-line unchanged">
+                                        {line.text}
+                                      </span>
+                                    );
+                                  }
+                                })}
+                              </div>
+                            </div>
+                          )}
+
+                          {res.passed && !res.isExact && (
+                            <div className="test-details-line text-amber-500/90 dark:text-amber-400/90 text-[11px] mt-1.5 border-t border-amber-500/10 pt-1.5 flex items-center gap-1 font-medium">
+                              <AlertCircle className="w-3.5 h-3.5" />
+                              <span>O resultado está correto, mas a saída não está idêntica à esperada.</span>
                             </div>
                           )}
                         </div>

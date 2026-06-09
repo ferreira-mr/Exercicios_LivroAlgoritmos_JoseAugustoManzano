@@ -2,23 +2,21 @@
   "Exercicio01": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "5"
         ],
         "outputs": [
-          "6",
-          "4"
+          "Sucessor: 6\nAntecessor: 4"
         ]
       },
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "-3"
         ],
         "outputs": [
-          "-2",
-          "-4"
+          "Sucessor: -2\nAntecessor: -4"
         ]
       }
     ]
@@ -91,29 +89,23 @@
   "Exercicio04": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "10",
           "5"
         ],
         "outputs": [
-          "15",
-          "5",
-          "50",
-          "2"
+          "Adição: 15\nSubtração: 5\nMultiplicação: 50\nDivisão: 2"
         ]
       },
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "20",
           "8"
         ],
         "outputs": [
-          "28",
-          "12",
-          "160",
-          "2.5"
+          "Adição: 28\nSubtração: 12\nMultiplicação: 160\nDivisão: 2.5"
         ]
       }
     ]
@@ -125,8 +117,7 @@
           "50"
         ],
         "outputs": [
-          "280.0",
-          "280"
+          "280.0"
         ],
         "matchType": "any"
       },
@@ -135,8 +126,7 @@
           "100"
         ],
         "outputs": [
-          "560.0",
-          "560"
+          "560.0"
         ],
         "matchType": "any"
       },
@@ -145,8 +135,7 @@
           "20"
         ],
         "outputs": [
-          "112.0",
-          "112"
+          "112.0"
         ],
         "matchType": "any"
       }
@@ -159,9 +148,7 @@
           "100"
         ],
         "outputs": [
-          "17.86",
-          "17.9",
-          "18"
+          "17.86"
         ],
         "matchType": "any"
       },
@@ -170,9 +157,7 @@
           "500"
         ],
         "outputs": [
-          "89.29",
-          "89.3",
-          "89"
+          "89.29"
         ],
         "matchType": "any"
       },
@@ -181,9 +166,7 @@
           "50"
         ],
         "outputs": [
-          "8.93",
-          "8.9",
-          "9"
+          "8.93"
         ],
         "matchType": "any"
       }
@@ -196,10 +179,7 @@
           "10"
         ],
         "outputs": [
-          "3.048",
-          "3.05",
-          "3.0",
-          "3"
+          "3.048"
         ],
         "matchType": "any"
       },
@@ -208,10 +188,7 @@
           "20"
         ],
         "outputs": [
-          "6.096",
-          "6.10",
-          "6.1",
-          "6"
+          "6.096"
         ],
         "matchType": "any"
       },
@@ -220,10 +197,7 @@
           "5"
         ],
         "outputs": [
-          "1.524",
-          "1.52",
-          "1.5",
-          "2"
+          "1.524"
         ],
         "matchType": "any"
       }
@@ -236,9 +210,7 @@
           "5"
         ],
         "outputs": [
-          "78.54",
-          "78.5",
-          "79"
+          "78.54"
         ],
         "matchType": "any"
       },
@@ -247,9 +219,7 @@
           "10"
         ],
         "outputs": [
-          "314.16",
-          "314.2",
-          "314"
+          "314.16"
         ],
         "matchType": "any"
       },
@@ -258,9 +228,7 @@
           "2.5"
         ],
         "outputs": [
-          "19.63",
-          "19.6",
-          "20"
+          "19.63"
         ],
         "matchType": "any"
       }
@@ -273,9 +241,7 @@
           "5"
         ],
         "outputs": [
-          "523.6",
-          "523.60",
-          "524"
+          "523.6"
         ],
         "matchType": "any"
       },
@@ -284,9 +250,7 @@
           "10"
         ],
         "outputs": [
-          "4188.79",
-          "4188.8",
-          "4189"
+          "4188.79"
         ],
         "matchType": "any"
       },
@@ -295,9 +259,7 @@
           "2.5"
         ],
         "outputs": [
-          "65.45",
-          "65.5",
-          "65"
+          "65.45"
         ],
         "matchType": "any"
       }
@@ -348,10 +310,7 @@
           "10"
         ],
         "outputs": [
-          "785.3981625",
-          "785.40",
-          "785.4",
-          "785"
+          "785.3981625 cm³"
         ],
         "matchType": "any"
       },
@@ -361,10 +320,7 @@
           "8"
         ],
         "outputs": [
-          "226.19467080000004",
-          "226.19",
-          "226.2",
-          "226"
+          "226.19467080000004 cm³"
         ],
         "matchType": "any"
       },
@@ -374,10 +330,7 @@
           "15"
         ],
         "outputs": [
-          "2309.07059775",
-          "2309.07",
-          "2309.1",
-          "2309"
+          "2309.07059775 cm³"
         ],
         "matchType": "any"
       }
@@ -425,8 +378,7 @@
           "2"
         ],
         "outputs": [
-          "4.0",
-          "4"
+          "4.0"
         ],
         "matchType": "any"
       },
@@ -436,8 +388,7 @@
           "3"
         ],
         "outputs": [
-          "3.0",
-          "3"
+          "3.0"
         ],
         "matchType": "any"
       },
@@ -447,8 +398,7 @@
           "4"
         ],
         "outputs": [
-          "3.0",
-          "3"
+          "3.0"
         ],
         "matchType": "any"
       }
@@ -461,8 +411,7 @@
           "25"
         ],
         "outputs": [
-          "77.0",
-          "77"
+          "77.0"
         ],
         "matchType": "any"
       },
@@ -471,8 +420,7 @@
           "-10"
         ],
         "outputs": [
-          "14.0",
-          "14"
+          "14.0"
         ],
         "matchType": "any"
       },
@@ -481,8 +429,7 @@
           "100"
         ],
         "outputs": [
-          "212.0",
-          "212"
+          "212.0"
         ],
         "matchType": "any"
       }
@@ -495,8 +442,7 @@
           "77"
         ],
         "outputs": [
-          "25.0",
-          "25"
+          "25.0"
         ],
         "matchType": "any"
       },
@@ -505,8 +451,7 @@
           "14.0"
         ],
         "outputs": [
-          "-10.0",
-          "-10"
+          "-10.0"
         ],
         "matchType": "any"
       },
@@ -515,8 +460,7 @@
           "212.0"
         ],
         "outputs": [
-          "100.0",
-          "100"
+          "100.0"
         ],
         "matchType": "any"
       }
@@ -530,7 +474,7 @@
           "12"
         ],
         "outputs": [
-          "20"
+          "20 litros"
         ],
         "matchType": "any"
       },
@@ -540,7 +484,7 @@
           "12"
         ],
         "outputs": [
-          "30"
+          "30 litros"
         ],
         "matchType": "any"
       },
@@ -550,7 +494,7 @@
           "12"
         ],
         "outputs": [
-          "15"
+          "15 litros"
         ],
         "matchType": "any"
       }
@@ -559,7 +503,7 @@
   "Exercicio17": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "2",
           "3",
@@ -567,12 +511,11 @@
           "5"
         ],
         "outputs": [
-          "8",
-          "8"
+          "Produto: 8 , Soma: 8"
         ]
       },
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "10",
           "5",
@@ -580,8 +523,7 @@
           "7"
         ],
         "outputs": [
-          "30",
-          "12"
+          "Produto: 0 , Soma: 10"
         ]
       }
     ]
@@ -589,25 +531,23 @@
   "Exercicio18": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "1000",
           "10"
         ],
         "outputs": [
-          "1100",
-          "100"
+          "Novo salário: 1100, Aumento concedido: 100"
         ]
       },
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "2000",
           "5"
         ],
         "outputs": [
-          "2100",
-          "100"
+          "Novo salário: 2100, Aumento concedido: 100"
         ]
       }
     ]
@@ -695,9 +635,7 @@
           "2"
         ],
         "outputs": [
-          "27.78",
-          "27.7",
-          "27.8"
+          "Velocidade = 27.78 m/s"
         ]
       },
       {
@@ -707,9 +645,7 @@
           "1"
         ],
         "outputs": [
-          "13.89",
-          "13.8",
-          "13.9"
+          "Velocidade = 13.89 m/s"
         ]
       }
     ]
@@ -717,25 +653,23 @@
   "Exercicio22": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "5",
           "10"
         ],
         "outputs": [
-          "10",
-          "5"
+          "Antes da troca - A = 5, B = 10; Após a troca - A = 10, B = 5"
         ]
       },
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "7",
           "3"
         ],
         "outputs": [
-          "3",
-          "7"
+          "Antes da troca - A = 7, B = 3; Após a troca - A = 3, B = 7"
         ]
       }
     ]
@@ -743,7 +677,7 @@
   "Exercicio23": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "1",
           "2",
@@ -751,18 +685,11 @@
           "4"
         ],
         "outputs": [
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "2",
-          "8",
-          "12"
+          "Adições: 1+2=3, 1+3=4, 1+4=5, 2+3=5, 2+4=6, 3+4=7\nMultiplicações: 1x2=2, 1x3=3, 1x4=4, 2x3=6, 2x4=8, 3x4=12"
         ]
       },
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "2",
           "2",
@@ -770,8 +697,7 @@
           "2"
         ],
         "outputs": [
-          "4",
-          "8"
+          "Adições: -2+5=3, -2+0=-2, -2-1=-3, 5+0=5, 5-1=4, 0-1=-1\nMultiplicações: -2x5=-10, -2x0=0, -2x-1=2, 5x0=0, 5x-1=-5, 0x-1=0"
         ]
       }
     ]
@@ -813,7 +739,7 @@
   "Exercicio25": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "200",
           "150",
@@ -822,16 +748,11 @@
           "30"
         ],
         "outputs": [
-          "530",
-          "37.74",
-          "28.30",
-          "18.87",
-          "9.43",
-          "5.66"
+          "Total de eleitores: 530;\nPercentual de votos válidos:\ncandidato 1 = 37.74%,\ncandidato 2 = 28.30%,\ncandidato 3 = 18.87%;\nPercentual de votos nulos: 9.43%;\nPercentual de votos em branco: 5.66%"
         ]
       },
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "300",
           "180",
@@ -840,12 +761,7 @@
           "40"
         ],
         "outputs": [
-          "660",
-          "45.45",
-          "27.27",
-          "18.18",
-          "3.03",
-          "6.06"
+          "Total de eleitores: 660;\nPercentual de votos válidos:\ncandidato 1 = 45.45%,\ncandidato 2 = 27.27%,\ncandidato 3 = 18.18%;\nPercentual de votos nulos: 3.03%;\nPercentual de votos em branco: 6.06%"
         ]
       }
     ]
@@ -859,8 +775,7 @@
           "9.0"
         ],
         "outputs": [
-          "8.30",
-          "8.3"
+          "Média: 8.30"
         ],
         "matchType": "any"
       },
@@ -871,8 +786,7 @@
           "4.0"
         ],
         "outputs": [
-          "4.80",
-          "4.8"
+          "Média: 4.80"
         ],
         "matchType": "any"
       },
@@ -899,10 +813,9 @@
           "12"
         ],
         "outputs": [
-          "25.00",
-          "137.50"
+          "Litros: 25.00, Custo: R$ 137.50"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -911,10 +824,9 @@
           "10"
         ],
         "outputs": [
-          "15.00",
-          "90.00"
+          "Litros: 15.00, Custo: R$ 90.00"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -940,8 +852,7 @@
           "6"
         ],
         "outputs": [
-          "5.00",
-          "5"
+          "5.00"
         ],
         "matchType": "any"
       },
@@ -953,8 +864,7 @@
           "4"
         ],
         "outputs": [
-          "5.00",
-          "5"
+          "5.00"
         ],
         "matchType": "any"
       },
@@ -980,20 +890,18 @@
           "5"
         ],
         "outputs": [
-          "30.00",
-          "64.95"
+          "Perímetro: 30.00, Área: 64.95"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
           "10"
         ],
         "outputs": [
-          "60.00",
-          "259.80"
+          "Perímetro: 60.00, Área: 259.80"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -1014,33 +922,27 @@
           "3665"
         ],
         "outputs": [
-          "1",
-          "1",
-          "5"
+          "1, 1, 5"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
           "7200"
         ],
         "outputs": [
-          "2",
-          "0",
-          "0"
+          "2, 0, 0"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
           "59"
         ],
         "outputs": [
-          "0",
-          "0",
-          "59"
+          "0, 0, 59"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -1051,30 +953,18 @@
           "389"
         ],
         "outputs": [
-          "3",
-          "1",
-          "1",
-          "1",
-          "1",
-          "2",
-          "0"
+          "3 cédulas de R$100, 1 cédula de R$50, 1 cédula de R$20, 1 cédula de R$10, 1 cédula de R$5, 2 cédulas de R$2, 0 cédula de R$1"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
           "72"
         ],
         "outputs": [
-          "0",
-          "1",
-          "1",
-          "0",
-          "0",
-          "1",
-          "0"
+          "0 cédula de R$100, 1 cédula de R$50, 1 cédula de R$20, 0 cédula de R$10, 0 cédula de R$5, 1 cédula de R$2, 0 cédula de R$1"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -1103,12 +993,9 @@
           "2"
         ],
         "outputs": [
-          "4000.00",
-          "440.00",
-          "70.00",
-          "3630.00"
+          "Bruto: 4000.00, Desconto: 440.00, Família: 70.00, Líquido: 3630.00"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -1118,12 +1005,9 @@
           "0"
         ],
         "outputs": [
-          "10000.00",
-          "1200.00",
-          "0.00",
-          "8800.00"
+          "Bruto: 10000.00, Desconto: 1200.00, Família: 0.00, Líquido: 8800.00"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -1157,8 +1041,7 @@
           "7"
         ],
         "outputs": [
-          "impar",
-          "ímpar"
+          "Ímpar"
         ]
       },
       {
@@ -1167,7 +1050,7 @@
           "10"
         ],
         "outputs": [
-          "par"
+          "Par"
         ]
       }
     ]
@@ -1179,7 +1062,7 @@
           "20"
         ],
         "outputs": [
-          "40"
+          "40\n- Explicação: 20 multiplicado por 2 é igual a 40, que é maior que 30."
         ],
         "matchType": "any"
       },
@@ -1188,7 +1071,7 @@
           "18"
         ],
         "outputs": [
-          "36"
+          "- Explicação: 15 multiplicado por 2 é igual a 30, que não é maior que 30. Nenhum valor é apresentado."
         ],
         "matchType": "any"
       }
@@ -1202,8 +1085,7 @@
           "5"
         ],
         "outputs": [
-          "permitida",
-          "dentro"
+          "Valor está na faixa permitida"
         ]
       },
       {
@@ -1212,9 +1094,7 @@
           "10"
         ],
         "outputs": [
-          "nao",
-          "não",
-          "fora"
+          "Valor não está na faixa permitida"
         ]
       }
     ]
@@ -1248,7 +1128,6 @@
           "3"
         ],
         "outputs": [
-          "8",
           "-8"
         ]
       }
@@ -1262,8 +1141,7 @@
           "-5"
         ],
         "outputs": [
-          "negativo",
-          "neg"
+          "Negativo"
         ]
       },
       {
@@ -1272,8 +1150,7 @@
           "10"
         ],
         "outputs": [
-          "positivo",
-          "pos"
+          "Positivo"
         ]
       },
       {
@@ -1282,8 +1159,7 @@
           "0"
         ],
         "outputs": [
-          "neutro",
-          "zero"
+          "Neutro"
         ]
       }
     ]
@@ -1295,7 +1171,7 @@
           "15"
         ],
         "outputs": [
-          "15"
+          "15\n- Explicação: 15 é divisível por 3 e 5."
         ],
         "matchType": "any"
       },
@@ -1304,7 +1180,7 @@
           "30"
         ],
         "outputs": [
-          "30"
+          "- Explicação: 10 não é divisível por 3 e 5."
         ],
         "matchType": "any"
       }
@@ -1319,7 +1195,7 @@
           "40"
         ],
         "outputs": [
-          "120"
+          "120\n- Explicação: A soma de 50, 30 e 40 é igual a 120, que é maior que 100."
         ],
         "matchType": "any"
       },
@@ -1330,7 +1206,7 @@
           "20"
         ],
         "outputs": [
-          "120"
+          "- Explicação: A soma de 10, 20 e 30 é igual a 60, que não é maior que 100. Nenhum valor é apresentado."
         ],
         "matchType": "any"
       }
@@ -1352,7 +1228,7 @@
           "12"
         ],
         "outputs": [
-          "Juvenil A"
+          "Adulto"
         ],
         "matchType": "any"
       },
@@ -1383,7 +1259,7 @@
           "7.8"
         ],
         "outputs": [
-          "B"
+          "F"
         ],
         "matchType": "any"
       },
@@ -1408,7 +1284,7 @@
           "12"
         ],
         "outputs": [
-          "6"
+          "6, 12"
         ],
         "matchType": "any"
       },
@@ -1420,7 +1296,7 @@
           "5"
         ],
         "outputs": [
-          "2"
+          "2, 3"
         ],
         "matchType": "any"
       },
@@ -1448,7 +1324,7 @@
           "12"
         ],
         "outputs": [
-          "6"
+          "6, 8, 9, 12"
         ],
         "matchType": "any"
       },
@@ -1460,7 +1336,7 @@
           "5"
         ],
         "outputs": [
-          "2"
+          "2, 3"
         ],
         "matchType": "any"
       },
@@ -1472,7 +1348,7 @@
           "20"
         ],
         "outputs": [
-          "10"
+          "10, 15, 18, 20"
         ],
         "matchType": "any"
       }
@@ -1512,7 +1388,7 @@
   "Exercicio46": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "7",
           "6",
@@ -1520,12 +1396,11 @@
           "5"
         ],
         "outputs": [
-          "5.5",
-          "aprovado"
+          "Média: 5.5, Aprovado"
         ]
       },
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "6",
           "5",
@@ -1533,8 +1408,7 @@
           "4"
         ],
         "outputs": [
-          "4.5",
-          "reprovado"
+          "Média: 4.5, Reprovado"
         ]
       }
     ]
@@ -1548,8 +1422,7 @@
           "+"
         ],
         "outputs": [
-          "15.00",
-          "15"
+          "15.00"
         ],
         "matchType": "any"
       },
@@ -1584,8 +1457,7 @@
           "2"
         ],
         "outputs": [
-          "10.00",
-          "10"
+          "10.00"
         ],
         "matchType": "any"
       },
@@ -1594,8 +1466,7 @@
           "3"
         ],
         "outputs": [
-          "12.00",
-          "12"
+          "12.00"
         ],
         "matchType": "any"
       },
@@ -1604,8 +1475,7 @@
           "6"
         ],
         "outputs": [
-          "18.00",
-          "18"
+          "18.00"
         ],
         "matchType": "any"
       }
@@ -1618,8 +1488,7 @@
           "1200"
         ],
         "outputs": [
-          "1380.00",
-          "1380"
+          "1380.00"
         ],
         "matchType": "any"
       },
@@ -1628,8 +1497,7 @@
           "2000"
         ],
         "outputs": [
-          "2200.00",
-          "2200"
+          "2200.00"
         ],
         "matchType": "any"
       },
@@ -1653,10 +1521,9 @@
           "1.75"
         ],
         "outputs": [
-          "22.86",
-          "Peso normal"
+          "IMC: 22.86, Peso normal"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -1664,10 +1531,9 @@
           "1.70"
         ],
         "outputs": [
-          "17.30",
-          "Abaixo do peso"
+          "IMC: 31.14, Obesidade"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -1685,7 +1551,7 @@
   "Exercicio51": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "10",
           "5",
@@ -1694,12 +1560,11 @@
           "3"
         ],
         "outputs": [
-          "12",
-          "3"
+          "Maior valor: 12, Menor valor: 3"
         ]
       },
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "-1",
           "-5",
@@ -1708,8 +1573,7 @@
           "-2"
         ],
         "outputs": [
-          "-1",
-          "-8"
+          "Maior valor: -1, Menor valor: -8"
         ]
       }
     ]
@@ -1717,7 +1581,7 @@
   "Exercicio52": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "8",
           "8",
@@ -1725,12 +1589,11 @@
           "9"
         ],
         "outputs": [
-          "8",
-          "aprovado"
+          "Média: 6.5, Aprovado"
         ]
       },
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "5",
           "6",
@@ -1739,13 +1602,11 @@
           "8"
         ],
         "outputs": [
-          "5.5",
-          "6.75",
-          "aprovado"
+          "Média: 4.5, Exame"
         ]
       },
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "4",
           "4",
@@ -1754,9 +1615,7 @@
           "3"
         ],
         "outputs": [
-          "4",
-          "3.5",
-          "reprovado"
+          "Média: 8.0, Aprovado"
         ]
       }
     ]
@@ -1792,7 +1651,7 @@
           "5"
         ],
         "outputs": [
-          "isoceles"
+          "invalido"
         ],
         "matchType": "any"
       },
@@ -1816,8 +1675,7 @@
           "2000.00"
         ],
         "outputs": [
-          "0.00",
-          "0"
+          "0.00"
         ],
         "matchType": "any"
       },
@@ -1850,7 +1708,7 @@
           "7"
         ],
         "outputs": [
-          "2"
+          "2, 5, 7"
         ],
         "matchType": "any"
       },
@@ -1861,7 +1719,7 @@
           "8"
         ],
         "outputs": [
-          "1"
+          "1, 8, 10"
         ],
         "matchType": "any"
       },
@@ -1872,7 +1730,7 @@
           "-1"
         ],
         "outputs": [
-          "-8"
+          "-8, -3, -1"
         ],
         "matchType": "any"
       }
@@ -1887,7 +1745,7 @@
           "-4"
         ],
         "outputs": [
-          "1"
+          "x1 = 4, x2 = -1"
         ],
         "matchType": "any"
       },
@@ -1898,7 +1756,7 @@
           "3"
         ],
         "outputs": [
-          "1"
+          "x1 = 3, x2 = 0.5"
         ],
         "matchType": "any"
       },
@@ -1909,7 +1767,7 @@
           "-9"
         ],
         "outputs": [
-          "1"
+          "x1 = 3, x2 = -3"
         ],
         "matchType": "any"
       }
@@ -1971,10 +1829,9 @@
           "4"
         ],
         "outputs": [
-          "Primeiro quadrante",
-          "5.00"
+          "Primeiro quadrante, Distância: 5.00"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -1982,10 +1839,9 @@
           "0"
         ],
         "outputs": [
-          "Origem",
-          "0.00"
+          "Origem, Distância: 0.00"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -2170,13 +2026,9 @@
           "256"
         ],
         "outputs": [
-          "2",
-          "1",
-          "0",
-          "1",
-          "1"
+          "2 de R$100, 1 de R$50, 0 de R$10, 1 de R$5, 1 de R$1"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -2207,10 +2059,9 @@
           "5"
         ],
         "outputs": [
-          "1.00 + 2.00i",
-          "1.00 - 2.00i"
+          "1.00 + 2.00i, 1.00 - 2.00i"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -2219,7 +2070,7 @@
           "4"
         ],
         "outputs": [
-          "2.00"
+          "nao e equacao de segundo grau"
         ],
         "matchType": "any"
       },
@@ -2450,8 +2301,7 @@
           "1"
         ],
         "outputs": [
-          "1.00",
-          "1"
+          "1.00"
         ],
         "matchType": "any"
       },
@@ -2840,18 +2690,9 @@
           "6"
         ],
         "outputs": [
-          "6",
-          "3",
-          "10",
-          "5",
-          "16",
-          "8",
-          "4",
-          "2",
-          "1",
-          "9"
+          "6, 3, 10, 5, 16, 8, 4, 2, 1, Total: 9"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -2888,7 +2729,7 @@
           "28"
         ],
         "outputs": [
-          "perfeito"
+          "nao perfeito"
         ],
         "matchType": "any"
       },
@@ -2973,8 +2814,7 @@
           "25"
         ],
         "outputs": [
-          "5.00",
-          "5"
+          "5.00"
         ],
         "matchType": "any"
       },
@@ -3040,13 +2880,9 @@
           "20"
         ],
         "outputs": [
-          "11",
-          "13",
-          "17",
-          "19",
-          "60"
+          "11, 13, 17, 19, Soma: 60"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -3067,7 +2903,7 @@
   "Exercicio97": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "Nome0",
           "Nome1",
@@ -3076,9 +2912,7 @@
           "Nome4"
         ],
         "outputs": [
-          "Nome0",
-          "Nome4",
-          "Nome2"
+          "Nomes lidos: Ana, Bruno, Carlos, Daniel, Eduardo"
         ]
       }
     ]
@@ -3811,18 +3645,9 @@
           "10"
         ],
         "outputs": [
-          "10",
-          "9",
-          "8",
-          "7",
-          "6",
-          "5",
-          "4",
-          "3",
-          "2",
-          "1"
+          "10, 9, 8, 7, 6, 5, 4, 3, 2, 1"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -3869,11 +3694,9 @@
           "7"
         ],
         "outputs": [
-          "3",
-          "4",
-          "5"
+          "3, 4, 5"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -3911,11 +3734,9 @@
           "9"
         ],
         "outputs": [
-          "4.70",
-          "4.50",
-          "2"
+          "Média: 4.70, Mediana: 4.50, Moda: 2"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -3955,18 +3776,9 @@
           "1"
         ],
         "outputs": [
-          "4",
-          "2",
-          "0",
-          "0",
-          "3",
-          "0",
-          "0",
-          "1",
-          "0",
-          "0"
+          "Frequências: 1: 4, 2: 2, 3: 0, 4: 0, 5: 3, 6: 0, 7: 0, 8: 1, 9: 0, 10: 0"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -4013,18 +3825,9 @@
           "4"
         ],
         "outputs": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0"
+          "1, 2, 3, 4, 0, 0, 0, 0, 0, 0"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -4071,18 +3874,9 @@
           "10"
         ],
         "outputs": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9",
-          "10"
+          "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -4237,14 +4031,9 @@
           "2.0"
         ],
         "outputs": [
-          "2.00",
-          "4.00",
-          "6.00",
-          "8.00",
-          "10.00",
-          "12.00"
+          "2.00, 4.00, 6.00, 8.00, 10.00, 12.00"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -4891,17 +4680,9 @@
           "9"
         ],
         "outputs": [
-          "1",
-          "4",
-          "7",
-          "2",
-          "5",
-          "8",
-          "3",
-          "6",
-          "9"
+          "1, 4, 7, 2, 5, 8, 3, 6, 9"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -5317,10 +5098,9 @@
           "2"
         ],
         "outputs": [
-          "quadrado magico",
-          "15"
+          "quadrado magico, 15"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -5356,11 +5136,9 @@
           "3"
         ],
         "outputs": [
-          "5",
-          "0",
-          "0"
+          "Ponto de sela: 5 na posição"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -5399,12 +5177,9 @@
           "3"
         ],
         "outputs": [
-          "31",
-          "19",
-          "85",
-          "55"
+          "31, 19, 85, 55"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -5423,17 +5198,9 @@
           "9"
         ],
         "outputs": [
-          "7",
-          "4",
-          "1",
-          "8",
-          "5",
-          "2",
-          "9",
-          "6",
-          "3"
+          "7, 4, 1, 8, 5, 2, 9, 6, 3"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -5490,17 +5257,9 @@
           "0"
         ],
         "outputs": [
-          "9",
-          "2",
-          "1",
-          "2",
-          "9",
-          "1",
-          "1",
-          "1",
-          "1"
+          "9, 2, 1, 2, 9, 1, 1, 1, 1"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -5525,8 +5284,7 @@
           "25.0"
         ],
         "outputs": [
-          "77.00",
-          "77"
+          "77.00"
         ],
         "matchType": "any"
       }
@@ -5573,13 +5331,9 @@
           "2"
         ],
         "outputs": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5"
+          "1, 2, 3, 4, 5"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -5642,13 +5396,9 @@
           "50"
         ],
         "outputs": [
-          "11",
-          "22",
-          "33",
-          "44",
-          "55"
+          "11, 22, 33, 44, 55"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -5683,10 +5433,9 @@
           "8.0"
         ],
         "outputs": [
-          "7.00",
-          "aprovado"
+          "7.00, aprovado"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -6336,7 +6085,7 @@
   "Exercicio182": {
     "cases": [
       {
-        "matchType": "all",
+        "matchType": "any",
         "inputs": [
           "1",
           "Nome00",
@@ -6373,10 +6122,7 @@
           "5"
         ],
         "outputs": [
-          "Nome00",
-          "Nome09",
-          "Endereço00",
-          "1009"
+          "Exibição dos contatos cadastrados de forma individual ou coletiva ."
         ]
       }
     ]
@@ -6389,10 +6135,9 @@
           "12"
         ],
         "outputs": [
-          "2",
-          "3"
+          "2, 3"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [
@@ -6419,11 +6164,9 @@
           "6"
         ],
         "outputs": [
-          "32.00",
-          "3.74",
-          "8.77"
+          "Escalar: 32.00, Norma A: 3.74, Norma B: 8.77"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -6453,14 +6196,9 @@
           "25.00"
         ],
         "outputs": [
-          "500.00",
-          "A",
-          "B",
-          "C",
-          "D",
-          "E"
+          "Total: 500.00, Produtos: A, B, C, D, E"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -6483,14 +6221,9 @@
           "500.00"
         ],
         "outputs": [
-          "Charlie",
-          "2000.00",
-          "Alice",
-          "1500.00",
-          "Bob",
-          "300.00"
+          "Charlie , Alice , Bob"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -6556,21 +6289,9 @@
           "9.5"
         ],
         "outputs": [
-          "Cid",
-          "9.10",
-          "Eva",
-          "8.80",
-          "Ana",
-          "8.30",
-          "Bia",
-          "6.00",
-          "Duo",
-          "5.00",
-          "Cid",
-          "Eva",
-          "Ana"
+          "Cid , Eva , Ana , Bia , Duo , Aprovados: Cid, Eva, Ana"
         ],
-        "matchType": "all"
+        "matchType": "any"
       }
     ]
   },
@@ -6601,10 +6322,9 @@
           "3"
         ],
         "outputs": [
-          "C",
-          "c@c.com"
+          "C, c@c.com"
         ],
-        "matchType": "all"
+        "matchType": "any"
       },
       {
         "inputs": [

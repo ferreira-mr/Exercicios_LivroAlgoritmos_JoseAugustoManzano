@@ -1,23 +1,24 @@
 const fs = require('fs');
-const path = require('path');
+const readline = require('readline');
 
-const repoRoot = 'c:\\Users\\ferreira-mr\\Projects\\Exercicios_LivroAlgoritmos_JoseAugustoManzano';
-const exercisesFile = path.join(repoRoot, 'plataforma-web', 'src', 'data', 'exercises.json');
+const targetFile = 'c:\\Users\\ferreira-mr\\Projects\\Exercicios_LivroAlgoritmos_JoseAugustoManzano\\plataforma-web\\src\\components\\FlowchartTab.tsx';
 
-const exercises = JSON.parse(fs.readFileSync(exercisesFile, 'utf-8'));
+async function search() {
+  const fileStream = fs.createReadStream(targetFile);
+  const rl = readline.createInterface({
+    input: fileStream,
+    crlfDelay: Infinity
+  });
 
-console.log(`Checking ${exercises.length} exercises...`);
-let ok = true;
-exercises.forEach((ex, idx) => {
-  const expectedNum = idx + 1;
-  if (ex.number !== expectedNum) {
-    console.log(`Mismatch at index ${idx}: expected number ${expectedNum}, got ${ex.number} (title: ${ex.title}, id: ${ex.id})`);
-    ok = false;
+  let lineCount = 0;
+  for await (const line of rl) {
+    lineCount++;
+    if (lineCount >= 50 && lineCount <= 250) {
+      if (line.includes('30') || line.includes('60')) {
+        console.log(`${lineCount}: ${line.trim()}`);
+      }
+    }
   }
-});
-
-if (ok) {
-  console.log("All exercises are in perfect sequential order (1 to 192)!");
-} else {
-  console.log("Found sequence mismatches!");
 }
+
+search();

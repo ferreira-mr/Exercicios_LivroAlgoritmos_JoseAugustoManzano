@@ -7,8 +7,8 @@
     "chapterName": "Estrutura Sequencial",
     "description": "Escreva um programa que leia um valor numérico inteiro, calcule e apresente o sucessor e o antecessor desse número.",
     "steps": "1. Entrada de Dados:\r\n   - Solicite ao usuário que insira um valor numérico inteiro.\r\n   - Aguarde a entrada do usuário.\r\n\r\n2. Processamento:\r\n   - Calcule o sucessor e o antecessor do número.\r\n\r\n3. Saída de Dados:\r\n   - Exiba o valor do sucessor e do antecessor.",
-    "examples": "- Exemplo 1:\r\n  - Entrada: 5\r\n  - Saída: Sucessor: 6, Antecessor: 4\r\n\r\n- Exemplo 2:\r\n  - Entrada: -3\r\n  - Saída: Sucessor: -2, Antecessor: -4\r\n\r\n- Exemplo 3:\r\n  - Entrada: 10\r\n  - Saída: Sucessor: 11, Antecessor: 9",
-    "pseudocode": "ENTRADA: numero\r\nPROCESSAMENTO: sucessor = numero + 1; antecessor = numero - 1\r\nSAÍDA: exibir \"Sucessor: \", sucessor, \", Antecessor: \", antecessor"
+    "examples": "- Exemplo 1:\r\n  - Entrada: 5\r\n  - Saída: Sucessor: 6\r\n           Antecessor: 4\r\n\r\n- Exemplo 2:\r\n  - Entrada: -3\r\n  - Saída: Sucessor: -2\r\n           Antecessor: -4\r\n\r\n- Exemplo 3:\r\n  - Entrada: 10\r\n  - Saída: Sucessor: 11\r\n           Antecessor: 9",
+    "pseudocode": "ENTRADA: numero\r\nPROCESSAMENTO: sucessor = numero + 1; antecessor = numero - 1\r\nSAÍDA: exibir \"Sucessor: \", sucessor\r\n       exibir \"Antecessor: \", antecessor"
   },
   {
     "id": "Exercicio02",
@@ -40,8 +40,8 @@
     "chapterName": "Estrutura Sequencial",
     "description": "Escreva um programa que leia dois valores numéricos, calcule as quatro operações básicas (adição, subtração, multiplicação e divisão) utilizando esses valores e exiba os resultados.",
     "steps": "1. Entrada de Dados:\r\n   - Solicite ao usuário que insira dois valores numéricos.\r\n   - Aguarde a entrada do usuário.\r\n\r\n2. Processamento:\r\n   - Calcule a adição dos dois valores.\r\n   - Calcule a subtração do primeiro valor pelo segundo.\r\n   - Calcule a multiplicação dos dois valores.\r\n   - Calcule a divisão do primeiro valor pelo segundo.\r\n\r\n3. Saída de Dados:\r\n   - Exiba os resultados das quatro operações.",
-    "examples": "- Exemplo 1:\r\n  - ENTRADA: valor1 = 10, valor2 = 5\r\n  - SAÍDA: Adição: 10 + 5 = 15;\r\n           Subtração: 10 - 5 = 5;\r\n           Multiplicação: 10 * 5 = 50;\r\n           Divisão: 10 / 5 = 2\r\n\r\n- Exemplo 2:\r\n  - ENTRADA: valor1 = 20, valor2 = 8\r\n  - SAÍDA: Adição: 20 + 8 = 28;\r\n           Subtração: 20 - 8 = 12;\r\n           Multiplicação: 20 * 8 = 160;\r\n           Divisão: 20 / 8 = 2.5\r\n\r\n- Exemplo 3:\r\n  - ENTRADA: valor1 = -15, valor2 = 3\r\n  - SAÍDA: Adição: -15 + 3 = -12;\r\n           Subtração: -15 - 3 = -18;\r\n           Multiplicação: -15 * 3 = -45;\r\n           Divisão: -15 / 3 = -5",
-    "pseudocode": "ENTRADA: valor1, valor2\r\nPROCESSAMENTO: adicao = valor1 + valor2\r\n               subtracao = valor1 - valor2\r\n               multiplicaçao = valor1 * valor2\r\n               divisao = valor1 / valor2\r\nSAÍDA: Adição: \" + valor1 + \" + \" + valor2 + \" = \" + adicao + \";\r\n       Subtração: \" + valor1 + \" - \" + valor2 + \" = \" + subtracao + \";\r\n       Multiplicação: \" + valor1 + \" * \" + valor2 + \" = \" + multiplicaçao + \";\r\n       Divisão: \" + valor1 + \" / \" + valor2 + \" = \" + divisao"
+    "examples": "- Exemplo 1:\r\n  - ENTRADA: valor1 = 10, valor2 = 5\r\n  - SAÍDA: Adição: 15\r\n           Subtração: 5\r\n           Multiplicação: 50\r\n           Divisão: 2\r\n\r\n- Exemplo 2:\r\n  - ENTRADA: valor1 = 20, valor2 = 8\r\n  - SAÍDA: Adição: 28\r\n           Subtração: 12\r\n           Multiplicação: 160\r\n           Divisão: 2.5\r\n\r\n- Exemplo 3:\r\n  - ENTRADA: valor1 = -15, valor2 = 3\r\n  - SAÍDA: Adição: -12\r\n           Subtração: -18\r\n           Multiplicação: -45\r\n           Divisão: -5",
+    "pseudocode": "ENTRADA: valor1, valor2\r\nPROCESSAMENTO: adicao = valor1 + valor2\r\n               subtracao = valor1 - valor2\r\n               multiplicaçao = valor1 * valor2\r\n               divisao = valor1 / valor2\r\nSAÍDA: Adição: \" + adicao + \"\r\n       Subtração: \" + subtracao + \"\r\n       Multiplicação: \" + multiplicaçao + \"\r\n       Divisão: \" + divisao"
   },
   {
     "id": "Exercicio05",

@@ -22,24 +22,24 @@ Escreva um programa que leia dois valores numéricos, calcule as quatro operaç�
 
 - Exemplo 1:
   - ENTRADA: valor1 = 10, valor2 = 5
-  - SAÍDA: Adição: 10 + 5 = 15;
-           Subtração: 10 - 5 = 5;
-           Multiplicação: 10 * 5 = 50;
-           Divisão: 10 / 5 = 2
+  - SAÍDA: Adição: 15
+           Subtração: 5
+           Multiplicação: 50
+           Divisão: 2
 
 - Exemplo 2:
   - ENTRADA: valor1 = 20, valor2 = 8
-  - SAÍDA: Adição: 20 + 8 = 28;
-           Subtração: 20 - 8 = 12;
-           Multiplicação: 20 * 8 = 160;
-           Divisão: 20 / 8 = 2.5
+  - SAÍDA: Adição: 28
+           Subtração: 12
+           Multiplicação: 160
+           Divisão: 2.5
 
 - Exemplo 3:
   - ENTRADA: valor1 = -15, valor2 = 3
-  - SAÍDA: Adição: -15 + 3 = -12;
-           Subtração: -15 - 3 = -18;
-           Multiplicação: -15 * 3 = -45;
-           Divisão: -15 / 3 = -5
+  - SAÍDA: Adição: -12
+           Subtração: -18
+           Multiplicação: -45
+           Divisão: -5
 
 ## 💻 Exemplo em Pseudocódigo
 
@@ -49,8 +49,8 @@ PROCESSAMENTO: adicao = valor1 + valor2
                subtracao = valor1 - valor2
                multiplicaçao = valor1 * valor2
                divisao = valor1 / valor2
-SAÍDA: Adição: " + valor1 + " + " + valor2 + " = " + adicao + ";
-       Subtração: " + valor1 + " - " + valor2 + " = " + subtracao + ";
-       Multiplicação: " + valor1 + " * " + valor2 + " = " + multiplicaçao + ";
-       Divisão: " + valor1 + " / " + valor2 + " = " + divisao
+SAÍDA: Adição: " + adicao
+       Subtração: " + subtracao
+       Multiplicação: " + multiplicaçao
+       Divisão: " + divisao
 ```

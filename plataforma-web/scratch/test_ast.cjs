@@ -3,9 +3,8 @@ const { LexadorPortugolStudio, AvaliadorSintaticoPortugolStudio } = require('@de
 const code = `
 programa {
   funcao inicio() {
-    para (inteiro i = 0; i < 10; i = i + 1) {
-      escreva(i)
-    }
+      VALOR_DOLAR = 6.29
+      leia(valor_reais)
   }
 }
 `;
@@ -19,9 +18,14 @@ async function test() {
   const inicioDecl = parsed.declaracoes.find(
     d => d.assinaturaMetodo === 'inicio' || d.simbolo?.lexema === 'inicio'
   );
-  const paraNode = inicioDecl.funcao.corpo[0];
-  console.log('--- PARA NODE ---');
-  console.log(JSON.stringify(paraNode, null, 2));
+  const body = inicioDecl.funcao.corpo;
+  const assignmentStmt = body[0];
+  const leiaStmt = body[1];
+  console.log('assignmentStmt.expressao constructor:', assignmentStmt.expressao.constructor.name);
+  console.log('assignmentStmt.expressao.alvo constructor:', assignmentStmt.expressao.alvo.constructor.name);
+  console.log('leiaStmt.expressao constructor:', leiaStmt.expressao.constructor.name);
+  console.log('leiaStmt.expressao.argumentos[0] constructor:', leiaStmt.expressao.argumentos[0].constructor.name);
+  console.log('leiaStmt.expressao.argumentos[0].expressao constructor:', leiaStmt.expressao.argumentos[0].expressao.constructor.name);
 }
 
 test().catch(console.error);

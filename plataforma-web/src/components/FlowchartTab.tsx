@@ -20,6 +20,8 @@ interface FlowchartTabProps {
   astDeclarations?: any[];
   onChangeCode?: (newCode: string) => void;
   activeLine?: number | null;
+  errorLine?: number | null;
+  onLineToBlockMapChange?: (map: Record<number, number>) => void;
 }
 
 interface LayoutNode {
@@ -1166,26 +1168,28 @@ const NodeConfigModal: React.FC<NodeConfigModalProps> = ({ node, language, decla
   );
 };
 
-function isNodeActive(nodeId: string, activeLine: number | null | undefined): boolean {
-  if (activeLine === null || activeLine === undefined) return false;
-  
+function getLineFromNodeId(nodeId: string): number | null {
   if (nodeId.startsWith('pt-')) {
     const parts = nodeId.split('-');
     if (parts.length >= 4) {
-      const lineNum = parseInt(parts[parts.length - 2], 10);
-      return lineNum === activeLine;
+      return parseInt(parts[parts.length - 2], 10);
     }
   } else if (nodeId.startsWith('js-')) {
     const parts = nodeId.split('-');
     if (parts.length >= 3) {
       const lineIdx = parseInt(parts[parts.length - 1], 10);
-      return (lineIdx + 1) === activeLine;
+      return lineIdx + 1;
     }
   }
-  return false;
+  return null;
 }
 
-export default function FlowchartTab({ code, language, astDeclarations, onChangeCode, activeLine }: FlowchartTabProps) {
+function isNodeActive(nodeId: string, activeLine: number | null | undefined): boolean {
+  if (activeLine === null || activeLine === undefined) return false;
+  return getLineFromNodeId(nodeId) === activeLine;
+}
+
+export default function FlowchartTab({ code, language, astDeclarations, onChangeCode, activeLine, errorLine, onLineToBlockMapChange }: FlowchartTabProps) {
   // Editing states
   const [activeModalNode, setActiveModalNode] = useState<{ id: string; type: string; text: string; isDeclare?: boolean; isAssignment?: boolean; isProcessing?: boolean } | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
@@ -1401,6 +1405,30 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
     
     return layoutNodes(fullList, 300, 20);
   }, [treeNodes]);
+
+  // Notify parent of the mapping between code lines and flowchart block numbers
+  useEffect(() => {
+    if (!onLineToBlockMapChange) return;
+
+    const lineToBlock: Record<number, number> = {};
+    let nodeCounter = 0;
+    
+    for (const lNode of layout.layoutNodes) {
+      const { node } = lNode;
+      if (node.type === 'join') continue;
+      
+      const isStartOrEnd = node.type === 'start' || node.type === 'end';
+      if (!isStartOrEnd) {
+        nodeCounter++;
+        const line = getLineFromNodeId(node.id);
+        if (line !== null) {
+          lineToBlock[line] = nodeCounter;
+        }
+      }
+    }
+    
+    onLineToBlockMapChange(lineToBlock);
+  }, [layout, onLineToBlockMapChange]);
 
   const displayNodeText = (text: string) => {
     if (!text.trim()) return '[Vazio]';
@@ -1748,144 +1776,174 @@ export default function FlowchartTab({ code, language, astDeclarations, onChange
         ))}
 
         {/* 2. Render Nodes */}
-        {layout.layoutNodes.map((lNode) => {
-          const { node, x, y, width, height } = lNode;
-          
-          if (node.type === 'join') {
-            return (
-              <circle 
-                key={node.id} 
-                cx={x + width / 2} 
-                cy={y + height / 2} 
-                r={5} 
-                fill="var(--border-color, rgba(255,255,255,0.2))"
-                stroke="none"
-              />
+        {(() => {
+          let nodeCounter = 0;
+          return layout.layoutNodes.map((lNode) => {
+            const { node, x, y, width, height } = lNode;
+            
+            if (node.type === 'join') {
+              return (
+                <circle 
+                  key={node.id} 
+                  cx={x + width / 2} 
+                  cy={y + height / 2} 
+                  r={5} 
+                  fill="var(--border-color, rgba(255,255,255,0.2))"
+                  stroke="none"
+                />
+              );
+            }
+
+            // Choose shape details based on node type
+            let shape: React.ReactNode;
+            let colorClass: string;
+            
+            const isDeclaration = node.type === 'process' && (
+              /^(inteiro|real|caracter|cadeia|logico|let|const|var)\s/i.test(node.text)
             );
-          }
 
-          // Choose shape details based on node type
-          let shape: React.ReactNode;
-          let colorClass: string;
-          
-          const isDeclaration = node.type === 'process' && (
-            /^(inteiro|real|caracter|cadeia|logico|let|const|var)\s/i.test(node.text)
-          );
+            if (isDeclaration) {
+              shape = (
+                <g>
+                  <rect x={x} y={y} width={width} height={height} rx={4} ry={4} />
+                  <line x1={x + 12} y1={y} x2={x + 12} y2={y + height} />
+                  <line x1={x + width - 12} y1={y} x2={x + width - 12} y2={y + height} />
+                </g>
+              );
+              colorClass = "flow-declare";
+            } else {
+              switch (node.type) {
+                case 'start':
+                  shape = <rect x={x} y={y} width={width} height={height} rx={height/2} ry={height/2} />;
+                  colorClass = "flow-start";
+                  break;
+                case 'end':
+                  shape = <rect x={x} y={y} width={width} height={height} rx={height/2} ry={height/2} />;
+                  colorClass = "flow-end";
+                  break;
+                case 'input':
+                  shape = <polygon points={`${x + 12},${y} ${x + width},${y} ${x + width - 12},${y + height} ${x},${y + height}`} />;
+                  colorClass = "flow-input";
+                  break;
+                case 'output':
+                  shape = <polygon points={`${x + 12},${y} ${x + width},${y} ${x + width - 12},${y + height} ${x},${y + height}`} />;
+                  colorClass = "flow-output";
+                  break;
+                case 'process':
+                  shape = <rect x={x} y={y} width={width} height={height} rx={4} ry={4} />;
+                  colorClass = "flow-process";
+                  break;
+                case 'decision':
+                  shape = <polygon points={`${x + width / 2},${y} ${x + width},${y + height / 2} ${x + width / 2},${y + height} ${x},${y + height / 2}`} />;
+                  colorClass = "flow-decision";
+                  break;
+                case 'loop':
+                  shape = <polygon points={`${x + 12},${y} ${x + width - 12},${y} ${x + width},${y + height / 2} ${x + width - 12},${y + height} ${x + 12},${y + height} ${x},${y + height / 2}`} />;
+                  colorClass = "flow-loop";
+                  break;
+                default:
+                  shape = <rect x={x} y={y} width={width} height={height} />;
+                  colorClass = "flow-process";
+              }
+            }
 
-          if (isDeclaration) {
-            shape = (
-              <g>
-                <rect x={x} y={y} width={width} height={height} rx={4} ry={4} />
-                <line x1={x + 12} y1={y} x2={x + 12} y2={y + height} />
-                <line x1={x + width - 12} y1={y} x2={x + width - 12} y2={y + height} />
+            const isHovered = hoveredNodeId === node.id && node.type !== 'start' && node.type !== 'end';
+
+            const btnX = (node.type === 'decision' || node.type === 'loop')
+              ? x + width - 18
+              : x + width - 12;
+
+            const btnY = (node.type === 'decision' || node.type === 'loop')
+              ? y + height / 2
+              : y + 12;
+
+            const isActive = isNodeActive(node.id, activeLine);
+            const isError = isNodeActive(node.id, errorLine);
+
+            const isStartOrEnd = node.type === 'start' || node.type === 'end';
+            let sequenceNum: number | null = null;
+            if (!isStartOrEnd) {
+              nodeCounter++;
+              sequenceNum = nodeCounter;
+            }
+
+            let badgeX = x;
+            let badgeY = y;
+            if (node.type === 'input' || node.type === 'output' || node.type === 'loop') {
+              badgeX = x + 12;
+            } else if (node.type === 'decision') {
+              badgeX = x + 20;
+              badgeY = y + 7;
+            }
+
+            return (
+              <g 
+                key={node.id} 
+                className={`flow-node ${colorClass} ${isActive ? 'active-node-execution' : ''} ${isError ? 'error-node-execution' : ''}`}
+                onMouseEnter={() => setHoveredNodeId(node.id)}
+                onMouseLeave={() => setHoveredNodeId(null)}
+                onDoubleClick={() => {
+                  if (node.type !== 'start' && node.type !== 'end') {
+                    const isDecl = node.type === 'process' && /^(inteiro|real|caracter|cadeia|logico|let|const|var)\s/i.test(node.text);
+                    const isAssign = node.type === 'process' && !isDecl && node.text.includes('=');
+                    const isProc = node.type === 'process' && !isDecl && !node.text.includes('=');
+                    setActiveModalNode({
+                      id: node.id,
+                      type: node.type,
+                      text: node.text,
+                      isDeclare: isDecl,
+                      isAssignment: isAssign,
+                      isProcessing: isProc
+                    });
+                  }
+                }}
+              >
+                <title>{node.text}</title>
+                {React.cloneElement(shape as React.ReactElement<React.SVGProps<SVGElement>>, {
+                  stroke: "currentColor",
+                  strokeWidth: 2,
+                  fill: "currentColor"
+                })}
+                <text 
+                  x={x + width / 2} 
+                  y={y + height / 2 + 4} 
+                  textAnchor="middle" 
+                  fontSize="11.5px"
+                  fontWeight="600"
+                  fontFamily="var(--font-sans)"
+                  fill="currentColor"
+                >
+                  {displayNodeText(node.text)}
+                </text>
+
+                {/* Sequential Number Badge */}
+                {sequenceNum !== null && (
+                  <g className="flow-node-badge">
+                    <circle cx={badgeX} cy={badgeY} r={8.5} />
+                    <text x={badgeX} y={badgeY + 3} textAnchor="middle">
+                      {sequenceNum}
+                    </text>
+                  </g>
+                )}
+
+                {/* Hover Delete Action Button */}
+                {isHovered && (
+                  <g 
+                    className="flow-delete-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDeleteNode(node.id);
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <circle cx={btnX} cy={btnY} r={7} fill="var(--accent-rose, #f43f5e)" stroke="var(--bg-elevated, #161c28)" strokeWidth={1} />
+                    <path d={`M ${btnX - 3} ${btnY - 3} L ${btnX + 3} ${btnY + 3} M ${btnX - 3} ${btnY + 3} L ${btnX + 3} ${btnY - 3}`} stroke="#000" strokeWidth={1.5} />
+                  </g>
+                )}
               </g>
             );
-            colorClass = "flow-declare";
-          } else {
-            switch (node.type) {
-              case 'start':
-                shape = <rect x={x} y={y} width={width} height={height} rx={height/2} ry={height/2} />;
-                colorClass = "flow-start";
-                break;
-              case 'end':
-                shape = <rect x={x} y={y} width={width} height={height} rx={height/2} ry={height/2} />;
-                colorClass = "flow-end";
-                break;
-              case 'input':
-                shape = <polygon points={`${x + 12},${y} ${x + width},${y} ${x + width - 12},${y + height} ${x},${y + height}`} />;
-                colorClass = "flow-input";
-                break;
-              case 'output':
-                shape = <polygon points={`${x + 12},${y} ${x + width},${y} ${x + width - 12},${y + height} ${x},${y + height}`} />;
-                colorClass = "flow-output";
-                break;
-              case 'process':
-                shape = <rect x={x} y={y} width={width} height={height} rx={4} ry={4} />;
-                colorClass = "flow-process";
-                break;
-              case 'decision':
-                shape = <polygon points={`${x + width / 2},${y} ${x + width},${y + height / 2} ${x + width / 2},${y + height} ${x},${y + height / 2}`} />;
-                colorClass = "flow-decision";
-                break;
-              case 'loop':
-                shape = <polygon points={`${x + 12},${y} ${x + width - 12},${y} ${x + width},${y + height / 2} ${x + width - 12},${y + height} ${x + 12},${y + height} ${x},${y + height / 2}`} />;
-                colorClass = "flow-loop";
-                break;
-              default:
-                shape = <rect x={x} y={y} width={width} height={height} />;
-                colorClass = "flow-process";
-            }
-          }
-
-          const isHovered = hoveredNodeId === node.id && node.type !== 'start' && node.type !== 'end';
-
-          const btnX = (node.type === 'decision' || node.type === 'loop')
-            ? x + width - 18
-            : x + width - 12;
-
-          const btnY = (node.type === 'decision' || node.type === 'loop')
-            ? y + height / 2
-            : y + 12;
-
-          const isActive = isNodeActive(node.id, activeLine);
-
-          return (
-            <g 
-              key={node.id} 
-              className={`flow-node ${colorClass} ${isActive ? 'active-node-execution' : ''}`}
-              onMouseEnter={() => setHoveredNodeId(node.id)}
-              onMouseLeave={() => setHoveredNodeId(null)}
-              onDoubleClick={() => {
-                if (node.type !== 'start' && node.type !== 'end') {
-                  const isDecl = node.type === 'process' && /^(inteiro|real|caracter|cadeia|logico|let|const|var)\s/i.test(node.text);
-                  const isAssign = node.type === 'process' && !isDecl && node.text.includes('=');
-                  const isProc = node.type === 'process' && !isDecl && !node.text.includes('=');
-                  setActiveModalNode({
-                    id: node.id,
-                    type: node.type,
-                    text: node.text,
-                    isDeclare: isDecl,
-                    isAssignment: isAssign,
-                    isProcessing: isProc
-                  });
-                }
-              }}
-            >
-              <title>{node.text}</title>
-              {React.cloneElement(shape as React.ReactElement<React.SVGProps<SVGElement>>, {
-                stroke: "currentColor",
-                strokeWidth: 2,
-                fill: "currentColor"
-              })}
-              <text 
-                x={x + width / 2} 
-                y={y + height / 2 + 4} 
-                textAnchor="middle" 
-                fontSize="11.5px"
-                fontWeight="600"
-                fontFamily="var(--font-sans)"
-                fill="currentColor"
-              >
-                {displayNodeText(node.text)}
-              </text>
-
-              {/* Hover Delete Action Button */}
-              {isHovered && (
-                <g 
-                  className="flow-delete-btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleDeleteNode(node.id);
-                  }}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <circle cx={btnX} cy={btnY} r={7} fill="var(--accent-rose, #f43f5e)" stroke="var(--bg-elevated, #161c28)" strokeWidth={1} />
-                  <path d={`M ${btnX - 3} ${btnY - 3} L ${btnX + 3} ${btnY + 3} M ${btnX - 3} ${btnY + 3} L ${btnX + 3} ${btnY - 3}`} stroke="#000" strokeWidth={1.5} />
-                </g>
-              )}
-            </g>
-          );
-        })}
+          });
+        })()}
         </g>
       </svg>
 

@@ -1,4 +1,5 @@
 import { LexadorPortugolStudio, AvaliadorSintaticoPortugolStudio, InterpretadorPortugolStudio } from '@designliquido/portugol-studio';
+import { getStaticErrors } from './static-validator';
 
 export interface RunOptions {
   code: string;
@@ -48,6 +49,14 @@ export async function runCode(options: RunOptions): Promise<RunResult> {
       return { success: false, errors };
     }
 
+    const staticErrors = getStaticErrors(parserResult.declaracoes);
+    if (staticErrors.length > 0) {
+      staticErrors.forEach((err) => {
+        errors.push(`Erro Sintático (linha ${err.line}): ${err.message}`);
+      });
+      return { success: false, errors };
+    }
+
     if (!parserResult.declaracoes || parserResult.declaracoes.length === 0) {
       return { success: true, errors: [], variables: [] };
     }
@@ -62,14 +71,18 @@ export async function runCode(options: RunOptions): Promise<RunResult> {
       }
     );
 
-    // Override paraTexto on the interpreter instance for real number formatting
+    // Override paraTexto on the interpreter instance for real number formatting and escape sequences resolution
     interpreter.paraTexto = function(objeto: any): string {
       if (typeof objeto === 'number') {
         if (!Number.isInteger(objeto)) {
           return objeto.toFixed(2);
         }
       }
-      return InterpretadorPortugolStudio.prototype.paraTexto.call(this, objeto);
+      let result = InterpretadorPortugolStudio.prototype.paraTexto.call(this, objeto);
+      if (typeof result === 'string') {
+        result = result.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
+      }
+      return result;
     };
 
     let latestVariables: any[] = [];

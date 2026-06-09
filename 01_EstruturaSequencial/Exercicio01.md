@@ -19,20 +19,24 @@ Escreva um programa que leia um valor numérico inteiro, calcule e apresente o s
 
 - Exemplo 1:
   - Entrada: 5
-  - Saída: Sucessor: 6, Antecessor: 4
+  - Saída: Sucessor: 6
+           Antecessor: 4
 
 - Exemplo 2:
   - Entrada: -3
-  - Saída: Sucessor: -2, Antecessor: -4
+  - Saída: Sucessor: -2
+           Antecessor: -4
 
 - Exemplo 3:
   - Entrada: 10
-  - Saída: Sucessor: 11, Antecessor: 9
+  - Saída: Sucessor: 11
+           Antecessor: 9
 
 ## 💻 Exemplo em Pseudocódigo
 
 ```plaintext
 ENTRADA: numero
 PROCESSAMENTO: sucessor = numero + 1; antecessor = numero - 1
-SAÍDA: exibir "Sucessor: ", sucessor, ", Antecessor: ", antecessor
+SAÍDA: exibir "Sucessor: ", sucessor
+       exibir "Antecessor: ", antecessor
 ```
