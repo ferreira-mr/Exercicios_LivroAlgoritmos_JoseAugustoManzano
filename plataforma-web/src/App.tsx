@@ -1562,7 +1562,7 @@ export default function App() {
                   </button>
                 )}
                 <span className="panel-title" style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}>
-                  <BookOpen className="w-4 h-4 text-cyan" /> Exercício {activeEx.number}: {activeEx.title}
+                  <BookOpen className="w-4 h-4 text-cyan" /> {String(activeEx.number).padStart(3, '0')} - {activeEx.title}
                 </span>
               </div>
               
@@ -1590,7 +1590,7 @@ export default function App() {
                   <div className="description-card">
                     <div className="section-title-wrapper">
                       <BookOpen className="section-title-icon text-cyan" />
-                      <span className="section-title-text">Exercício {activeEx.number}: {activeEx.title}</span>
+                      <span className="section-title-text">{String(activeEx.number).padStart(3, '0')} - {activeEx.title}</span>
                     </div>
                     <p className="description-text">
                       {parseInlineMarkdown(activeEx.description)}
