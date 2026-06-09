@@ -2280,3 +2280,15 @@ html.light-theme .error-node-execution line {
   }
 }
 
+/* Flex utility classes for vertical and horizontal alignment */
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+
+
